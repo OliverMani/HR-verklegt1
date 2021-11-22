@@ -1,0 +1,86 @@
+@startuml
+
+hide empty members
+
+class StaffMember {
+    - name: string
+    - id_number: string
+    - home_address: HomeAddress
+    - home_phone: string
+    - gsm_phone: string
+    - email: string
+    - workplace: Workplace
+    + get_name(): string
+    + get_kennitala(): string
+    + get_home_address(): HomeAddress
+    + get_home_phone(): string
+    + get_gsm_number(): string
+    + get_email(): string
+    + get_workplace(): Workplace
+    + set_name(name: string)
+    + set_home_address(home_address: HomeAddress)
+    + set_home_phone(phone_number: string)
+    + set_gsm_number(phone_number: string)
+    + set_email(email: string)
+    + set_workplace(workplace: Workplace)
+}
+note top: id_number er kennitala
+class Destination {
+    - country: string
+    - airport_name: string
+    - phone_number: string
+    - openings: Opening
+    - manager: Manager
+    + get_country_name(): string
+    + get_airport_name(): string
+    + get_phone_number(): string
+    + get_openings(): Opening
+    + get_manager(): Manager
+    + set_country(country: string)
+    + set_airport_name(name: string)
+    + set_phone_number(number: string)
+    + set_openings(opening: Opening)
+    + set_manager(manager: Manager)
+}
+class Property {
+    - rented: bool
+    - condition: HouseCondition
+
+}
+class Report
+class MaintenanceReport
+class WorkReport
+class UI
+class Trade
+class HomeAddress
+class Opening {
+    + time_opened: string
+    + time_closed: string
+    + __eq__(): bool
+}
+class Manager
+note top: Á eftir að bæta við eiginleikum hér
+class Worldplace
+class HouseCondition {
+    - house_condition: int
+    - hotpots_condition: int
+    - swimming_pool_condition: int
+    - kernel_oven_condition: int
+    + get_house_condition(): string
+    + get_hotpot_condition(): string
+    + get_swimming_pool_condition(): string
+    + get_kernel_oven_condition(): string
+}
+note top: condition breyturnar eru int, frá 0 í 3 kannski, og föllin skila á strengjunum "ónýtt", "bilað", "þarfnast viðhalds" og "í lagi"
+
+Manager -|> StaffMember: "Manager erfir af StaffMember"
+Destination "1" .> "1" Manager
+Destination "1" .> "1..7" Opening
+StaffMember "1" .> "1" HomeAddress
+StaffMember "1" .> "1" Workplace
+Property "1" .> "1" HouseCondition
+
+MaintencanceReport -|> Report
+WorkReport -|> Report
+
+@enduml
