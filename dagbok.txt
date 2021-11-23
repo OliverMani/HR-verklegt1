@@ -5,10 +5,17 @@ Meðlimir:
  - Selma Lind Davíðsdóttir
 ===========
 
-22. Nóvember:
+Mánudagurinn 22. Nóvember:
  Þetta var fyrsti dagurinn, við mættum á fyrirlestur klukkan 9 og eftir hann
 fórum við að reyna að skipuleggja verkefnið, verkefnaskipta, og reyna að finna
 hvar væri best að byrja, við lásum yfir verkefnið og kröfurnar og byrjuðum að
 vinna í ritum og greiningu, en þar sem Gylfi kom og benti okkur á að það hefði
 best að byrja á því að búa til kröfulista sjálf þá fórum við að reyna að gera
 það frekar. Hér vorum við bara 3 (Óliver, Ólafur og Selma)
+
+Þriðjudagurinn 23. Nóvember
+ Við mættum þrjú á milli 8 og 9, og gerðum allan kröfulistann, kláruðum hann,
+fórum í senario, user story og alla notendahópagreiningu, svo eftir daginn fórum
+við að skipuleggja næsta dag, við ætlum að vinna í Use Case næsta dag og user
+flow til að byrja með. Við vorum bara 3 (Óliver, Selma og Sunneva) mestallan
+daginn en Ólafur mætti um hálf 3.
