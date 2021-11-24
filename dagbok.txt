@@ -3,6 +3,7 @@ Meðlimir:
  - Óliver Máni Hilmarsson
  - Ólafur Særings Halldórsson
  - Selma Lind Davíðsdóttir
+ - Sunneva Sól
 ===========
 
 Mánudagurinn 22. Nóvember:
@@ -19,3 +20,10 @@ fórum í senario, user story og alla notendahópagreiningu, svo eftir daginn f�
 við að skipuleggja næsta dag, við ætlum að vinna í Use Case næsta dag og user
 flow til að byrja með. Við vorum bara 3 (Óliver, Selma og Sunneva) mestallan
 daginn en Ólafur mætti um hálf 3.
+
+Miðvikudagurinn 24. Nóvember
+ Við mættum klukkan 9 um morguninn, byrjuðum á skýrslunni, settum hana alveg,
+upp, fórum svo í Use Case, settum allan kröfulistann í Use Case og unnum í því,
+ásamt því að gera líka State Diagram fyrir allt kerfið, til að geta svo hannað
+útlitið þegar State Diagram er komið, Í dag vorum við 4 (Óliver, Ólafur, Sunneva
+og Selma), en það gekk allt mjög vel í dag. 
