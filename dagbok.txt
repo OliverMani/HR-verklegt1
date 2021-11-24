@@ -26,4 +26,6 @@ Miðvikudagurinn 24. Nóvember
 upp, fórum svo í Use Case, settum allan kröfulistann í Use Case og unnum í því,
 ásamt því að gera líka State Diagram fyrir allt kerfið, til að geta svo hannað
 útlitið þegar State Diagram er komið, Í dag vorum við 4 (Óliver, Ólafur, Sunneva
-og Selma), en það gekk allt mjög vel í dag. 
+og Selma), en það gekk allt mjög vel í dag.
+Á morgun ætlum við sjá hvort við getum byrjað að hanna TUI útlit fyrir kerfið út
+frá State Diagram (gera þá prototype).
