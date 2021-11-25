@@ -3,7 +3,8 @@ Meðlimir:
  - Óliver Máni Hilmarsson
  - Ólafur Særings Halldórsson
  - Selma Lind Davíðsdóttir
- - Sunneva Sól
+ - Sunneva Sól Sigurðardóttir
+ - Ívar Smári Björnsson
 ===========
 
 Mánudagurinn 22. Nóvember:
@@ -29,3 +30,11 @@ upp, fórum svo í Use Case, settum allan kröfulistann í Use Case og unnum í 
 og Selma), en það gekk allt mjög vel í dag.
 Á morgun ætlum við sjá hvort við getum byrjað að hanna TUI útlit fyrir kerfið út
 frá State Diagram (gera þá prototype).
+
+Fimmtudaginn 25. Nóvember
+ Í dag mættum við klukkan 9 og tókum stöðuna, við ákvöðum að hanna útlitið,
+prototýpu, og klasarit, klasaritin gengu erfiðlega. Við bættum við öllum Use
+Case inn í skýrsluna. Við fengum hinsvegar hjálp um klasaritin frá kennara og
+það hjálpaði aðeins en við þurfum að halda áfram á morgun með klasaritin þar sem
+allir eru þreyttir eftir daginn. Í dag vorum við öll að vinna í þessu verkefni
+saman.
