@@ -8,10 +8,14 @@ Verkefni
                 | (A)uðkenni    | |                 |
                 | (V)iðhald     | |  til 25/11/21   |
                 ----------------- -----------------
-* A Laga rúðuna (Fiskhálsi 15) *
-* A Laga ofn í svefnherbergi (Fiskhálsi 15)*
-B Skipta up ljósaperu í ofni (Humarhaus 3) v
-B Nýtt moppuskaft (Fiskhálsi 17) ˄
+* A Laga rúðuna (Fiskhálsi 15) * v
+____________________________________
+* A Laga ofn í svefnherbergi (Fiskhálsi 15)* v
+____________________________________
+B Skipta up ljósaperu í ofni (Humarhaus 3) * v
+____________________________________
+B Nýtt moppuskaft 
+        (Fiskhálsi 17) ˄
  |                            |
  |Skráð af: Björn Kristinsson |
  |Dagsetning: 20/11/21        |
