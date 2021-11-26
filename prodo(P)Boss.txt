@@ -16,5 +16,5 @@ Starfsheiti: Yfirmaður rekstrarsviðs
 
 
 
-<(B) til baka>                                  <(Q) Hætta>
+<(T)il baka>                                  <(Q) Hætta>
 -----------------------------------------------------------

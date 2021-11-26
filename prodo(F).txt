@@ -24,5 +24,5 @@ Humarhaus 3  >          |      | C Skipta um útidyra mottu |
                         |    | Áfangastaður: Nuuk, Grænland     |
                         |    |__________________________________|
 
-<(B) til baka>                                  <(Q) Hætta>
+<(T)il baka>                                  <(Q) Hætta>
 -----------------------------------------------------------
