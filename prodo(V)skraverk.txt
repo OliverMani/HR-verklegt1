@@ -1,0 +1,20 @@
+(P)rófíll    (V)erkefni    (F)asteignir    (S)tarfsmenn  
+-----------------------------------------------------------
+Verkefni: 
+Forgangur: 
+Götuheiti:
+Götunúmer: 
+Póstnúmer:
+Staður:
+
+Starfsmaður:
+
+
+
+(B)æta við verkbeiðni
+
+
+
+
+<(T)il baka>                                  <(Q) Hætta>
+-----------------------------------------------------------

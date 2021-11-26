@@ -1,0 +1,28 @@
+(P)rófíll    (V)erkefni    (F)asteignir    (S)tarfsmenn  
+-----------------------------------------------------------
+Fasteignir              
+                        | Fiskiháls 17
+Fiskiháls 15 >          |     Verkefni ˄
+Fiskiháls 17 --->       |      | B Nýtt moppuskaft         |
+Humarhaus 3  >          |      | C Skipta um útidyra mottu |
+                        |      |___________________________|
+                        |     
+                        |     Staðsetning:
+                        |       Fiskiháls 17
+                        |       222 Sjávarhæð
+                        |       Nuuk, Grænland
+                        |        
+                        |     Umsjónarmaður:
+                        |       Yfirmaður Rekstrar:
+                        |           Björn Kristinsson v
+                        |   	Starfsmaður:
+                        |           Sigurður Pálsson  ˄
+                        |    | Kt: 3455678-1234
+                        |    | Heimilisfang: Kjarnokrkuvegur 77 |
+                        |    | GSM: 333-4455                    |
+                        |    | Netfang: Siggi@NaN.com           |
+                        |    | Áfangastaður: Nuuk, Grænland     |
+                        |    |__________________________________|
+
+<(T)il baka>                                  <(Q) Hætta>
+-----------------------------------------------------------

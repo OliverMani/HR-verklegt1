@@ -1,0 +1,20 @@
+(P)rófíll    (V)erkefni    (F)asteignir    (S)tarfsmenn  
+-----------------------------------------------------------
+Verkefni: Skipta um ljósaperu
+Forgangur: B 
+Götuheiti: Humarhaus
+Götunúmer: 3
+Póstnúmer: 555
+Staður: Nuuk, Grænland
+
+Starfsmaður: Sigurður Pálsson
+
+
+
+(B)æta við verkbeiðni
+
+
+
+
+<(T)il baka>                                  <(Q) Hætta>
+-----------------------------------------------------------
