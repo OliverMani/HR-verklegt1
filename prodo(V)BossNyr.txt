@@ -1,4 +1,8 @@
+<<<<<<< HEAD
    (P)rófíll    (V)erkefni    (F)asteignir    (S)tarfsmenn  
+=======
+  (P)rófíll    (V)erkefni    (F)asteignir    (S)tarfsmenn  
+>>>>>>> d8c92fbc7212302b507d60d4082dda7eba270198
 -----------------------------------------------------------
 Verkefni
             Röðun : Forgangur v      |
@@ -20,6 +24,7 @@ B Festa lista inn í eldhúsi          |
 ____________________________________ |
 B Skipta um ljósaperu                |
     (Humarhaus 3)                    |
+_____________________________________|
 C Skipta um útidyra mottu            |
     (Fiskhálsi 17) * >               |
 ____________________________________ |
@@ -28,7 +33,14 @@ ____________________________________ |
 ____________________________________ |
 
 
+<<<<<<< HEAD
      <(N) Bæta við verkbeiðni >
+=======
+
+
+
+      <(N) Bæta við verkbeiðni >
+>>>>>>> d8c92fbc7212302b507d60d4082dda7eba270198
 
 
 
