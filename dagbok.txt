@@ -38,3 +38,10 @@ Case inn í skýrsluna. Við fengum hinsvegar hjálp um klasaritin frá kennara 
 það hjálpaði aðeins en við þurfum að halda áfram á morgun með klasaritin þar sem
 allir eru þreyttir eftir daginn. Í dag vorum við öll að vinna í þessu verkefni
 saman.
+
+Föstudagurinn 26. Nóvember
+ Í dag gerðum við happy path, fínpússuðum prótótýpuna, gerðum klasaritið og
+kláruðum það og kláruðum svo skýrsluna. Þar sem þetta er síðasti dagurinn til að
+vinna í fyrsta hluta námskeiðsins, þá kláruðum við allt sem við áttum eftir að
+klára, og skiluðum. Við vorum öll 5 fyrri helmingin af deginum, tókum matarpásu
+en svo kom Ívar ekki til baka til að vinna með okkur.
