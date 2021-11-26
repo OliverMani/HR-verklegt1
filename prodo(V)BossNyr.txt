@@ -1,0 +1,25 @@
+ (P)rófíll    (V)erkefni    (F)asteignir    (S)tarfsmenn  
+-----------------------------------------------------------
+Verkefni
+            Röðun : Forgangur v
+
+* A Laga rúðuna (Fiskhálsi 15) *
+* A Laga ofn í svefnherbergi (Fiskhálsi 15)*
+B Skipta up ljósaperu í ofni (Humarhaus 3) v
+B Nýtt moppuskaft (Fiskhálsi 17) v
+B Festa lista inn í eldhúsi (Humarhaus 3) v
+B Skipta um ljósaperu (Humarhaus 3) v
+C Skipta um útidyra mottu (Fiskhálsi 17) v
+[Viðhald] Mála húsið (Fiskhálsi 15) v
+
+
+
+
+
+        <(N) Bæta við verkbeiðni > 
+
+
+
+
+<(T)il baka>                                  <(Q) Hætta>
+-----------------------------------------------------------
