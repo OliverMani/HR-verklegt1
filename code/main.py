@@ -1,6 +1,6 @@
 def main():
-    # user = input("Nafn: ")
-    user = "Nanna Daema"
+    user = input("Nafn: ")
+    # user = "Nanna Daema"
     user_pos  = type_of_user(user)
     print(user_pos)
 
