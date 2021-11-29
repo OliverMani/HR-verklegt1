@@ -1,0 +1,72 @@
+@startuml
+
+hide empty description
+
+Innskráning: Innskráning starfsmanns
+MisheppnuðInnskráning: Þegar username eða password eru röng
+
+state BreytaUpplýsingumUmStarfsfólk: **Bara fyrir yfirmenn**\nhér breytir yfirmaður persónu-\nupplýsingum um starfsmann
+state BreytaVerkbeiðniFasteignar: **Bara fyrir yfirmenn**\nYfirmaður breytir verkbeiðni fyrir fasteign
+state LokaVerkbeiðnum: **Bara fyrir yfirmenn**\nYfirmaður lokar verkbeiðni
+state SamþykkjaTilbúnarVerkskýrslur: **Bara fyrir yfirmenn**\nÞegar starfsmenn ljúka við verkskýrslu, þá fer það á yfirmanninn og hann samþykkir og lokar þeim
+state ListaSínarVerkbeiðnir: Yfirmaður listar allar sínar verkbeiðnir
+state ListaStarfsfólk: Hér er listi af starfsfólki og hér geturðu einnig leitað
+state SkoðaUpplýsingarUmStarfsmann: Allar helstu persónuupplýsingar um starfsmenn
+state SkráNýjaStarfsmenn: **Bara fyrir yfirmenn**\nÞegar nýr starfmaður er ráðinn þarf að skrá hann inn í kerfið til að hann geti notað kerfið og unnið
+state StofnaVerkbeiðniFyrirFasteign: **Bara fyrir yfirmenn**\n Yfirmenn þurfa að búa til verkefni
+state SjáRekstrarkostnað: Yfirmaður skal geta séð um skráningu\ná öllum kostnaði á viðhaldi og rekstri
+state SkoðaSamþykktarBeiðnir
+state SetjaVerkbeiðniÍForgang
+
+state FinnaSkýrslurFyrirFasteign
+state FinnaSkýrslurUnnarAfStarfsmanni
+state FinnaVerkbeiðniFyrirFasteign
+state FinnaVerkbeiðniUnnarAfStarfsmanni
+state LeitaAðVerkbeiðniEftirAuðkenni
+state ListaStarfsfólk: LeitaAðStarfsmanniEftirKennitölu, LeitaAðStarfsfólki innifalið
+state ListaFasteignir: LeitaAðFasteign, LeitaAðFasteignEftirFN innifalið
+state ListaVerkskýrslur
+state SkráFasteign
+state SkráVerkskýrslu
+state OpnaVerkbeiðni
+state MerkjaVerkbeiðniTilbúna
+
+state SkoðaUpplýsingarUmFasteign
+state BreytaUpplýsingumUmFasteign
+
+state Menu: Menu listi af tökkum yfir hvað þú getur gert
+
+[*] --> Menu
+
+
+Menu ---> ListaStarfsfólk
+Menu ---> ListaFasteignir
+Menu -> Innskráning: Starfsmaður skráir sig út
+Menu ---> ListaVerkskýrslur
+Menu ---> ListaSínarVerkbeiðnir
+Menu ---> SjáRekstrarkostnað
+
+ListaStarfsfólk ---> SkráNýjaStarfsmenn
+SkoðaUpplýsingarUmStarfsmann ---> BreytaUpplýsingumUmStarfsfólk
+ListaStarfsfólk ---> SkoðaUpplýsingarUmStarfsmann
+SkoðaUpplýsingarUmStarfsmann ---> FinnaSkýrslurUnnarAfStarfsmanni
+SkoðaUpplýsingarUmStarfsmann ---> FinnaVerkbeiðniUnnarAfStarfsmanni
+
+ListaFasteignir ---> StofnaVerkbeiðniFyrirFasteign
+SkoðaUpplýsingarUmFasteign ---> FinnaSkýrslurFyrirFasteign
+SkoðaUpplýsingarUmFasteign ---> FinnaVerkbeiðniFyrirFasteign
+ListaFasteignir ---> SkráFasteign
+ListaFasteignir ---> SkoðaUpplýsingarUmFasteign
+SkoðaUpplýsingarUmFasteign ---> BreytaUpplýsingumUmFasteign
+
+ListaSínarVerkbeiðnir --> SkoðaSamþykktarBeiðnir
+ListaSínarVerkbeiðnir --> LeitaAðVerkbeiðniEftirAuðkenni
+ListaSínarVerkbeiðnir --> OpnaVerkbeiðni
+OpnaVerkbeiðni ---> SetjaVerkbeiðniÍForgang
+OpnaVerkbeiðni ---> LokaVerkbeiðnum
+OpnaVerkbeiðni ---> BreytaVerkbeiðniFasteignar
+OpnaVerkbeiðni ---> MerkjaVerkbeiðniTilbúna
+OpnaVerkbeiðni ---> SkráVerkskýrslu
+
+ListaVerkskýrslur ----> SamþykkjaTilbúnarVerkskýrslur
+@enduml
