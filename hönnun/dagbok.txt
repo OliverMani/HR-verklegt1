@@ -45,3 +45,14 @@ kláruðum það og kláruðum svo skýrsluna. Þar sem þetta er síðasti dagu
 vinna í fyrsta hluta námskeiðsins, þá kláruðum við allt sem við áttum eftir að
 klára, og skiluðum. Við vorum öll 5 fyrri helmingin af deginum, tókum matarpásu
 en svo kom Ívar ekki til baka til að vinna með okkur.
+
+================================================================================
+
+Mánudagurinn 29. Nóvember
+ Í dag reyndum við að byrja í að kóða. Við sáum að það vantaði að gera viðtöl
+um pappírsfrumgerðir (notendaupplifun). Við breyttum smáatriðum í klasaritinu,
+byrjuðum að setja upp klasana fyrir forritið og erum svo að fara að prófa okkur
+áfram í að forrita með því að nota þessa klasa. Við gerðum líka CSV skrár fyrir
+gögnin til að lesa og skrifa í (skv. upplýsingum frá Canvas). Dagurinn fór
+soldið útskeiðis þar sem það var ekki gott skipulag en við reynum að bæta það
+upp á morgun. Í dag voru allir að vinna í þessu.
