@@ -1,8 +1,11 @@
 class Fasteign:
-    def __init__(self, audkenni, fasteignarnumer, astand, adstada, afangastadur, verkbeidnir):
-        self.audkenni = audkenni
+    def __init__(self, id, stadur, heimilisfang, fm, herbergi, tegund, fasteignanumer, active):
+        self.id = id
+        self.heimilisfang = heimilisfang
+        self.fm = fm
+        self.herbergi = herbergi
+        self.tegund = tegund
         self.fasteignarnumer = fasteignarnumer
-        self.astand = astand
-        self.adstada = adstada
-        self.afangastadur = afangastadur
-        self.verkbeidnir = verkbeidnir
+        self.active = active
+
+#id,staður,heimilisfang,fm,herbergi,tegund,fasteignanúmer,active
