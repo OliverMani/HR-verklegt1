@@ -2,13 +2,10 @@ from LogicLayer.LLAPI import LLAPI
 
 class EmployeeListScreen:
     def __init__(self):
-        self.options = """
-(P)rófíll    (V)erkefni    (F)asteignir    (S)tarfsmenn \t <(T)il baka>   <(Q) Hætta>
--------------------------------------------------------------------------------------------"""
         self.llapi = LLAPI()
 
     def render(self):
-        print(self.options)
+        #print(self.options)
         employees = self.llapi.employee_list()
         print("Starfsmenn\n")
         print('\n'.join([x.nafn for x in employees]))
@@ -17,7 +14,7 @@ class EmployeeListScreen:
     def select(self):
         self.render()
 
-        print(self.options)
+
         selected = input("Slá inn aðgerð: ").lower()
         while selected != "q":
 

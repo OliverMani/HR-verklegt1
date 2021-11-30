@@ -2,19 +2,16 @@ from LogicLayer.LLAPI import LLAPI
 
 class PropertyListScreen:
     def __init__(self):
-        self.options = """
-(P)rófíll    (V)erkefni    (F)asteignir    (S)tarfsmenn \t <(T)il baka>   <(Q) Hætta>
--------------------------------------------------------------------------------------------"""
         self.llapi = LLAPI()
 
     def render(self):
-        print(self.options)
+        #print(self.options)
         properties = self.llapi.employee_list()
         print("Fasteignir\n")
         print('\n'.join([x.heimilisfang for x in properties]))
 
 
-    def select(self):
+    """def select(self):
         self.render()
 
         print(self.options)
@@ -37,3 +34,4 @@ class PropertyListScreen:
             else:
                 print("Aðgerð ekki til ")
             selected = input("Slá inn aðgerð: ").lower()
+"""
