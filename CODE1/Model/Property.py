@@ -5,7 +5,7 @@ class Property:
         self.fm = fm
         self.herbergi = herbergi
         self.tegund = tegund
-        self.fasteignarnumer = fasteignarnumer
+        self.fasteignanumer = fasteignanumer
         self.active = active
 
 #id,staður,heimilisfang,fm,herbergi,tegund,fasteignanúmer,active
