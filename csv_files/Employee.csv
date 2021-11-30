@@ -1,10 +1,10 @@
 id, nafn, netfang, heimilisfang, gsm, afangastadur,staða,active
-1,Jan Jacobsen,jan.jacobsen@nanair.is,Vei 230 12. Longyearbyen. Svalbard,+47 92 09 77 00,+354 777 1337, svalbard ,yfirmaður, True
-2,Jacob Yxa,jacob.yxa@nanair.is,Vei 224 3B. Longyearbyen. Svalbard,+47 92 09 77 01,+354 777 1338, svalbard ,starfsmaður,True
-3,Nanna Daema,nanna.daema@nanair.is,Ivan Starostin st. 109. Barantsburg. Svalbard,+47 92 09 77 02,+354 777 1339, svalbard , starfsmaður,True
-4,Minik Wallace,minik.wallace@nanair.is,Isaajap Aqqutaa 1. 3900. Nuuk. Greenland,+299 34 24 67,+354 777 1361,Nuuk,yfirmaður,True
-5,Aqqaluk Lynge,aqqaluk.lynge@nanair.is,Qattaaq 44. 3905. Nuuk. Greenland,+299 35 24 66,+354 777 1362,Nuuk,starfsmaður,True
-6,Nauja Lynge,nauja.lynge@nanair.is,Qunguleq 3759. 3905. Nuuk. Greenland,+299 31 21 64,+354 777 1363,Nuuk,starfsmaður,True
-7,Annette Djurhuus,annette.djurhuus@nanair.is,Tjarnardeild 8. 100.Tórshavn. Faroe Islands,+298 772000,+354 777 1381,tórshavn,yfirmaður,True
-8,Áki Knudsen,aki.knudsen@nanair.is,Traðartún 3. 108. Argir. Faroe Islands,+298 617210,+354 777 1381,tórshavn,starfsmaður,True
-9,André Hjaltalin,andre.hjaltalin@nanair.is,Í Lágni 19. 100. Tórshavn. Faroe Islands,+298 661441,+354 777 1382,tórshavn,starfsmaður,True
+1,Jan Jacobsen,jan.jacobsen@nanair.is,"Vei 230 12, Longyearbyen, Svalbard",+47 92 09 77 00,+354 777 1337, svalbard ,yfirmaður, True
+2,Jacob Yxa,jacob.yxa@nanair.is,"Vei 224 3B, Longyearbyen, Svalbard",+47 92 09 77 01,+354 777 1338, svalbard ,starfsmaður,True
+3,Nanna Daema,nanna.daema@nanair.is,"Ivan Starostin st. 109, Barantsburg, Svalbard",+47 92 09 77 02,+354 777 1339, svalbard , starfsmaður,True
+4,Minik Wallace,minik.wallace@nanair.is,"Isaajap Aqqutaa 1, 3900, Nuuk, Greenland",+299 34 24 67,+354 777 1361,Nuuk,yfirmaður,True
+5,Aqqaluk Lynge,aqqaluk.lynge@nanair.is,"Qattaaq 44, 3905, Nuuk, Greenland",+299 35 24 66,+354 777 1362,Nuuk,starfsmaður,True
+6,Nauja Lynge,nauja.lynge@nanair.is,"Qunguleq 3759, 3905, Nuuk, Greenland",+299 31 21 64,+354 777 1363,Nuuk,starfsmaður,True
+7,Annette Djurhuus,annette.djurhuus@nanair.is,"Tjarnardeild 8, 100, Tórshavn, Faroe Islands",+298 772000,+354 777 1381,tórshavn,yfirmaður,True
+8,Áki Knudsen,aki.knudsen@nanair.is,"Traðartún 3, 108, Argir, Faroe Islands",+298 617210,+354 777 1381,tórshavn,starfsmaður,True
+9,André Hjaltalin,andre.hjaltalin@nanair.is,"Í Lágni 19, 100, Tórshavn, Faroe Islands",+298 661441,+354 777 1382,tórshavn,starfsmaður,True

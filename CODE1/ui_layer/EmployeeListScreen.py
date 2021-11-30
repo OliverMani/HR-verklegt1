@@ -1,27 +1,34 @@
-from ui_layer.EmployeeListScreen import EmployeeListScreen
-from ui_layer.PropertyListScreen import PropertyListScreen
+from LogicLayer.LLAPI import LLAPI
 
-
-class Main_menu:
-    def __init__(self) -> None:
-        self.menu = """
+class EmployeeListScreen:
+    def __init__(self):
+        self.options = """
 (P)rófíll    (V)erkefni    (F)asteignir    (S)tarfsmenn \t <(T)il baka>   <(Q) Hætta>
 -------------------------------------------------------------------------------------------"""
+        self.llapi = LLAPI()
 
-    def menubar(self):
-        print(self.menu)
+    def render(self):
+        print(self.options)
+        employees = self.llapi.employee_list()
+        print("Starfsmenn\n")
+        print('\n'.join([x.nafn for x in employees]))
+
+
+    def select(self):
+        self.render()
+
+        print(self.options)
         selected = input("Slá inn aðgerð: ").lower()
         while selected != "q":
-            print(self.menu)
+
+
+
             if selected == "p":
                 print("Prófíll")
             elif selected == "v":
                 print("Verkefni")
             elif selected == "f":
                 screen = PropertyListScreen()
-                screen.render()
-            elif selected == "s":
-                screen = EmployeeListScreen()
                 screen.render()
             elif selected == "t":
                 return
