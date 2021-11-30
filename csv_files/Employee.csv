@@ -1,4 +1,4 @@
-id,nafn,e-mail,heim.,sími,gsm,staður,staða,active
+id, nafn, netfang, heimilisfang, gsm, afangastadur,staða,active
 1,Jan Jacobsen,jan.jacobsen@nanair.is,Vei 230 12. Longyearbyen. Svalbard,+47 92 09 77 00,+354 777 1337, svalbard ,yfirmaður, True
 2,Jacob Yxa,jacob.yxa@nanair.is,Vei 224 3B. Longyearbyen. Svalbard,+47 92 09 77 01,+354 777 1338, svalbard ,starfsmaður,True
 3,Nanna Daema,nanna.daema@nanair.is,Ivan Starostin st. 109. Barantsburg. Svalbard,+47 92 09 77 02,+354 777 1339, svalbard , starfsmaður,True
