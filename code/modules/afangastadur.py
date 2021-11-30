@@ -1,4 +1,5 @@
 class Afangastadur:
+    """tekur inn allar upplýsingar varðandi áfangastaði"""
     def __init__(self, land, flugvollur, simanumer, opnunartimi, yfirmadur, fasteignir):
         self.land = land
         self.flugvollur = flugvollur
