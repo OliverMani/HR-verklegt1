@@ -1,5 +1,5 @@
-from MainMenu import Main_menu
+from ui_layer.MainMenu import Main_menu
 
 if __name__ == "__main__":
     main_menu = Main_menu()
-    main_menu.render()
+    main_menu.menubar()
