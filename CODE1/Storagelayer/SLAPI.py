@@ -1,4 +1,4 @@
-from CODE1.Storagelayer.EmployeeSL import EmployeeData
+from Storagelayer.EmployeeSL import EmployeeData
 
 
 class Slapi:

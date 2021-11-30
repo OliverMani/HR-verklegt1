@@ -4,12 +4,12 @@ from Model.Employee import Employee
 
 class EmployeeData:
     def __init__(self):
-        self.filename = "HR-VERKLEGT1/csv_files/staff.csv"
+        self.filename = "csv_files/Employee.csv"
 
     def open_file(self):
-        employeelist = [] 
+        employeelist = []
         with open(self.filename, newline='', encoding="UTF-8") as csvfile:
             reader = csv.DictReader(csvfile)
             for row in reader:
-                employeelist.append(Employee(row['id'], row['name'], row['e-mail'], row['heim.'], row['sími'], row['staður'], row['staða'], row['active']))
+                employeelist.append(Employee(row['id'], row['nafn'], row['netfang'], row['heimilisfang'], row['gsm'], row['afangastadur'], row['staða'], row['active']))
         return employeelist
