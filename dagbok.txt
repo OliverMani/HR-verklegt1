@@ -67,5 +67,17 @@ Morgun fundur:
     Við ætlum að byrja á því að teikna upp grunn skjáina, sækja gögnin og birta þau.
     Þá er hægt að vinna meira úr því seinna. Markmið er svo að vera búin að taka viðtölin í dag.
     
-Í lok dags:
+Í lok dags: 
+    Ólafur tók tvö viðtöl, við byrjuðum aftur að forrita frá byrjum
+    því allur kóðinn var ekki á góðri byrjun og við byrjuðum að setja hann upp með 3.gja
+    laga hönnun, við vorum öll að vinna saman í kóðanum til þess að allir fengju möguleika
+    á því að læra hvernig kóðinn á að vera uppbyggður. Byrjuðum á því að fá upp listana á 
+    rétta skjái í forritinu. Sunneva var ekki með eftir hádeigi en tók það að sér að skrifa 
+    upp viðtölin í skýrsluna.
+
+Plan fyrir morgun daginn:
+    Markmið fyrir morgun daginn er að taka stöðuna og fara yfir niðurstöður úr viðtölunum.
+    Skiðtum okkur svo upp í hópa, ef við sjáum möguleika á því og höldun áfram með að forrita
+    virknina í forritið.
+
     
