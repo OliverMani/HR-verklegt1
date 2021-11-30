@@ -10,8 +10,8 @@ def main():
     UIScreen.render_footer()
     do = input("Slá inn aðgerð: ")
     while do != "q":
-        screen = choose_screen(do)
-        do = input("Slá inn aðgerð: ")
+        choose_screen(do)
+        do = input("Slá inn aðgerð: \n")
 
 
 def choose_screen(screen):
