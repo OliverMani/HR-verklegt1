@@ -6,32 +6,6 @@ class PropertyListScreen:
 
     def render(self):
         #print(self.options)
-        properties = self.llapi.employee_list()
+        properties = self.llapi.get_property_list()
         print("Fasteignir\n")
-        print('\n'.join([x.heimilisfang for x in properties]))
-
-
-    """def select(self):
-        self.render()
-
-        print(self.options)
-        selected = input("Slá inn aðgerð: ").lower()
-        while selected != "q":
-
-
-
-            if selected == "p":
-                print("Prófíll")
-            elif selected == "v":
-                print("Verkefni")
-            elif selected == "s":
-                screen = EmployeeListScreen()
-                screen.render()
-            elif selected == "t":
-                return
-            elif selected == "q":
-                return
-            else:
-                print("Aðgerð ekki til ")
-            selected = input("Slá inn aðgerð: ").lower()
-"""
+        print('\n'.join([(x.id + '. ' + x.heimilisfang) for x in properties]))
