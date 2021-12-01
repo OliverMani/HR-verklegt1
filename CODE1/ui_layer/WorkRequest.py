@@ -12,6 +12,15 @@ class WorkRequestListScreen:
         properties = self.llapi.work_request_list()
         print("Verkefni\n")
         print('\n'.join([x.titill for x in properties]))
+    
+    def filter(self,fasteignid):
+        properties = self.llapi.work_request_list()
+        for x in properties:
+            if x.id == fasteignid:
+                print(x.titill)
+        
+
+
 
     
 
@@ -22,6 +31,7 @@ class WorkRequestListScreen:
         print(self.options)
         selected = input("Slá inn aðgerð: ").lower()
         while selected != "q":
+
 
 
 

@@ -40,6 +40,11 @@ class Main_menu:
                 return
             elif selected == "q":
                 return
+            elif selected == "l":
+                screen = EmployeeListScreen()
+                search = input("Leita: ")
+                print(screen.search_in_list(search))
+                
             else:
                 print("Aðgerð ekki til ")
             selected = input("\nSlá inn aðgerð: ").lower()
