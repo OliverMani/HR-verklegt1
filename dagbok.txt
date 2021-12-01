@@ -59,20 +59,20 @@ upp á morgun. Í dag voru allir að vinna í þessu.
 
 Þriðjudagurinn 30.Nóvember
 Morgun fundur:
-    Sunneva þarf að skreppa frá á eftir og ætlar því að sjá um að skrifa viðtölin 
+    Sunneva þarf að skreppa frá á eftir og ætlar því að sjá um að skrifa viðtölin
     upp í skýrsluna þegar þau eru tilbúin.
-    Ívar og Ólafur ætla að byrja á því að skrifa comment á skjölin um hvað þau 
+    Ívar og Ólafur ætla að byrja á því að skrifa comment á skjölin um hvað þau
     eiga að gera til að fá meira skipulag.
-    Sunneva og Selma ætla að rifja aðeins upp fyrirlesturinn frá því í gær. 
+    Sunneva og Selma ætla að rifja aðeins upp fyrirlesturinn frá því í gær.
     Við ætlum að byrja á því að teikna upp grunn skjáina, sækja gögnin og birta þau.
     Þá er hægt að vinna meira úr því seinna. Markmið er svo að vera búin að taka viðtölin í dag.
-    
-Í lok dags: 
+
+Í lok dags:
     Ólafur tók tvö viðtöl, við byrjuðum aftur að forrita frá byrjum
     því allur kóðinn var ekki á góðri byrjun og við byrjuðum að setja hann upp með 3.gja
     laga hönnun, við vorum öll að vinna saman í kóðanum til þess að allir fengju möguleika
-    á því að læra hvernig kóðinn á að vera uppbyggður. Byrjuðum á því að fá upp listana á 
-    rétta skjái í forritinu. Sunneva var ekki með eftir hádeigi en tók það að sér að skrifa 
+    á því að læra hvernig kóðinn á að vera uppbyggður. Byrjuðum á því að fá upp listana á
+    rétta skjái í forritinu. Sunneva var ekki með eftir hádeigi en tók það að sér að skrifa
     upp viðtölin í skýrsluna.
 
 Plan fyrir morgun daginn:
@@ -80,4 +80,7 @@ Plan fyrir morgun daginn:
     Skiðtum okkur svo upp í hópa, ef við sjáum möguleika á því og höldun áfram með að forrita
     virknina í forritið.
 
-    
+Miðvikudagurinn 1. Desember:
+ Við fórum yfir notendaviðtölin og við þurftum ekki að breyta neinu út af
+viðtölunum, við héldum áfram að forrita og unnum í að gera hluti fyrir
+verkbeiðnir, raðanir og leitir. Við hjálpuðumst að að forrita.
