@@ -1,3 +1,4 @@
+from ui_layer.ProfileScreen import ProfileScreen
 from ui_layer.WorkRequest import WorkRequestListScreen
 from ui_layer.EmployeeListScreen import EmployeeListScreen
 from ui_layer.PropertyListScreen import PropertyListScreen
@@ -20,7 +21,8 @@ class Main_menu:
         while selected != "q":
             print(self.menu)
             if selected == "p":
-                print("Prófíll")
+                screen = ProfileScreen()
+                screen.render()
             elif selected == "v":
                 screen = WorkRequestListScreen()
                 screen.render()

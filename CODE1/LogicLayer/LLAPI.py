@@ -14,3 +14,6 @@ class LLAPI:
     def work_request_list(self):
         return self.work_requestll.work_request_list()
 
+    def employee_profile(self):
+        return self.employeell.employee_profile()
+

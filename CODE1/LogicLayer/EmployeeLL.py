@@ -8,3 +8,11 @@ class EmployeeLL:
 
     def employee_list(self):
         return self.slapi.get_employee_list()
+
+    def employee_profile(self):
+        employee_list = self.employee_list()
+        name = "Jan Jacobsen"
+        for names in employee_list:
+            if names.nafn == name:
+                return names
+        return None
