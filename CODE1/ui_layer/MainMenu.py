@@ -9,48 +9,41 @@ class Main_menu:
         self.menu = """
 (P)rófíll    (V)erkefni    (F)asteignir    (S)tarfsmenn \t <(T)il baka>   <(Q) Hætta>
 -------------------------------------------------------------------------------------------"""
-        # Hér er listi af instances af skjám, gerum þetta til að þurfa ekki
-        # að gera ný og ný instances í hvert skipti sem við flökkum á milli skjáa
-        #self.screens = [EmployeeListScreen(), PropertyListScreen()]
-        #self.current_screen = 0
+
+    def leita(self, selected, leit):
+        pass
 
     def menubar(self):
         print(self.menu)
         selected = input("\nSlá inn aðgerð: ").lower()
         #self.screens[self.current_screen].render()
+        last_selected = selected
+
+        screens = {
+            "p": ProfileScreen(),
+            "v": WorkRequestListScreen(),
+            "f": PropertyListScreen(),
+            "s": EmployeeListScreen(),
+            "t": False,
+            "q": False,
+            "r": lambda: screens["s"].sort_list(input("Áfangastaður: ")),
+            "l": lambda: screens["s"].search_in_list(input("Leita: ")),
+            "x": lambda: screens["v"].filter(input("ID: "))
+        }
+
         while selected != "q":
+            screen = screens.get(selected)
+            if screen == False:
+                return
             print(self.menu)
-            if selected == "p":
-                screen = ProfileScreen()
-                screen.render()
-            elif selected == "v":
-                screen = WorkRequestListScreen()
-                screen.render()
-            elif selected == "f":
-                #self.current_screen = 1
-                #self.render()
-                screen = PropertyListScreen()
-                screen.render()
-            elif selected == "s":
-                #self.current_screen = 0
-                #self.menubar()
-                screen = EmployeeListScreen()
-                screen.render()
-            elif selected == "t":
-                return
-            elif selected == "q":
-                return
-            elif selected == "l":
-                screen = EmployeeListScreen()
-                search = input("Leita: ")
-                print(screen.search_in_list(search))
-            elif selected == "r":
-                screen = EmployeeListScreen()
-                search = input("Áfangastðaur: ")
-                print(screen.sort_by_stadur(search))
-                
-                
-                
+
+
+
+            if screen is None:
+                print("Óþekkt aðgerð")
+            elif selected in "rlx":
+                screen()
             else:
-                print("Aðgerð ekki til ")
+                screen.render()
+            last_selected = selected
             selected = input("\nSlá inn aðgerð: ").lower()

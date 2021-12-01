@@ -12,40 +12,13 @@ class WorkRequestListScreen:
         properties = self.llapi.work_request_list()
         print("Verkefni\n")
         print('\n'.join([x.titill for x in properties]))
-    
-    def filter(self,fasteignid):
-        properties = self.llapi.work_request_list()
-        for x in properties:
-            if x.id == fasteignid:
-                print(x.titill)
-        
 
+    def filter(self, property_id):
+        """Sýnir verkbeiðnir sem er skellt á ákveðna fasteign (eftir peoperty id)"""
+        work_request_list = self.llapi.work_request_list()
+        properties = self.llapi.get_property_list()
 
-
-    
-
-
-    def select(self):
-        self.render()
-
-        print(self.options)
-        selected = input("Slá inn aðgerð: ").lower()
-        while selected != "q":
-
-
-
-
-            if selected == "p":
-                print("Prófíll")
-            elif selected == "v":
-                screen = WorkRequestListScreen
-            elif selected == "s":
-                screen = EmployeeListScreen()
-                screen.render()
-            elif selected == "t":
-                return
-            elif selected == "q":
-                return
-            else:
-                print("Aðgerð ekki til ")
-            selected = input("Slá inn aðgerð: ").lower()
+        for work_request in work_request_list:
+            for id in work_request.fasteignid:
+                if id == property_id:
+                    print(work_request.titill)

@@ -12,5 +12,10 @@ class WorkRequestData:
         with open(self.filename, newline='', encoding="UTF-8") as csvfile:
             reader = csv.DictReader(csvfile)
             for row in reader:
-                work_request_list.append(WorkRequest(row['id'], row['titill'], row['staður'], row['fasteign'], row['lýsing'], row['active']))
+                fasteignid = row['fasteignid']
+                if ',' in fasteignid:
+                    fasteignid = fasteignid.split(',')
+                else:
+                    fasteignid = [fasteignid]
+                work_request_list.append(WorkRequest(row['id'], row['titill'], row['staður'], row['fasteign'], row['lýsing'], fasteignid, row['active']))
         return work_request_list

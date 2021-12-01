@@ -9,3 +9,10 @@ class PropertyListScreen:
         properties = self.llapi.get_property_list()
         print("Fasteignir\n")
         print('\n'.join([(x.id + '. ' + x.heimilisfang) for x in properties]))
+
+    def search_in_list(self):
+        pass
+
+    #filter
+    def sort_list(self):
+        pass
