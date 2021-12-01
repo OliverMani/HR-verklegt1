@@ -44,6 +44,12 @@ class Main_menu:
                 screen = EmployeeListScreen()
                 search = input("Leita: ")
                 print(screen.search_in_list(search))
+            elif selected == "r":
+                screen = EmployeeListScreen()
+                search = input("Áfangastðaur: ")
+                print(screen.sort_by_stadur(search))
+                
+                
                 
             else:
                 print("Aðgerð ekki til ")
