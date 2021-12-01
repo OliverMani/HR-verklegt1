@@ -13,6 +13,8 @@ class WorkRequestListScreen:
         print("Verkefni\n")
         print('\n'.join([x.titill for x in properties]))
 
+    
+
 
     def select(self):
         self.render()

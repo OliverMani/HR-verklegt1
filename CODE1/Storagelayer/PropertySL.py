@@ -11,5 +11,5 @@ class PropertyData:
         with open(self.filename, newline='', encoding="UTF-8") as csvfile:
             reader = csv.DictReader(csvfile)
             for row in reader:
-                propertylist.append(Employee(row['id'], row['staður'], row['heimilisfang'], row['fm'], row['herbergi'], row['tegund'], row['fasteignanúmer'], row['active']))
+                propertylist.append(Property(row['id'], row['staður'], row['heimilisfang'], row['fm'], row['herbergi'], row['tegund'], row['fasteignanúmer'], row['active']))
         return propertylist

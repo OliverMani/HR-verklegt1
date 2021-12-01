@@ -8,4 +8,3 @@ class Destination:
         self.opnunartimi = opnunartimi
         self.yfirmadur = yfirmadur
         self.fasteignir = fasteignir
-#id,Áfangastaður , Land, Flugvöllur, Símanúmer, Opnunartími, Yfirmaður, Fasteignir

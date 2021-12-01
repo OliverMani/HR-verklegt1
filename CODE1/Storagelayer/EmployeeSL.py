@@ -3,6 +3,7 @@ from Model.Employee import Employee
 
 
 class EmployeeData:
+    """Starfsmenn Data, les og skrifar í skrána í """
     def __init__(self):
         self.filename = "csv_files/Employee.csv"
 
