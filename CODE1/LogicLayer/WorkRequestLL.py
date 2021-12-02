@@ -8,4 +8,5 @@ class WorkRequestLL:
         self.slapi = slapi
 
     def work_request_list(self):
+        '''skilar work request list frá SLAPI í LLAPI'''
         return self.slapi.get_work_request_list()

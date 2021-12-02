@@ -12,13 +12,17 @@ class Slapi:
         self.workrepSL = WorkReportData()
 
     def get_employee_list(self):
+        '''skilar employee list'''
         return self.empSL.open_file()
 
     def get_work_request_list(self):
+        '''skilar work request list'''
         return self.wrSL.open_file()
 
     def get_property_list(self):
+        '''skilar property list'''
         return self.proSL.open_file()
 
     def get_work_report_list(self):
+        '''skliar work report list'''
         return self.workrepSL.open_file()

@@ -5,12 +5,14 @@ class PropertyListScreen:
         self.llapi = LLAPI()
 
     def render(self):
+        '''Prentar Fasteignir'''
         #print(self.options)
         properties = self.llapi.get_property_list()
         print("Fasteignir\n")
         print('\n'.join([(x.id + '. ' + x.heimilisfang) for x in properties]))
 
     def search_in_list(self, word):
+        '''Leitar að hvberju sem er í property list og skilar True ef input er fundið annars False'''
         found = False
         properties = self.llapi.get_property_list()
         for property in properties:
@@ -23,7 +25,7 @@ class PropertyListScreen:
 
                 
     def print_result(self, property):
-
+        '''Prentar heimilisfang fasteignar, stað fasteignar og fasteignarnúmer'''
         print("\n"+property.heimilisfang)
         print(property.stadur)
         print("Fasteignarnúmer", property.fasteignanumer)
@@ -39,6 +41,7 @@ class PropertyListScreen:
         pass
     # þarf að klára....
     def search_in_list(self, search):
+        '''Leitar eftir heimilisfangi í property list'''
         found = False
         properties = self.llapi.get_property_list()
         for property in properties:

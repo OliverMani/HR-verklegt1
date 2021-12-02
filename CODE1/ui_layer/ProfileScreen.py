@@ -5,6 +5,7 @@ class ProfileScreen:
         self.llapi = LLAPI()
 
     def render(self):
+        '''Prentar strafsmanns upplýsingar'''
         print("Prófíll")
         employee = self.llapi.employee_profile()
         print(employee.nafn)

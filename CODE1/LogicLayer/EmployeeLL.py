@@ -7,9 +7,11 @@ class EmployeeLL:
         self.slapi = slapi
 
     def employee_list(self):
+        '''fær employee list frá SLAPI og sendir hann í LLAPI'''
         return self.slapi.get_employee_list()
 
     def employee_profile(self):
+        '''tekur inn employee list og skilar nöfnum'''
         employee_list = self.employee_list()
         name = "Jan Jacobsen"
         for names in employee_list:
