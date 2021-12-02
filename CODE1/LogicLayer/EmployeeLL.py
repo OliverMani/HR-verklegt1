@@ -10,16 +10,15 @@ class EmployeeLL:
         '''fær employee list frá SLAPI og sendir hann í LLAPI'''
         return self.slapi.get_employee_list()
 
-    def employee_profile(self):
+    """def employee_profile(self, user):
         '''tekur inn employee list og skilar nöfnum'''
         employee_list = self.employee_list()
-        name = "Jan Jacobsen"
         for names in employee_list:
-            if names.nafn == name:
+            if names.nafn == user.nafn:
                 return names
-        return None
+        return None"""
 
-    def get_employee_by_name(self, name): #Setja í ll
+    def get_employee_by_name(self, name): 
         """ er hann til eða ekki"""
         employee_list = self.employee_list()
         for user in employee_list:

@@ -6,7 +6,8 @@ from ui_layer.PropertyListScreen import PropertyListScreen
 UNKNOWN_COMMAND = "Óþekkt aðgerð"
 
 class Main_menu:
-    def __init__(self) -> None:
+    def __init__(self,user) -> None:
+        self.user = user
         self.menu = """
 (P)rófíll    (V)erkefni    (F)asteignir    (S)tarfsmenn \t <(T)il baka>   <(Q) Hætta>
 -------------------------------------------------------------------------------------------"""
@@ -24,12 +25,12 @@ class Main_menu:
     def menubar(self):
         '''Prentar út menu og tekur inn skipanir og framkvæmir skipun'''
         print(self.menu)
-        selected = input("\nSlá inn aðgerð: ").lower()
+        selected = "p"
         #self.screens[self.current_screen].render()
         last_selected = selected
 
         screens = {
-            "p": ProfileScreen(),
+            "p": ProfileScreen(self.user),
             "v": WorkRequestListScreen(),
             "f": PropertyListScreen(),
             "s": EmployeeListScreen(),
