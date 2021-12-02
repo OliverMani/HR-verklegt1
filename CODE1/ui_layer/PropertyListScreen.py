@@ -10,14 +10,30 @@ class PropertyListScreen:
         print("Fasteignir\n")
         print('\n'.join([(x.id + '. ' + x.heimilisfang) for x in properties]))
 
-    # þarf að klára....
-    def search_in_list(self, search):
+    def search_in_list(self, word):
         found = False
         properties = self.llapi.get_property_list()
         for property in properties:
-            if property.heimilisfang == search:
-                print(f'Property: {property.heimilisfang}')
+            look_up = [property.id,property.stadur, property.heimilisfang, property.fm, property.herbergi,property.tegund, property.fasteignanumer ]
+            if word in look_up:
+                found = True
+                self.print_result(property)
+        if not found:
+            print("Ekkert fannst")
+
+                
+    def print_result(self, property):
+
+        print("\n"+property.heimilisfang)
+        print(property.stadur)
+        print("Fasteignarnúmer", property.fasteignanumer)
+        print()
+
+
+
+
+
 
     #filter
-    def sort_list(self, sorted):
-        print("Sort Property")
+    def sort_list(self, word):
+        pass
