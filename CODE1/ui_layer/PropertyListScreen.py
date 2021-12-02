@@ -14,28 +14,19 @@ class PropertyListScreen:
         found = False
         properties = self.llapi.get_property_list()
         for property in properties:
-            if property.id == word:
+            look_up = [property.id,property.stadur, property.heimilisfang, property.fm, property.herbergi,property.tegund, property.fasteignanumer ]
+            if word in look_up:
+                found = True
                 self.print_result(property)
-            elif property.staður == word:
-                self.print_result(property)
-            elif property.heimilisfang == word:
-                self.print_result(property)
-            elif property.fm == word:
-                self.print_result(property)
-            elif property.herbergi == word:
-                self.print_result(property)
-            elif property.tegund == word:
-                self.print_result(property)
-            elif property.fasteignanúmer == word:
-                self.print_result(property)
-            else:
-                print("Ekkert fannst")
+        if not found:
+            print("Ekkert fannst")
+
                 
     def print_result(self, property):
 
-        print("\n",property.heimilisfang)
-        print(property.staður)
-        print("fasteignarnúmer", property.fasteignanúmer)
+        print("\n"+property.heimilisfang)
+        print(property.stadur)
+        print("Fasteignarnúmer", property.fasteignanumer)
         print()
 
 
