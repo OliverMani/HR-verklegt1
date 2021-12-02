@@ -6,10 +6,11 @@ class Login:
         self.llapi = LLAPI()
 
     def login(self):
-        employee_list = self.llapi.employee_list()
-        for users in employee_list:
-            if self.user == users.nafn:
-                return True
+        """ Fer í gegnum emloyee listan og athugar hvort nafnið á notendanum er skráð þar
+        skilar bool True/False """
+        return self.llapi.get_employee_by_name(self.user)
         
-        print("Óþekktur notandi")
-        return False
+        
+        
+
+    

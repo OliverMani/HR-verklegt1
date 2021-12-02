@@ -9,7 +9,7 @@ if __name__ == "__main__":
     user = input("Nafn: ")
     logged_in = Login(user).login()
     
-    while not logged_in:
+    while logged_in == None:
         user = input("Nafn: ")
         logged_in = Login(user).login()
     

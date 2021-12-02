@@ -16,3 +16,11 @@ class EmployeeLL:
             if names.nafn == name:
                 return names
         return None
+
+    def get_employee_by_name(self, name): #Setja í ll
+        """ er hann til eða ekki"""
+        employee_list = self.employee_list()
+        for user in employee_list:
+            if name == user.nafn:
+                return user
+        return None

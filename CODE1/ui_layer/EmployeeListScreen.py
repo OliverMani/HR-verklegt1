@@ -33,6 +33,7 @@ class EmployeeListScreen:
     def sort_list(self,place):
         employee_list = self.llapi.employee_list()
         sorted_list = []
+        #færa í logic
         for stadur in employee_list:
           if place.strip() == stadur.afangastadur.strip():
                 sorted_list.append((stadur.nafn, stadur.gsm, stadur.netfang))

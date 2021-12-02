@@ -5,20 +5,13 @@ from LogicLayer.PropertyLL import PropertyLL
 from LogicLayer.WorkReportLL import WorkReportLL
 
 
-
-
-
 class LLAPI:
     def __init__(self):
         self.slapi = Slapi()
         self.employeell = EmployeeLL(self.slapi)
         self.work_requestll = WorkRequestLL(self.slapi)
         self.property_ll = PropertyLL(self.slapi)
-<<<<<<< HEAD
-        
-=======
         self.work_reportll = WorkReportLL(self.slapi)
->>>>>>> ea48b1cdb991839b77f3459fdd596a8cc74df234
 
     def employee_list(self):
         return self.employeell.employee_list()
@@ -32,10 +25,8 @@ class LLAPI:
     def get_property_list(self):
         return self.property_ll.get_property_list()
 
-<<<<<<< HEAD
-    
-    
-=======
     def get_work_report_list(self):
         return self.work_reportll.get_employee_list()
->>>>>>> ea48b1cdb991839b77f3459fdd596a8cc74df234
+    
+    def get_employee_by_name(self, name): #Setja í ll
+        return self.employeell.get_employee_by_name(name)
