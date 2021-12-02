@@ -26,8 +26,8 @@ class Main_menu:
             "s": EmployeeListScreen(),
             "t": False,
             "q": False,
-            "r": lambda: screens["s"].sort_list(input("Áfangastaður: ")),
-            "l": lambda: screens["s"].search_in_list(input("Leita: ")),
+            "r": lambda: screens[last_selected].sort_list(input("Áfangastaður: ")),
+            "l": lambda: screens[last_selected].search_in_list(input("Leita: ")),
             "x": lambda: screens["v"].filter(input("ID: "))
         }
 
@@ -36,14 +36,12 @@ class Main_menu:
             if screen == False:
                 return
             print(self.menu)
-
-
-
+            
             if screen is None:
                 print("Óþekkt aðgerð")
             elif selected in "rlx":
                 screen()
             else:
                 screen.render()
-            last_selected = selected
+                last_selected = selected
             selected = input("\nSlá inn aðgerð: ").lower()
