@@ -13,7 +13,7 @@ class WorkRequestListScreen:
         print("Verkefni\n")
         print('\n'.join([x.titill for x in properties]))
 
-    def filter(self, property_id):
+    def sort_by_property(self, property_id):
         """Sýnir verkbeiðnir sem er skellt á ákveðna fasteign (eftir peoperty id)"""
         work_request_list = self.llapi.work_request_list()
         properties = self.llapi.get_property_list()

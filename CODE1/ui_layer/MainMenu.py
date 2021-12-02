@@ -35,7 +35,7 @@ class Main_menu:
             "q": False,
             "r": lambda: screens[last_selected].sort_list(input("Áfangastaður: ")),
             "l": lambda: screens[last_selected].search_in_list(input("Leita: ")),
-            "x": lambda: screens["v"].filter(input("ID: "))
+            "x": lambda: screens["v"].sort_by_property(input("ID: "))
         }
 
         while selected != "q":
@@ -54,7 +54,7 @@ class Main_menu:
                 # Skilast í túplu
                 number, command = self.parse_digital_commands(selected)
                 if last_selected == 'f':
-                    screens[command].filter(number)
+                    screens[command].sort_by_property(number)
                 elif last_selected == 's':
                     pass
             else:
