@@ -16,16 +16,17 @@ class EmployeeListScreen:
         employee_list = self.llapi.employee_list()
         found = False
         for name in employee_list:
-            if word == name.nafn:
+            look_up = [name.id, name.nafn, name.netfang, name.heimilisfang, name.heimasimi, name.gsm, name.afangastadur, name.staða, name.active]
+            if word in look_up:
                 found = True
-                result = f"""
-Nafn: {name.nafn}
-Netfang: {name.netfang}
-Heimilisfang: {name.heimilisfang}
-GSM: {name.gsm}
-Áfangastaður: {name.afangastadur}
-Starfsheiti: {name.staða}"""
-                print(result)
+                print()
+                print(f"Nafn: {name.nafn}")
+                print(f"Netfang: {name.netfang}")
+                print(f"Heimilisfang: {name.heimilisfang}")
+                print(f"GSM: {name.gsm}")
+                print(f"Áfangastaður: {name.afangastadur}")
+                print(f"Starfsheiti: {name.staða}")
+                print()
         if not found:
             print("Starfsmaður fannst ekki")
 
