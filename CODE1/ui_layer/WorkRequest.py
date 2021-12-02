@@ -17,12 +17,13 @@ class WorkRequestListScreen:
     def sort_by_property(self, property_id):
         """Sýnir verkbeiðnir sem er skellt á ákveðna fasteign (eftir peoperty id)"""
         work_request_list = self.llapi.work_request_list()
-        properties = self.llapi.get_property_list()
+        properties = self.llapi.get_filtered_list_by_destination()
+
+        print(properties)
 
         for work_request in work_request_list:
-            for id in work_request.fasteignid:
-                if id == property_id:
-                    print(work_request.titill)
+            #if work_request.fasteignid == property_id:
+            print(work_request.titill)
 
     def sort_by_employee(self, employee_id):
         '''Raðar work requests eftir starfsmanni'''
@@ -38,7 +39,6 @@ class WorkRequestListScreen:
         '''Breytir stöðu verkbeiðnar í lokið'''
         employee = self.llapi.employee_list()
         work_request_list = self.llapi.work_request_list()
-        
 
         for work_request in work_request_list:
             for active in work_request:

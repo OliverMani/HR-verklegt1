@@ -32,6 +32,9 @@ class LLAPI:
     def get_work_report_list(self):
         '''sendir work report list í UI layer'''
         return self.work_reportll.get_employee_list()
-    
+
     def get_employee_by_name(self, name): #Setja í ll
         return self.employeell.get_employee_by_name(name)
+
+    def get_filtered_list_by_destination(self, destination):
+        return self.propertyll.get_filtered_list_by_destination(destination)

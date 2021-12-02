@@ -26,3 +26,5 @@ class EmployeeLL:
             if name == user.nafn:
                 return user
         return None
+
+     

@@ -23,7 +23,7 @@ class PropertyListScreen:
         if not found:
             print("Ekkert fannst")
 
-                
+
     def print_result(self, property):
         '''Prentar heimilisfang fasteignar, stað fasteignar og fasteignarnúmer'''
         print("\n"+property.heimilisfang)
@@ -31,23 +31,13 @@ class PropertyListScreen:
         print("Fasteignarnúmer", property.fasteignanumer)
         print()
 
-
-
-
-
-
     #filter
-    def sort_list(self, word):
-        pass
-    # þarf að klára....
-    def search_in_list(self, search):
-        '''Leitar eftir heimilisfangi í property list'''
-        found = False
-        properties = self.llapi.get_property_list()
-        for property in properties:
-            if property.heimilisfang == search:
-                print(f'Property: {property.heimilisfang}')
-
-    #filter
-    def sort_list(self, sorted):
-        print("Sort Property")
+    def sort_list(self,place):
+        '''raðar employee list eftir áfangastað'''
+        property_list = self.llapi.property_list()
+        sorted_list = self.llapi.get_filtered_list_by_destination()
+        for prop in sorted_list:
+            print("Nafn:",prop.heimilisfang)
+            print("Staður:", prop.staður)
+            print("Netfang:", prop.netfang)
+            print()
