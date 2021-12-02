@@ -2,6 +2,7 @@ from Storagelayer.SLAPI import Slapi
 from LogicLayer.EmployeeLL import EmployeeLL
 from LogicLayer.WorkRequestLL import WorkRequestLL
 from LogicLayer.PropertyLL import PropertyLL
+from LogicLayer.WorkReportLL import WorkReportLL
 
 class LLAPI:
     def __init__(self):
@@ -9,6 +10,7 @@ class LLAPI:
         self.employeell = EmployeeLL(self.slapi)
         self.work_requestll = WorkRequestLL(self.slapi)
         self.property_ll = PropertyLL(self.slapi)
+        self.work_reportll = WorkReportLL(self.slapi)
 
     def employee_list(self):
         return self.employeell.employee_list()
@@ -21,3 +23,6 @@ class LLAPI:
 
     def get_property_list(self):
         return self.property_ll.get_property_list()
+
+    def get_work_report_list(self):
+        return self.work_reportll.get_employee_list()
