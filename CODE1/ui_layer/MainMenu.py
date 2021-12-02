@@ -10,8 +10,15 @@ class Main_menu:
 (P)rófíll    (V)erkefni    (F)asteignir    (S)tarfsmenn \t <(T)il baka>   <(Q) Hætta>
 -------------------------------------------------------------------------------------------"""
 
-    def leita(self, selected, leit):
-        pass
+    def parse_digital_commands(self, command) -> tuple:
+        """Þetta fall slítur í sundur tölu og skipun (t.d 13v) og skilar í túplu númeri og skipun"""
+        nums = ''
+        i = 0
+        while command[i].isdigit():
+            nums += command[i]
+            i += 1
+        return (nums, command[i:])
+
 
     def menubar(self):
         print(self.menu)
@@ -33,14 +40,23 @@ class Main_menu:
 
         while selected != "q":
             screen = screens.get(selected)
+            if selected[0].isdigit():
+                screen = True
             if screen == False:
                 return
             print(self.menu)
-            
+
             if screen is None:
                 print("Óþekkt aðgerð")
             elif selected in "rlx":
                 screen()
+            elif selected[0].isdigit():
+                # Skilast í túplu
+                number, command = self.parse_digital_commands(selected)
+                if last_selected == 'f':
+                    screens[command].filter(number)
+                elif last_selected == 's':
+                    pass
             else:
                 screen.render()
                 last_selected = selected
