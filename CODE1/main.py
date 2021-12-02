@@ -5,6 +5,7 @@ from ui_layer.LoginScreen import Login
 
 
 if __name__ == "__main__":
+    """ Ef notandinn er til þá opnar forritið annars er aftur beðið um innskráningu"""
     user = input("Nafn: ")
     logged_in = Login(user).login()
     
