@@ -22,6 +22,7 @@ class Main_menu:
 
 
     def menubar(self):
+        '''Prentar út menu og tekur inn skipanir og framkvæmir skipun'''
         print(self.menu)
         selected = input("\nSlá inn aðgerð: ").lower()
         #self.screens[self.current_screen].render()

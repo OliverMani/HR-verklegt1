@@ -8,6 +8,7 @@ class EmployeeData:
         self.filename = "csv_files/Employee.csv"
 
     def open_file(self):
+        '''opnar employee skránna og skilar lista af tilvikum'''
         employeelist = []
         with open(self.filename, newline='', encoding="UTF-8") as csvfile:
             reader = csv.DictReader(csvfile)

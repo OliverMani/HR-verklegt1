@@ -6,6 +6,7 @@ class EmployeeListScreen:
         self.llapi = LLAPI()
 
     def render(self):
+        '''Prentar út nöfn starfsmanna'''
         #print(self.options)
         employees = self.llapi.employee_list()
         print("Starfsmenn\n")
@@ -13,6 +14,7 @@ class EmployeeListScreen:
         print("\n(L)eita     (R)aða")
 
     def search_in_list(self, word):
+        '''leitar eftir starfsmanni og prentar út upplýsingar um starfsmannin, ef starfsmaður finnst ekki þá prentar fallið villu skilaboð'''
         employee_list = self.llapi.employee_list()
         found = False
         for name in employee_list:
@@ -31,6 +33,7 @@ class EmployeeListScreen:
             print("Starfsmaður fannst ekki")
 
     def sort_list(self,place):
+        '''raðar employee list eftir áfangastað'''
         employee_list = self.llapi.employee_list()
         sorted_list = []
         #færa í logic

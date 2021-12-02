@@ -7,6 +7,7 @@ class PropertyData:
         self.filename = "csv_files/fasteignir.csv"
 
     def open_file(self):
+        '''opnar property skránna og skilar lista af tilvikum'''
         propertylist = []
         with open(self.filename, newline='', encoding="UTF-8") as csvfile:
             reader = csv.DictReader(csvfile)

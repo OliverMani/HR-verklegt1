@@ -8,4 +8,5 @@ class WorkReportLL:
         self.slapi = slapi
 
     def get_work_report_list(self):
+        '''fær work report skránna frá SLAPI og skilar henni í LLAPI'''
         return self.slapi.get_work_report_list()

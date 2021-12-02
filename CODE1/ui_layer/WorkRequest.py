@@ -8,6 +8,7 @@ class WorkRequestListScreen:
         self.llapi = LLAPI()
 
     def render(self):
+        '''Það prentar work requests'''
         print(self.options)
         properties = self.llapi.work_request_list()
         print("Verkefni\n")
@@ -22,7 +23,9 @@ class WorkRequestListScreen:
             for id in work_request.fasteignid:
                 if id == property_id:
                     print(work_request.titill)
+
     def sort_by_employee(self, employee_id):
+        '''Raðar work requests eftir starfsmanni'''
         employees = self.llapi.employee_list()
         work_request_list = self.llapi.work_request_list()
 
@@ -30,3 +33,14 @@ class WorkRequestListScreen:
             for id in employee_id:
                 if id == employee_id:
                     print(work_request.titill)
+
+    def mark_work_request_as_done(self, work_request_id, employee_id):
+        '''Breytir stöðu verkbeiðnar í lokið'''
+        employee = self.llapi.employee_list()
+        work_request_list = self.llapi.work_request_list()
+        
+
+        for work_request in work_request_list:
+            for active in work_request:
+                work_request_list[6] = "Done"
+                print(work_request_list)

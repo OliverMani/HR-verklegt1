@@ -8,4 +8,5 @@ class PropertyLL:
         self.slapi = slapi
 
     def get_property_list(self):
+        '''fær property list frá SLAPI og skilar honum Í LLAPI'''
         return self.slapi.get_property_list()
