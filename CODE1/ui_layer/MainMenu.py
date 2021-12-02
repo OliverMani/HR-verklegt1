@@ -3,6 +3,7 @@ from ui_layer.WorkRequest import WorkRequestListScreen
 from ui_layer.EmployeeListScreen import EmployeeListScreen
 from ui_layer.PropertyListScreen import PropertyListScreen
 
+UNKNOWN_COMMAND = "Óþekkt aðgerð"
 
 class Main_menu:
     def __init__(self) -> None:
@@ -35,7 +36,7 @@ class Main_menu:
             "q": False,
             "r": lambda: screens[last_selected].sort_list(input("Áfangastaður: ")),
             "l": lambda: screens[last_selected].search_in_list(input("Leita: ")),
-            "x": lambda: screens["v"].filter(input("ID: "))
+            "x": lambda: screens["v"].sort_by_property(input("ID: "))
         }
 
         while selected != "q":
@@ -53,10 +54,16 @@ class Main_menu:
             elif selected[0].isdigit():
                 # Skilast í túplu
                 number, command = self.parse_digital_commands(selected)
-                if last_selected == 'f':
-                    screens[command].filter(number)
-                elif last_selected == 's':
-                    pass
+
+                if command == 'v':
+                    if last_selected == 'f':
+                        screens[command].sort_by_property(number)
+                    elif last_selected == 's':
+                        screens[command].sort_by_employee(number)
+                    else:
+                        print("Skipun ekki framkvæmanleg hér.")
+                else:
+                    print(UNKNOWN_COMMAND)
             else:
                 screen.render()
                 last_selected = selected
