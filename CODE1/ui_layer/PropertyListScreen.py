@@ -37,3 +37,14 @@ class PropertyListScreen:
     #filter
     def sort_list(self, word):
         pass
+    # þarf að klára....
+    def search_in_list(self, search):
+        found = False
+        properties = self.llapi.get_property_list()
+        for property in properties:
+            if property.heimilisfang == search:
+                print(f'Property: {property.heimilisfang}')
+
+    #filter
+    def sort_list(self, sorted):
+        print("Sort Property")
