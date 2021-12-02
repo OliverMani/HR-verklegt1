@@ -1,19 +1,20 @@
 from LogicLayer.LLAPI import LLAPI
 
 class ProfileScreen:
-    def __init__(self):
+    def __init__(self,user):
         self.llapi = LLAPI()
+        self.user = user
 
     def render(self):
         '''Prentar strafsmanns upplýsingar'''
         print("Prófíll")
-        employee = self.llapi.employee_profile()
-        print(employee.nafn)
-        print(employee.heimilisfang)
-        print(employee.gsm)
-        print(employee.netfang)
-        print(employee.afangastadur)
-        print(employee.staða)
+        print()
+        print("Nafn: ",(self.user.nafn).capitalize())
+        print("Heililisfang: ",(self.user.heimilisfang).capitalize())
+        print("GSM: ",self.user.gsm)
+        print("Ntfang: ",self.user.netfang)
+        print("Staður: ",(self.user.afangastadur).capitalize())
+        print("Starfsheiti: ",(self.user.staða).capitalize())
 
 
 
