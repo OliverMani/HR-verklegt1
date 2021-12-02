@@ -10,6 +10,7 @@ class PropertyListScreen:
         print("Fasteignir\n")
         print('\n'.join([(x.id + '. ' + x.heimilisfang) for x in properties]))
 
+<<<<<<< HEAD
     def search_in_list(self, word):
         found = False
         properties = self.llapi.get_property_list()
@@ -46,3 +47,16 @@ class PropertyListScreen:
     #filter
     def sort_list(self, word):
         pass
+=======
+    # þarf að klára....
+    def search_in_list(self, search):
+        found = False
+        properties = self.llapi.get_property_list()
+        for property in properties:
+            if property.heimilisfang == search:
+                print(f'Property: {property.heimilisfang}')
+
+    #filter
+    def sort_list(self, sorted):
+        print("Sort Property")
+>>>>>>> cde09c66b4a749ff76efebd7084dab1112389fea
