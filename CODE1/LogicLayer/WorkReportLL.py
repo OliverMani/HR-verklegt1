@@ -30,3 +30,11 @@ class WorkReportLL:
             for property in work_report_list:
                 wr_by_property_list.append(self.titill, self.heimilisfang)
         return wr_by_property_list
+
+    def get_work_report_by_work_report_id(self, work_report_id):
+        work_report_list = self.get_work_report_list()
+        for work_request in work_report_list:
+            if work_report_id == work_request.id:
+                return work_request
+        return None
+    

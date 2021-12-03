@@ -67,9 +67,9 @@ class Main_menu:
                         screens[command].sort_by_employee(number)
                     else:
                         print("Skipun ekki framkvæmanleg hér.")
-                #elif command == 'vs':
-                #    if last_selected == 'v':
-                #        screens[command].get_work_report_list(number)
+                elif command == 'vs':
+                    if last_selected == 'v':
+                        screens[command].get_work_report_by_work_request_id(number)
                 else:
                     print(UNKNOWN_COMMAND)
             else:
