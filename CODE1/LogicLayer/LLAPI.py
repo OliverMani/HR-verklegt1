@@ -9,7 +9,7 @@ class LLAPI:
     def __init__(self):
         self.slapi = Slapi()
         self.employeell = EmployeeLL(self.slapi)
-        self.work_requestll = WorkRequestLL(self.slapi)
+        self.work_requestll = WorkRequestLL(self.slapi, self)
         self.property_ll = PropertyLL(self.slapi)
         self.work_reportll = WorkReportLL(self.slapi)
 
@@ -37,4 +37,10 @@ class LLAPI:
         return self.employeell.get_employee_by_name(name)
 
     def get_filtered_list_by_destination(self, destination):
-        return self.propertyll.get_filtered_list_by_destination(destination)
+        return self.property_ll.get_filtered_list_by_destination(destination)
+
+    def get_property_by_id(self, property_id):
+        return self.property_ll.get_property_by_id(property_id)
+
+    def get_work_request_list_by_property_id(self, property_id):
+        return self.work_requestll.get_list_by_property(property_id)
