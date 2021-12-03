@@ -8,8 +8,8 @@ from ui_layer.WorkRequest import WorkRequest
 #b = PropertyListScreen()
 #b.create_new_property()
 
-#c = WorkReport()
-#c.create_new_work_report()
+c = WorkReportListScreen()
+c.create_new_work_report()
 
-d = WorkRequest()
+d = WorkRequestListScreen()
 d.create_new_work_request()
