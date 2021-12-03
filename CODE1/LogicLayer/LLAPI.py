@@ -9,9 +9,9 @@ class LLAPI:
     def __init__(self):
         self.slapi = Slapi()
         self.employeell = EmployeeLL(self.slapi)
-        #self.work_requestll = WorkRequestLL(self.slapi, self)
+        self.work_requestll = WorkRequestLL(self.slapi, self)
         self.property_ll = PropertyLL(self.slapi)
-        # self.work_reportll = WorkReportLL(self.slapi)
+        self.work_reportll = WorkReportLL(self.slapi)
 
     def employee_list(self):
         '''sendir employee list í UI layer'''
@@ -30,6 +30,9 @@ class LLAPI:
     
     def create_new_property(self, prop):
         return self.property_ll.create_new_property(prop)
+
+    def create_new_work_report(self,report):
+        return self.work_reportll.create_new_work_report(report)
 #-----------------------------------------------------------------------------------
     def get_property_list(self):
         '''sendir property list í UI layer'''

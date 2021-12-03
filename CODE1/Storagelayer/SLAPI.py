@@ -34,4 +34,8 @@ class Slapi:
     def create_new_property(self, prop):
         """ Skráir inn nýjar fasteignir"""
         return self.proSL.create_new_property(prop)
+    
+    def create_new_work_report(self,report):
+        '''Setur inn nýja verkskýrslu'''
+        return self.workrepSL.create_new_work_report(report)
 

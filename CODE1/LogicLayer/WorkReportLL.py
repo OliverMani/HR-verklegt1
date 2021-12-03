@@ -20,3 +20,8 @@ class WorkReportLL:
                 new_list.append(self.starfsmadur, self.titill)
         for report in new_list:
             return report[0], report[1]
+    
+    def create_new_work_report(self,report):
+        '''býr til nýja verkskýrslu'''
+        self.slapi.create_new_work_report(report)
+

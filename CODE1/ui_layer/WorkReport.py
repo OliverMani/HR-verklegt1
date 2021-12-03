@@ -1,4 +1,5 @@
 from LogicLayer.LLAPI import LLAPI
+from Model.WorkReport import WorkReport
 
 class WorkReport:
     def __init__(self, work_request):
@@ -39,5 +40,16 @@ Staðsetning:
     def get_reports_by_employee(self):
         emp_report = LLAPI.get_report_by_employee()
         print(f"Nafn: {emp_report[0]}\nTitill: {emp_report[1]}")
+
+    def create_new_work_report(self):
+        id = input("ID: ")
+        titill = input("Titill: ")
+        starfsmadur = input("Starfsmaður: ")
+        lysing = input("Lýsing: ")
+        dags = input("Dags: ")
+        lokið = input("Lokið: ")
+        samtykkt = input("Samþykkt: ")
+        report = WorkReport(id,titill,starfsmadur,lysing,dags,lokið,samtykkt)
+        self.llapi.create_new_work_report(report)
 
 
