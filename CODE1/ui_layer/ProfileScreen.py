@@ -14,8 +14,4 @@ class ProfileScreen:
         print("GSM: ",self.user.gsm)
         print("Ntfang: ",self.user.netfang)
         print("Staður: ",(self.user.afangastadur).capitalize())
-        print("Starfsheiti: ",(self.user.staða).capitalize())
-
-
-
-
+        print("Starfsheiti: ",(self.user.stada).capitalize())
