@@ -3,6 +3,7 @@ from ui_layer.WorkRequest import WorkRequestListScreen
 from ui_layer.EmployeeListScreen import EmployeeListScreen
 from ui_layer.PropertyListScreen import PropertyListScreen
 
+
 UNKNOWN_COMMAND = "Óþekkt aðgerð"
 
 class Main_menu:
@@ -28,6 +29,7 @@ class Main_menu:
         selected = "p"
         #self.screens[self.current_screen].render()
         last_selected = selected
+        
 
         screens = {
             "p": ProfileScreen(self.user),
