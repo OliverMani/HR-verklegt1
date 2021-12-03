@@ -1,23 +1,23 @@
 from LogicLayer.LLAPI import LLAPI
 
-class WorkReport:
+class WorkReportListScreen:
     def __init__(self, work_request):
         self.options = f"""
 A {work_request.titill}
 
 Verk unnið af: 
-    {work_request.starfsmaður}
+    {work_request.starfsmadur}
 
 Verktaki: 
     {work_request.Verktaki}
 
 Tími sem fór í verk í klukkustundum: 
-    {work_request.tími}
+    {work_request.timi}
 
 Kostnaður: 
-    {work_request.hlutur} = {work_request.kostnaður}
+    {work_request.keyptur_hlutur} = {work_request.kostnadur}
     ---------------------
-    Samtals: {work_request.samanlagður_kostnaður}
+    Samtals: {work_request.samanlagdur_kostnadur}
 
 Staðsetning: 
     {work_request.heimilisfang}
@@ -37,7 +37,13 @@ Staðsetning:
 
 
     def get_reports_by_employee(self):
+        '''prentar work reports eftir starfsmanni'''
         emp_report = LLAPI.get_report_by_employee()
         print(f"Nafn: {emp_report[0]}\nTitill: {emp_report[1]}")
+
+    def get_wr_by_property(self, property_id):
+        '''prentar work reports eftir fasteign'''
+        prop_reports = LLAPI.get_work_reports_by_property(property_id)
+        print(f"Titill: {prop_reports[0]}\nHeimilisfang: {prop_reports[1]}")
 
 

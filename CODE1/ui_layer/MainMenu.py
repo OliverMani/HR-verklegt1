@@ -2,6 +2,7 @@ from ui_layer.ProfileScreen import ProfileScreen
 from ui_layer.WorkRequest import WorkRequestListScreen
 from ui_layer.EmployeeListScreen import EmployeeListScreen
 from ui_layer.PropertyListScreen import PropertyListScreen
+from ui_layer.WorkReport import WorkReportListScreen
 
 UNKNOWN_COMMAND = "Óþekkt aðgerð"
 
@@ -24,7 +25,6 @@ class Main_menu:
 
     def menubar(self):
         '''Prentar út menu og tekur inn skipanir og framkvæmir skipun'''
-        print(self.menu)
         selected = "p"
         #self.screens[self.current_screen].render()
         last_selected = selected
@@ -39,7 +39,8 @@ class Main_menu:
             "q": False,
             "r": lambda: screens[last_selected].sort_list(input("Áfangastaður: ")),
             "l": lambda: screens[last_selected].search_in_list(input("Leita: ")),
-            "x": lambda: screens["v"].sort_by_property(input("ID: "))
+            "x": lambda: screens["v"].sort_by_property(input("ID: ")),
+            "vs": lambda: screens["v"].get_reports_by_employee(input("Starfsmaður: ")),
         }
 
         while selected != "q":
@@ -65,6 +66,9 @@ class Main_menu:
                         screens[command].sort_by_employee(number)
                     else:
                         print("Skipun ekki framkvæmanleg hér.")
+                #elif command == 'vs':
+                #    if last_selected == 'v':
+                #        screens[command].get_work_report_list()
                 else:
                     print(UNKNOWN_COMMAND)
             else:

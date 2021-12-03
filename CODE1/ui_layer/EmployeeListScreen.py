@@ -7,7 +7,6 @@ class EmployeeListScreen:
 
     def render(self):
         '''Prentar út nöfn starfsmanna'''
-        #print(self.options)
         employees = self.llapi.employee_list()
         print("Starfsmenn\n")
         print('\n'.join([x.nafn for x in employees]))
