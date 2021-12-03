@@ -40,6 +40,9 @@ class LLAPI:
         '''skilar filtered list af áfangastöðum'''
         return self.property_ll.get_filtered_list_by_destination(destination)
 
+    def create_new_employee(self,emp):
+        return self.employeell.create_new_employee(emp)
+
     def get_report_by_employee(self, employee):
         '''sendir work report list eftir hvaða starfsmaður vann hana'''
         return self.work_reportll.get_report_by_employee(employee)
@@ -55,4 +58,3 @@ class LLAPI:
     def get_work_reports_by_property(self, property_id):
         '''skilar work reports eftir fasteignum'''
         return self.work_reportll.get_work_reports_by_property(property_id)
-

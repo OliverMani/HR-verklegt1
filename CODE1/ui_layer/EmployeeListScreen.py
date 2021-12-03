@@ -1,4 +1,5 @@
 from LogicLayer.LLAPI import LLAPI
+from Model.Employee import Employee
 
 
 class EmployeeListScreen:
@@ -44,3 +45,16 @@ class EmployeeListScreen:
             print("Gsm:", emp[1])
             print("Netfang:", emp[2])
             print()
+
+    def create_new_employee(self):
+        id = input("ID: ")
+        nafn = input("Nafn: ")
+        netfang = input("Netfang: ")
+        heimilsfang = input("Heimilsfang: ")
+        heimasimi = input("Heimasími: ")
+        gsm = input("Gsm: ")
+        afangastadur = input("Áfangastaður: ")
+        stada = input("Staða: ")
+        emp = Employee(id,nafn,netfang,heimilsfang,heimasimi,gsm,afangastadur,stada,active="True")
+        self.llapi.create_new_employee(emp)
+
