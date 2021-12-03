@@ -39,3 +39,7 @@ class Slapi:
         '''Setur inn nýja verkskýrslu'''
         return self.workrepSL.create_new_work_report(report)
 
+    def create_new_work_request(self, req):
+        """ Setur inn nýja verkbeiðni"""
+        return self.wrSL.create_new_work_request(req)
+
