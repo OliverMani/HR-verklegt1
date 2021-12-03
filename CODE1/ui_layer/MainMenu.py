@@ -28,6 +28,8 @@ class Main_menu:
         selected = "p"
         #self.screens[self.current_screen].render()
         last_selected = selected
+        
+
         screens = {
             "p": ProfileScreen(self.user),
             "v": WorkRequestListScreen(),

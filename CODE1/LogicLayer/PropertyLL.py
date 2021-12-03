@@ -14,5 +14,9 @@ class PropertyLL:
     def get_filtered_list_by_destination(self, destination):
         return [dest for dest in self.slapi.get_property_list() if dest.stadur == destination]
 
-    def get_filtered_list_by_work_request(self, work_request):
-        pass
+    def get_property_by_id(self, property_id):
+        properties = self.get_property_list()
+        for property in properties:
+            if property.id == property_id:
+                return property
+        return None
