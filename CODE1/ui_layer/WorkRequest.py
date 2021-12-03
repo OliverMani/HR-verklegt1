@@ -9,7 +9,7 @@ class WorkRequestListScreen:
 
     def render(self):
         '''Það prentar work requests'''
-        print(self.options)
+        
         properties = self.llapi.work_request_list()
         print("Verkefni\n")
         print('\n'.join([x.titill for x in properties]))

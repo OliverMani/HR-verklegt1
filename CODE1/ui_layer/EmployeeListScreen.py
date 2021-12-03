@@ -1,4 +1,5 @@
 from LogicLayer.LLAPI import LLAPI
+from Model.Employee import Employee
 
 
 class EmployeeListScreen:
@@ -7,7 +8,6 @@ class EmployeeListScreen:
 
     def render(self):
         '''Prentar út nöfn starfsmanna'''
-        #print(self.options)
         employees = self.llapi.employee_list()
         print("Starfsmenn\n")
         print('\n'.join([x.nafn for x in employees]))
@@ -38,10 +38,23 @@ class EmployeeListScreen:
         sorted_list = []
         #færa í logic
         for stadur in employee_list:
-          if place.strip() == stadur.afangastadur.strip():
+            if place.strip() == stadur.afangastadur.strip():
                 sorted_list.append((stadur.nafn, stadur.gsm, stadur.netfang))
         for emp in sorted_list:
             print("Nafn:",emp[0])
             print("Gsm:", emp[1])
             print("Netfang:", emp[2])
             print()
+
+    def create_new_employee(self):
+        id = input("ID: ")
+        nafn = input("Nafn: ")
+        netfang = input("Netfang: ")
+        heimilsfang = input("Heimilsfang: ")
+        heimasimi = input("Heimasími: ")
+        gsm = input("Gsm: ")
+        afangastadur = input("Áfangastaður: ")
+        stada = input("Staða: ")
+        emp = Employee(id,nafn,netfang,heimilsfang,heimasimi,gsm,afangastadur,stada,active="True")
+        self.llapi.create_new_employee(emp)
+

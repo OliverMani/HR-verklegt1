@@ -6,7 +6,6 @@ class PropertyListScreen:
 
     def render(self):
         '''Prentar Fasteignir'''
-        #print(self.options)
         properties = self.llapi.get_property_list()
         print("Fasteignir\n")
         print('\n'.join([(x.id + '. ' + x.heimilisfang) for x in properties]))

@@ -26,3 +26,8 @@ class Slapi:
     def get_work_report_list(self):
         '''skliar work report list'''
         return self.workrepSL.open_file()
+
+    def create_new_employee(self,emp):
+        '''Býr til nýjan starfsmann'''
+        return self.empSL.create_new_employee(emp)
+
