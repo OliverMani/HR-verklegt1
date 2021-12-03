@@ -1,4 +1,4 @@
-class UIListScreen:
+class UIListScreen : UIScreen:
     '''displays list'''
     def render(self):
-        pass
+        print()

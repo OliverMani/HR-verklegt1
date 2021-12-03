@@ -3,7 +3,6 @@ from ui_layer.WorkRequest import WorkRequestListScreen
 from ui_layer.EmployeeListScreen import EmployeeListScreen
 from ui_layer.PropertyListScreen import PropertyListScreen
 
-
 UNKNOWN_COMMAND = "Óþekkt aðgerð"
 
 class Main_menu:

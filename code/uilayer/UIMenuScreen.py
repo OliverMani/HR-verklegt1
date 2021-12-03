@@ -1,3 +1,5 @@
+from uilayer.UIScreen import UIScreen
+
 class UIMenuScreen:
     '''displays UI menu screen'''
     def __init__(self):
@@ -10,4 +12,8 @@ class UIMenuScreen:
 """
 
     def render(self):
+        UIScreen.render_header()
+        print("\nPrófíll\n")
         print(self.options)
+        UIScreen.render_footer()
+        return input("Slá inn aðgerð: ")
