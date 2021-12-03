@@ -30,4 +30,8 @@ class Slapi:
     def create_new_employee(self,emp):
         '''Býr til nýjan starfsmann'''
         return self.empSL.create_new_employee(emp)
+    
+    def create_new_property(self, prop):
+        """ Skráir inn nýjar fasteignir"""
+        return self.proSL.create_new_property(prop)
 

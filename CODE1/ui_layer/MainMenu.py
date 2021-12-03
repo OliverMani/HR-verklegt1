@@ -39,8 +39,10 @@ class Main_menu:
             "q": False,
             "r": lambda: screens[last_selected].sort_list(input("Áfangastaður: ")),
             "l": lambda: screens[last_selected].search_in_list(input("Leita: ")),
-            "x": lambda: screens["v"].sort_by_property(input("ID: "))
-        }
+            "x": lambda: screens["v"].sort_by_property(input("ID: ")),
+            "Ce": lambda: screens["s"].create_new_employee(),
+            "Cp": lambda: screens["f"].create_new_property()
+            }
 
         while selected != "q":
             screen = screens.get(selected)
@@ -52,7 +54,9 @@ class Main_menu:
 
             if screen is None:
                 print("Óþekkt aðgerð")
-            elif selected in "rlx":
+            elif selected in "rlx":  
+                screen()
+            elif selected == "Ce" or selected == "Cp":
                 screen()
             elif selected[0].isdigit():
                 # Skilast í túplu

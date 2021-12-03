@@ -1,4 +1,5 @@
 from LogicLayer.LLAPI import LLAPI
+from Model.Property import Property
 
 class PropertyListScreen:
     def __init__(self):
@@ -41,3 +42,15 @@ class PropertyListScreen:
             print("Staður:", prop.staður)
             print("Netfang:", prop.netfang)
             print()
+
+    def create_new_property(self):
+        id = input("ID: ")
+        stadur = input("Áfangastaður: ")
+        heimilisfang = input("Heimilisfang: ")
+        fm = input("Fermetrar: ")
+        herbergi = input("Herbergi: ")
+        tegund = input("Tegund: ")
+        fasteignanumer = input("Fasteignanúmer: ")
+        active = "True"
+        prop = Property(id,stadur,heimilisfang, fm, herbergi, tegund, fasteignanumer, active )
+        return self.llapi.create_new_property(prop)

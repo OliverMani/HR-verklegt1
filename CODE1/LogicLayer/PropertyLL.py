@@ -20,3 +20,8 @@ class PropertyLL:
             if property.id == property_id:
                 return property
         return None
+
+    def create_new_property(self, prop):
+        self.slapi.create_new_property(prop)
+
+    
