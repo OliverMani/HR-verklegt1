@@ -22,3 +22,6 @@ class WorkRequestLL:
                 if id == property_id:
                     filtered.append(work_request)
         return filtered
+
+    def create_new_work_request(self, req):
+        self.slapi.create_new_work_request(req)

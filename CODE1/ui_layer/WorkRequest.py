@@ -1,4 +1,5 @@
 from LogicLayer.LLAPI import LLAPI
+from Model.WorkRequest import WorkRequest
 
 class WorkRequestListScreen:
     def __init__(self):
@@ -42,3 +43,17 @@ class WorkRequestListScreen:
             for active in work_request:
                 work_request_list[6] = "Done"
                 print(work_request_list)
+
+    def create_new_work_request(self, req):
+        id = input("ID: ")
+        titill = input("Titill: ")
+        stadur = input("Staðsetning")
+        fasteign = input("Fasteign")
+        lysing = input("Lýsing á verkefni")
+        skyrslaID = input("ID á skýrslu: ")#ætti líklegast að gerast sjálfkrafa
+        fasteignID = input("ID á fasteign: ")#Ditto 
+        req = WorkRequest(id, titill,stadur, fasteign,lysing, skyrslaID, fasteignID, active="True")
+        self.llapi.create_new_work_request(req)
+
+
+
