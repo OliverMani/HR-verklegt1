@@ -33,6 +33,9 @@ class LLAPI:
 
     def create_new_work_report(self,report):
         return self.work_reportll.create_new_work_report(report)
+    
+    def create_new_work_request(self, req):
+        return self.work_requestll.create_new_work_request(req)
 #-----------------------------------------------------------------------------------
     def get_property_list(self):
         '''sendir property list í UI layer'''
