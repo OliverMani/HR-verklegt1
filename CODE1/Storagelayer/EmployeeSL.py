@@ -5,7 +5,7 @@ from Model.Employee import Employee
 class EmployeeData:
     """Starfsmenn Data, les og skrifar í skrána í """
     def __init__(self):
-        self.filename = "csv_files/Employee.csv"
+        self.filename = "csv_files/Employees.csv"
 
     def open_file(self):
         '''opnar employee skránna og skilar lista af tilvikum'''
