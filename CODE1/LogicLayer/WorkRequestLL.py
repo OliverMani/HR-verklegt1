@@ -22,3 +22,10 @@ class WorkRequestLL:
                 if id == property_id:
                     filtered.append(work_request)
         return filtered
+
+    def get_list_by_employee(self, employee_id):
+        """**Ekki komið** (en....) Fá lista af verkbeiðnum fyrir ákveðinn starfsmann"""
+        pass
+
+    def get_list_by_destination(self, destination_name):
+        pass
