@@ -38,7 +38,7 @@ class EmployeeListScreen:
         sorted_list = []
         #færa í logic
         for stadur in employee_list:
-          if place.strip() == stadur.afangastadur.strip():
+            if place.strip() == stadur.afangastadur.strip():
                 sorted_list.append((stadur.nafn, stadur.gsm, stadur.netfang))
         for emp in sorted_list:
             print("Nafn:",emp[0])

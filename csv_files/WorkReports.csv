@@ -1,2 +1,2 @@
-id,titill,vbId,starfsmaður,verktaki,lýsing,dags,kostnaður,lokið,samþykkt
-1,kjarnaofn lagaður,1,Jan Jacobsen,Enginn,Skipt um element í kjarnaofni,1.des.2021,20000,True,True
+id,titill,vbId,starfsmaður,verktaki,lýsing,dags,tími,keyptur hlutur,kostnaður,samanlagður kostnaður,heimilisfang,lokið,samþykkt
+1,kjarnaofn lagaður,1,Jan Jacobsen,Enginn,Skipt um element í kjarnaofni,1.des.2021,"6,5",Element,"20000",20000,Longyearbyen Harbor 1,True,True

@@ -2,7 +2,6 @@ from ui_layer.ProfileScreen import ProfileScreen
 from ui_layer.WorkRequest import WorkRequestListScreen
 from ui_layer.EmployeeListScreen import EmployeeListScreen
 from ui_layer.PropertyListScreen import PropertyListScreen
-from ui_layer.Search import Search
 
 UNKNOWN_COMMAND = "Óþekkt aðgerð"
 
@@ -29,8 +28,6 @@ class Main_menu:
         selected = "p"
         #self.screens[self.current_screen].render()
         last_selected = selected
-        self.last_sel
-
         screens = {
             "p": ProfileScreen(self.user),
             "v": WorkRequestListScreen(),
@@ -39,7 +36,7 @@ class Main_menu:
             "t": False,
             "q": False,
             "r": lambda: screens[last_selected].sort_list(input("Áfangastaður: ")),
-            "l": Search(last_selected), #lambda: screens[last_selected].search_in_list(input("Leita: ")),
+            "l": lambda: screens[last_selected].search_in_list(input("Leita: ")),
             "x": lambda: screens["v"].sort_by_property(input("ID: "))
         }
 

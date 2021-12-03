@@ -37,4 +37,9 @@ class LLAPI:
         return self.employeell.get_employee_by_name(name)
 
     def get_filtered_list_by_destination(self, destination):
-        return self.propertyll.get_filtered_list_by_destination(destination)
+        '''skilar filtered list af áfangastöðum'''
+        return self.property_ll.get_filtered_list_by_destination(destination)
+
+    def get_report_by_employee(self, employee):
+        '''sendir work report list eftir hvaða starfsmaður vann hana'''
+        return self.work_reportll.get_report_by_employee(employee)
