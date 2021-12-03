@@ -58,3 +58,9 @@ class LLAPI:
     def get_work_reports_by_property(self, property_id):
         '''skilar work reports eftir fasteignum'''
         return self.work_reportll.get_work_reports_by_property(property_id)
+
+    def get_work_report_by_work_report_id(self, work_report_id):
+        return self.work_reportll.get_work_report_by_work_report_id(work_report_id)
+
+    def get_work_request_by_id(self, id):
+        return self.work_requestll.get_work_request_by_id(id)

@@ -4,32 +4,34 @@ class WorkReportListScreen:
     def __init__(self):
         self.llapi = LLAPI()
         
-    def get_work_report_by_wrID(self, work_request):
+    def get_work_report_by_work_request_id(self, work_request_id):
         '''Á að skila work report eftir work request id'''
-        self.options = f"""
-A {work_request.titill}
+        work_request = self.llapi.get_work_request_by_id(work_request_id)
+        work_report = self.llapi.get_work_report_by_work_report_id(work_request)
+        work_report = f"""
+A {work_report.titill}
 
 Verk unnið af: 
-    {work_request.starfsmadur}
+    {work_report.starfsmadur}
 
 Verktaki: 
-    {work_request.Verktaki}
+    {work_report.verktaki}
 
 Tími sem fór í verk í klukkustundum: 
-    {work_request.timi}
+    {work_report.timi}
 
 Kostnaður: 
-    {work_request.keyptur_hlutur} = {work_request.kostnadur}
+    {work_report.keyptur_hlutur} = {work_report.kostnadur}
     ---------------------
-    Samtals: {work_request.samanlagdur_kostnadur}
+    Samtals: {work_report.samanlagdur_kostnadur}
 
 Staðsetning: 
-    {work_request.heimilisfang}
+    {work_report.heimilisfang}
 
 < (S)amþykkja >
 
 """
-        self.work_request = work_request
+        return work_report
 
     def render(self):
         '''Prentar work reports'''

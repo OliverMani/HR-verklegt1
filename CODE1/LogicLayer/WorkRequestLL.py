@@ -22,3 +22,11 @@ class WorkRequestLL:
                 if id == property_id:
                     filtered.append(work_request)
         return filtered
+
+    def get_work_request_by_id(self, id):
+        ''''''
+        work_request_list = self.work_request_list()
+        for work_request in work_request_list:
+            if id == work_request.id:
+                return work_request
+        return None
