@@ -1,26 +1,26 @@
 from LogicLayer.LLAPI import LLAPI
 from Model.WorkReport import WorkReport
 
-class WorkReport:
+class WorkReportListScreen:
     def __init__(self, work_request):
         self.options = f"""
 A {work_request.titill}
 
-Verk unnið af: 
+Verk unnið af:
     {work_request.starfsmaður}
 
-Verktaki: 
+Verktaki:
     {work_request.Verktaki}
 
-Tími sem fór í verk í klukkustundum: 
+Tími sem fór í verk í klukkustundum:
     {work_request.tími}
 
-Kostnaður: 
+Kostnaður:
     {work_request.hlutur} = {work_request.kostnaður}
     ---------------------
     Samtals: {work_request.samanlagður_kostnaður}
 
-Staðsetning: 
+Staðsetning:
     {work_request.heimilisfang}
 
 < (S)amþykkja >
@@ -51,5 +51,3 @@ Staðsetning:
         samtykkt = input("Samþykkt: ")
         report = WorkReport(id,titill,starfsmadur,lysing,dags,lokið,samtykkt)
         self.llapi.create_new_work_report(report)
-
-
