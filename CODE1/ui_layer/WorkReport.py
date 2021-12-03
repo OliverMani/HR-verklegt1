@@ -1,7 +1,11 @@
 from LogicLayer.LLAPI import LLAPI
 
 class WorkReportListScreen:
-    def __init__(self, work_request):
+    def __init__(self):
+        self.llapi = LLAPI()
+        
+    def get_work_report_by_wrID(self, work_request):
+        '''Á að skila work report eftir work request id'''
         self.options = f"""
 A {work_request.titill}
 
@@ -25,12 +29,10 @@ Staðsetning:
 < (S)amþykkja >
 
 """
-        self.llapi = LLAPI()
         self.work_request = work_request
 
     def render(self):
         '''Prentar work reports'''
-        print(self.options)
         work_reports = self.llapi.get_work_report_list()
         print("Skýrslur\n")
         print('\n'.join([x.titill for x in work_reports]))

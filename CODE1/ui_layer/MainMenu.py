@@ -33,6 +33,7 @@ class Main_menu:
         screens = {
             "p": ProfileScreen(self.user),
             "v": WorkRequestListScreen(),
+            "vs": WorkReportListScreen(),
             "f": PropertyListScreen(),
             "s": EmployeeListScreen(),
             "t": False,
@@ -40,7 +41,7 @@ class Main_menu:
             "r": lambda: screens[last_selected].sort_list(input("Áfangastaður: ")),
             "l": lambda: screens[last_selected].search_in_list(input("Leita: ")),
             "x": lambda: screens["v"].sort_by_property(input("ID: ")),
-            "vs": lambda: screens["v"].get_reports_by_employee(input("Starfsmaður: ")),
+            "w": lambda: screens["v"].get_reports_by_employee(input("Starfsmaður: ")),
         }
 
         while selected != "q":
@@ -68,7 +69,7 @@ class Main_menu:
                         print("Skipun ekki framkvæmanleg hér.")
                 #elif command == 'vs':
                 #    if last_selected == 'v':
-                #        screens[command].get_work_report_list()
+                #        screens[command].get_work_report_list(number)
                 else:
                     print(UNKNOWN_COMMAND)
             else:
