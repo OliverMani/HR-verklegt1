@@ -28,7 +28,7 @@ class Main_menu:
         selected = "p"
         #self.screens[self.current_screen].render()
         last_selected = selected
-        
+
 
         screens = {
             "p": ProfileScreen(self.user),
@@ -41,14 +41,11 @@ class Main_menu:
             "r": lambda: screens[last_selected].sort_list(input("Áfangastaður: ")),
             "l": lambda: screens[last_selected].search_in_list(input("Leita: ")),
             "x": lambda: screens["v"].sort_by_property(input("ID: ")),
-<<<<<<< HEAD
             "Ce": lambda: screens["s"].create_new_employee(),
-            "Cp": lambda: screens["f"].create_new_property()
-            }
-=======
+            "Cp": lambda: screens["f"].create_new_property(),
+
             "w": lambda: screens["v"].get_reports_by_employee(input("Starfsmaður: ")),
         }
->>>>>>> 2ea81d2fdb26c3dc330d5cdc501931fe4f109eae
 
         while selected != "q":
             screen = screens.get(selected)
@@ -60,7 +57,7 @@ class Main_menu:
 
             if screen is None:
                 print("Óþekkt aðgerð")
-            elif selected in "rlx":  
+            elif selected in "rlx":
                 screen()
             elif selected == "Ce" or selected == "Cp":
                 screen()

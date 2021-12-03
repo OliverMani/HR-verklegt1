@@ -20,13 +20,11 @@ class WorkReportLL:
                 new_list.append(self.starfsmadur, self.titill)
         for report in new_list:
             return report[0], report[1]
-<<<<<<< HEAD
-    
+
     def create_new_work_report(self,report):
         '''býr til nýja verkskýrslu'''
         self.slapi.create_new_work_report(report)
 
-=======
 
     def get_work_reports_by_property(self, property_id):
         '''skilar öllum work reports sem tengjast ákveðinni fasteign'''
@@ -44,5 +42,3 @@ class WorkReportLL:
             if work_report_id == work_request.id:
                 return work_request
         return None
-    
->>>>>>> 2ea81d2fdb26c3dc330d5cdc501931fe4f109eae

@@ -27,13 +27,13 @@ class LLAPI:
 #----------------------------Create föll -----------------------------------------
     def create_new_employee(self,emp):
         return self.employeell.create_new_employee(emp)
-    
+
     def create_new_property(self, prop):
         return self.property_ll.create_new_property(prop)
 
     def create_new_work_report(self,report):
         return self.work_reportll.create_new_work_report(report)
-    
+
     def create_new_work_request(self, req):
         return self.work_requestll.create_new_work_request(req)
 #-----------------------------------------------------------------------------------
@@ -51,12 +51,9 @@ class LLAPI:
     def get_filtered_list_by_destination(self, destination):
         '''skilar filtered list af áfangastöðum'''
         return self.property_ll.get_filtered_list_by_destination(destination)
-<<<<<<< HEAD
-=======
 
     def create_new_employee(self,emp):
         return self.employeell.create_new_employee(emp)
->>>>>>> 2ea81d2fdb26c3dc330d5cdc501931fe4f109eae
 
     def get_report_by_employee(self, employee):
         '''sendir work report list eftir hvaða starfsmaður vann hana'''
@@ -69,8 +66,6 @@ class LLAPI:
     def get_work_request_list_by_property_id(self, property_id):
         '''skilar work request list eftir fasteign'''
         return self.work_requestll.get_list_by_property(property_id)
-<<<<<<< HEAD
-=======
 
     def get_work_reports_by_property(self, property_id):
         '''skilar work reports eftir fasteignum'''
@@ -81,4 +76,3 @@ class LLAPI:
 
     def get_work_request_by_id(self, id):
         return self.work_requestll.get_work_request_by_id(id)
->>>>>>> 2ea81d2fdb26c3dc330d5cdc501931fe4f109eae
