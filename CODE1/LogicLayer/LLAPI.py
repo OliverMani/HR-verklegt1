@@ -11,7 +11,7 @@ class LLAPI:
         self.employeell = EmployeeLL(self.slapi)
         self.work_requestll = WorkRequestLL(self.slapi, self)
         self.property_ll = PropertyLL(self.slapi)
-        self.work_reportll = WorkReportLL(self.slapi)
+        self.work_reportll = WorkReportLL()
 
     def employee_list(self):
         '''sendir employee list í UI layer'''
@@ -43,7 +43,7 @@ class LLAPI:
 
     def get_work_report_list(self):
         '''sendir work report list í UI layer'''
-        return self.work_reportll.get_employee_list()
+        return self.work_reportll.get_work_report_list()
 
     def get_employee_by_name(self, name): #Setja í ll
         return self.employeell.get_employee_by_name(name)
@@ -51,13 +51,34 @@ class LLAPI:
     def get_filtered_list_by_destination(self, destination):
         '''skilar filtered list af áfangastöðum'''
         return self.property_ll.get_filtered_list_by_destination(destination)
+<<<<<<< HEAD
+=======
+
+    def create_new_employee(self,emp):
+        return self.employeell.create_new_employee(emp)
+>>>>>>> 2ea81d2fdb26c3dc330d5cdc501931fe4f109eae
 
     def get_report_by_employee(self, employee):
         '''sendir work report list eftir hvaða starfsmaður vann hana'''
         return self.work_reportll.get_report_by_employee(employee)
 
     def get_property_by_id(self, property_id):
+        '''skilar fasteign eftir auðkenni'''
         return self.property_ll.get_property_by_id(property_id)
 
     def get_work_request_list_by_property_id(self, property_id):
+        '''skilar work request list eftir fasteign'''
         return self.work_requestll.get_list_by_property(property_id)
+<<<<<<< HEAD
+=======
+
+    def get_work_reports_by_property(self, property_id):
+        '''skilar work reports eftir fasteignum'''
+        return self.work_reportll.get_work_reports_by_property(property_id)
+
+    def get_work_report_by_work_report_id(self, work_report_id):
+        return self.work_reportll.get_work_report_by_work_report_id(work_report_id)
+
+    def get_work_request_by_id(self, id):
+        return self.work_requestll.get_work_request_by_id(id)
+>>>>>>> 2ea81d2fdb26c3dc330d5cdc501931fe4f109eae

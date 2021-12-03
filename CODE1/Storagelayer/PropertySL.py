@@ -4,7 +4,7 @@ from Model.Property import Property
 
 class PropertyData:
     def __init__(self):
-        self.filename = "csv_files/fasteignir.csv"
+        self.filename = "csv_files/Properties.csv"
 
     def open_file(self):
         '''opnar property skránna og skilar lista af tilvikum'''

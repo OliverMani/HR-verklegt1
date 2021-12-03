@@ -23,5 +23,14 @@ class WorkRequestLL:
                     filtered.append(work_request)
         return filtered
 
+<<<<<<< HEAD
     def create_new_work_request(self, req):
         self.slapi.create_new_work_request(req)
+=======
+    def get_list_by_employee(self, employee_id):
+        """**Ekki komið** (en....) Fá lista af verkbeiðnum fyrir ákveðinn starfsmann"""
+        pass
+
+    def get_list_by_destination(self, destination_name):
+        pass
+>>>>>>> 2ea81d2fdb26c3dc330d5cdc501931fe4f109eae

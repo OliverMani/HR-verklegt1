@@ -20,8 +20,29 @@ class WorkReportLL:
                 new_list.append(self.starfsmadur, self.titill)
         for report in new_list:
             return report[0], report[1]
+<<<<<<< HEAD
     
     def create_new_work_report(self,report):
         '''býr til nýja verkskýrslu'''
         self.slapi.create_new_work_report(report)
 
+=======
+
+    def get_work_reports_by_property(self, property_id):
+        '''skilar öllum work reports sem tengjast ákveðinni fasteign'''
+        work_report_list = self.slapi.get_work_report_list()
+        property_list = self.slapi.get_property_list()
+        wr_by_property_list = []
+        if property_id in property_list:
+            for property in work_report_list:
+                wr_by_property_list.append(self.titill, self.heimilisfang)
+        return wr_by_property_list
+
+    def get_work_report_by_work_report_id(self, work_report_id):
+        work_report_list = self.get_work_report_list()
+        for work_request in work_report_list:
+            if work_report_id == work_request.id:
+                return work_request
+        return None
+    
+>>>>>>> 2ea81d2fdb26c3dc330d5cdc501931fe4f109eae

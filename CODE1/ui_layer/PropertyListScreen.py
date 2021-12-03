@@ -7,7 +7,6 @@ class PropertyListScreen:
 
     def render(self):
         '''Prentar Fasteignir'''
-        #print(self.options)
         properties = self.llapi.get_property_list()
         print("Fasteignir\n")
         print('\n'.join([(x.id + '. ' + x.heimilisfang) for x in properties]))
@@ -35,12 +34,12 @@ class PropertyListScreen:
     #filter
     def sort_list(self,place):
         '''raðar employee list eftir áfangastað'''
-        property_list = self.llapi.property_list()
-        sorted_list = self.llapi.get_filtered_list_by_destination()
+        property_list = self.llapi.get_property_list()
+        sorted_list = self.llapi.get_filtered_list_by_destination(place)
         for prop in sorted_list:
             print("Nafn:",prop.heimilisfang)
-            print("Staður:", prop.staður)
-            print("Netfang:", prop.netfang)
+            print("Staður:", prop.stadur)
+            #print("Netfang:", prop.netfang)
             print()
 
     def create_new_property(self):

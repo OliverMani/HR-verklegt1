@@ -8,7 +8,6 @@ class EmployeeListScreen:
 
     def render(self):
         '''Prentar út nöfn starfsmanna'''
-        #print(self.options)
         employees = self.llapi.employee_list()
         print("Starfsmenn\n")
         print('\n'.join([x.nafn for x in employees]))
@@ -19,7 +18,7 @@ class EmployeeListScreen:
         employee_list = self.llapi.employee_list()
         found = False
         for name in employee_list:
-            look_up = [name.id, name.nafn, name.netfang, name.heimilisfang, name.heimasimi, name.gsm, name.afangastadur, name.staða, name.active]
+            look_up = [name.id, name.nafn, name.netfang, name.heimilisfang, name.heimasimi, name.gsm, name.afangastadur, name.stada, name.active]
             if word in look_up:
                 found = True
                 print()
@@ -28,7 +27,7 @@ class EmployeeListScreen:
                 print(f"Heimilisfang: {name.heimilisfang}")
                 print(f"GSM: {name.gsm}")
                 print(f"Áfangastaður: {name.afangastadur}")
-                print(f"Starfsheiti: {name.staða}")
+                print(f"Starfsheiti: {name.stada}")
                 print()
         if not found:
             print("Starfsmaður fannst ekki")
@@ -58,4 +57,3 @@ class EmployeeListScreen:
         stada = input("Staða: ")
         emp = Employee(id,nafn,netfang,heimilsfang,heimasimi,gsm,afangastadur,stada,active="True")
         self.llapi.create_new_employee(emp)
-
