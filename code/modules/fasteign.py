@@ -1,3 +1,4 @@
+# Fasteign Models klasinn, heldur utan um gögn um fasteign
 class Fasteign:
     def __init__(self, id, stadur, heimilisfang, fm, herbergi, tegund, fasteignanumer, active):
         self.id = id
@@ -7,5 +8,3 @@ class Fasteign:
         self.tegund = tegund
         self.fasteignarnumer = fasteignarnumer
         self.active = active
-
-#id,staður,heimilisfang,fm,herbergi,tegund,fasteignanúmer,active
