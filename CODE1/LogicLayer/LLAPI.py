@@ -38,3 +38,6 @@ class LLAPI:
 
     def get_filtered_list_by_destination(self, destination):
         return self.propertyll.get_filtered_list_by_destination(destination)
+
+    def create_new_employee(self,emp):
+        return self.employeell.create_new_employee(emp)

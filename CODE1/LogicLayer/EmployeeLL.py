@@ -26,4 +26,5 @@ class EmployeeLL:
                 return user
         return None
 
-     
+    def create_new_employee(self,emp):
+        self.slapi.create_new_employee(emp)
