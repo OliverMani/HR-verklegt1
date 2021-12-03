@@ -90,4 +90,10 @@ morgunfundur:
     Planið í dag er að klára tengja leitar takkan og halda svo áfram 
     að vinna í kröfunum á kröfulistanum. Hugsunin er að við skiptumtum okkur
     í 2 hópa og vinnum saman 2 og 3 saman. 
-    
+Í lok dags:    
+    Við klárðum að kóða flestar leitar valmöguleikana. Kláruðum að skrifa kóðann fyrir innskráninguna.
+    Við settum inn komment. Reyndum að klára að raða fasteignum eftir áfangastöðum. 
+    Bættum við kóða fyrir workreports.
+    Það gekk vel að skipta upp verkefnum á hópa. 
+    Ætlum að taka stöðuna og skipuleggja verkefni morgundagsins í fyrramálið.
+
