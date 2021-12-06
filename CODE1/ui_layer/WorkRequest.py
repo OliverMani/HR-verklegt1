@@ -6,7 +6,7 @@ class WorkRequestListScreen:
     def __init__(self, user):
         self.user = user
         self.options = """
-        
+
 (P)rófíll    (V)erkefni    (F)asteignir    (S)tarfsmenn \t <(T)il baka>   <(Q) Hætta>
 -------------------------------------------------------------------------------------------"""
         self.llapi = LLAPI()
@@ -38,7 +38,7 @@ class WorkRequestListScreen:
             print("(undefined) Breyta verkbeiðni fyrir fasteign")
             print("(undefined) ")
 
-        
+
 
     def sort_by_property(self, property_id):
         """Sýnir verkbeiðnir sem er skellt á ákveðna fasteign (eftir peoperty id)"""
@@ -69,12 +69,12 @@ class WorkRequestListScreen:
 
     def create_new_work_request(self):
         '''býr til nýja vinnubeiðni og appendar henni í WorkRequest.csv skránni'''
-        id = len([x.id for x in self.llapi.work_request_list()])+1
+        id = self.llapi.get_work_request_list()[-1].id+1 # Breytti þessu til að koma í veg fyrir yfirskrif á ID
         titill = input("Titill: ")
-        stadur = input("Staðsetning: ")
+        stadur = self.llapi.get_current_user().afangastadur # Breytti í staðsetningu starfsmanns
         fasteign = input("Fasteign: ")
         lysing = input("Lýsing á verkefni: ")
-        skyrslaID = input("ID á skýrslu: ")#ætti líklegast að gerast sjálfkrafa
+        skyrslaID = id #input("ID á skýrslu: ")#ætti líklegast að gerast sjálfkrafa
         fasteignID = self.llapi.get_property_id_from_input(fasteign)
         if fasteignID:
             req = WorkRequest(id, titill,stadur, fasteign,lysing, skyrslaID, fasteignID, active="True")

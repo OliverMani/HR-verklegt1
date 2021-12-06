@@ -41,13 +41,13 @@ class EmployeeListScreen:
             print()
 
     def create_new_employee(self):
-        id = len([x.id for x in self.llapi.employee_list()])+1
+        id = self.llapi.employee_list()[-1].id+1 # Breytti þessu til að koma í veg fyrir yfirskrif á ID
         nafn = input("Nafn: ")
         netfang = input("Netfang: ")
         heimilsfang = input("Heimilsfang: ")
         heimasimi = input("Heimasími: ")
         gsm = input("Gsm: ")
-        afangastadur = input("Áfangastaður: ")
-        stada = input("Staða: ")
+        afangastadur = self.llapi.get_current_user().afangastadur #sjálfsvirkt, yfirmaður skráir ekki starfsmann fyrir annan stað
+        stada = "starfsmaður" # Sjálfsvirkt, yfirmaður skráir ekki starfsmann sem Chuck Norris sko
         emp = Employee(id,nafn,netfang,heimilsfang,heimasimi,gsm,afangastadur,stada,active="True")
         self.llapi.create_new_employee(emp)
