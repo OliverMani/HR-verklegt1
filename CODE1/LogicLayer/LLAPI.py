@@ -3,6 +3,7 @@ from LogicLayer.EmployeeLL import EmployeeLL
 from LogicLayer.WorkRequestLL import WorkRequestLL
 from LogicLayer.PropertyLL import PropertyLL
 from LogicLayer.WorkReportLL import WorkReportLL
+from LogicLayer.MainMenuLL import MainMenuLL
 
 
 class LLAPI:
@@ -12,6 +13,7 @@ class LLAPI:
         self.work_requestll = WorkRequestLL(self.slapi, self)
         self.property_ll = PropertyLL(self.slapi)
         self.work_reportll = WorkReportLL()
+        self.main_menu_ll = MainMenuLL(self, None)
 
     def employee_list(self):
         '''sendir employee list í UI layer'''
@@ -101,3 +103,10 @@ class LLAPI:
         return self.work_requestll.get_filtered_list_by_destination(destination)
 
 #-------------------------------------------------------------------------------
+#--------------------------[ Main Menu LL ]---------------------------------------
+
+    def set_current_user(self, user):
+        return self.main_menu_ll.set_current_user(user)
+
+    def get_current_user(self, user):
+        return self.main_menu_ll.get_current_user(user)
