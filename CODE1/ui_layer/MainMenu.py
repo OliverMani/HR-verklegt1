@@ -73,8 +73,8 @@ class Main_menu:
                     else:
                         print("Skipun ekki framkvæmanleg hér.")
                 elif command == 'vs':
-                    if last_selected == 'v':
-                        screens[command].get_work_report_by_work_request_id(number)
+                    #if last_selected == 'v':
+                    screens[command].get_work_report_by_id(number)
                 else:
                     print(UNKNOWN_COMMAND)
             else:

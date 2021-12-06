@@ -4,11 +4,15 @@ from Model.WorkReport import WorkReport
 class WorkReportListScreen:
     def __init__(self):
         self.llapi = LLAPI()
+<<<<<<< HEAD
 
     def get_work_report_by_work_request_id(self, work_request_id):
+=======
+        
+    def get_work_report_by_id(self, work_report_id):
+>>>>>>> 86755fb075d2ee0761d937e2dc5428188dc8a663
         '''Á að skila work report eftir work request id'''
-        work_request = self.llapi.get_work_request_by_id(work_request_id)
-        work_report = self.llapi.get_work_report_by_work_report_id(work_request)
+        work_report = self.llapi.get_work_report_by_work_report_id(work_report_id)
         work_report = f"""
 A {work_report.titill}
 
@@ -30,8 +34,8 @@ Staðsetning:
     {work_report.heimilisfang}
 
 < (S)amþykkja >
-
 """
+        print(work_report)
         return work_report
 
     def render(self):
@@ -46,6 +50,7 @@ Staðsetning:
         emp_report = LLAPI.get_report_by_employee()
         print(f"Nafn: {emp_report[0]}\nTitill: {emp_report[1]}")
 
+<<<<<<< HEAD
     def create_new_work_report(self):
         id = input("ID: ")
         titill = input("Titill: ")
@@ -58,6 +63,9 @@ Staðsetning:
         self.llapi.create_new_work_report(report)
 
     def get_wr_by_property(self, property_id):
+=======
+    def get_work_report_by_property(self, property_id):
+>>>>>>> 86755fb075d2ee0761d937e2dc5428188dc8a663
         '''prentar work reports eftir fasteign'''
         prop_reports = LLAPI.get_work_reports_by_property(property_id)
         print(f"Titill: {prop_reports[0]}\nHeimilisfang: {prop_reports[1]}")
