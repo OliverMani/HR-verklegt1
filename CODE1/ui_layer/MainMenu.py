@@ -3,6 +3,7 @@ from ui_layer.WorkRequest import WorkRequestListScreen
 from ui_layer.EmployeeListScreen import EmployeeListScreen
 from ui_layer.PropertyListScreen import PropertyListScreen
 from ui_layer.WorkReport import WorkReportListScreen
+from LogicLayer.LLAPI import LLAPI
 
 UNKNOWN_COMMAND = "Óþekkt aðgerð"
 ONLY_MANAGERS = "Aðgerð aðeins fyrir yfirmenn"
@@ -65,7 +66,7 @@ class Main_menu:
             elif selected == "ce" or selected == "cp":
                 screen()
             elif selected == 'cvr':
-                WorkReportListScreen.create_new_work_report(self)
+                WorkReportListScreen().create_new_work_report()
             elif selected[0].isdigit():
                 # Skilast í túplu
                 number, command = self.parse_digital_commands(selected)
