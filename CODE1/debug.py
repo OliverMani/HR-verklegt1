@@ -2,14 +2,22 @@ from ui_layer.EmployeeListScreen import EmployeeListScreen
 from ui_layer.PropertyListScreen import PropertyListScreen
 from ui_layer.WorkReport import WorkReportListScreen
 from ui_layer.WorkRequest import WorkRequestListScreen
-# a = EmployeeListScreen()
-# a.create_new_employee()
 
-#b = PropertyListScreen()
-#b.create_new_property()
+from ui_layer.LoginScreen import Login
 
-c = WorkReportListScreen()
-c.create_new_work_report()
 
-#d = WorkRequestListScreen()
-#d.create_new_work_request()
+
+
+user_input = input("Nafn: ")
+#user_input = "Jan Jacobsen"
+user = Login(user_input).login()
+
+while user == None:
+    user_input = input("Nafn: ")
+    user = Login(user_input).login()
+
+print(user)
+
+WorkReportListScreen().create_new_work_report(user)
+
+    

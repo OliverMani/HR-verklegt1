@@ -47,8 +47,9 @@ class LLAPI:
 
     def get_employee_by_name(self, name): #Setja í ll
         return self.employeell.get_employee_by_name(name)
-
-
+    
+    def get_employee_id_by_name(self, name): #Setja í ll
+        return self.employeell.get_employee_id_by_name(name)
 
     def get_report_by_employee(self, employee):
         '''sendir work report list eftir hvaða starfsmaður vann hana'''
@@ -60,7 +61,7 @@ class LLAPI:
 
     def get_property_id_from_input(self, property_name):
         """ Fall sem tekur inn hvaða fasteign var skráð í verkbeiðnina og finnur hvaða ID hún hefur"""
-        return self.work_requestll.get_property_id_from_input(property_name)
+        return self.property_ll.get_property_id_from_input(property_name)
 
     def get_work_request_list_by_property_id(self, property_id):
         '''skilar work request list eftir fasteign'''
