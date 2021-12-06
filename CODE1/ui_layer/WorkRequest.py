@@ -11,9 +11,14 @@ class WorkRequestListScreen:
 
     def search_in_list(self):
         word = input("Leita: ")
+        results = self.llapi.search_work_requests(word)
+        for request in results:
+            print(request)
+        return result
 
     def sort_list(self):
         word = input("Áfangastaður: ")
+
 
     def render(self):
         '''Það prentar work requests'''
@@ -61,7 +66,5 @@ class WorkRequestListScreen:
         if fasteignID:
             req = WorkRequest(id, titill,stadur, fasteign,lysing, skyrslaID, fasteignID, active="True")
             self.llapi.create_new_work_request(req)
-        else: 
+        else:
             print("\nFasteign ekki til!\nEkki tókst að skrá beiðni!")
-           
-        

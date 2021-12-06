@@ -52,6 +52,7 @@ class Main_menu:
 
 
 
+
             "y": lambda: screens["v"].get_requests_by_employee(input("Starfsmaður: ")),
             "w": lambda: screens["v"].get_reports_by_employee(input("Starfsmaður: ")),
         }

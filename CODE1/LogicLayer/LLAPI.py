@@ -47,7 +47,7 @@ class LLAPI:
 
     def get_employee_by_name(self, name): #Setja í ll
         return self.employeell.get_employee_by_name(name)
-    
+
     def get_employee_id_by_name(self, name): #Setja í ll
         return self.employeell.get_employee_id_by_name(name)
 
@@ -96,4 +96,8 @@ class LLAPI:
     def get_filtered_employee_list_by_destination(self, destination):
         '''Skilar starfsmönnum eftir áfangastað'''
         return self.employeell.get_filtered_list_by_destination(destination)
+
+    def get_filtered_work_request_list_by_destination(self, destination):
+        return self.employeell.get_
+
 #-------------------------------------------------------------------------------
