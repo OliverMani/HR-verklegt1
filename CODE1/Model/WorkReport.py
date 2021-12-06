@@ -1,10 +1,10 @@
 class WorkReport:
     """klasi sem tekur inn allar upplýsingar varðandi Verkskýrslum"""
-    def __init__(self, id, titill, vbId, starfsmadur, verktaki, lysing, dags, timi, kostnadur, heimilisfang, lokid, samtykkt):
+    def __init__(self, id, titill, vbID, starfsmadurID, verktaki, lysing, dags, timi, kostnadur, heimilisfang, lokid, samtykkt):
         self.id = id
         self.titill = titill
-        self.vbId = vbId
-        self.starfsmadur = starfsmadur
+        self.vbID = vbID
+        self.starfsmadurID = starfsmadurID
         self.verktaki = verktaki
         self.lysing = lysing
         self.dags = dags
