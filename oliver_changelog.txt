@@ -9,10 +9,12 @@ Breytingar:
  - Færði user úr UI Main Menu yfir í Logical Main Menu (Bjó til MainMenuLL) svo
    það sé hægt að sjá hver er skráður inn í gegnum LLAPI
    (self.user => self.llapi.get_current_user())
- - 
+ - Skipti út "user" í öllum UI klösunum út fyrir LLAPI frá Main_Menu, þetta gerir
+   það mögulegt að deila hver er skráður inn bæði í logic og ui layer
+ - Yfirmaður getur núna bara bætt við verkefnum, fasteignum og starfsmönnum á
+   SÍNUM áfangastað og ekki annara manna áfangastað
 
 TO-DO:
     - Hreinsa í hverju render
-    - GERA ÞANNIG AÐ YFIRMAÐUR GETI BARA SETT VERKBEIÐNIR Á SÍNUM ÁFANGASTAÐ
     - Yfirmaður skal geta séð upplýsingar um starfsmenn (undirmenn)
     - Færa main menu virkni á logic
