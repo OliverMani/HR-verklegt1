@@ -14,4 +14,4 @@ class WorkRequest:
 # id,titill,staður,skýrsla/fasteign,lýsing,active
 
     def __str__(self) -> str:
-        return "id: {}, titill: {}, stadur: {}, fasteign: {}, lysing: {}, skyrslaid: {},fasteignid: {}, active: {}".format(self.id,self.titill,self.fasteign,self.lysing,self.skyrslaid,self.fasteignid,self.active)
+        return "id: {}, titill: {}, stadur: {}, fasteign: {}, lysing: {}, skyrslaid: {},fasteignid: {}, active: {}".format(self.id,self.titill,self.stadur,self.fasteign,self.lysing,self.skyrslaid,self.fasteignid,self.active)

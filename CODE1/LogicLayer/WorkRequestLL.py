@@ -33,7 +33,7 @@ class WorkRequestLL:
 
     def get_filtered_list_by_destination(self, destination_name):
         '''Skilar lista af verkbeiðnum á ákveðnum áfangastað'''
-        return [dest for dest in self.work_request_list() if destination_name.lower() == dest.afangastadur.lower()]
+        return [req for req in self.work_request_list() if destination_name.lower() in req.stadur.lower()]
 
     def search(self, word):
         work_requests = self.work_request_list()

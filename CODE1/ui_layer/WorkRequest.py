@@ -17,8 +17,11 @@ class WorkRequestListScreen:
         return result
 
     def sort_list(self):
+        '''Prentar út verkbeiðnir á ákveðnum áfangastað'''
         word = input("Áfangastaður: ")
-
+        results = self.llapi.get_filtered_work_request_list_by_destination(word)
+        for request in results:
+            print(f"ID: {request.id}\nTitill: {request.titill}\nStaður: {request.stadur}\n")
 
     def render(self):
         '''Það prentar work requests'''

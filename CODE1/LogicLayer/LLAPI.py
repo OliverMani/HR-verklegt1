@@ -98,6 +98,6 @@ class LLAPI:
         return self.employeell.get_filtered_list_by_destination(destination)
 
     def get_filtered_work_request_list_by_destination(self, destination):
-        return self.employeell.get_
+        return self.work_requestll.get_filtered_list_by_destination(destination)
 
 #-------------------------------------------------------------------------------
