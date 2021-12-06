@@ -48,11 +48,19 @@ Staðsetning:
     def create_new_work_report(self):
         id = input("ID: ")
         titill = input("Titill: ")
+        verkbeidni = input("Verkbeiðni ID: ")
         starfsmadur = input("Starfsmaður: ")
+        verktaki = input("Verktaki: ")
         lysing = input("Lýsing: ")
         dags = input("Dags: ")
+        timi = input("Tími: ")
+        keyptur_hlutur = input("Keyptur hlutur: ")
+        kostnadur = input("Kostnaður: ")
+        samtals_kostnadur = input("Samanlagður kostnaður: ")
+        heimilisfang = input ("Heimilsfang: ")
         lokið = input("Lokið: ")
         samtykkt = input("Samþykkt: ")
+
         report = WorkReport(id,titill,starfsmadur,lysing,dags,lokið,samtykkt)
         self.llapi.create_new_work_report(report)
 
