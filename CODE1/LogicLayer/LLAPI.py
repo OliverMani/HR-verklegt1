@@ -12,7 +12,7 @@ class LLAPI:
         self.employeell = EmployeeLL(self.slapi)
         self.work_requestll = WorkRequestLL(self.slapi, self)
         self.property_ll = PropertyLL(self.slapi)
-        self.work_reportll = WorkReportLL()
+        self.work_reportll = WorkReportLL(self)
         self.main_menu_ll = MainMenuLL(self, None)
 
     def employee_list(self):
@@ -75,6 +75,9 @@ class LLAPI:
     def get_work_reports_by_property(self, property_id):
         '''skilar work reports eftir fasteignum'''
         return self.work_reportll.get_work_reports_by_property(property_id)
+
+    def get_employee_by_work_report_id(self, work_id):
+        return self.work_reportll.get_employee_by_work_report_id(work_id)
 
     def get_work_report_by_work_report_id(self, work_report_id):
         return self.work_reportll.get_work_report_by_work_report_id(work_report_id)

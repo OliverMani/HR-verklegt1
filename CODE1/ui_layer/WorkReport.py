@@ -8,11 +8,47 @@ class WorkReportListScreen:
     def get_work_report_by_id(self, work_report_id):
         '''Á að skila work report eftir work request id'''
         work_report = self.llapi.get_work_report_by_work_report_id(work_report_id)
-        work_report = f"""
+
+        if work_report is None:
+            print("Engin skýrsla fannst við þessari beiðni")
+        else:
+            self.render_work_report(work_report)
+
+    def render_work_report_by_employee_id(self, employee_id):
+        employee = self.llapi.get_employee_by_id(employee_id)
+        if employee is None:
+            print("Starfsmaður fannst ekki")
+        else:
+            work_reports = self.llapi.get_report_by_employee(employee.id)
+            if len(work_reports) == 0:
+                print("Það er engin verkskýrsla skráð á þennan starfsmann!")
+            for report in work_reports:
+                self.render_work_report(report)
+
+    def render_work_report_by_property_id(self, property_id):
+        property = self.llapi.get_property_by_id(property_id)
+        if property is None:
+            print("Fasteign finnst ekki")
+        else:
+            work_reports = self.llapi.get_work_reports_by_property(property.id)
+            if len(work_reports) == 0:
+                print("Það er engin verkskýrsla skráð á þessa fasteign!")
+            for report in work_reports:
+                self.render_work_report(work_report)
+
+
+
+    def render_work_report(self, work_report):
+        employee = self.llapi.get_employee_by_work_report_id(work_report.id)
+        employee_name = 'Ekki vitað'
+        if employee is not None:
+            employee_name = employee.nafn
+
+        work_report_str = f"""
 A {work_report.titill}
 
 Verk unnið af:
-    {work_report.starfsmadur}
+    {employee_name}
 
 Verktaki:
     {work_report.verktaki}
@@ -28,8 +64,9 @@ Staðsetning:
 
 < (S)amþykkja >
 """
-        print(work_report)
-        return work_report
+        print(work_report_str)
+        print("-------------------------")
+        return work_report_str
 
 
     def render(self):

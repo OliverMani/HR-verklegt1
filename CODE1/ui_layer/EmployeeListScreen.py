@@ -12,8 +12,6 @@ class EmployeeListScreen:
         print("Starfsmenn\n")
 
         print('\n'.join([x.id + '. ' + x.nafn for x in employees]))
-        if (self.llapi.get_current_user().stada).lower() == "yfirmaður":
-            print("\n\n(ce) Skrá nýjan starfsmann")
 
         print("\n(L)eita     (R)aða")
 

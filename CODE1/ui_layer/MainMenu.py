@@ -21,6 +21,10 @@ class Main_menu:
     ## Væri gott að færa þetta yfir í logic...
     def parse_digital_commands(self, command) -> tuple:
         """Þetta fall slítur í sundur tölu og skipun (t.d 13v) og skilar í túplu númeri og skipun"""
+        # Ef skipunin er BARA tala (kemur í veg fyrir crash)
+        if command.isdigit():
+            return (command, '')
+
         nums = ''
         i = 0
         while command[i].isdigit():
@@ -98,8 +102,12 @@ class Main_menu:
                     else:
                         print("Skipun ekki framkvæmanleg hér.")
                 elif command == 'vs':
-                    #if last_selected == 'v':
-                    screens[command].get_work_report_by_id(number)
+                    if last_selected == 'v':
+                        screens[command].get_work_report_by_id(number)
+                    elif last_selected == 's':
+                        screens[command].render_work_report_by_employee_id(number)
+                    elif last_selected == 'f':
+                        screens[command].render_work_report_by_property_id(number)
                 elif command == 'p':
                     if self.llapi.get_current_user().stada == MANAGER_STRING:
                         if last_selected == 's':
