@@ -18,10 +18,17 @@ class PropertyData:
         except FileNotFoundError:
             return None
 
+    def has_empty_end_line(self):
+        with open(self.filename, 'r', encoding='utf-8') as file:
+            lines = file.readlines()
+            print(lines)
+            return lines[-1][-1] == '\n'
+
     def create_new_property(self, prop):
         with open(self.filename, 'a', newline='', encoding='utf-8') as csvfile:
+            if not self.has_empty_end_line():
+                csvfile.write('\n')
             fieldnames = ["id", "staður", "heimilisfang", "fm", "herbergi", "tegund", "fasteignanúmer", "active"]
             writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
-            writer.writerow({"id": prop.id, "staður": prop.stadur, "heimilisfang": prop.heimilisfang, "fm": prop.fm, 
+            writer.writerow({"id": prop.id, "staður": prop.stadur, "heimilisfang": prop.heimilisfang, "fm": prop.fm,
             "herbergi": prop.herbergi, "tegund": prop.tegund, "fasteignanúmer": prop.fasteignanumer, "active": prop.active})
-                                     

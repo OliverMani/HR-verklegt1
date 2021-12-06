@@ -24,8 +24,16 @@ class WorkRequestData:
         except FileNotFoundError:
             return None
 
+    def has_empty_end_line(self):
+        with open(self.filename, 'r', encoding='utf-8') as file:
+            lines = file.readlines()
+            print(lines)
+            return lines[-1][-1] == '\n'
+
     def create_new_work_request(self, req):
         with open(self.filename, 'a', newline='', encoding='utf-8') as csvfile:
+            if not self.has_empty_end_line():
+                csvfile.write('\n')
             fieldnames = ["id","titill","staður","fasteign","lýsing","skýrslaid","fasteignid","active"]
             writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
             writer.writerow({"id": req.id ,"titill": req.titill,"staður": req.stadur,"fasteign": req.fasteign,
