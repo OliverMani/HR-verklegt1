@@ -23,7 +23,7 @@ class EmployeeLL:
         employee_list = self.employee_list()
         for names in employee_list:
             if names.nafn == user.nafn:
-                return names
+                 return names
         return None"""
 
     def get_employee_by_name(self, name):
