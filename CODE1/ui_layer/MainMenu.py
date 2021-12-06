@@ -52,7 +52,7 @@ class Main_menu:
 
 
 
-            "w": lambda: screens["v"].get_reports_by_employee(input("Starfsmaður: ")),
+            "w": lambda: screens["vs"].get_reports_by_employee(input("Starfsmaður: ")),
         }
 
         while selected != "q":
@@ -65,7 +65,7 @@ class Main_menu:
 
             if screen is None:
                 print("Óþekkt aðgerð")
-            elif selected in "rlx":
+            elif selected in "rlxw":
                 screen()
             elif selected == "ce" or selected == "cp":
                 screen()

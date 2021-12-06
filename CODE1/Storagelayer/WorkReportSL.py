@@ -13,7 +13,7 @@ class WorkReportData:
                 reader = csv.DictReader(csvfile)
                 for row in reader:
                     work_request_list.append(WorkReport(row['id'], row['titill'], row['vbId'], row['starfsmaður'],row['verktaki'], row['lýsing'], row['dags'],row['tími'],
-                    row['keyptur hlutur'], row['kostnaður'], row['samanlagður kostnaður'], row['heimilisfang'], row['lokið'], row['samþykkt']))
+                    row['kostnaður'], row['heimilisfang'], row['lokið'], row['samþykkt']))
             return work_request_list
         except FileNotFoundError:
             return None
