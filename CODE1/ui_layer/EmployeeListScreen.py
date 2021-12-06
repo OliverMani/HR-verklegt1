@@ -13,8 +13,10 @@ class EmployeeListScreen:
         print('\n'.join([x.nafn for x in employees]))
         print("\n(L)eita     (R)aða")
 
-    def search_in_list(self, word):
+    ### FÆRA VIRKNI Í LOGIC!!!!
+    def search_in_list(self):
         '''leitar eftir starfsmanni og prentar út upplýsingar um starfsmannin, ef starfsmaður finnst ekki þá prentar fallið villu skilaboð'''
+        word = input("Áfangastaður: ")
         employee_list = self.llapi.employee_list()
         found = False
         for name in employee_list:
@@ -32,8 +34,9 @@ class EmployeeListScreen:
         if not found:
             print("Starfsmaður fannst ekki")
 
-    def sort_list(self,place):
+    def sort_list(self):
         '''raðar employee list eftir áfangastað'''
+        place = input("Áfangastaður: ")
         employee_list = self.llapi.employee_list()
         sorted_list = []
         #færa í logic

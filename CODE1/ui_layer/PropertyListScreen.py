@@ -11,8 +11,10 @@ class PropertyListScreen:
         print("Fasteignir\n")
         print('\n'.join([(x.id + '. ' + x.heimilisfang) for x in properties]))
 
-    def search_in_list(self, word):
-        '''Leitar að hvberju sem er í property list og skilar True ef input er fundið annars False'''
+    ### FÆRA VIRKNI Í LOGIC!!!!
+    def search_in_list(self):
+        '''Leitar að hverju sem er í property list og skilar True ef input er fundið annars False'''
+        word = input("Leita: ")
         found = False
         properties = self.llapi.get_property_list()
         for property in properties:
@@ -32,8 +34,9 @@ class PropertyListScreen:
         print()
 
     #filter
-    def sort_list(self,place):
+    def sort_list(self):
         '''raðar employee list eftir áfangastað'''
+        place = input("Áfangastaður: ")
         property_list = self.llapi.get_property_list()
         sorted_list = self.llapi.get_filtered_list_by_destination(place)
         for prop in sorted_list:

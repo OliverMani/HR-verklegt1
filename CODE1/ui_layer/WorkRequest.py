@@ -8,11 +8,11 @@ class WorkRequestListScreen:
 -------------------------------------------------------------------------------------------"""
         self.llapi = LLAPI()
 
-    def search_in_list(self, word):
-        pass
+    def search_in_list(self):
+        word = input("Leita: ")
 
-    def sort_list(self, word):
-        pass
+    def sort_list(self):
+        word = input("Áfangastaður: ")
 
     def render(self):
         '''Það prentar work requests'''
