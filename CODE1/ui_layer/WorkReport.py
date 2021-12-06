@@ -49,7 +49,8 @@ Staðsetning:
         id = len([x.id for x in self.llapi.get_work_report_list()])+1
         titill = input("Titill: ")
         verkbeidniID = input("Verkbeiðni ID: ")
-        starfsmadurID = self.llapi.get_employee_by_name(starfsmaður)
+        starfsmadurID = self.llapi.get_employee_id_by_name(starfsmaður)
+        print(starfsmaður)
         verktaki = input("Verktaki: ")
         lysing = input("Lýsing: ")
         dags = input("Dags: ")

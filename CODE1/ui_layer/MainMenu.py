@@ -50,8 +50,8 @@ class Main_menu:
 
 
 
-
-            "w": lambda: screens["vs"].get_reports_by_employee(input("Starfsmaður: ")),
+            "y": lambda: screens["v"].get_requests_by_employee(input("Starfsmaður: ")),
+            "w": lambda: screens["v"].get_reports_by_employee(input("Starfsmaður: ")),
         }
 
         while selected != "q":
@@ -69,7 +69,7 @@ class Main_menu:
             elif selected == "ce" or selected == "cp":
                 screen()
             elif selected == 'cvr':
-                WorkReportListScreen().create_new_work_report()
+                WorkReportListScreen().create_new_work_report(self.user.nafn)
             elif selected == 'cvb':
                 WorkRequestListScreen().create_new_work_request()
             elif selected == 'cf':

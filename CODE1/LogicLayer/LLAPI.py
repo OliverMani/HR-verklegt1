@@ -47,8 +47,9 @@ class LLAPI:
 
     def get_employee_by_name(self, name): #Setja í ll
         return self.employeell.get_employee_by_name(name)
-
-
+    
+    def get_employee_id_by_name(self, name): #Setja í ll
+        return self.employeell.get_employee_id_by_name(name)
 
     def get_report_by_employee(self, employee):
         '''sendir work report list eftir hvaða starfsmaður vann hana'''

@@ -12,13 +12,8 @@ class WorkReportData:
             with open(self.filename, newline='', encoding="UTF-8") as csvfile:
                 reader = csv.DictReader(csvfile)
                 for row in reader:
-<<<<<<< HEAD
-                    work_request_list.append(WorkReport(row['id'], row['titill'], row['vbId'], row['starfsmaður'],row['verktaki'], row['lýsing'], row['dags'],row['tími'],
-                    row['kostnaður'], row['heimilisfang'], row['lokið'], row['samþykkt']))
-=======
                     work_request_list.append(WorkReport(row['id'], row['titill'], row['vbID'], row['starfsmaðurID'],row['verktaki'], row['lýsing'], row['dags'],row['tími'],
-                    row['keyptur hlutur'], row['kostnaður'], row['samanlagður kostnaður'], row['heimilisfang'], row['lokið'], row['samþykkt']))
->>>>>>> 1a0d6fa73d9bcbb9b817dd43d0b130675a989366
+                    row['kostnaður'], row['heimilisfang'], row['lokið'], row['samþykkt']))
             return work_request_list
         except FileNotFoundError:
             return None
