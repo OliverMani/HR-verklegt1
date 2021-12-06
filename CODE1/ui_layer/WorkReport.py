@@ -46,8 +46,9 @@ Staðsetning:
     def create_new_work_report(self):
         id = input("ID: ")
         titill = input("Titill: ")
-        vb_id = input("Verkbeiðnis ID: ")
+        verkbeidni = input("Verkbeiðni ID: ")
         starfsmadur = input("Starfsmaður: ")
+        verktaki = input("Verktaki: ")
         lysing = input("Lýsing: ")
         dags = input("Dags: ")
         timi = input("Tími: ")
@@ -56,7 +57,7 @@ Staðsetning:
         lokið = input("Lokið: ")
         samtykkt = input("Samþykkt: ")
 
-        report = WorkReport(id,titill,vb_id,starfsmadur,lysing,dags,timi,kostnadur,heimilisfang,lokið,samtykkt)
+        report = WorkReport(id,titill,verkbeidni,starfsmadur, verktaki,lysing,dags,timi,kostnadur,heimilisfang,lokið,samtykkt)
         self.llapi.create_new_work_report(report)
 
     def get_work_report_by_property(self, property_id):

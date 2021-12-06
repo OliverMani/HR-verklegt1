@@ -5,6 +5,8 @@ from ui_layer.PropertyListScreen import PropertyListScreen
 from ui_layer.WorkReport import WorkReportListScreen
 
 UNKNOWN_COMMAND = "Óþekkt aðgerð"
+ONLY_MANAGERS = "Aðgerð aðeins fyrir yfirmenn"
+ONLY_CHUCK_NORRIS = "Aðgerð aðeins fyrir Chuck Norris"
 
 class Main_menu:
     def __init__(self,user) -> None:
@@ -60,7 +62,7 @@ class Main_menu:
                 print("Óþekkt aðgerð")
             elif selected in "rlx":
                 screen()
-            elif selected == "Ce" or selected == "Cp":
+            elif selected == "ce" or selected == "cp":
                 screen()
             elif selected == 'cvr':
                 WorkReportListScreen.create_new_work_report(self)
