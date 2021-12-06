@@ -27,7 +27,6 @@ class WorkRequestData:
     def has_empty_end_line(self):
         with open(self.filename, 'r', encoding='utf-8') as file:
             lines = file.readlines()
-            print(lines)
             return lines[-1][-1] == '\n'
 
     def create_new_work_request(self, req):
