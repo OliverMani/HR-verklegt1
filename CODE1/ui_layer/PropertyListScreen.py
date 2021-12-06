@@ -2,14 +2,18 @@ from LogicLayer.LLAPI import LLAPI
 from Model.Property import Property
 
 class PropertyListScreen:
-    def __init__(self):
+    def __init__(self, user):
         self.llapi = LLAPI()
+        self.user = user
 
     def render(self):
         '''Prentar Fasteignir'''
         properties = self.llapi.get_property_list()
         print("Fasteignir\n")
         print('\n'.join([(x.id + '. ' + x.heimilisfang) for x in properties]))
+        print("(L)eita      (R)aða")
+        if (self.user.stada).lower() == "yfirmaður":
+            print("\n\n(cf) Skrá nýja fasteign")
 
     def search_in_list(self):
         '''Leitar að hverju sem er í property list og skilar True ef input er fundið annars False'''
