@@ -11,7 +11,7 @@ class WorkReportData:
         with open(self.filename, newline='', encoding="UTF-8") as csvfile:
             reader = csv.DictReader(csvfile)
             for row in reader:
-                work_request_list.append(WorkReport(row['id'], row['titill'], row['vbId'], row['starfsmaður'],row['verktaki'], row['lýsing'], row['dags'],row['tími'], row['keyptur hlutur'], row['kostnaður'], row['samanlagður kostnaður'], row['heimilisfang'], row['lokið'], row['samþykkt']))
+                work_request_list.append(WorkReport(row['id'], row['titill'], row['vbId'], row['starfsmaður'],row['verktaki'], row['lýsing'], row['dags'],row['tími'], row['kostnaður'],row['heimilisfang'], row['lokið'], row['samþykkt']))
         return work_request_list                        
     
     def create_new_work_report(self, report):

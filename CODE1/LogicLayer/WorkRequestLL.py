@@ -25,6 +25,8 @@ class WorkRequestLL:
 
     def create_new_work_request(self, req):
         self.slapi.create_new_work_request(req)
+
+        
     def get_list_by_employee(self, employee_id):
         """**Ekki komið** (en....) Fá lista af verkbeiðnum fyrir ákveðinn starfsmann"""
         pass
