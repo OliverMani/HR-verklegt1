@@ -12,6 +12,7 @@ class PropertyLL:
         return self.slapi.get_property_list()
 
     def get_filtered_list_by_destination(self, destination):
+        '''Skilar lista af fasteignum á ákveðnum stað'''
         return [dest for dest in self.slapi.get_property_list() if dest.stadur == destination]
 
     def get_property_by_id(self, property_id):
