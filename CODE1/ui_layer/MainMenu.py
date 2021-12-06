@@ -9,6 +9,8 @@ UNKNOWN_COMMAND = "Óþekkt aðgerð"
 ONLY_MANAGERS = "Aðgerð aðeins fyrir yfirmenn"
 ONLY_CHUCþK_NORRIS = "Aðgerð aðeins fyrir Chuck Norris"
 
+MANAGER_STRING = "yfirmaður"
+
 class Main_menu:
     def __init__(self,user) -> None:
         self.user = user
@@ -43,11 +45,11 @@ class Main_menu:
             "r": lambda: screens[last_selected].sort_list(),
             "l": lambda: screens[last_selected].search_in_list(),
             "x": lambda: screens["v"].sort_by_property(input("ID: ")),
-            "ce": lambda: screens["s"].create_new_employee(),
-            "cvr": lambda: screens["v"].create_new_work_report(self.user), #LAGA
-            "cvb": lambda: screens["v"].create_new_work_request(),  
-            "cf": lambda: screens["f"].create_new_property(),
-            
+            "ce": lambda: screens["s"].create_new_employee() if self.user.stada == MANAGER_STRING else print(ONLY_MANAGERS),
+            "cvr": lambda: screens["v"].create_new_work_report(self.user) if self.user.stada == MANAGER_STRING else print(ONLY_MANAGERS), #LAGA
+            "cvb": lambda: screens["v"].create_new_work_request() if self.user.stada == MANAGER_STRING else print(ONLY_MANAGERS),
+            "cf": lambda: screens["f"].create_new_property() if self.user.stada == MANAGER_STRING else print(ONLY_MANAGERS),
+
 
 
             "y": lambda: screens["v"].get_requests_by_employee(input("Starfsmaður: ")),
@@ -71,7 +73,7 @@ class Main_menu:
             elif selected == 'cvr':
                 WorkReportListScreen().create_new_work_report(self.user.nafn)
             elif selected == 'cvb':
-                WorkRequestListScreen().create_new_work_request()                       
+                WorkRequestListScreen().create_new_work_request()
             elif selected == 'cf':
                 PropertyListScreen().create_new_property()
             elif selected[0].isdigit():
