@@ -2,9 +2,8 @@ from LogicLayer.LLAPI import LLAPI
 from Model.WorkReport import WorkReport
 
 class WorkReportListScreen:
-    def __init__(self, user):
-        self.llapi = LLAPI()
-        self.user = user
+    def __init__(self, llapi):
+        self.llapi = llapi
 
     def get_work_report_by_id(self, work_report_id):
         '''Á að skila work report eftir work request id'''
@@ -41,10 +40,10 @@ Staðsetning:
         print("\n\n(w) Finna skýrslur af ákveðnum starfsmanni")
         print("(undefined) Finna skýrslur fyrir fasteign")
         print("(cvr) Skrá nýja skýrslu")
-        if (self.user.stada).lower() == "yfirmaður":
+        if (self.llapi.get_current_user().stada).lower() == "yfirmaður":
             print("(sv) Samþykkja verkskýrslu")
-            
-            
+
+
 
 
     def get_reports_by_employee(self,employee):

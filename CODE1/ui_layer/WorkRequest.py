@@ -3,13 +3,12 @@ from Model.WorkRequest import WorkRequest
 from ui_layer.PropertyListScreen import PropertyListScreen
 
 class WorkRequestListScreen:
-    def __init__(self, user):
-        self.user = user
+    def __init__(self, llapi):
         self.options = """
 
 (P)rófíll    (V)erkefni    (F)asteignir    (S)tarfsmenn \t <(T)il baka>   <(Q) Hætta>
 -------------------------------------------------------------------------------------------"""
-        self.llapi = LLAPI()
+        self.llapi = llapi
 
     def search_in_list(self):
         word = input("Leita: ")
@@ -33,7 +32,7 @@ class WorkRequestListScreen:
         print('\n'.join([x.id + '. ' + x.titill for x in properties]))
         print("\n\n (vs) Til að skoða verkskýrslur")
         '''Yfirmaður sér þessi skilaboð bara'''
-        if (self.user.stada).lower() == "yfirmaður":
+        if (self.llapi.get_current_user().stada).lower() == "yfirmaður":
             print("(undefined) Loka verkefni ")
             print("(undefined) Breyta verkbeiðni fyrir fasteign")
             print("(undefined) ")
@@ -69,12 +68,12 @@ class WorkRequestListScreen:
 
     def create_new_work_request(self):
         '''býr til nýja vinnubeiðni og appendar henni í WorkRequest.csv skránni'''
-        id = self.llapi.get_work_request_list()[-1].id+1 # Breytti þessu til að koma í veg fyrir yfirskrif á ID
+        id = str(int(self.llapi.work_request_list()[-1].id)+1) # Breytti þessu til að koma í veg fyrir yfirskrif á ID
         titill = input("Titill: ")
         stadur = self.llapi.get_current_user().afangastadur # Breytti í staðsetningu starfsmanns
         fasteign = input("Fasteign: ")
         lysing = input("Lýsing á verkefni: ")
-        skyrslaID = id #input("ID á skýrslu: ")#ætti líklegast að gerast sjálfkrafa
+        skyrslaID = id # SJÁLFSVIRKT
         fasteignID = self.llapi.get_property_id_from_input(fasteign)
         if fasteignID:
             req = WorkRequest(id, titill,stadur, fasteign,lysing, skyrslaID, fasteignID, active="True")

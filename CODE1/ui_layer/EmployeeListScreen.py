@@ -3,9 +3,8 @@ from Model.Employee import Employee
 
 
 class EmployeeListScreen:
-    def __init__(self,user):
-        self.llapi = LLAPI()
-        self.user = user
+    def __init__(self, llapi):
+        self.llapi = llapi
 
     def render(self):
         '''Prentar út nöfn starfsmanna'''
@@ -13,7 +12,7 @@ class EmployeeListScreen:
         print("Starfsmenn\n")
 
         print('\n'.join([x.id + '. ' + x.nafn for x in employees]))
-        if (self.user.stada).lower() == "yfirmaður":
+        if (self.llapi.get_current_user().stada).lower() == "yfirmaður":
             print("\n\n(ce) Skrá nýjan starfsmann")
 
         print("\n(L)eita     (R)aða")
@@ -41,7 +40,7 @@ class EmployeeListScreen:
             print()
 
     def create_new_employee(self):
-        id = self.llapi.employee_list()[-1].id+1 # Breytti þessu til að koma í veg fyrir yfirskrif á ID
+        id = str(int(self.llapi.employee_list()[-1].id)+1) # Breytti þessu til að koma í veg fyrir yfirskrif á ID
         nafn = input("Nafn: ")
         netfang = input("Netfang: ")
         heimilsfang = input("Heimilsfang: ")
