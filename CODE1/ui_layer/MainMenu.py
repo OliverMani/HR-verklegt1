@@ -39,7 +39,7 @@ class Main_menu:
             "v": WorkRequestListScreen(),
             "vs": WorkReportListScreen(),
             "f": PropertyListScreen(self.user),
-            "s": EmployeeListScreen(),
+            "s": EmployeeListScreen(self.user),
             "t": False,
             "q": False,
             "r": lambda: screens[last_selected].sort_list(),

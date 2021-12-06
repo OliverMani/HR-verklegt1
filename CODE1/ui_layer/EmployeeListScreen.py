@@ -3,14 +3,17 @@ from Model.Employee import Employee
 
 
 class EmployeeListScreen:
-    def __init__(self):
+    def __init__(self,user):
         self.llapi = LLAPI()
+        self.user = user
 
     def render(self):
         '''Prentar út nöfn starfsmanna'''
         employees = self.llapi.employee_list()
         print("Starfsmenn\n")
         print('\n'.join([x.nafn for x in employees]))
+        if (self.user.stada).lower() == "yfirmaður":
+            print("\n\n(ce) Skrá nýjan starfsmann")
         print("\n(L)eita     (R)aða")
 
     ### FÆRA VIRKNI Í LOGIC!!!!
