@@ -10,7 +10,7 @@ class EmployeeListScreen:
         '''Prentar út nöfn starfsmanna'''
         employees = self.llapi.employee_list()
         print("Starfsmenn\n")
-        print('\n'.join([x.nafn for x in employees]))
+        print('\n'.join([x.id + '. ' + x.nafn for x in employees]))
         print("\n(L)eita     (R)aða")
 
     def search_in_list(self):
@@ -18,6 +18,7 @@ class EmployeeListScreen:
         word = input("Leita: ")
         results = self.llapi.search_employees(word)
         for employee in results:
+            print("ID:", emp.id)
             print("Nafn:", employee.nafn)
             print("GSM:", employee.gsm)
             print("Netfang:", employee.netfang)
@@ -28,6 +29,7 @@ class EmployeeListScreen:
         place = input("Áfangastaður: ")
         employee_list = self.llapi.get_filtered_employee_list_by_destination(place)
         for emp in employee_list:
+            print("ID:", emp.id)
             print("Nafn:",emp.nafn)
             print("Gsm:", emp.gsm)
             print("Netfang:", emp.netfang)

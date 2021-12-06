@@ -35,7 +35,7 @@ Staðsetning:
         '''Prentar work reports'''
         work_reports = self.llapi.get_work_report_list()
         print("Skýrslur\n")
-        print('\n'.join([x.titill for x in work_reports]))
+        print('\n'.join([x.id + '. ' + x.titill for x in work_reports]))
 
 
     def get_reports_by_employee(self,employee):
