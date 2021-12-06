@@ -38,10 +38,11 @@ Staðsetning:
         print('\n'.join([x.titill for x in work_reports]))
 
 
-    def get_reports_by_employee(self):
+    def get_reports_by_employee(self,employee):
         '''prentar work reports eftir starfsmanni'''
-        emp_report = LLAPI.get_report_by_employee()
-        print(f"Nafn: {emp_report[0]}\nTitill: {emp_report[1]}")
+        emp_report = self.llapi.get_report_by_employee(employee)
+        for report in emp_report:
+            print(f"Titill: {report.titill}\n")
 
     def create_new_work_report(self, starfsmaður):
         '''Býr til nýja vinnuskýrslu og appendar hana í WorkReports csv skránni'''
