@@ -21,9 +21,7 @@ Tími sem fór í verk í klukkustundum:
     {work_report.timi}
 
 Kostnaður:
-    {work_report.keyptur_hlutur} = {work_report.kostnadur}
-    ---------------------
-    Samtals: {work_report.samanlagdur_kostnadur}
+    {work_report.kostnadur}
 
 Staðsetning:
     {work_report.heimilisfang}
@@ -54,14 +52,12 @@ Staðsetning:
         lysing = input("Lýsing: ")
         dags = input("Dags: ")
         timi = input("Tími: ")
-        keyptur_hlutur = input("Keyptur hlutur: ")
         kostnadur = input("Kostnaður: ")
-        samtals_kostnadur = input("Samanlagður kostnaður: ")
-        heimilisfang = input ("Heimilsfang: ")
+        heimilisfang = input("Heimilisfang: ")
         lokið = input("Lokið: ")
         samtykkt = input("Samþykkt: ")
 
-        report = WorkReport(id,titill,starfsmadur,lysing,dags,lokið,samtykkt)
+        report = WorkReport(id,titill,verkbeidni,starfsmadur, verktaki,lysing,dags,timi,kostnadur,heimilisfang,lokið,samtykkt)
         self.llapi.create_new_work_report(report)
 
     def get_work_report_by_property(self, property_id):

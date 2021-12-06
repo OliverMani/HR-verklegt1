@@ -31,7 +31,7 @@ class LLAPI:
     def create_new_property(self, prop):
         return self.property_ll.create_new_property(prop)
 
-    def create_new_work_report(self,report):
+    def create_new_work_report(self, report):
         return self.work_reportll.create_new_work_report(report)
 
     def create_new_work_request(self, req):
@@ -51,9 +51,6 @@ class LLAPI:
     def get_filtered_list_by_destination(self, destination):
         '''skilar filtered list af áfangastöðum'''
         return self.property_ll.get_filtered_list_by_destination(destination)
-
-    def create_new_employee(self,emp):
-        return self.employeell.create_new_employee(emp)
 
     def get_report_by_employee(self, employee):
         '''sendir work report list eftir hvaða starfsmaður vann hana'''

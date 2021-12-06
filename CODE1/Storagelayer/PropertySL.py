@@ -8,12 +8,15 @@ class PropertyData:
 
     def open_file(self):
         '''opnar property skránna og skilar lista af tilvikum'''
-        propertylist = []
-        with open(self.filename, newline='', encoding="UTF-8") as csvfile:
-            reader = csv.DictReader(csvfile)
-            for row in reader:
-                propertylist.append(Property(row['id'], row['staður'], row['heimilisfang'], row['fm'], row['herbergi'], row['tegund'], row['fasteignanúmer'], row['active']))
-        return propertylist
+        try:
+            propertylist = []
+            with open(self.filename, newline='', encoding="UTF-8") as csvfile:
+                reader = csv.DictReader(csvfile)
+                for row in reader:
+                    propertylist.append(Property(row['id'], row['staður'], row['heimilisfang'], row['fm'], row['herbergi'], row['tegund'], row['fasteignanúmer'], row['active']))
+            return propertylist
+        except FileNotFoundError:
+            return None
 
     def create_new_property(self, prop):
         with open(self.filename, 'a', newline='', encoding='utf-8') as csvfile:
