@@ -21,7 +21,13 @@ class PropertyLL:
                 return property
         return None
 
+    def search(self, word):
+        properties = self.get_property_list()
+        result = []
+        for property in properties:
+            if word.lower() in property.heimilisfang.lower():
+                result.append(property)
+        return result
+
     def create_new_property(self, prop):
         self.slapi.create_new_property(prop)
-
-    

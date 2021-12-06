@@ -78,10 +78,10 @@ class LLAPI:
 
 #------------------------[ Search ]---------------------------------------------
     def search_properties(self, search):
-        pass
+        return self.property_ll.search(search)
 
     def search_employees(self, search):
-        pass
+        return self.employeell.search(search)
 
     def search_work_requests(self, search):
         pass
