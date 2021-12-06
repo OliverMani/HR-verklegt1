@@ -40,5 +40,5 @@ class WorkRequestLL:
         result = []
         for work_request in work_requests:
             if word.lower() in work_request.titill.lower():
-                result.append(result)
+                result.append(work_request.titill)
         return result

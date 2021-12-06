@@ -93,7 +93,7 @@ class LLAPI:
         return self.employeell.search(search)
 
     def search_work_requests(self, search):
-        pass
+        return self.work_requestll.search(search)
 
 #-------------------------------------------------------------------------------
 #--------------------------[ Sort/Filter ]---------------------------------------

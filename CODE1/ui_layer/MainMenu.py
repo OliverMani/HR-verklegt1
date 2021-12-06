@@ -86,10 +86,6 @@ class Main_menu:
                 screen()
             elif selected == 'cvr':
                 WorkReportListScreen().create_new_work_report(self.llapi.get_current_user().nafn)
-            elif selected == 'cvb':
-                WorkRequestListScreen().create_new_work_request()
-            elif selected == 'cf':
-                PropertyListScreen().create_new_property()
             elif selected[0].isdigit():
                 # Skilast í túplu
                 number, command = self.parse_digital_commands(selected)

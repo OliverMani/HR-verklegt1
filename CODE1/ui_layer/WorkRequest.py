@@ -15,7 +15,7 @@ class WorkRequestListScreen:
         results = self.llapi.search_work_requests(word)
         for request in results:
             print(request)
-        return result
+        
 
     def sort_list(self):
         '''Prentar út verkbeiðnir á ákveðnum áfangastað'''
