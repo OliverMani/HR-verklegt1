@@ -1,0 +1,11 @@
+id,staður,heimilisfang,fm,herbergi,tegund,fasteignanúmer,active
+1,Svalbarði,Vei 217,150,4,einbýlishús,F959594,True
+2,Svalbarði,Longyearbyen Harbor 1,5000,80,kafbátur,AA999-1 - AA999-81,True
+3,Nuuk,iGloo-Ville,35,1*10,snjóhús,64-3900 - 64-3910,True
+4,Nuuk,Suloraq 42,69,2,fjölbíli,64-3875-6,True
+5,Nuuk,Igimaq 7,10,1,snjóhús,64-3831,True
+6,Nuuk,Nuussuaq 4,400,8,villa,64-3812,True
+7,færeyjar,Skákið 15,100,3,raðhús,ix-9331 - ix-9333,True
+8,færeyjar,valbarðsvegur 22,200,5,einbýlishús,ix-2239,True
+9,færeyjar,Nýggivegur 1,15,10,moldarhús,ix-9492 - ix-9502,True
+
