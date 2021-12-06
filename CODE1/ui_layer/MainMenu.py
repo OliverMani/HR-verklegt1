@@ -49,13 +49,6 @@ class Main_menu:
             "cvr": lambda: screens["v"].create_new_work_report(self.user) if self.user.stada == MANAGER_STRING else print(ONLY_MANAGERS), 
             "cvb": lambda: screens["v"].create_new_work_request() if self.user.stada == MANAGER_STRING else print(ONLY_MANAGERS),
             "cf": lambda: screens["f"].create_new_property() if self.user.stada == MANAGER_STRING else print(ONLY_MANAGERS),
-<<<<<<< HEAD
-
-
-
-
-=======
->>>>>>> b432e6f3a5e030a60567f948bc9751f3cc658474
             "y": lambda: screens["v"].get_requests_by_employee(input("Starfsmaður: ")),
             "w": lambda: screens["v"].get_reports_by_employee(input("Starfsmaður: ")),
         }
