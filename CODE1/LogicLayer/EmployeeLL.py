@@ -26,6 +26,14 @@ class EmployeeLL:
                 return user
         return None
 
+    def get_employee_id_by_name(self, name):
+        """ er hann til eða ekki"""
+        employee_list = self.employee_list()
+        for user in employee_list:
+            if name == user.nafn:
+                return user.id
+        return None
+
     def create_new_employee(self,emp):
         self.slapi.create_new_employee(emp)
 

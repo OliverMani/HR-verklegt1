@@ -69,7 +69,7 @@ class Main_menu:
             elif selected == "ce" or selected == "cp":
                 screen()
             elif selected == 'cvr':
-                WorkReportListScreen().create_new_work_report()
+                WorkReportListScreen().create_new_work_report(self.user.nafn)
             elif selected == 'cvb':
                 WorkRequestListScreen().create_new_work_request()                       
             elif selected == 'cf':
