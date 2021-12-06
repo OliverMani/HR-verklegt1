@@ -45,7 +45,7 @@ Staðsetning:
 
     def create_new_work_report(self):
         '''Býr til nýja vinnuskýrslu og appendar hana í WorkReports csv skránni'''
-        id = input("ID: ")
+        id = len([x.id for x in self.llapi.work_request_list()])+1
         titill = input("Titill: ")
         verkbeidni = input("Verkbeiðni ID: ")
         starfsmadur = input("Starfsmaður: ")

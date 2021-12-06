@@ -50,7 +50,8 @@ class WorkRequestListScreen:
 
     def create_new_work_request(self, req):
         '''býr til nýja vinnubeiðni og appendar henni í WorkRequest.csv skránni'''
-        id = input("ID: ")
+        id = len([x.id for x in self.llapi.work_request_list()])+1
+
         titill = input("Titill: ")
         stadur = input("Staðsetning")
         fasteign = input("Fasteign")

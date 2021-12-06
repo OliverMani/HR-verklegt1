@@ -50,7 +50,7 @@ class EmployeeListScreen:
             print()
 
     def create_new_employee(self):
-        id = input("ID: ")
+        id = len([x.id for x in self.llapi.employee_list()])+1
         nafn = input("Nafn: ")
         netfang = input("Netfang: ")
         heimilsfang = input("Heimilsfang: ")

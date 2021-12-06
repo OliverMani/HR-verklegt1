@@ -47,7 +47,7 @@ class PropertyListScreen:
 
     def create_new_property(self):
         '''býr til nýja fasteign og appendar því í fasteignar csv skánni'''
-        id = input("ID: ")
+        id = len([x.id for x in self.llapi.get_property_list()])+1
         stadur = input("Áfangastaður: ")
         heimilisfang = input("Heimilisfang: ")
         fm = input("Fermetrar: ")
