@@ -17,3 +17,6 @@ Breytingar:
  - Gerði þannig að yfirmaður getur séð upplýsingar um annan starfsmann;
       - Ef þú vilt sjá starfsmann 5, þá ferðu í listann af starfsmönnum og skrifar
         svo 5p (sem stendur fyrir profile 5)
+ - Lagaði VS skipunina, hún virkar mjög vel núna á starfsmanna-, fasteignar-, og
+   verkbeiðnalista
+Þarf að laga leit og verkbeiðna listanum
