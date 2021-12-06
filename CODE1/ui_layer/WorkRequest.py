@@ -8,9 +8,15 @@ class WorkRequestListScreen:
 -------------------------------------------------------------------------------------------"""
         self.llapi = LLAPI()
 
+    def search_in_list(self):
+        word = input("Leita: ")
+
+    def sort_list(self):
+        word = input("Áfangastaður: ")
+
     def render(self):
         '''Það prentar work requests'''
-        
+
         properties = self.llapi.work_request_list()
         print("Verkefni\n")
         print('\n'.join([x.titill for x in properties]))
@@ -51,9 +57,6 @@ class WorkRequestListScreen:
         fasteign = input("Fasteign")
         lysing = input("Lýsing á verkefni")
         skyrslaID = input("ID á skýrslu: ")#ætti líklegast að gerast sjálfkrafa
-        fasteignID = input("ID á fasteign: ")#Ditto 
+        fasteignID = input("ID á fasteign: ")#Ditto
         req = WorkRequest(id, titill,stadur, fasteign,lysing, skyrslaID, fasteignID, active="True")
         self.llapi.create_new_work_request(req)
-
-
-
