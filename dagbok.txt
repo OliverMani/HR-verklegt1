@@ -102,3 +102,9 @@ Föstudagurinn 3.desember
     Við byrjuðum að kóða, bætingu á starfsmanni, löguðum margar villur, við kóðuðum þannig það væri hægt að lista
     eftir ákveðni fasteign, bjuggum til föll fyrir yfirmenn, núna er hægt a flokka work reports með starfsmönnum
     t.d. ýta á 1s = starfsmaður 1 work report. Gerðum margar breytingar einnig. Byrjuðum að vinna með branches.
+
+Mánudagurinn 6.desember
+    Við löguðum work reports, bættum við búa til nýja verkskýrslu. Við settum betri upplýsingar um hvað þú getur
+    gert í forritinu og hvenær. Create new föll kominn inn í fyrir mörg options og tilbúin að mestu leiti. 
+    Kominn önnur options eftir því hvort þú sért yfirmaður eða ekki. Við minnkuðum villur 
+    og færa hluti til á réttan stað. Bjuggum til search og sort og settum í logic sem betrumbættan kóða.

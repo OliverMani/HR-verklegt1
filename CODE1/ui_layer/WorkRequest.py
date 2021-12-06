@@ -3,8 +3,10 @@ from Model.WorkRequest import WorkRequest
 from ui_layer.PropertyListScreen import PropertyListScreen
 
 class WorkRequestListScreen:
-    def __init__(self):
+    def __init__(self, user):
+        self.user = user
         self.options = """
+        
 (P)rófíll    (V)erkefni    (F)asteignir    (S)tarfsmenn \t <(T)il baka>   <(Q) Hætta>
 -------------------------------------------------------------------------------------------"""
         self.llapi = LLAPI()
@@ -21,6 +23,13 @@ class WorkRequestListScreen:
         properties = self.llapi.work_request_list()
         print("Verkefni\n")
         print('\n'.join([x.titill for x in properties]))
+        print("\n\n (vs) Til að skoða verkskýrslur")
+        '''Yfirmaður sér þessi skilaboð bara'''
+        if (self.user.stada).lower() == "yfirmaður":
+            print("(undefined) Loka verkefni ")
+            print("(undefined) Breyta verkbeiðni fyrir fasteign")
+            print("(undefined) ")
+
 
     def sort_by_property(self, property_id):
         """Sýnir verkbeiðnir sem er skellt á ákveðna fasteign (eftir peoperty id)"""
