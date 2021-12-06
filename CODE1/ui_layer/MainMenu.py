@@ -17,7 +17,7 @@ class Main_menu:
         self.menu = """
 (P)rófíll    (V)erkefni    (F)asteignir    (S)tarfsmenn \t <(T)il baka>   <(Q) Hætta>
 -------------------------------------------------------------------------------------------"""
-
+    ## Væri gott að færa þetta yfir í logic...
     def parse_digital_commands(self, command) -> tuple:
         """Þetta fall slítur í sundur tölu og skipun (t.d 13v) og skilar í túplu númeri og skipun"""
         nums = ''
@@ -37,9 +37,9 @@ class Main_menu:
         screens = {
             "p": ProfileScreen(self.user),
             "v": WorkRequestListScreen(self.user),
-            "vs": WorkReportListScreen(),
+            "vs": WorkReportListScreen(self.user),
             "f": PropertyListScreen(self.user),
-            "s": EmployeeListScreen(),
+            "s": EmployeeListScreen(self.user),
             "t": False,
             "q": False,
             "r": lambda: screens[last_selected].sort_list(),
