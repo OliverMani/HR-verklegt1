@@ -53,3 +53,12 @@ class EmployeeLL:
             if employee.afangastadur == destination:
                 result.append(employee)
         return result
+
+    def get_employee_by_id(self, id):
+        '''Finnur Starfsmann eftir ID'''
+        employees = self.employee_list()
+
+        for employee in employees:
+            if id == employee.id:
+                return employee
+        return None

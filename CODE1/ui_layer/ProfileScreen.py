@@ -6,14 +6,17 @@ class ProfileScreen:
 
     def render(self):
         '''Prentar strafsmanns upplýsingar'''
-        print("Prófíll")
+        self.render_user(self.llapi.get_current_user())
+
+    def render_user(self, user):
+        print("Prófíll", user.nafn)
         print()
-        print("Nafn: ",(self.llapi.get_current_user().nafn).capitalize())
-        print("Heililisfang: ",(self.llapi.get_current_user().heimilisfang).capitalize())
-        print("GSM: ",self.llapi.get_current_user().gsm)
-        print("Ntfang: ",self.llapi.get_current_user().netfang)
-        print("Staður: ",(self.llapi.get_current_user().afangastadur).capitalize())
-        print("Starfsheiti: ",(self.llapi.get_current_user().stada).capitalize())
+        print("Nafn: ",user.nafn.capitalize())
+        print("Heililisfang: ",user.heimilisfang.capitalize())
+        print("GSM: ",user.gsm)
+        print("Ntfang: ",user.netfang)
+        print("Staður: ",user.afangastadur.capitalize())
+        print("Starfsheiti: ",user.stada.capitalize())
 
     def search_in_list(self):
         print("Þú getur ekki leitað í prófíl")

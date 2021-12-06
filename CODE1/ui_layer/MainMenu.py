@@ -100,6 +100,9 @@ class Main_menu:
                 elif command == 'vs':
                     #if last_selected == 'v':
                     screens[command].get_work_report_by_id(number)
+                elif command == 'p':
+                    if last_selected == 's':
+                        screens['p'].render_user(self.llapi.get_employee_by_id(number))
                 else:
                     print(UNKNOWN_COMMAND)
             else:
