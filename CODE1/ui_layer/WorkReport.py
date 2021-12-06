@@ -43,12 +43,12 @@ Staðsetning:
         emp_report = LLAPI.get_report_by_employee()
         print(f"Nafn: {emp_report[0]}\nTitill: {emp_report[1]}")
 
-    def create_new_work_report(self):
+    def create_new_work_report(self, starfsmaður):
         '''Býr til nýja vinnuskýrslu og appendar hana í WorkReports csv skránni'''
-        id = len([x.id for x in self.llapi.work_request_list()])+1
+        id = len([x.id for x in self.llapi.get_work_report_list()])+1
         titill = input("Titill: ")
-        verkbeidni = input("Verkbeiðni ID: ")
-        starfsmadur = input("Starfsmaður: ")
+        verkbeidniID = input("Verkbeiðni ID: ")
+        starfsmadurID = self.llapi.get_employee_by_name(starfsmaður)
         verktaki = input("Verktaki: ")
         lysing = input("Lýsing: ")
         dags = input("Dags: ")
@@ -58,7 +58,7 @@ Staðsetning:
         lokið = input("Lokið: ")
         samtykkt = input("Samþykkt: ")
 
-        report = WorkReport(id,titill,verkbeidni,starfsmadur, verktaki,lysing,dags,timi,kostnadur,heimilisfang,lokið,samtykkt)
+        report = WorkReport(id,titill,verkbeidniID,starfsmadurID, verktaki,lysing,dags,timi,kostnadur,heimilisfang,lokið,samtykkt)
         self.llapi.create_new_work_report(report)
 
     def get_work_report_by_property(self, property_id):

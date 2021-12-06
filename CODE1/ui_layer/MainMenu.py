@@ -32,7 +32,6 @@ class Main_menu:
         #self.screens[self.current_screen].render()
         last_selected = selected
 
-
         screens = {
             "p": ProfileScreen(self.user),
             "v": WorkRequestListScreen(),
@@ -45,7 +44,7 @@ class Main_menu:
             "l": lambda: screens[last_selected].search_in_list(),
             "x": lambda: screens["v"].sort_by_property(input("ID: ")),
             "ce": lambda: screens["s"].create_new_employee(),
-            "cvr": lambda: screens["v"].create_new_work_report(),
+            "cvr": lambda: screens["v"].create_new_work_report(self.user), #LAGA
             "cvb": lambda: screens["v"].create_new_work_request(),  
             "cf": lambda: screens["f"].create_new_property(),
             

@@ -31,15 +31,7 @@ class WorkRequestLL:
         """**Ekki komið** (en....) Fá lista af verkbeiðnum fyrir ákveðinn starfsmann"""
         pass
 
-    def get_property_id_from_input(self, fasteign_name):
-        properties = self.llapi.get_property_list()
-        found = False
-        for property in properties:
-            if fasteign_name == property.heimilisfang:
-                found = True
-                return property.id
-        if not found:
-            return None
+    
 
 
     def get_list_by_destination(self, destination_name):

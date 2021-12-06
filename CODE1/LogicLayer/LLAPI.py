@@ -60,7 +60,7 @@ class LLAPI:
 
     def get_property_id_from_input(self, property_name):
         """ Fall sem tekur inn hvaða fasteign var skráð í verkbeiðnina og finnur hvaða ID hún hefur"""
-        return self.work_requestll.get_property_id_from_input(property_name)
+        return self.property_ll.get_property_id_from_input(property_name)
 
     def get_work_request_list_by_property_id(self, property_id):
         '''skilar work request list eftir fasteign'''
