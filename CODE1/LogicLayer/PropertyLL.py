@@ -21,6 +21,16 @@ class PropertyLL:
             if property.id == property_id:
                 return property
         return None
+    
+    def get_property_id_from_input(self, fasteign_name):
+        properties = self.llapi.get_property_list()
+        found = False
+        for property in properties:
+            if fasteign_name == property.heimilisfang:
+                found = True
+                return property.id
+        if not found:
+            return None
 
     def search(self, word):
         properties = self.get_property_list()
