@@ -18,7 +18,7 @@ class EmployeeLL:
                 return names
         return None"""
 
-    def get_employee_by_name(self, name): 
+    def get_employee_by_name(self, name):
         """ er hann til eða ekki"""
         employee_list = self.employee_list()
         for user in employee_list:
@@ -28,3 +28,6 @@ class EmployeeLL:
 
     def create_new_employee(self,emp):
         self.slapi.create_new_employee(emp)
+
+    def get_filtered_list_by_destination(self, destination):
+        pass

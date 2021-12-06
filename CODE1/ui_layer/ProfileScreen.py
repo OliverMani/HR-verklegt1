@@ -15,3 +15,9 @@ class ProfileScreen:
         print("Ntfang: ",self.user.netfang)
         print("Staður: ",(self.user.afangastadur).capitalize())
         print("Starfsheiti: ",(self.user.stada).capitalize())
+
+    def search_in_list(self):
+        print("Þú getur ekki leitað í prófíl")
+
+    def sort_list(self):
+        print("Þú getur ekki raðað í prófíl")

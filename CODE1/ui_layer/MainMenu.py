@@ -3,6 +3,7 @@ from ui_layer.WorkRequest import WorkRequestListScreen
 from ui_layer.EmployeeListScreen import EmployeeListScreen
 from ui_layer.PropertyListScreen import PropertyListScreen
 from ui_layer.WorkReport import WorkReportListScreen
+from LogicLayer.LLAPI import LLAPI
 
 UNKNOWN_COMMAND = "Óþekkt aðgerð"
 ONLY_MANAGERS = "Aðgerð aðeins fyrir yfirmenn"
@@ -40,12 +41,16 @@ class Main_menu:
             "s": EmployeeListScreen(),
             "t": False,
             "q": False,
-            "r": lambda: screens[last_selected].sort_list(input("Áfangastaður: ")),
-            "l": lambda: screens[last_selected].search_in_list(input("Leita: ")),
+            "r": lambda: screens[last_selected].sort_list(),
+            "l": lambda: screens[last_selected].search_in_list(),
             "x": lambda: screens["v"].sort_by_property(input("ID: ")),
             "ce": lambda: screens["s"].create_new_employee(),
-            "cp": lambda: screens["f"].create_new_property(),
             "cvr": lambda: screens["v"].create_new_work_report(),
+            "cvb": lambda: screens["v"].create_new_work_request(),  
+            "cf": lambda: screens["f"].create_new_property(),
+            
+
+
 
             "w": lambda: screens["v"].get_reports_by_employee(input("Starfsmaður: ")),
         }
@@ -65,7 +70,11 @@ class Main_menu:
             elif selected == "ce" or selected == "cp":
                 screen()
             elif selected == 'cvr':
-                WorkReportListScreen.create_new_work_report(self)
+                WorkReportListScreen().create_new_work_report()
+            elif selected == 'cvb':
+                WorkRequestListScreen().create_new_work_request()                       
+            elif selected == 'cf':
+                PropertyListScreen().create_new_property()
             elif selected[0].isdigit():
                 # Skilast í túplu
                 number, command = self.parse_digital_commands(selected)
