@@ -50,26 +50,18 @@ class WorkRequestListScreen:
                 print(work_request_list)
 
     def create_new_work_request(self):
-        try:
-            '''býr til nýja vinnubeiðni og appendar henni í WorkRequest.csv skránni'''
-            id = len([x.id for x in self.llapi.work_request_list()])+1
-            titill = input("Titill: ")
-            stadur = input("Staðsetning: ")
-            fasteign = input("Fasteign: ")
-            lysing = input("Lýsing á verkefni: ")
-            skyrslaID = input("ID á skýrslu: ")#ætti líklegast að gerast sjálfkrafa
-            #------------ Þarf að færa á réttan stað, var bara að prufa ---------------
-            properties = self.llapi.get_property_list()
-            found = False
-            for property in properties:
-                if fasteign == property.heimilisfang:
-                    found = True
-                    fasteignID =  property.id
-            if not found:
-                print("\nFasteign fannst ekki í kerfinu!")
-            #---------------------------------------------------------------------------
-        
+        '''býr til nýja vinnubeiðni og appendar henni í WorkRequest.csv skránni'''
+        id = len([x.id for x in self.llapi.work_request_list()])+1
+        titill = input("Titill: ")
+        stadur = input("Staðsetning: ")
+        fasteign = input("Fasteign: ")
+        lysing = input("Lýsing á verkefni: ")
+        skyrslaID = input("ID á skýrslu: ")#ætti líklegast að gerast sjálfkrafa
+        fasteignID = self.llapi.get_property_id_from_input(fasteign)
+        if fasteignID:
             req = WorkRequest(id, titill,stadur, fasteign,lysing, skyrslaID, fasteignID, active="True")
             self.llapi.create_new_work_request(req)
-        except UnboundLocalError:
-            print ("Ekki tókst að skrá beiðni!")
+        else: 
+            print("\nFasteign ekki til!\nEkki tókst að skrá beiðni!")
+           
+        
