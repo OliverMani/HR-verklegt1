@@ -39,6 +39,7 @@ Staðsetning:
         print("Skýrslur\n")
         print('\n'.join([x.titill for x in work_reports]))
         print("\n\n(w) Finna skýrslur af ákveðnum starfsmanni")
+        print("(undefined) Finna skýrslur fyrir fasteign")
         print("(cvr) Skrá nýja skýrslu")
         if (self.user.stada).lower() == "yfirmaður":
             print("(sv) Samþykkja verkskýrslu")
