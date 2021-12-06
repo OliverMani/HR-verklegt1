@@ -13,8 +13,7 @@ Breytingar:
    það mögulegt að deila hver er skráður inn bæði í logic og ui layer
  - Yfirmaður getur núna bara bætt við verkefnum, fasteignum og starfsmönnum á
    SÍNUM áfangastað og ekki annara manna áfangastað
-
-TO-DO:
-    - Hreinsa í hverju render
-    - Yfirmaður skal geta séð upplýsingar um starfsmenn (undirmenn)
-    - Færa main menu virkni á logic
+ - Færði lítinn hluta af main menu í logic (bara user)
+ - Gerði þannig að yfirmaður getur séð upplýsingar um annan starfsmann;
+      - Ef þú vilt sjá starfsmann 5, þá ferðu í listann af starfsmönnum og skrifar
+        svo 5p (sem stendur fyrir profile 5)
