@@ -21,10 +21,9 @@ class WorkReportData:
 
     def create_new_work_report(self, report):
         with open(self.filename, 'a', newline='', encoding='utf-8') as csvfile:
-            fieldnames = ["id", "titill","verkbeidni" "starfsmadur","verktaki", "lysing", "dags","timi","keyptur_hlutur","kostnadur","samtals_kostnadur","heimilsfang", "lokid", "samtykkt"]
+            #csvfile.write("\n")
+
+            fieldnames = ["id", "titill","verkbeidni", "starfsmaður","verktaki", "lysing", "dags","timi","kostnadur","heimilsfang", "lokid", "samtykkt"]
             writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
-            writer.writerow({"id": report.id,"titill": report.titill, "verkbeidni": report.verkbeidni,
-            "starfsmaður": report.starfsmadur,"verktaki":report.verktaki,"lysing": report.lysing,
-            "dags": report.dags, "timi": report.timi ,"keyptur_hlutur":report.keyptur_hlutur,
-            "kostnadur": report.kostnadur,"samtals_kostnadur": report.samtals_kostnadur, "heimilsfang":report.heimilsfang,
-            "lokid": report.lokid, "samtykkt": report.samtykkt})
+            writer.writerow({"id": report.id,"titill": report.titill,"verkbeidni":report.vbId, "starfsmaður": report.starfsmadur,"verktaki":report.verktaki,"lysing": report.lysing,
+            "dags": report.dags, "timi": report.timi, "kostnadur": report.kostnadur, "heimilsfang":report.heimilisfang, "lokid": report.lokid, "samtykkt": report.samtykkt})
