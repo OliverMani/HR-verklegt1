@@ -7,6 +7,7 @@ class WorkReportData:
 
     def open_file(self):
         '''opnar work reports skránna og skilar lista af tilvikum'''
+<<<<<<< HEAD
         try:
             work_request_list = []
             with open(self.filename, newline='', encoding="UTF-8") as csvfile:
@@ -17,6 +18,15 @@ class WorkReportData:
             return work_request_list
         except FileNotFoundError:
             return None                        
+=======
+        work_request_list = []
+        with open(self.filename, newline='', encoding="UTF-8") as csvfile:
+            reader = csv.DictReader(csvfile)
+            for row in reader:
+                work_request_list.append(WorkReport(row['id'], row['titill'], row['vbId'], row['starfsmaður'],row['verktaki'], row['lýsing'], row['dags'],
+                row['tími'], row['kostnaður'],row['heimilisfang'], row['lokið'], row['samþykkt']))
+        return work_request_list                        
+>>>>>>> 28ecbf96cc16c6aae02f1de339b239f0262b46bd
     
     def create_new_work_report(self, report):
         with open(self.filename, 'a', newline='', encoding='utf-8') as csvfile:

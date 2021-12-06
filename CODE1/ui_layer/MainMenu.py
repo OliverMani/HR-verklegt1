@@ -5,6 +5,8 @@ from ui_layer.PropertyListScreen import PropertyListScreen
 from ui_layer.WorkReport import WorkReportListScreen
 
 UNKNOWN_COMMAND = "Óþekkt aðgerð"
+ONLY_MANAGERS = "Aðgerð aðeins fyrir yfirmenn"
+ONLY_CHUCK_NORRIS = "Aðgerð aðeins fyrir Chuck Norris"
 
 class Main_menu:
     def __init__(self,user) -> None:
@@ -41,8 +43,9 @@ class Main_menu:
             "r": lambda: screens[last_selected].sort_list(input("Áfangastaður: ")),
             "l": lambda: screens[last_selected].search_in_list(input("Leita: ")),
             "x": lambda: screens["v"].sort_by_property(input("ID: ")),
-            "Ce": lambda: screens["s"].create_new_employee(),
-            "Cp": lambda: screens["f"].create_new_property(),
+            "ce": lambda: screens["s"].create_new_employee(),
+            "cp": lambda: screens["f"].create_new_property(),
+            "cvr": lambda: screens["v"].create_new_work_report(),
 
             "w": lambda: screens["v"].get_reports_by_employee(input("Starfsmaður: ")),
         }
@@ -59,8 +62,10 @@ class Main_menu:
                 print("Óþekkt aðgerð")
             elif selected in "rlx":
                 screen()
-            elif selected == "Ce" or selected == "Cp":
+            elif selected == "ce" or selected == "cp":
                 screen()
+            elif selected == 'cvr':
+                WorkReportListScreen.create_new_work_report(self)
             elif selected[0].isdigit():
                 # Skilast í túplu
                 number, command = self.parse_digital_commands(selected)
