@@ -9,17 +9,20 @@ class WorkRequestData:
 
     def open_file(self):
         '''opnar work request skránna og skilar lista af tilvikum'''
-        work_request_list = []
-        with open(self.filename, newline='', encoding="UTF-8") as csvfile:
-            reader = csv.DictReader(csvfile)
-            for row in reader:
-                fasteignid = row['fasteignid']
-                if ',' in fasteignid:
-                    fasteignid = fasteignid.split(',')
-                else:
-                    fasteignid = [fasteignid]
-                work_request_list.append(WorkRequest(row['id'], row['titill'], row['staður'], row['fasteign'], row['lýsing'], row['skýrslaid'], row['fasteignid'], row['active']))
-        return work_request_list
+        try:
+            work_request_list = []
+            with open(self.filename, newline='', encoding="UTF-8") as csvfile:
+                reader = csv.DictReader(csvfile)
+                for row in reader:
+                    fasteignid = row['fasteignid']
+                    if ',' in fasteignid:
+                        fasteignid = fasteignid.split(',')
+                    else:
+                        fasteignid = [fasteignid]
+                    work_request_list.append(WorkRequest(row['id'], row['titill'], row['staður'], row['fasteign'], row['lýsing'], row['skýrslaid'], row['fasteignid'], row['active']))
+            return work_request_list
+        except FileNotFoundError:
+            return None
 
     def create_new_work_request(self, req):
         with open(self.filename, 'a', newline='', encoding='utf-8') as csvfile:
