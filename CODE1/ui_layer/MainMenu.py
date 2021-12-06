@@ -38,7 +38,7 @@ class Main_menu:
             "p": ProfileScreen(self.user),
             "v": WorkRequestListScreen(),
             "vs": WorkReportListScreen(),
-            "f": PropertyListScreen(),
+            "f": PropertyListScreen(self.user),
             "s": EmployeeListScreen(),
             "t": False,
             "q": False,
@@ -46,12 +46,9 @@ class Main_menu:
             "l": lambda: screens[last_selected].search_in_list(),
             "x": lambda: screens["v"].sort_by_property(input("ID: ")),
             "ce": lambda: screens["s"].create_new_employee() if self.user.stada == MANAGER_STRING else print(ONLY_MANAGERS),
-            "cvr": lambda: screens["v"].create_new_work_report(self.user) if self.user.stada == MANAGER_STRING else print(ONLY_MANAGERS), #LAGA
+            "cvr": lambda: screens["v"].create_new_work_report(self.user) if self.user.stada == MANAGER_STRING else print(ONLY_MANAGERS), 
             "cvb": lambda: screens["v"].create_new_work_request() if self.user.stada == MANAGER_STRING else print(ONLY_MANAGERS),
             "cf": lambda: screens["f"].create_new_property() if self.user.stada == MANAGER_STRING else print(ONLY_MANAGERS),
-
-
-
             "y": lambda: screens["v"].get_requests_by_employee(input("Starfsmaður: ")),
             "w": lambda: screens["v"].get_reports_by_employee(input("Starfsmaður: ")),
         }
