@@ -108,5 +108,5 @@ class LLAPI:
     def set_current_user(self, user):
         return self.main_menu_ll.set_current_user(user)
 
-    def get_current_user(self, user):
-        return self.main_menu_ll.get_current_user(user)
+    def get_current_user(self):
+        return self.main_menu_ll.get_current_user()
