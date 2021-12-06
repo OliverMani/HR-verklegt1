@@ -48,9 +48,7 @@ class LLAPI:
     def get_employee_by_name(self, name): #Setja í ll
         return self.employeell.get_employee_by_name(name)
 
-    def get_filtered_list_by_destination(self, destination):
-        '''skilar filtered list af áfangastöðum'''
-        return self.property_ll.get_filtered_list_by_destination(destination)
+
 
     def get_report_by_employee(self, employee):
         '''sendir work report list eftir hvaða starfsmaður vann hana'''
@@ -73,3 +71,24 @@ class LLAPI:
 
     def get_work_request_by_id(self, id):
         return self.work_requestll.get_work_request_by_id(id)
+
+#------------------------[ Search ]---------------------------------------------
+    def search_properties(self, search):
+        pass
+
+    def search_employees(self, search):
+        pass
+
+    def search_work_requests(self, search):
+        pass
+
+#-------------------------------------------------------------------------------
+#--------------------------[ Sort/Filter ]---------------------------------------
+    def get_filtered_property_list_by_destination(self, destination):
+        '''skilar filtered list af áfangastöðum'''
+        return self.property_ll.get_filtered_list_by_destination(destination)
+
+    def get_filtered_employee_list_by_destination(self, destination):
+        '''Skilar starfsmönnum eftir áfangastað'''
+        return self.employeell.get_filtered_list_by_destination(destination)
+#-------------------------------------------------------------------------------
