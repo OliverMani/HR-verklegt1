@@ -38,14 +38,7 @@ class WorkReportLL:
 
     def get_work_report_by_work_report_id(self, work_report_id):
         work_report_list = self.get_work_report_list()
-<<<<<<< HEAD
         for work_request in work_report_list:
             if work_report_id == work_request.id:
                 return work_request
         return None
-=======
-        for work_report in work_report_list:
-            if work_report_id == work_report.id:
-                return work_report
-    
->>>>>>> 86755fb075d2ee0761d937e2dc5428188dc8a663
