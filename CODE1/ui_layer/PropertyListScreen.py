@@ -46,6 +46,7 @@ class PropertyListScreen:
             print()
 
     def create_new_property(self):
+        '''býr til nýja fasteign og appendar því í fasteignar csv skánni'''
         id = input("ID: ")
         stadur = input("Áfangastaður: ")
         heimilisfang = input("Heimilisfang: ")

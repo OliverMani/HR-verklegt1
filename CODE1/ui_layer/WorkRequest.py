@@ -23,9 +23,7 @@ class WorkRequestListScreen:
 
     def sort_by_property(self, property_id):
         """Sýnir verkbeiðnir sem er skellt á ákveðna fasteign (eftir peoperty id)"""
-
         work_request_list = self.llapi.get_work_request_list_by_property_id(property_id)
-
         for work_request in work_request_list:
             #if work_request.fasteignid == property_id:
             print(work_request.titill)
@@ -51,6 +49,7 @@ class WorkRequestListScreen:
                 print(work_request_list)
 
     def create_new_work_request(self, req):
+        '''býr til nýja vinnubeiðni og appendar henni í WorkRequest.csv skránni'''
         id = input("ID: ")
         titill = input("Titill: ")
         stadur = input("Staðsetning")

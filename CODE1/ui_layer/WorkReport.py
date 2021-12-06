@@ -44,6 +44,7 @@ Staðsetning:
         print(f"Nafn: {emp_report[0]}\nTitill: {emp_report[1]}")
 
     def create_new_work_report(self):
+        '''Býr til nýja vinnuskýrslu og appendar hana í WorkReports csv skránni'''
         id = input("ID: ")
         titill = input("Titill: ")
         verkbeidni = input("Verkbeiðni ID: ")

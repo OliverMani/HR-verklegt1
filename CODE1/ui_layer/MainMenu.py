@@ -45,8 +45,12 @@ class Main_menu:
             "l": lambda: screens[last_selected].search_in_list(),
             "x": lambda: screens["v"].sort_by_property(input("ID: ")),
             "ce": lambda: screens["s"].create_new_employee(),
-            "cp": lambda: screens["f"].create_new_property(),
             "cvr": lambda: screens["v"].create_new_work_report(),
+            "cvb": lambda: screens["v"].create_new_work_request(),  
+            "cf": lambda: screens["f"].create_new_property(),
+            
+
+
 
             "w": lambda: screens["v"].get_reports_by_employee(input("Starfsmaður: ")),
         }
@@ -67,6 +71,10 @@ class Main_menu:
                 screen()
             elif selected == 'cvr':
                 WorkReportListScreen().create_new_work_report()
+            elif selected == 'cvb':
+                WorkRequestListScreen().create_new_work_request()                       
+            elif selected == 'cf':
+                PropertyListScreen().create_new_property()
             elif selected[0].isdigit():
                 # Skilast í túplu
                 number, command = self.parse_digital_commands(selected)
