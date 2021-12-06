@@ -7,7 +7,7 @@ from LogicLayer.LLAPI import LLAPI
 
 UNKNOWN_COMMAND = "Óþekkt aðgerð"
 ONLY_MANAGERS = "Aðgerð aðeins fyrir yfirmenn"
-ONLY_CHUCK_NORRIS = "Aðgerð aðeins fyrir Chuck Norris"
+ONLY_CHUCþK_NORRIS = "Aðgerð aðeins fyrir Chuck Norris"
 
 class Main_menu:
     def __init__(self,user) -> None:
