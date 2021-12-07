@@ -20,7 +20,7 @@ class EmployeeLL:
                     break
             else:
                 # Leita eftir id,nafn,netfang,heimilisfang,heimasimi,gsm,afangastadur,staða,active
-                look_ups = [employee.id, employee.nafn, employee.netfang, employee.heimilisfang, employee.heimasimi, employee.gsm, employee.afangastadur, employee.stada, employee.active]
+                look_ups = [employee.id, employee.nafn, employee.netfang, employee.heimilisfang, employee.heimasimi, employee.gsm, employee.afangastadurID, employee.stada, employee.active]
                 for look_up in look_ups:
                     if word.lower() in str(look_up).lower(): #str til öryggis ef look_up skilar int
                         result.append(employee)
@@ -59,7 +59,7 @@ class EmployeeLL:
         employees = self.employee_list()
         result = []
         for employee in employees:
-            if employee.afangastadur == destination:
+            if employee.afangastadurID == destination:
                 result.append(employee)
         return result
 

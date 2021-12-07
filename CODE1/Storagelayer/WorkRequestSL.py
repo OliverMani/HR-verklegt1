@@ -6,6 +6,7 @@ from Model.WorkRequest import WorkRequest
 class WorkRequestData:
     def __init__(self):
         self.filename = "csv_files/WorkRequests.csv"
+        self.fieldnames = ["id","titill","staður","fasteign","lýsing","skýrslaid","fasteignid","active"]
 
     def open_file(self):
         '''opnar work request skránna og skilar lista af tilvikum'''
@@ -33,7 +34,23 @@ class WorkRequestData:
         with open(self.filename, 'a', newline='', encoding='utf-8') as csvfile:
             if not self.has_empty_end_line():
                 csvfile.write('\n')
-            fieldnames = ["id","titill","staður","fasteign","lýsing","skýrslaid","fasteignid","active"]
-            writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
+
+            writer = csv.DictWriter(csvfile, fieldnames=self.fieldnames)
             writer.writerow({"id": req.id ,"titill": req.titill,"staður": req.stadur,"fasteign": req.fasteign,
             "lýsing": req.lysing,"skýrslaid": req.skyrslaid,"fasteignid": req.fasteignid,"active": req.active})
+
+    def update(self, work_request):
+        # Við þurfum að fá allan listann yfir verkbeiðnir til að geta breytt honum síðan
+        work_requests = self.open_file()
+        # Í þessari for lykkju erum við að breyta stakinu sem við ætlum að breyta
+        # x verður númer á staki, en ekki stakið sjálft
+        for x in range(len(work_requests)):
+            if work_requests[x].id == work_request.id:
+                work_requests[x] = work_request
+                break
+        # Þegar við erum búnir að uppfæra listann, þá þurfum við að yfirskrifa allt í skránni
+        with open(self.filename, 'w', encoding='utf-8') as csvfile:
+            writer = csv.DictWriter(csvfile, fieldnames=self.fieldnames)
+            for req in len(work_requests):
+                writer.writerow({"id": req.id ,"titill": req.titill,"staður": req.stadur,"fasteign": req.fasteign,
+                "lýsing": req.lysing,"skýrslaid": req.skyrslaid,"fasteignid": req.fasteignid,"active": req.active})
