@@ -2,6 +2,7 @@ from Storagelayer.EmployeeSL import EmployeeData
 from Storagelayer.WorkRequestSL import WorkRequestData
 from Storagelayer.PropertySL import PropertyData
 from Storagelayer.WorkReportSL import WorkReportData
+from Storagelayer.DestinationSL import DestinationData
 
 
 class Slapi:
@@ -10,6 +11,10 @@ class Slapi:
         self.wrSL = WorkRequestData()
         self.proSL = PropertyData()
         self.workrepSL = WorkReportData()
+        self.destSL = DestinationData()
+
+    def get_destination_list(self):
+        return self.destSL.open_file()
 
     def get_employee_list(self):
         '''skilar employee list'''
