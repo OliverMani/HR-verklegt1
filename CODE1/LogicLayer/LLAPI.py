@@ -1,4 +1,5 @@
 from Storagelayer.SLAPI import Slapi
+from LogicLayer.DestinationLL import DestinationLL
 from LogicLayer.EmployeeLL import EmployeeLL
 from LogicLayer.WorkRequestLL import WorkRequestLL
 from LogicLayer.PropertyLL import PropertyLL
@@ -6,14 +7,17 @@ from LogicLayer.WorkReportLL import WorkReportLL
 from LogicLayer.MainMenuLL import MainMenuLL
 
 
+
 class LLAPI:
     def __init__(self):
         self.slapi = Slapi()
+        self.destination_ll = DestinationLL(self.slapi)
         self.employeell = EmployeeLL(self.slapi)
         self.work_requestll = WorkRequestLL(self.slapi, self)
         self.property_ll = PropertyLL(self.slapi)
         self.work_reportll = WorkReportLL(self)
         self.main_menu_ll = MainMenuLL(self, None)
+
 
     def employee_list(self):
         '''sendir employee list í UI layer'''
@@ -39,6 +43,10 @@ class LLAPI:
     def create_new_work_request(self, req):
         return self.work_requestll.create_new_work_request(req)
 #-----------------------------------------------------------------------------------
+    def get_destination_list(self):
+        """Sækjir lista yfir áfangastaði í Logic layer"""
+        return self.destination_ll.destination_list()
+        
     def get_property_list(self):
         '''sendir property list í UI layer'''
         return self.property_ll.get_property_list()

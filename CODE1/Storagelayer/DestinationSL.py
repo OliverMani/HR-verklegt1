@@ -14,7 +14,7 @@ class DestinationData:
             with open(self.filename, newline='', encoding="UTF-8") as csvfile:
                 reader = csv.DictReader(csvfile)
                 for row in reader:
-                    destination_list.append(Destination(row['id'], row['nafn'], row['netfang'], row['heimilisfang'], row['heimasimi'], row['gsm'], row['afangastadur'], row['staða'], row['active']))
+                    destination_list.append(Destination(row['id'], row['staðurID'], row['nheimilisfang'], row['fm'], row['herbergi'], row['tegund'], row['fasteignanúmer'], row['active']))
             return destination_list
         except FileNotFoundError:
             return None
