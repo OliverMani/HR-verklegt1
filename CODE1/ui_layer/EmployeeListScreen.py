@@ -3,17 +3,22 @@ from Model.Employee import Employee
 
 
 class EmployeeListScreen:
-    def __init__(self,user):
-        self.llapi = LLAPI()
-        self.user = user
+    def __init__(self, llapi):
+        self.llapi = llapi
 
     def render(self):
         '''Prentar út nöfn starfsmanna'''
         employees = self.llapi.employee_list()
         print("Starfsmenn\n")
+<<<<<<< HEAD
         print('\n'.join([x.nafn for x in employees]))
         if (self.user.stada).lower() == "yfirmaður":
             print("\n\n(ce) Skrá nýjan starfsmann")
+=======
+
+        print('\n'.join([x.id + '. ' + x.nafn for x in employees]))
+
+>>>>>>> 9e665e9e3dd7d5475b541e308a814deecde1dd6b
         print("\n(L)eita     (R)aða")
 
     def search_in_list(self):
@@ -39,13 +44,13 @@ class EmployeeListScreen:
             print()
 
     def create_new_employee(self):
-        id = len([x.id for x in self.llapi.employee_list()])+1
+        id = str(int(self.llapi.employee_list()[-1].id)+1) # Breytti þessu til að koma í veg fyrir yfirskrif á ID
         nafn = input("Nafn: ")
         netfang = input("Netfang: ")
         heimilsfang = input("Heimilsfang: ")
         heimasimi = input("Heimasími: ")
         gsm = input("Gsm: ")
-        afangastadur = input("Áfangastaður: ")
-        stada = input("Staða: ")
+        afangastadur = self.llapi.get_current_user().afangastadur #sjálfsvirkt, yfirmaður skráir ekki starfsmann fyrir annan stað
+        stada = "starfsmaður" # Sjálfsvirkt, yfirmaður skráir ekki starfsmann sem Chuck Norris sko
         emp = Employee(id,nafn,netfang,heimilsfang,heimasimi,gsm,afangastadur,stada,active="True")
         self.llapi.create_new_employee(emp)

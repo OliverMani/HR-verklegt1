@@ -3,6 +3,7 @@ from LogicLayer.EmployeeLL import EmployeeLL
 from LogicLayer.WorkRequestLL import WorkRequestLL
 from LogicLayer.PropertyLL import PropertyLL
 from LogicLayer.WorkReportLL import WorkReportLL
+from LogicLayer.MainMenuLL import MainMenuLL
 
 
 class LLAPI:
@@ -11,7 +12,8 @@ class LLAPI:
         self.employeell = EmployeeLL(self.slapi)
         self.work_requestll = WorkRequestLL(self.slapi, self)
         self.property_ll = PropertyLL(self.slapi)
-        self.work_reportll = WorkReportLL()
+        self.work_reportll = WorkReportLL(self)
+        self.main_menu_ll = MainMenuLL(self, None)
 
     def employee_list(self):
         '''sendir employee list í UI layer'''
@@ -51,6 +53,9 @@ class LLAPI:
     def get_employee_id_by_name(self, name): #Setja í ll
         return self.employeell.get_employee_id_by_name(name)
 
+    def get_employee_by_id(self, id):
+        return self.employeell.get_employee_by_id(id)
+
     def get_report_by_employee(self, employee):
         '''sendir work report list eftir hvaða starfsmaður vann hana'''
         return self.work_reportll.get_report_by_employee(employee)
@@ -71,6 +76,9 @@ class LLAPI:
         '''skilar work reports eftir fasteignum'''
         return self.work_reportll.get_work_reports_by_property(property_id)
 
+    def get_employee_by_work_report_id(self, work_id):
+        return self.work_reportll.get_employee_by_work_report_id(work_id)
+
     def get_work_report_by_work_report_id(self, work_report_id):
         return self.work_reportll.get_work_report_by_work_report_id(work_report_id)
 
@@ -85,7 +93,7 @@ class LLAPI:
         return self.employeell.search(search)
 
     def search_work_requests(self, search):
-        pass
+        return self.work_requestll.search(search)
 
 #-------------------------------------------------------------------------------
 #--------------------------[ Sort/Filter ]---------------------------------------
@@ -101,3 +109,10 @@ class LLAPI:
         return self.work_requestll.get_filtered_list_by_destination(destination)
 
 #-------------------------------------------------------------------------------
+#--------------------------[ Main Menu LL ]---------------------------------------
+
+    def set_current_user(self, user):
+        return self.main_menu_ll.set_current_user(user)
+
+    def get_current_user(self):
+        return self.main_menu_ll.get_current_user()

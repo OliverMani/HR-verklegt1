@@ -4,21 +4,22 @@ from Model.WorkRequest import WorkRequest
 
 class WorkReportLL:
 
-    def __init__(self):
+    def __init__(self, llapi):
         self.slapi = Slapi()
+        self.llapi = llapi
 
     def get_work_report_list(self):
         '''fær work report skránna frá SLAPI og skilar henni í LLAPI'''
         return self.slapi.get_work_report_list()
 
-    def get_report_by_employee(self, starfsmadur):
+    def get_report_by_employee(self, starfsmadur_id):
         '''vill fá tilbaka lista af skýrslum sem starfsmaður skrifaði'''
         work_report_list = self.slapi.get_work_report_list()
         new_list = []
         for workreport in work_report_list:
-            if starfsmadur == workreport.starfsmadur:
+            if starfsmadur_id == workreport.starfsmadurID:
                 new_list.append(workreport)
-        return new_list 
+        return new_list
 
     def create_new_work_report(self,report):
         '''býr til nýja verkskýrslu'''
@@ -41,3 +42,8 @@ class WorkReportLL:
             if work_report_id == work_request.id:
                 return work_request
         return None
+
+    def get_employee_by_work_report_id(self, work_id):
+        '''Tekur inn ID og finnur hvaða starfsmaður vann verkið'''
+        work_report = self.get_work_report_by_work_report_id(work_id)
+        return self.llapi.get_employee_by_id(work_report.starfsmadurID)

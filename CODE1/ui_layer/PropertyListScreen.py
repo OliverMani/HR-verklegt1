@@ -2,18 +2,19 @@ from LogicLayer.LLAPI import LLAPI
 from Model.Property import Property
 
 class PropertyListScreen:
-    def __init__(self, user):
-        self.llapi = LLAPI()
-        self.user = user
+    def __init__(self, llapi):
+        self.llapi = llapi
 
     def render(self):
         '''Prentar Fasteignir'''
         properties = self.llapi.get_property_list()
         print("Fasteignir\n")
         print('\n'.join([(x.id + '. ' + x.heimilisfang) for x in properties]))
+
+        #if (self.llapi.get_current_user().stada).lower() == "yfirmaður":
+        #    print("\n\n(cf) Skrá nýja fasteign\n")
+
         print("(L)eita      (R)aða")
-        if (self.user.stada).lower() == "yfirmaður":
-            print("\n\n(cf) Skrá nýja fasteign")
 
     def search_in_list(self):
         '''Leitar að hverju sem er í property list og skilar True ef input er fundið annars False'''
@@ -45,8 +46,8 @@ class PropertyListScreen:
 
     def create_new_property(self):
         '''býr til nýja fasteign og appendar því í fasteignar csv skánni'''
-        id = len([x.id for x in self.llapi.get_property_list()])+1
-        stadur = input("Áfangastaður: ")
+        id = str(int(self.llapi.get_property_list()[-1].id)+1) # Breytti þessu til að koma í veg fyrir yfirskrif á ID
+        stadur = self.llapi.get_current_user().afangastadur # breytti í sjálfsvirkt þannig að það fer sjálfkrafa á staðinn sem yfirmaðurinn er yfir
         heimilisfang = input("Heimilisfang: ")
         fm = input("Fermetrar: ")
         herbergi = input("Herbergi: ")

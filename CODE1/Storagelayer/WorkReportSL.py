@@ -18,10 +18,15 @@ class WorkReportData:
         except FileNotFoundError:
             return None
 
+    def has_empty_end_line(self):
+        with open(self.filename, 'r', encoding='utf-8') as file:
+            lines = file.readlines()
+            return lines[-1][-1] == '\n'
 
     def create_new_work_report(self, report):
         with open(self.filename, 'a', newline='', encoding='utf-8') as csvfile:
-            #csvfile.write("\n")
+            if not self.has_empty_end_line():
+                csvfile.write("\n")
 
             fieldnames = ["id", "titill","verkbeidniID", "starfsmaðurID","verktaki", "lýsing", "dags","timi","kostnadur","heimilsfang", "lokid", "samtykkt"]
             writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
