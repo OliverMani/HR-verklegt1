@@ -15,7 +15,7 @@ class EmployeeData:
                 reader = csv.DictReader(csvfile)
                 for row in reader:
                     employeelist.append(Employee(row['id'], row['nafn'], row['netfang'], row['heimilisfang'], row['heimasimi'],
-                    row['gsm'], row['afangastadur'].lower(), row['staða'], row['active']))
+                    row['gsm'], row['afangastadurID'].lower(), row['staða'], row['active']))
             return employeelist
         except FileNotFoundError:
             return None
@@ -30,7 +30,7 @@ class EmployeeData:
         with open(self.filename, 'a', newline='', encoding='utf-8') as csvfile:
             if not self.has_empty_end_line():
                 csvfile.write('\n')
-            fieldnames = ["id", "nafn", "netfang", "heimilisfang", "heimasimi", "gsm", "afangastadur", "staða", "active"]
+            fieldnames = ["id", "nafn", "netfang", "heimilisfang", "heimasimi", "gsm", "afangastadurID", "staða", "active"]
             writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
             writer.writerow({"id": emp.id,"nafn": emp.nafn, "netfang": emp.netfang,"heimilisfang": emp.heimilisfang, "heimasimi": emp.heimasimi,
-            "gsm": emp.gsm, "afangastadur": emp.afangastadur, "staða": emp.stada, "active": emp.active})
+            "gsm": emp.gsm, "afangastadurID": emp.afangastadurID, "staða": emp.stada, "active": emp.active})
