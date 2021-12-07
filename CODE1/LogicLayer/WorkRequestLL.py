@@ -39,6 +39,9 @@ class WorkRequestLL:
         work_requests = self.work_request_list()
         result = []
         for work_request in work_requests:
-            if word.lower() in work_request.titill.lower():
-                result.append(work_request.titill)
+            look_ups = [work_request.id, work_request.titill, work_request.stadur, work_request.fasteign, work_request.lysing, work_request. skyrslaid, work_request.fasteignid, work_request.active]
+            for look_up in look_ups:
+                if word.lower() in str(look_up).lower():
+                    result.append(work_request.titill)
+                    break #brjóta lookup svo niðurstaðan komi ekki oftar en einu sinni
         return result
