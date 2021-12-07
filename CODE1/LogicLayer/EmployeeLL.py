@@ -14,8 +14,12 @@ class EmployeeLL:
         employees = self.employee_list()
         result = []
         for employee in employees:
-            if word.lower() in employee.nafn.lower():
-                result.append(employee)
+            # Leita eftir id,nafn,netfang,heimilisfang,heimasimi,gsm,afangastadur,staða,active
+            look_ups = [employee.id, employee.nafn, employee.netfang, employee.heimilisfang, employee.heimasimi, employee.gsm, employee.afangastadur, employee.stada, employee.active]
+            for look_up in look_ups:
+                if word.lower() in str(look_up).lower(): #str til öryggis ef look_up skilar int
+                    result.append(employee)
+                    break #brjóta lookup svo niðurstaðan komi ekki oftar en einu sinni
         return result
 
     """def employee_profile(self, user):
