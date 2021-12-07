@@ -46,3 +46,4 @@ class EmployeeListScreen:
         stada = "starfsmaður" # Sjálfsvirkt, yfirmaður skráir ekki starfsmann sem Chuck Norris sko
         emp = Employee(id,nafn,netfang,heimilsfang,heimasimi,gsm,afangastadur,stada,active="True")
         self.llapi.create_new_employee(emp)
+        
