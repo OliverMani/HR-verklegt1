@@ -20,7 +20,7 @@ class EmployeeListScreen:
         word = input("Leita: ")
         results = self.llapi.search_employees(word)
         for employee in results:
-            print("ID:", emp.id)
+            print("ID:", employee.id)
             print("Nafn:", employee.nafn)
             print("GSM:", employee.gsm)
             print("Netfang:", employee.netfang)
