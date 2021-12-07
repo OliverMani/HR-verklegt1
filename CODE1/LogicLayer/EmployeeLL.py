@@ -19,8 +19,8 @@ class EmployeeLL:
                     result.append(employee)
                     break
             else:
-                # Leita eftir id,nafn,netfang,heimilisfang,heimasimi,gsm,afangastadur,staða,active
-                look_ups = [employee.id, employee.nafn, employee.netfang, employee.heimilisfang, employee.heimasimi, employee.gsm, employee.afangastadurID, employee.stada, employee.active]
+                # Leita eftir id,nafn,netfang,heimilisfang,heimasimi,gsm,afangastadurID,staða,active
+                look_ups = [employee.id, employee.nafn, employee.netfang, employee.heimilisfang, employee.heimasimi, employee.gsm, employee.IDID, employee.stada, employee.active]
                 for look_up in look_ups:
                     if word.lower() in str(look_up).lower(): #str til öryggis ef look_up skilar int
                         result.append(employee)
@@ -59,7 +59,7 @@ class EmployeeLL:
         employees = self.employee_list()
         result = []
         for employee in employees:
-            if employee.afangastadurID == destination:
+            if employee.IDID == destination:
                 result.append(employee)
         return result
 
@@ -71,3 +71,6 @@ class EmployeeLL:
             if id == employee.id:
                 return employee
         return None
+
+    def update_employee(self, emp):
+        self.slapi.update_employee(emp)

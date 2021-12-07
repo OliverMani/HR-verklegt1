@@ -47,7 +47,7 @@ class PropertyListScreen:
     def create_new_property(self):
         '''býr til nýja fasteign og appendar því í fasteignar csv skánni'''
         id = str(int(self.llapi.get_property_list()[-1].id)+1) # Breytti þessu til að koma í veg fyrir yfirskrif á ID
-        stadur = self.llapi.get_current_user().afangastadur # breytti í sjálfsvirkt þannig að það fer sjálfkrafa á staðinn sem yfirmaðurinn er yfir
+        stadur = self.llapi.get_current_user().afangastadurID # breytti í sjálfsvirkt þannig að það fer sjálfkrafa á staðinn sem yfirmaðurinn er yfir
         heimilisfang = input("Heimilisfang: ")
         fm = input("Fermetrar: ")
         herbergi = input("Herbergi: ")

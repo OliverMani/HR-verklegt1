@@ -15,7 +15,7 @@ class ProfileScreen:
         print("Heililisfang: ",user.heimilisfang.capitalize())
         print("GSM: ",user.gsm)
         print("Ntfang: ",user.netfang)
-        print("Staður: ",user.afangastadur.capitalize())
+        print("Staður: ",user.afangastadurID.capitalize())
         print("Starfsheiti: ",user.stada.capitalize())
 
     def search_in_list(self):

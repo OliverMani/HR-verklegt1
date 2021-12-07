@@ -42,8 +42,25 @@ class EmployeeListScreen:
         heimilsfang = input("Heimilsfang: ")
         heimasimi = input("Heimasími: ")
         gsm = input("Gsm: ")
-        afangastadur = self.llapi.get_current_user().afangastadur #sjálfsvirkt, yfirmaður skráir ekki starfsmann fyrir annan stað
+        afangastadurID = self.llapi.get_current_user().afangastadurID #sjálfsvirkt, yfirmaður skráir ekki starfsmann fyrir annan stað
         stada = "starfsmaður" # Sjálfsvirkt, yfirmaður skráir ekki starfsmann sem Chuck Norris sko
-        emp = Employee(id,nafn,netfang,heimilsfang,heimasimi,gsm,afangastadur,stada,active="True")
+        emp = Employee(id,nafn,netfang,heimilsfang,heimasimi,gsm,afangastadurID,stada,active="True")
         self.llapi.create_new_employee(emp)
+#-----------------------Update föll-----------------------------------------------------
+    def update_employee(self,id):
+        employee = self.llapi.get_employee_by_id(id)
+        nafn = input("Nýtt nafn: ")
+        netfang = input("Nýtt netfang: ")
+        heimilisfang = input("Nýtt heimilisfang: ")
+        heimasimi = input("Nýr heimasími: ")
+        gsm = input("Nýr gsm: ")
+        afangastadurID = input("Hver er réttur áfangastaður?: ")
+        stada = employee.stada
+        active = input("Er starfsmaður active, true/false?")
+        new_employee = Employee(employee.id,nafn,netfang,heimilisfang,heimasimi,gsm,afangastadurID,stada,active)
+        self.llapi.update_employee(new_employee)
+
+#id,nafn,netfang,heimilisfang,heimasimi,gsm,afangastadurID,staða,active
+
+#-----------------------------------------------------------------------------------------
         

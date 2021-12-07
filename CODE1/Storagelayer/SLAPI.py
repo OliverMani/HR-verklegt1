@@ -49,7 +49,7 @@ class Slapi:
         return self.wrSL.create_new_work_request(req)
 
     def update_employee(self, employee):
-        return self.empLL.update(employee)
+        return self.empSL.update(employee)
 
     def update_property(self, property):
         return self.proSL.update(property)

@@ -124,3 +124,8 @@ class LLAPI:
 
     def get_current_user(self):
         return self.main_menu_ll.get_current_user()
+
+#---------------------- Update Föll----------------------------------------------
+
+    def update_employee(self, emp):
+        return self.employeell.update_employee(emp)

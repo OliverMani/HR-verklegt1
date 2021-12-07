@@ -84,7 +84,7 @@ class Main_menu:
 
             if screen is None or len(selected) == 0:
                 print(UNKNOWN_COMMAND)
-            elif selected in "rlxwc":
+            elif selected in "rlxwcb":
                 screen()
             elif selected == 'cvr':
                 WorkReportListScreen().create_new_work_report(self.llapi.get_current_user().nafn)
