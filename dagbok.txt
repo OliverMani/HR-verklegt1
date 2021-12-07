@@ -130,3 +130,6 @@ Mánudagurinn 6.desember
     Svo lagaði ég alla VS skipunina (stendur fyrir verkbeiðni) svo hún virkar núna vel allstaðar
     sem meikar sens að nota hana, og að lokum lagaði ég leitina fyrir verkbeiðnir en ég hafði
     gleymt að tengja leitarfallið í LLAPI við það sem það átti að tengjast við.
+
+Þriðjudagurinn 7. desember 
+    Markmið dagsins er að klára allar A kröfurnar á kröfulistanum.
