@@ -7,13 +7,14 @@ class PropertyLL:
     def __init__(self, slapi):
         self.slapi = slapi
 
+
     def get_property_list(self):
         '''fær property list frá SLAPI og skilar honum Í LLAPI'''
         return self.slapi.get_property_list()
 
     def get_filtered_list_by_destination(self, destination):
         '''Skilar lista af fasteignum á ákveðnum stað'''
-        return [dest for dest in self.slapi.get_property_list() if dest.stadur.lower() == destination]
+        return [dest for dest in self.slapi.get_property_list() if dest.stadurID.lower() == destination.lower()]
 
     def get_property_by_id(self, property_id):
         properties = self.get_property_list()
@@ -21,6 +22,14 @@ class PropertyLL:
             if property.id == property_id:
                 return property
         return None
+
+    def get_properties_by_stadur_id(self, property_id):
+        properties = self.get_property_list()
+        p_list = []
+        for property in properties:
+            if property.stadurID == property_id:
+                p_list.append((property.id,property.heimilisfang))
+        return p_list
 
     def get_property_id_from_input(self, fasteign_name):
         properties = self.get_property_list()
@@ -39,7 +48,7 @@ class PropertyLL:
                     result.append(property)
                     break
             else:
-                look_ups = [property.id,property.stadur, property.heimilisfang, property.fm, property.herbergi,property.tegund, property.fasteignanumer ]
+                look_ups = [property.id,property.stadurID, property.heimilisfang, property.fm, property.herbergi,property.tegund, property.fasteignanumer ]
                 for look_up in look_ups:
                     if word.lower() in str(look_up).lower():
                         result.append(property)
