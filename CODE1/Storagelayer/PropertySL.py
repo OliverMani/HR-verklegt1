@@ -45,5 +45,5 @@ class PropertyData:
         with open(self.filename, 'w', encoding='utf-8') as csvfile:
             writer = csv.DictWriter(csvfile, fieldnames=self.fieldnames)
             for prop in len(properties):
-                writer.writerow({"id": prop.id, "staður": prop.stadur, "heimilisfang": prop.heimilisfang, "fm": prop.fm,
+                writer.writerow({"id": prop.id, "staður": prop.stadurID, "heimilisfang": prop.heimilisfang, "fm": prop.fm,
                 "herbergi": prop.herbergi, "tegund": prop.tegund, "fasteignanúmer": prop.fasteignanumer, "active": prop.active})

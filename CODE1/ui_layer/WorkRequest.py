@@ -22,7 +22,7 @@ class WorkRequestListScreen:
         word = input("Áfangastaður: ")
         results = self.llapi.get_filtered_work_request_list_by_destination(word)
         for request in results:
-            print(f"ID: {request.id}\nTitill: {request.titill}\nStaður: {request.stadur}\n")
+            print(f"ID: {request.id}\nTitill: {request.titill}\nStaður: {request.stadurID}\n")
 
     def render(self):
         '''Það prentar work requests'''
