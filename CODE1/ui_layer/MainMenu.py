@@ -74,14 +74,15 @@ class Main_menu:
 
         while selected != "q":
             screen = screens.get(selected)
-            if selected[0].isdigit():
+
+            if len(selected) > 0 and selected[0].isdigit():
                 screen = True
             if screen == False:
                 return
             print(self.menu)
 
-            if screen is None:
-                print("Óþekkt aðgerð")
+            if screen is None or len(selected) == 0:
+                print(UNKNOWN_COMMAND)
             elif selected in "rlxwc":
                 screen()
             elif selected == 'cvr':

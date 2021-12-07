@@ -34,8 +34,16 @@ class PropertyLL:
         properties = self.get_property_list()
         result = []
         for property in properties:
-            if word.lower() in property.heimilisfang.lower():
-                result.append(property)
+            if word.isdigit():
+                if word == property.id:
+                    result.append(property)
+                    break
+            else:
+                look_ups = [property.id,property.stadur, property.heimilisfang, property.fm, property.herbergi,property.tegund, property.fasteignanumer ]
+                for look_up in look_ups:
+                    if word.lower() in str(look_up).lower():
+                        result.append(property)
+                        break #brjóta lookup svo niðurstaðan komi ekki oftar en einu sinni
         return result
 
     def create_new_property(self, prop):
