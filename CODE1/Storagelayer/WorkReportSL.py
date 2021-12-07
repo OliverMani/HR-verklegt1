@@ -32,3 +32,19 @@ class WorkReportData:
             writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
             writer.writerow({"id": report.id,"titill": report.titill,"verkbeidniID":report.vbID, "starfsmaðurID": report.starfsmadurID,"verktaki":report.verktaki,"lýsing": report.lysing,
             "dags": report.dags, "timi": report.timi, "kostnadur": report.kostnadur, "heimilsfang":report.heimilisfang, "lokid": report.lokid, "samtykkt": report.samtykkt})
+
+    def update(self, work_report):
+        # Við þurfum að fá allan listann yfir verkskýrslur til að geta breytt honum síðan
+        work_reports = self.open_file()
+        # Í þessari for lykkju erum við að breyta stakinu sem við ætlum að breyta
+        # x verður númer á staki, en ekki stakið sjálft
+        for x in range(len(work_reports)):
+            if work_reports[x].id == work_reports.id:
+                work_reports[x] = work_report
+                break
+        # Þegar við erum búnir að uppfæra listann, þá þurfum við að yfirskrifa allt í skránni
+        with open(self.filename, 'w', encoding='utf-8') as csvfile:
+            writer = csv.DictWriter(csvfile, fieldnames=self.fieldnames)
+            for report in len(work_reports):
+                writer.writerow({"id": report.id,"titill": report.titill,"verkbeidniID":report.vbID, "starfsmaðurID": report.starfsmadurID,"verktaki":report.verktaki,"lýsing": report.lysing,
+                "dags": report.dags, "timi": report.timi, "kostnadur": report.kostnadur, "heimilsfang":report.heimilisfang, "lokid": report.lokid, "samtykkt": report.samtykkt})

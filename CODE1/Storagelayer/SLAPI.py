@@ -30,11 +30,11 @@ class Slapi:
     def create_new_employee(self,emp):
         '''Býr til nýjan starfsmann'''
         return self.empSL.create_new_employee(emp)
-    
+
     def create_new_property(self, prop):
         """ Skráir inn nýjar fasteignir"""
         return self.proSL.create_new_property(prop)
-    
+
     def create_new_work_report(self,report):
         '''Setur inn nýja verkskýrslu'''
         return self.workrepSL.create_new_work_report(report)
@@ -43,3 +43,14 @@ class Slapi:
         """ Setur inn nýja verkbeiðni"""
         return self.wrSL.create_new_work_request(req)
 
+    def update_employee(self, employee):
+        return self.empLL.update(employee)
+
+    def update_property(self, property):
+        return self.proSL.update(property)
+
+    def update_work_report(self, work_report):
+        return self.workrepSL.update(work_report)
+
+    def update_work_request(self, work_request):
+        return self.wrSL.update(work_request)
