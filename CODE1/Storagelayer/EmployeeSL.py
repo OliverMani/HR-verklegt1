@@ -33,9 +33,6 @@ class EmployeeData:
             fieldnames = ["id", "nafn", "netfang", "heimilisfang", "heimasimi", "gsm", "afangastadurID", "staða", "active"]
             writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
             writer.writerow({"id": emp.id,"nafn": emp.nafn, "netfang": emp.netfang,"heimilisfang": emp.heimilisfang, "heimasimi": emp.heimasimi,
-<<<<<<< HEAD
-            "gsm": emp.gsm, "afangastadurID": emp.afangastadurID, "staða": emp.stada, "active": emp.active})
-=======
             "gsm": emp.gsm, "afangastadur": emp.afangastadur, "staða": emp.stada, "active": emp.active})
 
     def update(self, employee):
@@ -53,4 +50,4 @@ class EmployeeData:
             for emp in len(employees):
                 writer.writerow({"id": emp.id,"nafn": emp.nafn, "netfang": emp.netfang,"heimilisfang": emp.heimilisfang, "heimasimi": emp.heimasimi,
                 "gsm": emp.gsm, "afangastadur": emp.afangastadur, "staða": emp.stada, "active": emp.active})
->>>>>>> 116c839e0f11492440d1c4265bdde0b87ce5f94a
+
