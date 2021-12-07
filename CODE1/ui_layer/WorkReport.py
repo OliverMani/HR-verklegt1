@@ -34,7 +34,7 @@ class WorkReportListScreen:
             if len(work_reports) == 0:
                 print("Það er engin verkskýrsla skráð á þessa fasteign!")
             for report in work_reports:
-                self.render_work_report(work_report)
+                self.render_work_report(work_reports)
 
 
 
@@ -102,8 +102,8 @@ Staðsetning:
         timi = input("Tími: ")
         kostnadur = input("Kostnaður: ")
         heimilisfang = input("Heimilisfang: ")
-        lokið = input("Lokið: ")
-        samtykkt = input("Samþykkt: ")
+        lokið = input("Lokið: ")#Sjálfkrafa
+        samtykkt = input("Samþykkt: ")#Sjálfkrafa
 
         report = WorkReport(id,titill,verkbeidniID,starfsmadurID, verktaki,lysing,dags,timi,kostnadur,heimilisfang,lokið,samtykkt)
         self.llapi.create_new_work_report(report)

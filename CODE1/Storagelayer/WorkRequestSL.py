@@ -6,7 +6,7 @@ from Model.WorkRequest import WorkRequest
 class WorkRequestData:
     def __init__(self):
         self.filename = "csv_files/WorkRequests.csv"
-        self.fieldnames = ["id","staðurID","fasteignID","skýrslaID","titill","lýsing","active"]
+        self.fieldnames = ["id","stadurID","fasteignID","skyrslaID","titill","lysing","active"]
 
     def open_file(self):
         '''opnar work request skránna og skilar lista af tilvikum'''
@@ -19,8 +19,8 @@ class WorkRequestData:
                     if ',' in fasteignID:
                         fasteignid = fasteignID.split(',')
                     else:
-                        fasteignid = [fasteignid]
-                    work_request_list.append(WorkRequest(row['id'], row['stadurID'], row['fasteignID'], row['skýrslaID'], row['titill'], row['lýsing'], row['active']))
+                        fasteignID = [fasteignID]
+                    work_request_list.append(WorkRequest(row['id'], row['stadurID'], row['fasteignID'], row['skyrslaID'], row['titill'], row['lysing'], row['active']))
             return work_request_list
         except FileNotFoundError:
             return None
@@ -36,8 +36,8 @@ class WorkRequestData:
                 csvfile.write('\n')
 
             writer = csv.DictWriter(csvfile, fieldnames=self.fieldnames)
-            writer.writerow({"id": req.id ,"staðurID": req.stadurID,"fasteignID": req.fasteignID,"skýrslaID": req.skyrslaID,"titill": req.titill,
-            "lýsing": req.lysing,"active": req.active})
+            writer.writerow({"id": req.id ,"stadurID": req.stadurID,"fasteignID": req.fasteignID,"skyrslaID": req.skyrslaID,"titill": req.titill,
+            "lysing": req.lysing,"active": req.active})
 
     def update(self, work_request):
         # Við þurfum að fá allan listann yfir verkbeiðnir til að geta breytt honum síðan
@@ -52,5 +52,5 @@ class WorkRequestData:
         with open(self.filename, 'w', encoding='utf-8') as csvfile:
             writer = csv.DictWriter(csvfile, fieldnames=self.fieldnames)
             for req in len(work_requests):
-                writer.writerow({"id": req.id ,"staðurID": req.stadurID,"fasteignID": req.fasteignID,"skýrslaID": req.skyrslaID,"titill": req.titill,
-                "lýsing": req.lysing,"active": req.active})
+                writer.writerow({"id": req.id ,"stadurID": req.stadurID,"fasteignID": req.fasteignID,"skyrslaID": req.skyrslaID,"titill": req.titill,
+                "lysing": req.lysing,"active": req.active})

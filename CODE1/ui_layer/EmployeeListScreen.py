@@ -42,8 +42,8 @@ class EmployeeListScreen:
         heimilsfang = input("Heimilsfang: ")
         heimasimi = input("Heimasími: ")
         gsm = input("Gsm: ")
-        afangastadur = self.llapi.get_current_user().afangastadur #sjálfsvirkt, yfirmaður skráir ekki starfsmann fyrir annan stað
+        afangastadurID = self.llapi.get_current_user().afangastadurID#sjálfsvirkt, yfirmaður skráir ekki starfsmann fyrir annan stað
         stada = "starfsmaður" # Sjálfsvirkt, yfirmaður skráir ekki starfsmann sem Chuck Norris sko
-        emp = Employee(id,nafn,netfang,heimilsfang,heimasimi,gsm,afangastadur,stada,active="True")
+        emp = Employee(id,nafn,netfang,heimilsfang,heimasimi,gsm,afangastadurID,stada,active="True")
         self.llapi.create_new_employee(emp)
         

@@ -70,13 +70,13 @@ class WorkRequestListScreen:
         '''býr til nýja vinnubeiðni og appendar henni í WorkRequest.csv skránni'''
         id = str(int(self.llapi.work_request_list()[-1].id)+1) # Breytti þessu til að koma í veg fyrir yfirskrif á ID
         titill = input("Titill: ")
-        stadur = self.llapi.get_current_user().afangastadur # Breytti í staðsetningu starfsmanns
+        stadurID = self.llapi.get_current_user().afangastadurID # Breytti í staðsetningu starfsmanns
         fasteign = input("Fasteign: ")
         lysing = input("Lýsing á verkefni: ")
         skyrslaID = id # SJÁLFSVIRKT
         fasteignID = self.llapi.get_property_id_from_input(fasteign)
         if fasteignID:
-            req = WorkRequest(id, titill,stadur, fasteign,lysing, skyrslaID, fasteignID, active="True")
+            req = WorkRequest(id, titill,stadurID, fasteign,lysing, skyrslaID, fasteignID, active="True")
             self.llapi.create_new_work_request(req)
         else:
             print("\nFasteign ekki til!\nEkki tókst að skrá beiðni!")
