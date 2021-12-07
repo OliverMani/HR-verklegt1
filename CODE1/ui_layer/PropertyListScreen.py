@@ -40,7 +40,7 @@ class PropertyListScreen:
         sorted_list = self.llapi.get_filtered_property_list_by_destination(place)
         for prop in sorted_list:
             print("Nafn:",prop.heimilisfang)
-            print("Staður:", prop.stadur)
+            print("Staður:", prop.stadurID)
             #print("Netfang:", prop.netfang)
             print()
 

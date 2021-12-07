@@ -13,7 +13,7 @@ class PropertyLL:
 
     def get_filtered_list_by_destination(self, destination):
         '''Skilar lista af fasteignum á ákveðnum stað'''
-        return [dest for dest in self.slapi.get_property_list() if dest.stadur.lower() == destination]
+        return [dest for dest in self.slapi.get_property_list() if dest.stadurID.lower() == destination.lower()]
 
     def get_property_by_id(self, property_id):
         properties = self.get_property_list()
@@ -39,7 +39,7 @@ class PropertyLL:
                     result.append(property)
                     break
             else:
-                look_ups = [property.id,property.stadur, property.heimilisfang, property.fm, property.herbergi,property.tegund, property.fasteignanumer ]
+                look_ups = [property.id,property.stadurID, property.heimilisfang, property.fm, property.herbergi,property.tegund, property.fasteignanumer ]
                 for look_up in look_ups:
                     if word.lower() in str(look_up).lower():
                         result.append(property)
