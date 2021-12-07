@@ -29,7 +29,7 @@ class WorkRequestListScreen:
 
         properties = self.llapi.work_request_list()
         print("Verkefni\n")
-        print('\n'.join([x.id + '. ' + x.titill for x in properties]))
+        print('\n'.join([x.id + '. ' + x.titill  for x in properties]))
         print("\n\n (vs) Til að skoða verkskýrslur")
         '''Yfirmaður sér þessi skilaboð bara'''
         if (self.llapi.get_current_user().stada).lower() == "yfirmaður":
