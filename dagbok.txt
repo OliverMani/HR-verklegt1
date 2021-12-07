@@ -132,4 +132,9 @@ Mánudagurinn 6.desember
     gleymt að tengja leitarfallið í LLAPI við það sem það átti að tengjast við.
 
 Þriðjudagurinn 7. desember 
-    Markmið dagsins er að klára allar A kröfurnar á kröfulistanum.
+    Markmið dagsins er að klára allar A kröfurnar á kröfulistanum. 
+
+    Við komumst langt með það að gera update fall sem virkar fyrir employees. Við tókum gott skipulag um morguninn
+    hvað ætti eftir að gera til þess að uppfilla allar a kröfur. Við löguðum til í csv skrám eftir breytingum þar sem
+    þurfti. Conflict troubleshooting varð successful. Lögun á leitarkerfi innan forritsins og það virkar núna.
+    Uppsetning á hvað gerist næst eftir að skipun í forritinu betrumbætt og er forritið mun hreinlegra fyrir lestur.
