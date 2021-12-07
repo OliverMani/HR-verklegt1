@@ -37,7 +37,7 @@ class Main_menu:
         screens = {
             "p": ProfileScreen(self.user),
             "v": WorkRequestListScreen(),
-            "vs": WorkReportListScreen(self.user),
+            "vs": WorkReportListScreen(),
             "f": PropertyListScreen(self.user),
             "s": EmployeeListScreen(self.user),
             "t": False,
