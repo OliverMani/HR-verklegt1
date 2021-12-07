@@ -1,20 +1,22 @@
 from LogicLayer.LLAPI import LLAPI
 
 class ProfileScreen:
-    def __init__(self,user):
-        self.llapi = LLAPI()
-        self.user = user
+    def __init__(self, llapi):
+        self.llapi = llapi
 
     def render(self):
         '''Prentar strafsmanns upplýsingar'''
-        print("Prófíll")
+        self.render_user(self.llapi.get_current_user())
+
+    def render_user(self, user):
+        print("Prófíll", user.nafn)
         print()
-        print("Nafn: ",(self.user.nafn).capitalize())
-        print("Heililisfang: ",(self.user.heimilisfang).capitalize())
-        print("GSM: ",self.user.gsm)
-        print("Ntfang: ",self.user.netfang)
-        print("Staður: ",(self.user.afangastadur).capitalize())
-        print("Starfsheiti: ",(self.user.stada).capitalize())
+        print("Nafn: ",user.nafn.capitalize())
+        print("Heililisfang: ",user.heimilisfang.capitalize())
+        print("GSM: ",user.gsm)
+        print("Ntfang: ",user.netfang)
+        print("Staður: ",user.afangastadur.capitalize())
+        print("Starfsheiti: ",user.stada.capitalize())
 
     def search_in_list(self):
         print("Þú getur ekki leitað í prófíl")

@@ -3,63 +3,54 @@ from Model.Employee import Employee
 
 
 class EmployeeListScreen:
-    def __init__(self,user):
-        self.llapi = LLAPI()
-        self.user = user
+    def __init__(self, llapi):
+        self.llapi = llapi
 
     def render(self):
         '''Prentar út nöfn starfsmanna'''
         employees = self.llapi.employee_list()
         print("Starfsmenn\n")
+<<<<<<< HEAD
         print('\n'.join([x.nafn for x in employees]))
         if (self.user.stada).lower() == "yfirmaður":
             print("\n\n(ce) Skrá nýjan starfsmann")
+=======
+
+        print('\n'.join([x.id + '. ' + x.nafn for x in employees]))
+
+>>>>>>> 9e665e9e3dd7d5475b541e308a814deecde1dd6b
         print("\n(L)eita     (R)aða")
 
-    ### FÆRA VIRKNI Í LOGIC!!!!
     def search_in_list(self):
         '''leitar eftir starfsmanni og prentar út upplýsingar um starfsmannin, ef starfsmaður finnst ekki þá prentar fallið villu skilaboð'''
-        word = input("Áfangastaður: ")
-        employee_list = self.llapi.employee_list()
-        found = False
-        for name in employee_list:
-            look_up = [name.id, name.nafn, name.netfang, name.heimilisfang, name.heimasimi, name.gsm, name.afangastadur, name.stada, name.active]
-            if word in look_up:
-                found = True
-                print()
-                print(f"Nafn: {name.nafn}")
-                print(f"Netfang: {name.netfang}")
-                print(f"Heimilisfang: {name.heimilisfang}")
-                print(f"GSM: {name.gsm}")
-                print(f"Áfangastaður: {name.afangastadur}")
-                print(f"Starfsheiti: {name.stada}")
-                print()
-        if not found:
-            print("Starfsmaður fannst ekki")
+        word = input("Leita: ")
+        results = self.llapi.search_employees(word)
+        for employee in results:
+            print("ID:", emp.id)
+            print("Nafn:", employee.nafn)
+            print("GSM:", employee.gsm)
+            print("Netfang:", employee.netfang)
+            print()
 
     def sort_list(self):
-        '''raðar employee list eftir áfangastað'''
+        '''Skrifar út raðaðan lista af starfsmönnum eftir Áfangastöðum'''
         place = input("Áfangastaður: ")
-        employee_list = self.llapi.employee_list()
-        sorted_list = []
-        #færa í logic
-        for stadur in employee_list:
-            if place.strip() == stadur.afangastadur.strip():
-                sorted_list.append((stadur.nafn, stadur.gsm, stadur.netfang))
-        for emp in sorted_list:
-            print("Nafn:",emp[0])
-            print("Gsm:", emp[1])
-            print("Netfang:", emp[2])
+        employee_list = self.llapi.get_filtered_employee_list_by_destination(place)
+        for emp in employee_list:
+            print("ID:", emp.id)
+            print("Nafn:",emp.nafn)
+            print("Gsm:", emp.gsm)
+            print("Netfang:", emp.netfang)
             print()
 
     def create_new_employee(self):
-        id = len([x.id for x in self.llapi.employee_list()])+1
+        id = str(int(self.llapi.employee_list()[-1].id)+1) # Breytti þessu til að koma í veg fyrir yfirskrif á ID
         nafn = input("Nafn: ")
         netfang = input("Netfang: ")
         heimilsfang = input("Heimilsfang: ")
         heimasimi = input("Heimasími: ")
         gsm = input("Gsm: ")
-        afangastadur = input("Áfangastaður: ")
-        stada = input("Staða: ")
+        afangastadur = self.llapi.get_current_user().afangastadur #sjálfsvirkt, yfirmaður skráir ekki starfsmann fyrir annan stað
+        stada = "starfsmaður" # Sjálfsvirkt, yfirmaður skráir ekki starfsmann sem Chuck Norris sko
         emp = Employee(id,nafn,netfang,heimilsfang,heimasimi,gsm,afangastadur,stada,active="True")
         self.llapi.create_new_employee(emp)

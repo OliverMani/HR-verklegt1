@@ -26,13 +26,19 @@ class WorkRequestLL:
     def create_new_work_request(self, req):
         self.slapi.create_new_work_request(req)
 
-        
+
     def get_list_by_employee(self, employee_id):
         """**Ekki komið** (en....) Fá lista af verkbeiðnum fyrir ákveðinn starfsmann"""
         pass
 
-    
+    def get_filtered_list_by_destination(self, destination_name):
+        '''Skilar lista af verkbeiðnum á ákveðnum áfangastað'''
+        return [req for req in self.work_request_list() if destination_name.lower() in req.stadur.lower()]
 
-
-    def get_list_by_destination(self, destination_name):
-        pass
+    def search(self, word):
+        work_requests = self.work_request_list()
+        result = []
+        for work_request in work_requests:
+            if word.lower() in work_request.titill.lower():
+                result.append(work_request.titill)
+        return result

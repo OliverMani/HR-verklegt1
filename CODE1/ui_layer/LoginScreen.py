@@ -9,8 +9,3 @@ class Login:
         """ Fer í gegnum emloyee listan og athugar hvort nafnið á notendanum er skráð þar
         skilar bool True/False """
         return self.llapi.get_employee_by_name(self.user)
-        
-        
-        
-
-    

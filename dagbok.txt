@@ -87,14 +87,14 @@ verkbeiðnir, raðanir og leitir. Við hjálpuðumst að að forrita.
 
 Fimmtudagurinn 2.desember
 morgunfundur:
-    Planið í dag er að klára tengja leitar takkan og halda svo áfram 
+    Planið í dag er að klára tengja leitar takkan og halda svo áfram
     að vinna í kröfunum á kröfulistanum. Hugsunin er að við skiptumtum okkur
-    í 2 hópa og vinnum saman 2 og 3 saman. 
-Í lok dags:    
+    í 2 hópa og vinnum saman 2 og 3 saman.
+Í lok dags:
     Við klárðum að kóða flestar leitar valmöguleikana. Kláruðum að skrifa kóðann fyrir innskráninguna.
-    Við settum inn komment. Reyndum að klára að raða fasteignum eftir áfangastöðum. 
+    Við settum inn komment. Reyndum að klára að raða fasteignum eftir áfangastöðum.
     Bættum við kóða fyrir workreports.
-    Það gekk vel að skipta upp verkefnum á hópa. 
+    Það gekk vel að skipta upp verkefnum á hópa.
     Ætlum að taka stöðuna og skipuleggja verkefni morgundagsins í fyrramálið.
 
 
@@ -102,3 +102,31 @@ Föstudagurinn 3.desember
     Við byrjuðum að kóða, bætingu á starfsmanni, löguðum margar villur, við kóðuðum þannig það væri hægt að lista
     eftir ákveðni fasteign, bjuggum til föll fyrir yfirmenn, núna er hægt a flokka work reports með starfsmönnum
     t.d. ýta á 1s = starfsmaður 1 work report. Gerðum margar breytingar einnig. Byrjuðum að vinna með branches.
+
+Mánudagurinn 6.desember
+    Við löguðum work reports, bættum við búa til nýja verkskýrslu. Við settum betri upplýsingar um hvað þú getur
+    gert í forritinu og hvenær. Create new föll kominn inn í fyrir mörg options og tilbúin að mestu leiti.
+    Kominn önnur options eftir því hvort þú sért yfirmaður eða ekki. Við minnkuðum villur
+    og færa hluti til á réttan stað. Bjuggum til search og sort og settum í logic sem betrumbættan kóða.
+
+    *** KVÖLDVINNA ***
+    Ég (Óliver) var í stuði til að laga og fínpússa og gera allskonar hluti yfir kvöldið,
+    eins og má lesa í oliver_changelog.txt, þá gerði ég mjög mikið af hlutum, beturbætti,
+    lagaði galla, færði til hluti og kláraði nokkur verk.
+
+    Ég byrjaði að laga conflict sem kom upp í lok dagsins (16:00), það var ekki lengi gert,
+    svo ég fór í næsta verkefni sem var að taka í burtu T takkann (hann gerði hvort sem er
+    nákvæmlega það sama og Q takkinn, svo það þarf ekki að hafa hann með lengur), svo sá ég
+    að það væri hægt að gera kerfið aðeins einfaldara og eins og við höfum verið að gera með
+    því að breyta CE, CF og CVB í bara C, þannig að þú ert kannski staddur í einhverjum lista
+    og skrifar 'c' til að bæta við inn í listann sem þú ert að skoða. Eftir það fór ég að skoða
+    allt um að bæta við hlutum (verkbeiðnum, fasteignum og starfsmönnum), ég gerði skráningarnar
+    meira sjálfvirkar, þannig að kerfið veit fyrir hvaða stað þú vilt setja inn í, og að notandi
+    þurfi ekki að skrifa sjálfur skýrsla ID inn, heldur veit kerfið hvað það verður. Á meðan bjó
+    ég til lítinn main menu klasa í logic sem heldur utan um hver er skráð/skráður inn, þetta
+    gerði ég til að geta gert hlutina meira sjálfvirkari. Svo eftir það allt saman forritaði
+    ég kröfuna um að yfirmaður geti séð upplýsingar um annað fólk (leiðbeiningar í changelog),
+    þannig að það komi upp sem prófíll þeirra (virkar samt núna með ALLA starfsmenn fyrirtækisins).
+    Svo lagaði ég alla VS skipunina (stendur fyrir verkbeiðni) svo hún virkar núna vel allstaðar
+    sem meikar sens að nota hana, og að lokum lagaði ég leitina fyrir verkbeiðnir en ég hafði
+    gleymt að tengja leitarfallið í LLAPI við það sem það átti að tengjast við.

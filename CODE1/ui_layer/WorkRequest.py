@@ -3,24 +3,41 @@ from Model.WorkRequest import WorkRequest
 from ui_layer.PropertyListScreen import PropertyListScreen
 
 class WorkRequestListScreen:
-    def __init__(self):
+    def __init__(self, llapi):
         self.options = """
+
 (P)rófíll    (V)erkefni    (F)asteignir    (S)tarfsmenn \t <(T)il baka>   <(Q) Hætta>
 -------------------------------------------------------------------------------------------"""
-        self.llapi = LLAPI()
+        self.llapi = llapi
 
     def search_in_list(self):
         word = input("Leita: ")
+        results = self.llapi.search_work_requests(word)
+        for request in results:
+            print(request)
+        
 
     def sort_list(self):
+        '''Prentar út verkbeiðnir á ákveðnum áfangastað'''
         word = input("Áfangastaður: ")
+        results = self.llapi.get_filtered_work_request_list_by_destination(word)
+        for request in results:
+            print(f"ID: {request.id}\nTitill: {request.titill}\nStaður: {request.stadur}\n")
 
     def render(self):
         '''Það prentar work requests'''
 
         properties = self.llapi.work_request_list()
         print("Verkefni\n")
-        print('\n'.join([x.titill for x in properties]))
+        print('\n'.join([x.id + '. ' + x.titill for x in properties]))
+        print("\n\n (vs) Til að skoða verkskýrslur")
+        '''Yfirmaður sér þessi skilaboð bara'''
+        if (self.llapi.get_current_user().stada).lower() == "yfirmaður":
+            print("(undefined) Loka verkefni ")
+            print("(undefined) Breyta verkbeiðni fyrir fasteign")
+            print("(undefined) ")
+
+
 
     def sort_by_property(self, property_id):
         """Sýnir verkbeiðnir sem er skellt á ákveðna fasteign (eftir peoperty id)"""
@@ -51,17 +68,15 @@ class WorkRequestListScreen:
 
     def create_new_work_request(self):
         '''býr til nýja vinnubeiðni og appendar henni í WorkRequest.csv skránni'''
-        id = len([x.id for x in self.llapi.work_request_list()])+1
+        id = str(int(self.llapi.work_request_list()[-1].id)+1) # Breytti þessu til að koma í veg fyrir yfirskrif á ID
         titill = input("Titill: ")
-        stadur = input("Staðsetning: ")
+        stadur = self.llapi.get_current_user().afangastadur # Breytti í staðsetningu starfsmanns
         fasteign = input("Fasteign: ")
         lysing = input("Lýsing á verkefni: ")
-        skyrslaID = input("ID á skýrslu: ")#ætti líklegast að gerast sjálfkrafa
+        skyrslaID = id # SJÁLFSVIRKT
         fasteignID = self.llapi.get_property_id_from_input(fasteign)
         if fasteignID:
             req = WorkRequest(id, titill,stadur, fasteign,lysing, skyrslaID, fasteignID, active="True")
             self.llapi.create_new_work_request(req)
-        else: 
+        else:
             print("\nFasteign ekki til!\nEkki tókst að skrá beiðni!")
-           
-        
