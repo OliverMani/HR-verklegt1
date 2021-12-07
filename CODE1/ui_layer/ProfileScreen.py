@@ -11,7 +11,7 @@ class ProfileScreen:
     def render_user(self, user):
         print("Prófíll", user.nafn)
         print()
-        print("Nafn: ",user.nafn.capitalize())
+        print("Nafn: ",user.nafn)
         print("Heililisfang: ",user.heimilisfang.capitalize())
         print("GSM: ",user.gsm)
         print("Ntfang: ",user.netfang)
