@@ -33,4 +33,24 @@ class EmployeeData:
             fieldnames = ["id", "nafn", "netfang", "heimilisfang", "heimasimi", "gsm", "afangastadurID", "staða", "active"]
             writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
             writer.writerow({"id": emp.id,"nafn": emp.nafn, "netfang": emp.netfang,"heimilisfang": emp.heimilisfang, "heimasimi": emp.heimasimi,
+<<<<<<< HEAD
             "gsm": emp.gsm, "afangastadurID": emp.afangastadurID, "staða": emp.stada, "active": emp.active})
+=======
+            "gsm": emp.gsm, "afangastadur": emp.afangastadur, "staða": emp.stada, "active": emp.active})
+
+    def update(self, employee):
+        # Við þurfum að fá allan listann yfir starfsmenn til að geta breytt honum síðan
+        employees = self.open_file()
+        # Í þessari for lykkju erum við að breyta stakinu sem við ætlum að breyta
+        # x verður númer á staki, en ekki stakið sjálft
+        for x in range(len(employees)):
+            if employees[x].id == employees.id:
+                employees[x] = employee
+                break
+        # Þegar við erum búnir að uppfæra listann, þá þurfum við að yfirskrifa allt í skránni
+        with open(self.filename, 'w', encoding='utf-8') as csvfile:
+            writer = csv.DictWriter(csvfile, fieldnames=self.fieldnames)
+            for emp in len(employees):
+                writer.writerow({"id": emp.id,"nafn": emp.nafn, "netfang": emp.netfang,"heimilisfang": emp.heimilisfang, "heimasimi": emp.heimasimi,
+                "gsm": emp.gsm, "afangastadur": emp.afangastadur, "staða": emp.stada, "active": emp.active})
+>>>>>>> 116c839e0f11492440d1c4265bdde0b87ce5f94a
