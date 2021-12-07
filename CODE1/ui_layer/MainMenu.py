@@ -53,19 +53,11 @@ class Main_menu:
 
 
         screens = {
-<<<<<<< HEAD
-            "p": ProfileScreen(self.user),
-            "v": WorkRequestListScreen(),
-            "vs": WorkReportListScreen(),
-            "f": PropertyListScreen(self.user),
-            "s": EmployeeListScreen(self.user),
-=======
             "p": ProfileScreen(self.llapi),
             "v": WorkRequestListScreen(self.llapi),
             "vs": WorkReportListScreen(self.llapi),
             "f": PropertyListScreen(self.llapi),
             "s": EmployeeListScreen(self.llapi),
->>>>>>> ce8265a3dd0968d04e41a3bd12c5bca12caaa0bd
             "t": False,
             "q": False,
             "r": lambda: screens[last_selected].sort_list(),
