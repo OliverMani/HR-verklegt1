@@ -26,7 +26,7 @@ class EmployeeListScreen:
 
     def sort_list(self):
         '''Skrifar út raðaðan lista af starfsmönnum eftir Áfangastöðum'''
-        place = input("Áfangastaður: ")
+        place = input("Áfangastaður: ").lower()
         employee_list = self.llapi.get_filtered_employee_list_by_destination(place)
         for emp in employee_list:
             print("ID:", emp.id)

@@ -15,7 +15,7 @@ class EmployeeData:
                 reader = csv.DictReader(csvfile)
                 for row in reader:
                     employeelist.append(Employee(row['id'], row['nafn'], row['netfang'], row['heimilisfang'], row['heimasimi'],
-                    row['gsm'], row['afangastadur'], row['staða'], row['active']))
+                    row['gsm'], row['afangastadur'].lower(), row['staða'], row['active']))
             return employeelist
         except FileNotFoundError:
             return None
