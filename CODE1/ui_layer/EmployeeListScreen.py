@@ -10,9 +10,7 @@ class EmployeeListScreen:
         '''Prentar út nöfn starfsmanna'''
         employees = self.llapi.employee_list()
         print("Starfsmenn\n")
-
         print('\n'.join([x.id + '. ' + x.nafn for x in employees]))
-
         print("\n(L)eita     (R)aða")
 
     def search_in_list(self):
