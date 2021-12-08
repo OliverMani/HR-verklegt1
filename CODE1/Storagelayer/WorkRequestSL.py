@@ -40,7 +40,7 @@ class WorkRequestData:
             "lýsing": req.lysing,"active": req.active})
 
     def update(self, work_request):
-        # Við þurfum að fá allan listann yfir verkbeiðnir til að geta breytt honum síðan
+        # Við þurfum að fá allan listann yfir starfsmenn til að geta breytt honum síðan
         work_requests = self.open_file()
         # Í þessari for lykkju erum við að breyta stakinu sem við ætlum að breyta
         # x verður númer á staki, en ekki stakið sjálft
@@ -50,7 +50,7 @@ class WorkRequestData:
                 break
         # Þegar við erum búnir að uppfæra listann, þá þurfum við að yfirskrifa allt í skránni
         with open(self.filename, 'w', encoding='utf-8') as csvfile:
-            writer = csv.DictWriter(csvfile, fieldnames=self.fieldnames)
-            for req in len(work_requests):
-                writer.writerow({"id": req.id ,"staðurID": req.stadurID,"fasteignID": req.fasteignID,"skýrslaID": req.skyrslaID,"titill": req.titill,
-                "lýsing": req.lysing,"active": req.active})
+            csvfile.write(','.join(self.fieldnames))
+
+        for request in work_requests:
+            self.create_new_property(request)
