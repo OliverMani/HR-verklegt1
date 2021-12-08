@@ -138,3 +138,11 @@ Mánudagurinn 6.desember
     hvað ætti eftir að gera til þess að uppfilla allar a kröfur. Við löguðum til í csv skrám eftir breytingum þar sem
     þurfti. Conflict troubleshooting varð successful. Lögun á leitarkerfi innan forritsins og það virkar núna.
     Uppsetning á hvað gerist næst eftir að skipun í forritinu betrumbætt og er forritið mun hreinlegra fyrir lestur.
+
+Miðvikudagurinn 8. desember
+    Unnum mikið í að koma work reports í lag.
+    Strákarnir voru að klára það sem eftir var af verkefni gærdagsins og gera það
+    mögulegt að breyta upplýsingum í csv skjánum. Við stelpurnar fórum að vinna í 
+    að einfallda aðgerðir í forritinu þannig að lét sé að nálgast allar upplýsingar.
+
+    
