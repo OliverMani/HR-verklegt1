@@ -62,9 +62,10 @@ Kostnaður:
 Staðsetning:
     {work_report.heimilisfang}
 
-< (S)amþykkja >
 """
         print(work_report_str)
+        if self.llapi.get_current_user().stada.lower() == "yfirmaður":
+            print("< (S)amþykkja >")
         print("-------------------------")
         return work_report_str
 
