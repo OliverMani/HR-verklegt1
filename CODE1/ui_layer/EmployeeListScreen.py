@@ -13,15 +13,17 @@ class EmployeeListScreen:
         employees = self.llapi.employee_list()
         print("Starfsmenn\n")
         print('\n'.join([x.id + '. ' + x.nafn for x in employees]))
-        print("\n(L)eita     (R)aða")
-        print("Sláðu inn númer starsmanns til að sjá upplýsingar")
+        print("\n(L)eita    (R)aða")
 
     def search_in_list(self):
-        '''leitar eftir starfsmanni og prentar út upplýsingar um starfsmannin, ef starfsmaður finnst ekki þá prentar fallið villu skilaboð'''
-        word = input("Leita: ")
+        ''' leitar eftir starfsmanni og prentar út upplýsingar um starfsmannin, ef starfsmaður finnst ekki þá prentar fallið villu skilaboð '''
+        word = input("Leita með nafni eða ID: ")
         results = self.llapi.search_employees(word)
-        for employee in results:
-            self.show_emp_with_id(employee.id)
+        if results != None:
+            for employee in results:
+                self.show_emp_with_id(employee.id)
+        else:
+            print("\nStarfsmaður fannst ekki!")
         
     def show_emp_with_id(self, id):    
         employees = self.llapi.search_employees(id)
@@ -43,7 +45,7 @@ class EmployeeListScreen:
             print()
 
     def sort_list(self):
-        '''Skrifar út röðuðum lista af starfsmönnum eftir Áfangastöðum'''
+        ''' Skrifar út röðuðum lista af starfsmönnum eftir Áfangastöðum '''
         place = input("Áfangastaður: ")
         employee_list = self.llapi.get_filtered_employee_list_by_destination(place)
         print(place)
