@@ -160,3 +160,6 @@ class LLAPI:
 
     def update_property(self, prop):
         return self.property_ll.update_property(prop)
+    
+    def update_work_request(self, work):
+        return self.work_requestll.update_work_request(work)

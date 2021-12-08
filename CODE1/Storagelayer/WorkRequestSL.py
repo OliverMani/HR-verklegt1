@@ -20,7 +20,7 @@ class WorkRequestData:
                         fasteignID = fasteignID.split(',')
                     else:
                         fasteignID = [fasteignID]
-                    work_request_list.append(WorkRequest(row['id'], row['staðurID'], fasteignID, row['skýrslaID'], row['titill'], row['lýsing'], row['active']))
+                    work_request_list.append(WorkRequest(row['id'], row['stadurID'], fasteignID, row['skyrslaID'], row['titill'], row['lysing'], row['active']))
             return work_request_list
         except FileNotFoundError:
             return None

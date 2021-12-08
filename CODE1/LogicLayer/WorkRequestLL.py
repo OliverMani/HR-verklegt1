@@ -37,6 +37,10 @@ class WorkRequestLL:
         destination = self.llapi.get_destination_by_name(destination_name)
         return [req for req in self.work_request_list() if destination.id in req.stadurID]
 
+#----------------update -----------------------------------
+    def update_work_quest(self, work):
+        self.slapi.update_work_request(work)
+#---------------------------------------------------------
     def search(self, word):
         ''' '''
         work_requests = self.work_request_list()
@@ -53,3 +57,5 @@ class WorkRequestLL:
                         result.append(work_request.titill)
                         break #brjóta lookup svo niðurstaðan komi ekki oftar en einu sinni
         return result
+
+    

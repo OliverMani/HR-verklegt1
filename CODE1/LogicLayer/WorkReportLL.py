@@ -49,3 +49,4 @@ class WorkReportLL:
         ''' Tekur inn ID og finnur hvaða starfsmaður vann verkið '''
         work_report = self.get_work_report_by_work_report_id(work_id)
         return self.llapi.get_employee_by_id(work_report.starfsmadurID)
+

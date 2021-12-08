@@ -66,7 +66,6 @@ class PropertyListScreen:
         print("     tómt eftir til að breyta ekki")
         print()
 
-        #stadaID = input(f"Nýtt staðar ID: ({property.stadaID}): ") or property.stadurID
         stadurID = property.stadurID
         heimilisfang = input(f"Nýtt heimilisfang ({property.heimilisfang}): ") or property.heimilisfang
         fm = input(f"Nýir fermetrar ({property.fm}): ") or property.fm
