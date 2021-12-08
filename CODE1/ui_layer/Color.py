@@ -15,4 +15,3 @@ class Color:
    RESET_ALL = '\033[0m'
 
 
-print(Color.CYAN+Color.BRIGHT+ "HELLO WORLD" + Color.END)

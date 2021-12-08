@@ -20,7 +20,10 @@ class PropertyListScreen:
     def search_in_list(self):
         '''Leitar að hverju sem er í property list og skilar True ef input er fundið annars False'''
         word = input("Leita: ")
-        results = self.llapi.search_properties(word)
+        self.show_property_with_id(word)
+
+    def show_property_with_id(self, id):
+        results = self.llapi.search_properties(id)
         for property in results:
             self.print_result(property)
 
@@ -31,6 +34,7 @@ class PropertyListScreen:
         print("\n"+property.heimilisfang)
         print(self.llapi.get_destination_from_id(property.stadurID))
         print("Fasteignarnúmer", property.fasteignanumer)
+        # Bæta við vali að byrta listann
         print("Verkbeiðnir:")
         verkbeidnir = "\n\t".join([x.id+". "+x.titill for x in self.llapi.get_work_request_list_by_property_id(property.id)])
         print("\t"+verkbeidnir)

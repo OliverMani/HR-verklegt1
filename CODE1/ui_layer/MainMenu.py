@@ -76,7 +76,18 @@ class Main_menu:
         while selected != "q":
             screen = screens.get(selected)
 
+<<<<<<< HEAD
+            if selected.isdigit():
+                if last_selected == "s":
+                    EmployeeListScreen(self.llapi).show_emp_with_id(selected)
+                elif last_selected == "f":
+                    PropertyListScreen(self.llapi).show_property_with_id(selected)
+                    
+
+            # Skil ekki hvað er í gangi hérna (kv. selma )
+=======
             #
+>>>>>>> 6101b3b322171fede728694b2ab0e31193bed904
             if len(selected) > 0 and selected[0].isdigit():
                 screen = True
 
