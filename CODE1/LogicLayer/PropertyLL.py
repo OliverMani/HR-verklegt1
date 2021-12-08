@@ -14,7 +14,7 @@ class PropertyLL:
 
     def get_filtered_list_by_destination(self, destination):
         '''Skilar lista af fasteignum á ákveðnum stað'''
-        return [dest for dest in self.slapi.get_property_list() if dest.stadurID.lower() == destination.lower()]
+        return [dest for dest in self.slapi.get_property_list() if dest.stadurID == destination.lower()]
 
     def get_property_by_id(self, property_id):
         properties = self.get_property_list()
