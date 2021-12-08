@@ -47,7 +47,7 @@ class EmployeeListScreen:
         emp = Employee(id,nafn,netfang,heimilsfang,heimasimi,gsm,afangastadurID,stada,active="True")
         self.llapi.create_new_employee(emp)
 #-----------------------Update föll-----------------------------------------------------
-    def update_employee(self,id):
+    def update(self,id):
         employee = self.llapi.get_employee_by_id(id)
         print("-- Uppfæra upplýsingar um starfsmenn --")
         print("    Gamla gildið er í sviga, skildu")

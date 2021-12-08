@@ -58,3 +58,6 @@ class PropertyLL:
 
     def create_new_property(self, prop):
         self.slapi.create_new_property(prop)
+
+    def update_property(self, prop):
+        self.slapi.update_property(prop)

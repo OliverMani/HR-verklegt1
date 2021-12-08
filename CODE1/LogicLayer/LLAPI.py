@@ -132,3 +132,6 @@ class LLAPI:
 
     def update_employee(self, emp):
         return self.employeell.update_employee(emp)
+
+    def update_property(self, prop):
+        return self.property_ll.update_property(prop)
