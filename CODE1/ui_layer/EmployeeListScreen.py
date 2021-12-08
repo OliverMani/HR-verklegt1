@@ -19,11 +19,9 @@ class EmployeeListScreen:
         ''' leitar eftir starfsmanni og prentar út upplýsingar um starfsmannin, ef starfsmaður finnst ekki þá prentar fallið villu skilaboð '''
         word = input("Leita með nafni eða ID: ")
         results = self.llapi.search_employees(word)
-        if results != None:
-            for employee in results:
-                self.show_emp_with_id(employee.id)
-        else:
-            print("\nStarfsmaður fannst ekki!")
+        for employee in results:
+            self.show_emp_with_id(employee.id)
+        
         
     def show_emp_with_id(self, id):    
         employees = self.llapi.search_employees(id)
