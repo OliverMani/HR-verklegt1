@@ -1,6 +1,7 @@
 from LogicLayer.LLAPI import LLAPI
 from Model.WorkRequest import WorkRequest
 from ui_layer.PropertyListScreen import PropertyListScreen
+from ui_layer.WorkReport import WorkReportListScreen
 
 class WorkRequestListScreen:
     def __init__(self, llapi):
@@ -14,7 +15,20 @@ class WorkRequestListScreen:
         word = input("Leita: ")
         results = self.llapi.search_work_requests(word)
         for request in results:
-            print(request)
+            print("ID: ",request.id)
+            print("Titill: ",request.titill)
+            print("Staður: ", self.llapi.get_destination_from_id(request.stadurID))
+            print("Fasteign: ",self.llapi.get_property_by_id(request.fasteignID).heimilisfang)
+            print("Lýsing: ", request.lysing)
+            print()
+            print("Skýrsla: ")
+            skyrsla = self.llapi.get_work_report_by_work_report_id(request.skyrslaID)
+            if skyrsla == None:
+                print("Skýrsla hefur ekki verið skráð")
+            else:
+                WorkReportListScreen(self.llapi).render_work_report(skyrsla)
+        
+            
         
 
     def sort_list(self):
@@ -30,6 +44,7 @@ class WorkRequestListScreen:
         properties = self.llapi.work_request_list()
         print("Verkefni\n")
         print('\n'.join([x.id + '. ' + x.titill  for x in properties]))
+        print("\n(L)eita")
         print("\n\n (vs) Til að skoða verkskýrslur")
         '''Yfirmaður sér þessi skilaboð bara'''
         if (self.llapi.get_current_user().stada).lower() == "yfirmaður":
