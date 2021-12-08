@@ -95,9 +95,10 @@ class WorkRequestListScreen:
     def create_new_work_request(self):
         '''býr til nýja vinnubeiðni og appendar henni í WorkRequest.csv skránni'''
         id = str(int(self.llapi.work_request_list()[-1].id)+1) # Breytti þessu til að koma í veg fyrir yfirskrif á ID
-        titill = input("Titill: ")
+        titill = input("\nTitill: ")
         stadurID = self.llapi.get_current_user().afangastadurID # Breytti í staðsetningu starfsmanns
-        print("Fasteignir", stadurID)
+        afangastadur = self.llapi.get_destination_from_id(stadurID)
+        print("Fasteignir í", afangastadur)
         fasteign = self.llapi.get_properties_by_stadur_id(stadurID.strip())
         for i in fasteign:
             print(i[0]+". "+i[1])  # Laga ef við viljum
