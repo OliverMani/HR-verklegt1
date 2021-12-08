@@ -75,19 +75,27 @@ class Main_menu:
         while selected != "q":
             screen = screens.get(selected)
 
+            if selected.isdigit():
+                if last_selected == "s":
+                    EmployeeListScreen(self.llapi).show_emp_with_id(selected)
+                elif last_selected == "f":
+                    self.llapi.search_properties(selected)
+
+            # Skil ekki hvað er í gangi hérna (kv. selma )
             if len(selected) > 0 and selected[0].isdigit():
                 screen = True
             if screen == False:
                 return
             print(self.menu)
-
+            #_______________________________________________
+            
             if screen is None or len(selected) == 0:
                 print(UNKNOWN_COMMAND)
             elif selected in "rlxwc":
                 screen()
             elif selected == 'cvr':
                 WorkReportListScreen().create_new_work_report(self.llapi.get_current_user().nafn)
-            elif selected[0].isdigit():
+            elif selected[0].isdigit() and not selected.isdigit():
                 # Skilast í túplu
                 number, command = self.parse_digital_commands(selected)
 
