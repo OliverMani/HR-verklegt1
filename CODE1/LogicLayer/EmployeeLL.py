@@ -17,7 +17,9 @@ class EmployeeLL:
         result = []
         for employee in employees:
             if word.isdigit():
-                if word == employee.id:
+                if word != employee.id:
+                    return None
+                elif word == employee.id:
                     result.append(employee)
                     break
             else:
