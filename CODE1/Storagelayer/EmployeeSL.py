@@ -45,8 +45,7 @@ class EmployeeData:
                 break
         # Þegar við erum búnir að uppfæra listann, þá þurfum við að yfirskrifa allt í skránni
         with open(self.filename, 'w', encoding='utf-8') as csvfile:
-            writer = csv.DictWriter(csvfile, fieldnames=self.fieldnames)
-            for emp in employees:
-                writer.writerow({"id": emp.id,"nafn": emp.nafn, "netfang": emp.netfang,"heimilisfang": emp.heimilisfang, "heimasimi": emp.heimasimi,
-                "gsm": emp.gsm, "afangastadurID": emp.afangastadurID, "staða": emp.stada, "active": emp.active})
+            csvfile.write(','.join(self.fieldnames))
 
+        for emp in employees:
+            self.create_new_employee(emp)
