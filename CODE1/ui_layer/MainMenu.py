@@ -81,7 +81,8 @@ class Main_menu:
                 if last_selected == "s":
                     EmployeeListScreen(self.llapi).show_emp_with_id(selected)
                 elif last_selected == "f":
-                    self.llapi.search_properties(selected)
+                    PropertyListScreen(self.llapi).show_property_with_id(selected)
+                    
 
             # Skil ekki hvað er í gangi hérna (kv. selma )
             if len(selected) > 0 and selected[0].isdigit():
