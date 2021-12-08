@@ -1,5 +1,4 @@
 from Storagelayer.SLAPI import Slapi
-#from LogicLayer.LLAPI import LLAPI
 from Storagelayer.WorkRequestSL import WorkRequestData
 from Model.WorkRequest import WorkRequest
 
@@ -28,7 +27,7 @@ class WorkRequestLL:
         return filtered
 
     def create_new_work_request(self, req):
-        ''' bæyr til nýja verkebiðni '''
+        ''' býr til nýja verkebiðni '''
         self.slapi.create_new_work_request(req)
 
 
@@ -50,10 +49,12 @@ class WorkRequestLL:
         destination = self.llapi.get_destination_by_name(destination_name)
         return [req for req in self.work_request_list() if destination.id in req.stadurID]
 
-#----------------update -----------------------------------
+#--------------------- update ------------------------------#
+
     def update_work_request(self, work):
         return self.slapi.update_work_request(work)
-#---------------------------------------------------------
+
+#---------------------------------------------------------#
     def search(self, word):
         ''' '''
         work_requests = self.work_request_list()

@@ -17,5 +17,6 @@ if __name__ == "__main__":
 
 # LAGA:
 
-    # 7. Starfsmaður skal geta listað fasteignir eftir áfangastað/staðsetningu
-	# Þetta er eiginlega klárt, það þarf bara að laga til þar sem stendur Staður:1 (á að koma upp 	áfangastaður en ekki ID)
+    # 9. Starfsmaður skal geta opnað og þannig skoðað verkskýrslur 
+	# ekki klárt þarf að gera leiðbeiningar ?? held ég
+

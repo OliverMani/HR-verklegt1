@@ -38,8 +38,8 @@ class WorkRequestData:
                 csvfile.write('\n')
 
             writer = csv.DictWriter(csvfile, fieldnames=self.fieldnames)
-            writer.writerow({"id": req.id ,"stadurID": req.stadurID,"fasteignID": req.fasteignID,"skyrslaID": req.skyrslaID,"titill": req.titill,
-            "lysing": req.lysing,"active": req.active})
+            writer.writerow({"id": req.id,"stadurID": req.stadurID,"fasteignID": req.fasteignID,
+            "skyrslaID": req.skyrslaID,"titill": req.titill,"lysing": req.lysing,"active": req.active})
 
     def update(self, work_request):
         # Við þurfum að fá allan listann yfir starfsmenn til að geta breytt honum síðan
