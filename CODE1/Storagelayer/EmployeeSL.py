@@ -3,12 +3,12 @@ from Model.Employee import Employee
 
 
 class EmployeeData:
-    """Starfsmenn Data, les og skrifar í skrána í """
+    """ Starfsmenn Data, les og skrifar í skrána í """
     def __init__(self):
         self.filename = "csv_files/Employees.csv"
         self.fieldnames = ["id", "nafn", "netfang", "heimilisfang", "heimasimi", "gsm", "afangastadurID", "staða", "active"]
     def open_file(self):
-        '''opnar employee skránna og skilar lista af tilvikum'''
+        ''' opnar employee skránna og skilar lista af tilvikum '''
         try:
             employeelist = []
             with open(self.filename, newline='', encoding="UTF-8") as csvfile:
@@ -21,12 +21,14 @@ class EmployeeData:
             return None
 
     def has_empty_end_line(self):
+        ''' ef skráin fær auka newline þá tekur þetta fall það út '''
         with open(self.filename, 'r', encoding='utf-8') as file:
             lines = file.readlines()
             return lines[-1][-1] == '\n'
 
 
     def create_new_employee(self, emp):
+        ''' þetta fall appendar nýjum starfsmanni inn í Employee.csv skránna '''
         with open(self.filename, 'a', newline='', encoding='utf-8') as csvfile:
             if not self.has_empty_end_line():
                 csvfile.write('\n')

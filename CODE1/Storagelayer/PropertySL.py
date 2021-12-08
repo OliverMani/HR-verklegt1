@@ -20,11 +20,14 @@ class PropertyData:
             return None
 
     def has_empty_end_line(self):
+        ''' ef skráin fær auka newline þá tekur þetta fall það út '''
+
         with open(self.filename, 'r', encoding='utf-8') as file:
             lines = file.readlines()
             return lines[-1][-1] == '\n'
 
     def create_new_property(self, prop):
+        ''' þetta fall appendar nýrri fasteign inn í Properties.csv skránna '''
         with open(self.filename, 'a', newline='', encoding='utf-8') as csvfile:
             if not self.has_empty_end_line():
                 csvfile.write('\n')
