@@ -1,5 +1,7 @@
 from LogicLayer.LLAPI import LLAPI
 from Model.Employee import Employee
+from ui_layer.WorkRequest import WorkRequestListScreen
+from ui_layer.WorkReport import WorkReportListScreen
 
 
 class EmployeeListScreen:
@@ -30,15 +32,25 @@ class EmployeeListScreen:
             print("Nafn:", employee.nafn)
             print("GSM:", employee.gsm)
             print("Netfang:", employee.netfang)
-            # Skoða varkefnalista starfsmanns 
+            # Skoða varkefnalista starfsmanns
+            verkbeidnir = input("Sjá verkskýrslur starfsmanns ((J)á / (N)ei)")
+            if verkbeidnir.lower() == "j":
+                verk_listi = "\n\t".join([x.id+". "+x.titill for x in self.llapi.get_work_request_list_by_employee_id(employee.id)])
+                if len(verk_listi)>0:
+                    print("\t"+verk_listi)
+                    opna = (input("Opna skýrslu nr: "))
+                    WorkReportListScreen(self.llapi).get_work_report_by_id(opna)
+                else:
+                    print("Engar verkskýrslur skráðar.")                
             print()
 
     def sort_list(self):
         ''' Skrifar út röðuðum lista af starfsmönnum eftir Áfangastöðum '''
         place = input("Áfangastaður: ")
         employee_list = self.llapi.get_filtered_employee_list_by_destination(place)
+        print(place)
         for emp in employee_list:
-            print("\nID:", emp.id)
+            print("ID:", emp.id)
             print("Nafn:",emp.nafn)
             print("Gsm:", emp.gsm)
             print("Netfang:", emp.netfang)

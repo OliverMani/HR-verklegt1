@@ -104,6 +104,9 @@ class LLAPI:
     def get_work_request_by_id(self, id):
         return self.work_requestll.get_work_request_by_id(id) ## EKKI VIRKT FALL Í LL
 
+    def get_work_request_list_by_employee_id(self, employee_id):
+        return self.work_requestll.get_list_by_employee(employee_id)
+
 #-------------------------- Get work report föll ----------------------------------#
 
     def get_work_report_list(self):

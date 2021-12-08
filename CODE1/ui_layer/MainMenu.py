@@ -75,12 +75,6 @@ class Main_menu:
 
         while selected != "q":
             screen = screens.get(selected)
-
-            if selected.isdigit():
-                if last_selected == "s":
-                    EmployeeListScreen(self.llapi).show_emp_with_id(selected)
-                elif last_selected == "f":
-                    PropertyListScreen(self.llapi).show_property_with_id(selected)
                     
 
             # Skil ekki hvað er í gangi hérna (kv. selma )
@@ -108,7 +102,7 @@ class Main_menu:
                 if last_selected == "s":
                     EmployeeListScreen(self.llapi).show_emp_with_id(selected)
                 elif last_selected == "f":
-                    self.llapi.search_properties(selected)
+                    PropertyListScreen(self.llapi).show_property_with_id(selected)
 
             # Ef skipunin er til dæmis 6vs eða 2p
             elif selected[0].isdigit() and not selected.isdigit():

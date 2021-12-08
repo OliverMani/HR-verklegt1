@@ -1,5 +1,6 @@
 from LogicLayer.LLAPI import LLAPI
 from Model.Property import Property
+from ui_layer.WorkReport import WorkReportListScreen
 
 class PropertyListScreen:
     def __init__(self, llapi):
@@ -37,7 +38,12 @@ class PropertyListScreen:
         # Bæta við vali að byrta listann
         print("Verkbeiðnir:")
         verkbeidnir = "\n\t".join([x.id+". "+x.titill for x in self.llapi.get_work_request_list_by_property_id(property.id)])
-        print("\t"+verkbeidnir)
+        if len(verkbeidnir)>0:
+            print("\t"+verkbeidnir)
+            opna = (input("Opna verkbeiðni nr: "))
+            WorkReportListScreen(self.llapi).get_work_report_by_id(opna)
+        else:
+            print("Engar verkskýrslur skráðar", len(verkbeidnir))
         print()
 
     #filter
