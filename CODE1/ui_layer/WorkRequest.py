@@ -25,7 +25,7 @@ class WorkRequestListScreen:
             print("ID: ",request.id)
             print("Titill: ",request.titill)
             print("Staður: ", self.llapi.get_destination_from_id(request.stadurID))
-            print("Fasteign: ",self.llapi.get_property_by_id(request.fasteignID).heimilisfang)
+            print("Fasteign: ",self.llapi.get_property_by_id(request.fasteignID))
             print("Lýsing: ", request.lysing)
             print()
             print("Skýrsla: ")
