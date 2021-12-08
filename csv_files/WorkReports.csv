@@ -1,2 +1,2 @@
-id,titill,vbID,starfsmaðurID,verktaki,lýsing,dags,tími,kostnaður,heimilisfang,lokið,samþykkt
+id,titill,vbID,starfsmadurID,verktaki,lysing,dags,timi,kostnadur,heimilisfang,lokid,samþykkt
 1,kjarnaofn lagaður,1,1,Enginn,Skipt uid: m element í kjarnaofni,1.des.2021,"6,5",20000,Longyearbyen Harbor 1,True,True

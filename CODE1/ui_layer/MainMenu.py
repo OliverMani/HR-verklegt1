@@ -74,20 +74,10 @@ class Main_menu:
         }
 
         while selected != "q":
-            screen = screens.get(selected)
-
-<<<<<<< HEAD
-            if selected.isdigit():
-                if last_selected == "s":
-                    EmployeeListScreen(self.llapi).show_emp_with_id(selected)
-                elif last_selected == "f":
-                    PropertyListScreen(self.llapi).show_property_with_id(selected)
+            screen = screens.get(selected)                
                     
 
             # Skil ekki hvað er í gangi hérna (kv. selma )
-=======
-            #
->>>>>>> 6101b3b322171fede728694b2ab0e31193bed904
             if len(selected) > 0 and selected[0].isdigit():
                 screen = True
 
@@ -112,7 +102,7 @@ class Main_menu:
                 if last_selected == "s":
                     EmployeeListScreen(self.llapi).show_emp_with_id(selected)
                 elif last_selected == "f":
-                    self.llapi.search_properties(selected)
+                    PropertyListScreen(self.llapi).show_property_with_id(selected)
 
             # Ef skipunin er til dæmis 6vs eða 2p
             elif selected[0].isdigit() and not selected.isdigit():
@@ -144,4 +134,5 @@ class Main_menu:
             else:
                 screen.render()
                 last_selected = selected
+                print(last_selected)
             selected = input("\nSlá inn aðgerð: ").lower()

@@ -34,7 +34,16 @@ class WorkRequestLL:
 
     def get_list_by_employee(self, employee_id):
         """**Ekki komið** (en....) Fá lista af verkbeiðnum fyrir ákveðinn starfsmann"""
-        pass
+        req = self.slapi.get_work_request_list()
+        rep = self.slapi.get_work_report_list()
+        results = []
+        for report in rep:
+            if report.starfsmadurID == employee_id:
+                for request in req:
+                    if request.skyrslaID == report.id:
+                        results.append(request)
+        return results
+
 
     def get_filtered_list_by_destination(self, destination_name):
         ''' Skilar lista af verkbeiðnum á ákveðnum áfangastað '''
