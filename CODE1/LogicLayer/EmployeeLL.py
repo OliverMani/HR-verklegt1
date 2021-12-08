@@ -17,11 +17,11 @@ class EmployeeLL:
         result = []
         for employee in employees:
             if word.isdigit():
-                if word != employee.id:
-                    return None
-                elif word == employee.id:
+                if word == employee.id:
                     result.append(employee)
                     break
+                else:
+                    return None
             else:
                 # Leita eftir id,nafn,netfang,heimilisfang,heimasimi,gsm,afangastadurID,staða,active
                 look_ups = [employee.id, employee.nafn, employee.netfang, employee.heimilisfang, employee.heimasimi, employee.gsm, employee.afangastadurID, employee.stada, employee.active]
