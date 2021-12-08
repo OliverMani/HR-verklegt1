@@ -102,13 +102,13 @@ class WorkRequestListScreen:
 
 
     def update(self,id):
-        WorkRequest = self.llapi.get_work_request_by_id(id)
+        work_request = self.llapi.get_work_request_by_id(id)
         print("-- Uppfæra upplýsingar um verkbeiðnir --")
         print("    Gamla gildið er í sviga, skildu")
         print("     tómt eftir til að breyta ekki")
         print()
 
-        stadurID = WorkRequest.stadurID
+        """stadurID = WorkRequest.stadurID
         fasteignID = WorkRequest.fasteignID
         skyrslaID = input(f"Veldu nýtt fasteignanúmer: ({WorkRequest.fm}): ") or WorkRequest.skyrslaID
         titill = input(f"Nýtt skýrslunúmer ({WorkRequest.titill}): ") or WorkRequest.titill
@@ -116,5 +116,17 @@ class WorkRequestListScreen:
         active = input(f"Er starfsmaður active, true/false ({WorkRequest.active})?") or WorkRequest.active
         new_work = WorkRequest(WorkRequest.id,stadurID,fasteignID,skyrslaID,titill,lysing,active)
         self.llapi.update_property(WorkRequest)
+        """
+
+        stadurID = work_request.stadurID
+        fasteignID = work_request.fasteignID
+        skyrslaID = work_request.skyrslaID
+        titill = input(f"Nýr titill (\"{work_request.titill}\"): ")
+        lysing = input(f"Ný lýsing (\"{work_request.lysing}\"): ")
+        active = input(f"Active true/false ({work_request.active}): ")
+
+        updated_work = WorkRequest(work_request.id, stadurID, fasteignID, skyrslaID, titill, lysing, active)
+        self.llapi.update_work_request(updated_work)
+
 
 #id,stadurID,fasteignID,skyrslaID,titill,lysing,active

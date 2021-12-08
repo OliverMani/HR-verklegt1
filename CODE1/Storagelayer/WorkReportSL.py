@@ -48,4 +48,4 @@ class WorkReportData:
             csvfile.write(','.join(self.fieldnames))
 
         for report in work_reports:
-            self.create_new_property(report)
+            self.create_new_work_report(report)

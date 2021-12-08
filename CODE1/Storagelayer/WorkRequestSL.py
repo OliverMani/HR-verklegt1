@@ -55,4 +55,4 @@ class WorkRequestData:
             csvfile.write(','.join(self.fieldnames))
 
         for request in work_requests:
-            self.create_new_property(request)
+            self.create_new_work_request(request)

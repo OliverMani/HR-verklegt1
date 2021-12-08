@@ -12,6 +12,12 @@ class WorkRequestLL:
         ''' skilar work request list frá SLAPI í LLAPI '''
         return self.slapi.get_work_request_list()
 
+    def get_work_request_by_id(self, id):
+        requests = self.work_request_list()
+        for request in requests:
+            if request.id == id:
+                return request
+
     def get_list_by_property(self, property_id):
         """ Fá lista af verkbeiðnum á ákveðinni fasteign """
         property = self.llapi.get_property_by_id(property_id)
@@ -38,8 +44,8 @@ class WorkRequestLL:
         return [req for req in self.work_request_list() if destination.id in req.stadurID]
 
 #----------------update -----------------------------------
-    def update_work_quest(self, work):
-        self.slapi.update_work_request(work)
+    def update_work_request(self, work):
+        return self.slapi.update_work_request(work)
 #---------------------------------------------------------
     def search(self, word):
         ''' '''
@@ -57,5 +63,3 @@ class WorkRequestLL:
                         result.append(work_request.titill)
                         break #brjóta lookup svo niðurstaðan komi ekki oftar en einu sinni
         return result
-
-    
