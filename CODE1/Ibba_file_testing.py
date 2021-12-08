@@ -17,5 +17,5 @@ if __name__ == "__main__":
 
 # LAGA:
 
-    # 6. Starfsmaður skal geta leitað eftir öðru starfsfólki
-	# Það þarf að setja þetta upp þannig að það sé hægt að leita eftir nafni starfsmans líka en ekki 	bara id 
+    # 7. Starfsmaður skal geta listað fasteignir eftir áfangastað/staðsetningu
+	# Þetta er eiginlega klárt, það þarf bara að laga til þar sem stendur Staður:1 (á að koma upp 	áfangastaður en ekki ID)
