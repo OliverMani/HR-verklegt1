@@ -103,7 +103,7 @@ class Main_menu:
                 elif last_selected == "f":
                     self.llapi.search_properties(selected)
 
-            # Ef skipunin er til dæmis 6vs eða 2p
+            # Ef skipunin er til dæmis 6vs eða 2p en ekki bara 8
             elif selected[0].isdigit() and not selected.isdigit():
                 # Skilast í túplu
                 number, command = self.parse_digital_commands(selected)
