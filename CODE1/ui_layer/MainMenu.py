@@ -64,7 +64,7 @@ class Main_menu:
             "x": lambda: screens["v"].sort_by_property(input("ID: ")),
             "c": lambda: switch_creations(last_selected),
             #"ce": lambda: screens["s"].create_new_employee() if self.llapi.get_current_user().stada == MANAGER_STRING else print(ONLY_MANAGERS),
-            "cvr": lambda: screens["v"].create_new_work_report(self.llapi.get_current_user()) if self.llapi.get_current_user().stada == MANAGER_STRING else print(ONLY_MANAGERS),
+            "cvs": lambda: screens["v"].create_new_work_report(self.llapi.get_current_user()) if self.llapi.get_current_user().stada == MANAGER_STRING else print(ONLY_MANAGERS),
             #"cvb": lambda: screens["v"].create_new_work_request() if self.llapi.get_current_user().stada == MANAGER_STRING else print(ONLY_MANAGERS),
             #"cf": lambda: screens["f"].create_new_property() if self.llapi.get_current_user().stada == MANAGER_STRING else print(ONLY_MANAGERS),
             "y": lambda: screens["v"].get_requests_by_employee(input("Starfsmaður: ")),
@@ -96,8 +96,8 @@ class Main_menu:
             # ef skipunin er einhver af þessum störum í if statementinu
             elif selected in "rlxwcb":
                 screen()
-            elif selected == 'cvr':
-                WorkReportListScreen().create_new_work_report(self.llapi.get_current_user().nafn)
+            elif selected == 'cvs':
+                screens["vs"].create_new_work_report(None)
             #ef skipunin er bara tala
             elif selected.isdigit():
                 if last_selected == "s":
