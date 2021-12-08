@@ -74,17 +74,7 @@ class Main_menu:
         }
 
         while selected != "q":
-<<<<<<< HEAD
-            screen = screens.get(selected)                
-=======
             screen = screens.get(selected)
-
-            if selected.isdigit():
-                if last_selected == "s":
-                    EmployeeListScreen(self.llapi).show_emp_with_id(selected)
-                elif last_selected == "f":
-                    PropertyListScreen(self.llapi).show_property_with_id(selected)
->>>>>>> eb61cbf67ed7ae77b9f732b695eb5f3c215831d7
                     
 
             # Skil ekki hvað er í gangi hérna (kv. selma )
@@ -144,5 +134,4 @@ class Main_menu:
             else:
                 screen.render()
                 last_selected = selected
-                print(last_selected)
             selected = input("\nSlá inn aðgerð: ").lower()

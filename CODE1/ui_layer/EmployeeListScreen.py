@@ -36,8 +36,8 @@ class EmployeeListScreen:
                 verk_listi = "\n\t".join([x.id+". "+x.titill for x in self.llapi.get_work_request_list_by_employee_id(employee.id)])
                 if len(verk_listi)>0:
                     print("\t"+verk_listi)
-                    opna = (int(input("Opna skýrslu nr: ")))
-                    WorkReportListScreen(self.llapi).render_work_report(opna)
+                    opna = (input("Opna skýrslu nr: "))
+                    WorkReportListScreen(self.llapi).get_work_report_by_id(opna)
                 else:
                     print("Engar verkskýrslur skráðar.")                
             print()
@@ -46,8 +46,9 @@ class EmployeeListScreen:
         '''Skrifar út röðuðum lista af starfsmönnum eftir Áfangastöðum'''
         place = input("Áfangastaður: ")
         employee_list = self.llapi.get_filtered_employee_list_by_destination(place)
+        print(place)
         for emp in employee_list:
-            print("\nID:", emp.id)
+            print("ID:", emp.id)
             print("Nafn:",emp.nafn)
             print("Gsm:", emp.gsm)
             print("Netfang:", emp.netfang)

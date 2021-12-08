@@ -66,7 +66,7 @@ class WorkRequestListScreen:
 
 
     def sort_by_property(self, property_id):
-        """Sýnir verkbeiðnir sem er skellt á ákveðna fasteign (eftir peoperty id)"""
+        """Sýnir verkbeiðnir sem er skellt á ákveðna fasteign (eftir property id)"""
         work_request_list = self.llapi.get_work_request_list_by_property_id(property_id)
         for work_request in work_request_list:
             #if work_request.fasteignid == property_id:
