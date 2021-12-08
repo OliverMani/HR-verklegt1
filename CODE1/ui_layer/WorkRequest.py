@@ -25,7 +25,7 @@ class WorkRequestListScreen:
             print("ID: ",request.id)
             print("Titill: ",request.titill)
             print("Staður: ", self.llapi.get_destination_from_id(request.stadurID))
-            print("Fasteign: ",self.llapi.get_property_by_id(request.fasteignID).heimilisfang)
+            print("Fasteign: ",self.llapi.get_property_by_id(request.fasteignID))
             print("Lýsing: ", request.lysing)
             print()
             print("Skýrsla: ")
@@ -66,7 +66,7 @@ class WorkRequestListScreen:
 
 
     def sort_by_property(self, property_id):
-        """Sýnir verkbeiðnir sem er skellt á ákveðna fasteign (eftir peoperty id)"""
+        """Sýnir verkbeiðnir sem er skellt á ákveðna fasteign (eftir property id)"""
         work_request_list = self.llapi.get_work_request_list_by_property_id(property_id)
         for work_request in work_request_list:
             #if work_request.fasteignid == property_id:
@@ -95,9 +95,10 @@ class WorkRequestListScreen:
     def create_new_work_request(self):
         '''býr til nýja vinnubeiðni og appendar henni í WorkRequest.csv skránni'''
         id = str(int(self.llapi.work_request_list()[-1].id)+1) # Breytti þessu til að koma í veg fyrir yfirskrif á ID
-        titill = input("Titill: ")
+        titill = input("\nTitill: ")
         stadurID = self.llapi.get_current_user().afangastadurID # Breytti í staðsetningu starfsmanns
-        print("Fasteignir", stadurID)
+        afangastadur = self.llapi.get_destination_from_id(stadurID)
+        print("Fasteignir í", afangastadur)
         fasteign = self.llapi.get_properties_by_stadur_id(stadurID.strip())
         for i in fasteign:
             print(i[0]+". "+i[1])  # Laga ef við viljum

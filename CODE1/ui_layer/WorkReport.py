@@ -13,7 +13,7 @@ class WorkReportListScreen:
             print("Engin skýrsla fannst við þessari beiðni")
         else:
             self.render_work_report(work_report)
-
+# LAGA ÞESSI FÖLL _________________________________________________________
     def render_work_report_by_employee_id(self, employee_id):
         employee = self.llapi.get_employee_by_id(employee_id)
         if employee is None:
@@ -35,7 +35,7 @@ class WorkReportListScreen:
                 print("Það er engin verkskýrsla skráð á þessa fasteign!")
             for report in work_reports:
                 self.render_work_report(work_reports)
-
+#______________________________________________________________________________
 
 
     def render_work_report(self, work_report):

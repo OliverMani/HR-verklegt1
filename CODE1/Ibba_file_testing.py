@@ -5,7 +5,7 @@ from ui_layer.LoginScreen import Login
 
 if __name__ == "__main__":
     """ Ef notandinn er til þá opnar forritið annars er aftur beðið um innskráningu"""
-    user_input = input("Nafn: ")
+    user_input = "Jan Jacobsen"
     user = Login(user_input).login()
     
     while user == None:
@@ -14,3 +14,13 @@ if __name__ == "__main__":
     
     main_menu = Main_menu(user)
     main_menu.menubar()
+
+# LAGA:
+
+############6. Starfsmaður skal geta leitað eftir öðru starfsfólki
+	############Það þarf að setja þetta upp þannig að það sé hægt að leita eftir nafni starfsmans líka en ekki 	bara id 
+
+
+    # 9. Starfsmaður skal geta opnað og þannig skoðað verkskýrslur 
+	# ekki klárt þarf að gera leiðbeiningar ?? held ég
+
