@@ -58,7 +58,6 @@ class Main_menu:
             "vs": WorkReportListScreen(self.llapi),
             "f": PropertyListScreen(self.llapi),
             "s": EmployeeListScreen(self.llapi),
-            "t": False,
             "q": False,
             "r": lambda: screens[last_selected].sort_list(),
             "l": lambda: screens[last_selected].search_in_list(),
@@ -77,19 +76,46 @@ class Main_menu:
         while selected != "q":
             screen = screens.get(selected)
 
+<<<<<<< HEAD
+            if selected.isdigit():
+                if last_selected == "s":
+                    EmployeeListScreen(self.llapi).show_emp_with_id(selected)
+                elif last_selected == "f":
+                    PropertyListScreen(self.llapi).show_property_with_id(selected)
+                    
+
+            # Skil ekki hvað er í gangi hérna (kv. selma )
+=======
+            #
+>>>>>>> 6101b3b322171fede728694b2ab0e31193bed904
             if len(selected) > 0 and selected[0].isdigit():
                 screen = True
+
+            # ef skipunin er "q" þá hætta
             if screen == False:
                 return
-            print(self.menu)
 
+            # Prentar menu skjáinn
+            print(self.menu)
+            #_______________________________________________
+
+            # Ef skipunin er óþekkt
             if screen is None or len(selected) == 0:
                 print(UNKNOWN_COMMAND)
+            # ef skipunin er einhver af þessum störum í if statementinu
             elif selected in "rlxwcb":
                 screen()
             elif selected == 'cvr':
                 WorkReportListScreen().create_new_work_report(self.llapi.get_current_user().nafn)
-            elif selected[0].isdigit():
+            #ef skipunin er bara tala
+            elif selected.isdigit():
+                if last_selected == "s":
+                    EmployeeListScreen(self.llapi).show_emp_with_id(selected)
+                elif last_selected == "f":
+                    self.llapi.search_properties(selected)
+
+            # Ef skipunin er til dæmis 6vs eða 2p
+            elif selected[0].isdigit() and not selected.isdigit():
                 # Skilast í túplu
                 number, command = self.parse_digital_commands(selected)
 

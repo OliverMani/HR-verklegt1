@@ -18,14 +18,20 @@ class EmployeeListScreen:
         word = input("Leita: ")
         results = self.llapi.search_employees(word)
         for employee in results:
-            print("ID:", employee.id)
+            self.show_emp_with_id(employee.id)
+        
+    def show_emp_with_id(self, id):    
+        employees = self.llapi.search_employees(id)
+        for employee in employees:
+            print("\nID:", employee.id)
             print("Nafn:", employee.nafn)
             print("GSM:", employee.gsm)
             print("Netfang:", employee.netfang)
+            # Skoða varkefnalista starfsmanns 
             print()
 
     def sort_list(self):
-        '''Skrifar út raðaðan lista af starfsmönnum eftir Áfangastöðum'''
+        '''Skrifar út röðuðum lista af starfsmönnum eftir Áfangastöðum'''
         place = input("Áfangastaður: ")
         employee_list = self.llapi.get_filtered_employee_list_by_destination(place)
         for emp in employee_list:
