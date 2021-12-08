@@ -70,7 +70,8 @@ class Main_menu:
             #"cf": lambda: screens["f"].create_new_property() if self.llapi.get_current_user().stada == MANAGER_STRING else print(ONLY_MANAGERS),
             "y": lambda: screens["v"].get_requests_by_employee(input("Starfsmaður: ")),
             "w": lambda: screens["v"].get_reports_by_employee(input("Starfsmaður: ")),
-            "b": lambda: screens["s"].update_employee(input("StarfsmaðurID: "))
+            "b": lambda: screens[last_selected].update(input("ID: "))
+
         }
 
         while selected != "q":
