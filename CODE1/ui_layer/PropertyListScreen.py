@@ -30,6 +30,9 @@ class PropertyListScreen:
         print("\n"+property.heimilisfang)
         print(self.llapi.get_destination_from_id(property.stadurID))
         print("Fasteignarnúmer", property.fasteignanumer)
+        print("Verkbeiðnir:")
+        verkbeidnir = "\n\t".join([x.id+". "+x.titill for x in self.llapi.get_work_request_list_by_property_id(property.id)])
+        print("\t"+verkbeidnir)
         print()
 
     #filter

@@ -14,13 +14,11 @@ class WorkRequestLL:
 
     def get_list_by_property(self, property_id):
         """Fá lista af verkbeiðnum á ákveðinni fasteign"""
-        property = self.llapi.get_property_by_id(property_id)
         work_requests = self.work_request_list()
         filtered = []
         for work_request in work_requests:
-            for id in work_request.fasteignid:
-                if id == property_id:
-                    filtered.append(work_request)
+            if work_request.fasteignID == property_id:
+                filtered.append(work_request)
         return filtered
 
     def create_new_work_request(self, req):

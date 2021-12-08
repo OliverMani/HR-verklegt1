@@ -31,7 +31,6 @@ class WorkReportLL:
         work_report_list = self.slapi.get_work_report_list()
         property_list = self.slapi.get_property_list()
         wr_by_property_list = []
-        print(work_report_list , property_list)
         if property_id in property_list:
             for property in work_report_list:
                 wr_by_property_list.append(self.titill, self.heimilisfang)

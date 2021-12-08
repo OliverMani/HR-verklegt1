@@ -2,6 +2,7 @@ from LogicLayer.LLAPI import LLAPI
 from Model.WorkRequest import WorkRequest
 from ui_layer.PropertyListScreen import PropertyListScreen
 from ui_layer.WorkReport import WorkReportListScreen
+from ui_layer.Color import Color
 
 class WorkRequestListScreen:
     def __init__(self, llapi):
@@ -10,6 +11,12 @@ class WorkRequestListScreen:
 (P)rófíll    (V)erkefni    (F)asteignir    (S)tarfsmenn \t <(T)il baka>   <(Q) Hætta>
 -------------------------------------------------------------------------------------------"""
         self.llapi = llapi
+
+    def print_wr(self, wr):
+        if wr.skyrslaID == "0":
+            print(wr.id+". "+wr.titill)
+        else:
+            print(Color.GREEN + Color.BOLD+ wr.id+". " +wr.titill + Color.END)
 
     def search_in_list(self):
         word = input("Leita: ")
@@ -36,14 +43,18 @@ class WorkRequestListScreen:
         word = input("Áfangastaður: ")
         results = self.llapi.get_filtered_work_request_list_by_destination(word)
         for request in results:
-            print(f"ID: {request.id}\nTitill: {request.titill}\nStaður: {request.stadurID}\n")
+            self.print_wr(request)
+            print("Staður: ",request.stadurID)
+            #print(f"ID: {request.id}\nTitill: {request.titill}\nStaður: {request.stadurID}\n")
 
     def render(self):
         '''Það prentar work requests'''
 
         properties = self.llapi.work_request_list()
         print("Verkefni\n")
-        print('\n'.join([x.id + '. ' + x.titill  for x in properties]))
+        #print('\n'.join([x.id + '. ' + x.titill  for x in properties]))
+        for workrequest in properties:
+            self.print_wr(workrequest)
         print("\n(L)eita")
         print("\n\n (vs) Til að skoða verkskýrslur")
         '''Yfirmaður sér þessi skilaboð bara'''
