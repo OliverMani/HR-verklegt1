@@ -12,7 +12,7 @@ class LLAPI:
     def __init__(self):
         self.slapi = Slapi()
         self.destination_ll = DestinationLL(self.slapi)
-        self.employeell = EmployeeLL(self.slapi)
+        self.employeell = EmployeeLL(self.slapi, self)
         self.work_requestll = WorkRequestLL(self.slapi, self)
         self.property_ll = PropertyLL(self.slapi)
         self.work_reportll = WorkReportLL(self)
@@ -46,6 +46,9 @@ class LLAPI:
     def get_destination_list(self):
         """Sækjir lista yfir áfangastaði í Logic layer"""
         return self.destination_ll.destination_list()
+
+    def get_destination_by_name(self, name):
+        return self.destination_ll.get_dest_by_name(name)
         
     def get_property_list(self):
         '''sendir property list í UI layer'''

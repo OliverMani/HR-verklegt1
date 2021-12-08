@@ -3,8 +3,9 @@ from Model.Employee import Employee
 from Storagelayer.SLAPI import Slapi
 
 class EmployeeLL:
-    def __init__(self, slapi):
+    def __init__(self, slapi, llapi):
         self.slapi = slapi
+        self.llapi = llapi
 
     def employee_list(self):
         '''fær employee list frá SLAPI og sendir hann í LLAPI'''
@@ -57,9 +58,12 @@ class EmployeeLL:
     def get_filtered_list_by_destination(self, destination):
         '''Skilar lista af starfsmönnum á ákveðnum áfangastað'''
         employees = self.employee_list()
+        dest = self.llapi.get_destination_by_name(destination)
+        if dest == None:
+            return []
         result = []
         for employee in employees:
-            if employee.id == destination:
+            if employee.afangastadurID == dest.id:
                 result.append(employee)
         return result
 
