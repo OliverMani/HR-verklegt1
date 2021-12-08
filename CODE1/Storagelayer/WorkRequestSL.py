@@ -17,20 +17,22 @@ class WorkRequestData:
                 for row in reader:
                     fasteignID = row['fasteignID']
                     if ',' in fasteignID:
-                        fasteignid = fasteignID.split(',')
+                        fasteignID = fasteignID.split(',')
                     else:
                         fasteignID = [fasteignID]
-                    work_request_list.append(WorkRequest(row['id'], row['stadurID'], row['fasteignID'], row['skyrslaID'], row['titill'], row['lysing'], row['active']))
+                    work_request_list.append(WorkRequest(row['id'], row['stadurID'], fasteignID, row['skyrslaID'], row['titill'], row['lysing'], row['active']))
             return work_request_list
         except FileNotFoundError:
             return None
 
     def has_empty_end_line(self):
+        ''' ef skráin fær auka newline þá tekur þetta fall það út '''
         with open(self.filename, 'r', encoding='utf-8') as file:
             lines = file.readlines()
             return lines[-1][-1] == '\n'
 
     def create_new_work_request(self, req):
+        ''' þetta fall appendar nýrri verkbeiðni inn í WorkRequests.csv skránna '''
         with open(self.filename, 'a', newline='', encoding='utf-8') as csvfile:
             if not self.has_empty_end_line():
                 csvfile.write('\n')
@@ -40,7 +42,7 @@ class WorkRequestData:
             "lysing": req.lysing,"active": req.active})
 
     def update(self, work_request):
-        # Við þurfum að fá allan listann yfir verkbeiðnir til að geta breytt honum síðan
+        # Við þurfum að fá allan listann yfir starfsmenn til að geta breytt honum síðan
         work_requests = self.open_file()
         # Í þessari for lykkju erum við að breyta stakinu sem við ætlum að breyta
         # x verður númer á staki, en ekki stakið sjálft
@@ -50,7 +52,7 @@ class WorkRequestData:
                 break
         # Þegar við erum búnir að uppfæra listann, þá þurfum við að yfirskrifa allt í skránni
         with open(self.filename, 'w', encoding='utf-8') as csvfile:
-            writer = csv.DictWriter(csvfile, fieldnames=self.fieldnames)
-            for req in len(work_requests):
-                writer.writerow({"id": req.id ,"stadurID": req.stadurID,"fasteignID": req.fasteignID,"skyrslaID": req.skyrslaID,"titill": req.titill,
-                "lysing": req.lysing,"active": req.active})
+            csvfile.write(','.join(self.fieldnames))
+
+        for request in work_requests:
+            self.create_new_work_request(request)

@@ -60,3 +60,22 @@ class PropertyListScreen:
         active = "True"
         prop = Property(id,stadurID,heimilisfang, fm, herbergi, tegund, fasteignanumer, active )
         return self.llapi.create_new_property(prop)
+
+#----------------------Update Property--------------------------------------------------------
+    def update(self,id):
+        property = self.llapi.get_property_by_id(id)
+        print("-- Uppfæra upplýsingar um fasteign --")
+        print("    Gamla gildið er í sviga, skildu")
+        print("     tómt eftir til að breyta ekki")
+        print()
+
+        stadurID = property.stadurID
+        heimilisfang = input(f"Nýtt heimilisfang ({property.heimilisfang}): ") or property.heimilisfang
+        fm = input(f"Nýir fermetrar ({property.fm}): ") or property.fm
+        herbergi = input(f"Nýr herbeggjafjöldi ({property.herbergi}): ") or property.herbergi
+        tegund = input(f"Tegund herbergis ({property.tegund}): ") or property.tegund
+        fasteignanumer = input(f"Fasteignanúmer ({property.fasteignanumer}): ") or property.fasteignanumer
+        active = input(f"Er starfsmaður active, true/false ({property.active})?") or property.active
+        new_property = Property(property.id,stadurID,heimilisfang,fm,herbergi,tegund,fasteignanumer,active)
+        self.llapi.update_property(new_property)
+        #id,staðurID,heimilisfang,fm,herbergi,tegund,fasteignanúmer,active

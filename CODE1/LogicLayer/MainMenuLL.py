@@ -8,4 +8,5 @@ class MainMenuLL:
         self.user = user
 
     def get_current_user(self):
+        ''' skilar current user '''
         return self.user

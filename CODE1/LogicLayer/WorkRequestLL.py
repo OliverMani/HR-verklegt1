@@ -9,8 +9,14 @@ class WorkRequestLL:
         self.llapi = llapi
 
     def work_request_list(self):
-        '''skilar work request list frá SLAPI í LLAPI'''
+        ''' skilar work request list frá SLAPI í LLAPI '''
         return self.slapi.get_work_request_list()
+
+    def get_work_request_by_id(self, id):
+        requests = self.work_request_list()
+        for request in requests:
+            if request.id == id:
+                return request
 
     def get_list_by_property(self, property_id):
         """Fá lista af verkbeiðnum á ákveðinni fasteign"""
@@ -22,6 +28,7 @@ class WorkRequestLL:
         return filtered
 
     def create_new_work_request(self, req):
+        ''' bæyr til nýja verkebiðni '''
         self.slapi.create_new_work_request(req)
 
 
@@ -30,10 +37,16 @@ class WorkRequestLL:
         pass
 
     def get_filtered_list_by_destination(self, destination_name):
-        '''Skilar lista af verkbeiðnum á ákveðnum áfangastað'''
-        return [req for req in self.work_request_list() if destination_name.lower() in req.stadurID.lower()]
+        ''' Skilar lista af verkbeiðnum á ákveðnum áfangastað '''
+        destination = self.llapi.get_destination_by_name(destination_name)
+        return [req for req in self.work_request_list() if destination.id in req.stadurID]
 
+#----------------update -----------------------------------
+    def update_work_request(self, work):
+        return self.slapi.update_work_request(work)
+#---------------------------------------------------------
     def search(self, word):
+        ''' '''
         work_requests = self.work_request_list()
         result = []
         for work_request in work_requests:
