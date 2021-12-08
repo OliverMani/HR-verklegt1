@@ -1,6 +1,9 @@
 from LogicLayer.LLAPI import LLAPI
 from Model.WorkReport import WorkReport
 
+# ÞAÐ ER HÆGT AÐ SKOÐA VERKSKÝRSLUR Í MAIN MENU EKKI Í VERKEFNI / ÞARF AÐ LAGA
+
+
 class WorkReportListScreen:
     def __init__(self, llapi):
         self.llapi = llapi

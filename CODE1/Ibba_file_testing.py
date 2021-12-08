@@ -17,4 +17,5 @@ if __name__ == "__main__":
 
 # LAGA:
 
-    # Starfsmaður skal geta fundið allar verkbeiðnir sem eru unnar af ákveðnum starfsmanni/ á eftir að bæta við í starfsmenn
+    # 6. Starfsmaður skal geta leitað eftir öðru starfsfólki
+	# Það þarf að setja þetta upp þannig að það sé hægt að leita eftir nafni starfsmans líka en ekki 	bara id 
