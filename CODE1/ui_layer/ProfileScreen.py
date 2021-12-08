@@ -15,7 +15,7 @@ class ProfileScreen:
         print("Heililisfang: ",user.heimilisfang.capitalize())
         print("GSM: ",user.gsm)
         print("Ntfang: ",user.netfang)
-        print("Staður: ",user.afangastadurID.capitalize())
+        print("Staður: ",self.llapi.get_destination_from_id(user.afangastadurID))
         print("Starfsheiti: ",user.stada.capitalize())
 
     def search_in_list(self):

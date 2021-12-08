@@ -45,7 +45,7 @@ class WorkRequestLL:
                     result.append(work_request)
                     break
             else:
-                look_ups = [work_request.id, work_request.titill, work_request.stadur, work_request.fasteign, work_request.lysing, work_request. skyrslaid, work_request.fasteignid, work_request.active]
+                look_ups = [work_request.id, work_request.titill, work_request.stadurID, work_request.fasteign, work_request.lysing, work_request. skyrslaid, work_request.fasteignid, work_request.active]
                 for look_up in look_ups:
                     if word.lower() in str(look_up).lower():
                         result.append(work_request.titill)

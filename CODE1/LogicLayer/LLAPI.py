@@ -49,7 +49,11 @@ class LLAPI:
 
     def get_destination_by_name(self, name):
         return self.destination_ll.get_dest_by_name(name)
-        
+
+
+    def get_destination_from_id(self, id):
+        return self.destination_ll.get_destination_from_id(id)
+
     def get_property_list(self):
         '''sendir property list í UI layer'''
         return self.property_ll.get_property_list()
@@ -74,6 +78,11 @@ class LLAPI:
     def get_property_by_id(self, property_id):
         '''skilar fasteign eftir auðkenni'''
         return self.property_ll.get_property_by_id(property_id)
+
+    def get_properties_by_stadur_id(self, stadur_id):
+        '''skilar fasteign eftir stað'''
+        return self.property_ll.get_properties_by_stadur_id(stadur_id)
+
 
     def get_property_id_from_input(self, property_name):
         """ Fall sem tekur inn hvaða fasteign var skráð í verkbeiðnina og finnur hvaða ID hún hefur"""

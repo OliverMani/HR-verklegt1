@@ -15,7 +15,6 @@ class DestinationData:
                 reader = csv.DictReader(csvfile)
                 for row in reader:
                     destination_list.append(Destination(row['id'], row['borg'], row['land'], row['flugvollur'], row['simanumer'], row['opnunartimi'], row['yfirmadurID'], row['fasteignirID']))
-                    #id,borg,land,flugvollur,simanumer,opnunartimi,yfirmadurID,fasteignirID
             return destination_list
         except FileNotFoundError:
             return None

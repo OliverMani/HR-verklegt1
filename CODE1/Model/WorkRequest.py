@@ -1,6 +1,6 @@
 class WorkRequest:
     """klasi sem tekur inn allar upplýsingar varðandi Verkbeiðnir"""
-    def __init__(self,id,titill,stadurID,fasteignID,lysing,skyrslaID,active):
+    def __init__(self,id,stadurID,fasteignID,skyrslaID,titill,lysing,active):
         self.id = id
         self.titill = titill
         self.stadurID = stadurID
