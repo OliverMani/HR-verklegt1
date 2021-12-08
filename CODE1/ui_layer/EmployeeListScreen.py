@@ -46,9 +46,8 @@ class EmployeeListScreen:
         '''Skrifar út röðuðum lista af starfsmönnum eftir Áfangastöðum'''
         place = input("Áfangastaður: ")
         employee_list = self.llapi.get_filtered_employee_list_by_destination(place)
-        print(place)
         for emp in employee_list:
-            print("ID:", emp.id)
+            print("\nID:", emp.id)
             print("Nafn:",emp.nafn)
             print("Gsm:", emp.gsm)
             print("Netfang:", emp.netfang)

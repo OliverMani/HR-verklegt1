@@ -44,13 +44,14 @@ class PropertyListScreen:
     def sort_list(self):
         '''raðar employee list eftir áfangastað'''
         place = input("Áfangastaður: ").lower()
-        property_list = self.llapi.get_property_list()
         sorted_list = self.llapi.get_filtered_property_list_by_destination(place)
         for prop in sorted_list:
-            print("Nafn:",prop.heimilisfang)
-            print("Staður:", prop.stadurID)
-            #print("Netfang:", prop.netfang)
+            destinations = self.llapi.get_destination_from_id(prop.stadurID)
             print()
+            print("Nafn:",prop.heimilisfang)
+            print("Staður:", destinations)
+
+
 
     def create_new_property(self):
         '''býr til nýja fasteign og appendar því í fasteignar csv skánni'''

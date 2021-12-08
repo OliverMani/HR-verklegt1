@@ -5,7 +5,7 @@ from ui_layer.LoginScreen import Login
 
 if __name__ == "__main__":
     """ Ef notandinn er til þá opnar forritið annars er aftur beðið um innskráningu"""
-    user_input = input("Nafn: ")
+    user_input = "Jan Jacobsen"
     user = Login(user_input).login()
     
     while user == None:
@@ -14,3 +14,8 @@ if __name__ == "__main__":
     
     main_menu = Main_menu(user)
     main_menu.menubar()
+
+# LAGA:
+
+    # 7. Starfsmaður skal geta listað fasteignir eftir áfangastað/staðsetningu
+	# Þetta er eiginlega klárt, það þarf bara að laga til þar sem stendur Staður:1 (á að koma upp 	áfangastaður en ekki ID)
