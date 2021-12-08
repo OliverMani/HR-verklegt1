@@ -17,10 +17,10 @@ class WorkRequestData:
                 for row in reader:
                     fasteignID = row['fasteignID']
                     if ',' in fasteignID:
-                        fasteignid = fasteignID.split(',')
+                        fasteignID = fasteignID.split(',')
                     else:
-                        fasteignid = [fasteignid]
-                    work_request_list.append(WorkRequest(row['id'], row['stadurID'], row['fasteignID'], row['skýrslaID'], row['titill'], row['lýsing'], row['active']))
+                        fasteignID = [fasteignID]
+                    work_request_list.append(WorkRequest(row['id'], row['staðurID'], fasteignID, row['skýrslaID'], row['titill'], row['lýsing'], row['active']))
             return work_request_list
         except FileNotFoundError:
             return None

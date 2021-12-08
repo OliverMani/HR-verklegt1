@@ -4,8 +4,9 @@ from Storagelayer.SLAPI import Slapi
 
 class PropertyLL:
     """PropertyLL, """
-    def __init__(self, slapi):
+    def __init__(self, slapi, llapi):
         self.slapi = slapi
+        self.llapi = llapi
 
     def get_property_list(self):
         '''fær property list frá SLAPI og skilar honum Í LLAPI'''
@@ -13,7 +14,16 @@ class PropertyLL:
 
     def get_filtered_list_by_destination(self, destination):
         '''Skilar lista af fasteignum á ákveðnum stað'''
-        return [dest for dest in self.slapi.get_property_list() if dest.stadur.lower() == destination]
+        destinations = self.llapi.get_destination_by_name(destination)
+        properties = self.slapi.get_property_list()
+        if destinations == None:
+            return []
+        result = []
+        for property in properties:
+            if property.stadurID == destinations.id:
+                result.append(property)
+        return result
+
 
     def get_property_by_id(self, property_id):
         properties = self.get_property_list()

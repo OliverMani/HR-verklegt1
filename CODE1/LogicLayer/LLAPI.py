@@ -14,7 +14,7 @@ class LLAPI:
         self.destination_ll = DestinationLL(self.slapi)
         self.employeell = EmployeeLL(self.slapi, self)
         self.work_requestll = WorkRequestLL(self.slapi, self)
-        self.property_ll = PropertyLL(self.slapi)
+        self.property_ll = PropertyLL(self.slapi, self)
         self.work_reportll = WorkReportLL(self)
         self.main_menu_ll = MainMenuLL(self, None)
 

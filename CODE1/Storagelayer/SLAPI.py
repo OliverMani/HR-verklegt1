@@ -32,6 +32,8 @@ class Slapi:
         '''skilar work report list'''
         return self.workrepSL.open_file()
 
+#-------------------
+
     def create_new_employee(self,emp):
         '''Býr til nýjan starfsmann'''
         return self.empSL.create_new_employee(emp)
@@ -47,6 +49,8 @@ class Slapi:
     def create_new_work_request(self, req):
         """ Setur inn nýja verkbeiðni"""
         return self.wrSL.create_new_work_request(req)
+
+#----------------------- update föll ------------------------------#
 
     def update_employee(self, employee):
         return self.empSL.update(employee)
