@@ -1,7 +1,10 @@
 from LogicLayer.LLAPI import LLAPI
 
 
-print(LLAPI().get_destination_from_id("3"))
+prop_list = (LLAPI().get_properties_by_stadur_id("3"))
+
+for i in prop_list:
+    print(i[0]+". "+i[1])
 
 
     

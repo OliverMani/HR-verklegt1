@@ -75,6 +75,11 @@ class LLAPI:
         '''skilar fasteign eftir auðkenni'''
         return self.property_ll.get_property_by_id(property_id)
 
+    def get_properties_by_stadur_id(self, stadur_id):
+        '''skilar fasteign eftir stað'''
+        return self.property_ll.get_properties_by_stadur_id(stadur_id)
+    
+
     def get_property_id_from_input(self, property_name):
         """ Fall sem tekur inn hvaða fasteign var skráð í verkbeiðnina og finnur hvaða ID hún hefur"""
         return self.property_ll.get_property_id_from_input(property_name)

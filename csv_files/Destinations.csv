@@ -1,4 +1,10 @@
 id,borg,land,flugvollur,simanumer,opnunartimi,yfirmadurID,fasteignirID
+<<<<<<< HEAD
+1,Nuuk, Grænland, Kulusuk Airport (KUS), +299 98 69 88, 24/7, 4, "3,4,5,6"
+2,Þórshöfn, Færeyjar, Vágar Airport (FAE), +00354 425 6000, Opens from 12:30 - 13:30, 7, "7,8,9"
+3,Svalbarði, Noregur, Svalbard Airport Longyear (LYR), +47 67 03 54 00, Opens from 10:00 - 17:00, 1, "1,2,3"
+=======
 1,Nuuk,Grænland,Kulusuk Airport (KUS),+299 98 69 88,24/7,4,"3,4,5,6"
 2,Þórshöfn,Færeyjar,Vágar Airport (FAE),+00354 425 6000,Opens from 12:30 - 13:30,7,"7,8,9"
 3,Svalbarði,Noregur,Svalbard Airport Longyear (LYR),+47 67 03 54 00,Opens from 10:00 - 17:00,1,"1,2,3"
+>>>>>>> bed3e592331c307b98fa54cab39828713f29b36b
