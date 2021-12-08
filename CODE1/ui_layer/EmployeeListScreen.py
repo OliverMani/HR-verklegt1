@@ -49,18 +49,22 @@ class EmployeeListScreen:
 #-----------------------Update föll-----------------------------------------------------
     def update_employee(self,id):
         employee = self.llapi.get_employee_by_id(id)
-        nafn = input("Nýtt nafn: ")
-        netfang = input("Nýtt netfang: ")
-        heimilisfang = input("Nýtt heimilisfang: ")
-        heimasimi = input("Nýr heimasími: ")
-        gsm = input("Nýr gsm: ")
-        afangastadurID = input("Hver er réttur áfangastaður?: ")
+        print("-- Uppfæra upplýsingar um starfsmenn --")
+        print("    Gamla gildið er í sviga, skildu")
+        print("     tómt eftir til að breyta ekki")
+        print()
+
+        nafn = input(f"Nýtt nafn ({employee.nafn}): ") or employee.nafn
+        netfang = input(f"Nýtt netfang ({employee.netfang}): ") or employee.netfang
+        heimilisfang = input(f"Nýtt heimilisfang ({employee.heimilisfang}): ") or employee.heimilisfang
+        heimasimi = input(f"Nýr heimasími ({employee.heimasimi}): ") or employee.heimasimi
+        gsm = input(f"Nýr gsm ({employee.gsm}): ") or employee.gsm
+        afangastadurID = input(f"Hver er réttur áfangastaður? ({employee.afangastadurID}): ") or employee.afangastadurID
         stada = employee.stada
-        active = input("Er starfsmaður active, true/false?")
+        active = input(f"Er starfsmaður active, true/false ({employee.active})?") or employee.active
         new_employee = Employee(employee.id,nafn,netfang,heimilisfang,heimasimi,gsm,afangastadurID,stada,active)
         self.llapi.update_employee(new_employee)
 
 #id,nafn,netfang,heimilisfang,heimasimi,gsm,afangastadurID,staða,active
 
 #-----------------------------------------------------------------------------------------
-        
