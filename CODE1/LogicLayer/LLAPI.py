@@ -116,7 +116,7 @@ class LLAPI:
     def get_work_reports_by_property(self, property_id):
         '''skilar work reports eftir fasteignum'''
         return self.work_reportll.get_work_reports_by_property(property_id)
-    
+
     def get_report_by_employee(self, employee):
         ''' sendir work report list eftir hvaða starfsmaður vann hana '''
         return self.work_reportll.get_report_by_employee(employee)
@@ -163,6 +163,11 @@ class LLAPI:
 
     def update_property(self, prop):
         return self.property_ll.update_property(prop)
-    
+
     def update_work_request(self, work):
         return self.work_requestll.update_work_request(work)
+
+#-------------------------------------------------------------------------------#
+
+    def work_request_has_report(self, id):
+        return self.work_requestll.has_report(id)

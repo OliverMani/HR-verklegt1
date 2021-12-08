@@ -13,10 +13,12 @@ class WorkRequestListScreen:
         self.llapi = llapi
 
     def print_wr(self, wr):
+        # Ef það sé engin skýrsla gerum við stjörnu
+        missing_report = '*' if not self.llapi.work_request_has_report(wr.id) else ''
         if wr.skyrslaID == "0":
-            print(wr.id+". "+wr.titill)
+            print(wr.id+". "+wr.titill + missing_report)
         else:
-            print(Color.GREEN + Color.BOLD+ wr.id+". " +wr.titill + Color.END)
+            print(Color.GREEN + Color.BOLD+ wr.id+". " +wr.titill + Color.END + missing_report)
 
     def search_in_list(self):
         word = input("Leita: ")
@@ -104,7 +106,7 @@ class WorkRequestListScreen:
             print(i[0]+". "+i[1])  # Laga ef við viljum
         fasteignID = (input("Nr. á fasteign: "))
         lysing = input("Lýsing á verkefni: ")
-        skyrslaID = id # SJÁLFSVIRKT
+        skyrslaID = "0" # SJÁLFSVIRKT
         #fasteignID = self.llapi.get_property_id_from_input(fasteign)
         if fasteignID:
             req = WorkRequest(id,stadurID,fasteignID,skyrslaID,titill,lysing,active="True")
