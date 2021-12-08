@@ -68,8 +68,10 @@ class Main_menu:
             "cvr": lambda: screens["v"].create_new_work_report(self.llapi.get_current_user()) if self.llapi.get_current_user().stada == MANAGER_STRING else print(ONLY_MANAGERS),
             #"cvb": lambda: screens["v"].create_new_work_request() if self.llapi.get_current_user().stada == MANAGER_STRING else print(ONLY_MANAGERS),
             #"cf": lambda: screens["f"].create_new_property() if self.llapi.get_current_user().stada == MANAGER_STRING else print(ONLY_MANAGERS),
-            #"y": lambda: screens["v"].get_requests_by_employee(input("Starfsmaður: ")),
-            #"w": lambda: screens["v"].get_reports_by_employee(input("Starfsmaður: ")),
+            "y": lambda: screens["v"].get_requests_by_employee(input("Starfsmaður: ")),
+            "w": lambda: screens["v"].get_reports_by_employee(input("Starfsmaður: ")),
+            "b": lambda: screens[last_selected].update(input("ID: "))
+
         }
 
         while selected != "q":
@@ -91,7 +93,7 @@ class Main_menu:
             
             if screen is None or len(selected) == 0:
                 print(UNKNOWN_COMMAND)
-            elif selected in "rlxwc":
+            elif selected in "rlxwcb":
                 screen()
             elif selected == 'cvr':
                 WorkReportListScreen().create_new_work_report(self.llapi.get_current_user().nafn)

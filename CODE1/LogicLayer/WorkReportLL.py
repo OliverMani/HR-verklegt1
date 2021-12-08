@@ -9,11 +9,11 @@ class WorkReportLL:
         self.llapi = llapi
 
     def get_work_report_list(self):
-        '''fær work report skránna frá SLAPI og skilar henni í LLAPI'''
+        ''' fær work report skránna frá SLAPI og skilar henni í LLAPI '''
         return self.slapi.get_work_report_list()
 
     def get_report_by_employee(self, starfsmadur_id):
-        '''vill fá tilbaka lista af skýrslum sem starfsmaður skrifaði'''
+        ''' vill fá tilbaka lista af skýrslum sem starfsmaður skrifaði '''
         work_report_list = self.slapi.get_work_report_list()
         new_list = []
         for workreport in work_report_list:
@@ -22,12 +22,12 @@ class WorkReportLL:
         return new_list
 
     def create_new_work_report(self,report):
-        '''býr til nýja verkskýrslu'''
+        ''' býr til nýja verkskýrslu '''
         self.slapi.create_new_work_report(report)
 
 
     def get_work_reports_by_property(self, property_id):
-        '''skilar öllum work reports sem tengjast ákveðinni fasteign'''
+        ''' skilar öllum work reports sem tengjast ákveðinni fasteign '''
         work_report_list = self.slapi.get_work_report_list()
         property_list = self.slapi.get_property_list()
         wr_by_property_list = []
@@ -37,6 +37,7 @@ class WorkReportLL:
         return wr_by_property_list
 
     def get_work_report_by_work_report_id(self, work_report_id):
+        ''' skilar work report eftir work report ID '''
         work_report_list = self.get_work_report_list()
         for work_request in work_report_list:
             if work_report_id == work_request.id:
@@ -44,6 +45,7 @@ class WorkReportLL:
         return None
 
     def get_employee_by_work_report_id(self, work_id):
-        '''Tekur inn ID og finnur hvaða starfsmaður vann verkið'''
+        ''' Tekur inn ID og finnur hvaða starfsmaður vann verkið '''
         work_report = self.get_work_report_by_work_report_id(work_id)
         return self.llapi.get_employee_by_id(work_report.starfsmadurID)
+
