@@ -27,7 +27,6 @@ class WorkReportLL:
         for report in reports:
             id = report.verkbeidniID
             request = self.llapi.get_work_request_by_id(id)
-
             if request.stadurID == destination_id:
                 results.append(report)
         return results

@@ -55,5 +55,5 @@ TO DO:
 	# Búið að gera leiðbeiningar í Verkbeiðnisskjánum #
 ======================================================================================================================
 
-Ef maður leitar að einhverju að taka út spurningar 10 sinnum
+#########Ef maður leitar að einhverju að taka út spurningar 10 sinnum
 Laga leitina allstaðar

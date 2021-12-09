@@ -16,22 +16,33 @@ class WorkRequestListScreen:
 
     def print_wr(self, wr):
         # Ef það sé engin skýrsla gerum við stjörnu
-        if not self.llapi.work_request_has_report(wr.id):
+        has_report = self.llapi.work_request_has_report(wr.id)
+        report = self.llapi.get_work_report_by_work_report_id(wr.skyrslaID)
+        if not has_report :
             print(wr.id+". "+wr.titill + "*")
-        else:
+        elif has_report and report.samthykkt.lower() == "true": 
             print(Color.GREEN + Color.BOLD+ wr.id+". " +wr.titill + Color.END )
+        else:
+            print(Color.RED + Color.BOLD+ wr.id+". " +wr.titill + Color.END )
 
     def search_in_list(self):
         word = input("Leita: ")
-        self.show_work_request_with_id(word)
+        self.basic_info(word)
+
+    def basic_info(self, word):
+        results = self.llapi.search_work_requests(word)
+        for request in results:
+            stadur = self.llapi.get_destination_from_id(request.stadurID)
+            fasteign = self.llapi.get_property_by_id(request.fasteignID).heimilisfang
+            print("\nID: ",request.id)
+            print("Titill: ",request.titill)
+            print(f"Staður: ({fasteign}) {stadur} ")
+
 
     def show_work_request_with_id(self, id):
+        self.basic_info(id)
         results = self.llapi.search_work_requests(id)
         for request in results:
-            print("ID: ",request.id)
-            print("Titill: ",request.titill)
-            print("Staður: ", self.llapi.get_destination_from_id(request.stadurID))
-            print("Fasteign: ",self.llapi.get_property_by_id(request.fasteignID))
             print("Lýsing: ", request.lysing)
             print("Verkadagur: ", request.verkadagur)
             print()
@@ -54,9 +65,10 @@ class WorkRequestListScreen:
         word = input("Áfangastaður: ")
         results = self.llapi.get_filtered_work_request_list_by_destination(word)
         for request in results:
+            # Prentar út beiðni og (heimilisfang)
             self.print_wr(request)
-            print("Staður: ",request.stadurID)
-            #print(f"ID: {request.id}\nTitill: {request.titill}\nStaður: {request.stadurID}\n")
+            print(f"({self.llapi.get_property_by_id(request.stadurID).heimilisfang})\n")
+
 
     def render(self):
         '''Það prentar work requests'''
@@ -67,15 +79,16 @@ class WorkRequestListScreen:
         for workrequest in properties:
             if workrequest.stadurID == user.afangastadurID:
                 self.print_wr(workrequest)
-        print("\n(L)eita") # er hægt að raða?
+        print("\n(L) Leita\t\t(R)aða eftir áfangastað")
 
         #---------- Má taka flest út... held ég  -------
         #print("\n\n (vs) Til að skoða verkskýrslur") # er hægt með því að slá bara inn id
         '''Yfirmaður sér þessi skilaboð bara'''
         if (self.llapi.get_current_user().stada).lower() == "yfirmaður":
             print("(A) Sjá allar skráðar verkbeiðnir")
-            print("(C) búa til nýja verkebiðni fyrir fasteign")
+            print("(C) Búa til nýja verkebiðni fyrir fasteign")
             print("ID + (CVS) búa til nýja verkebiðni fyrir fasteign")
+            print("(B) Breyta verkbeiðni fyrir fasteign")
 
             # print("(undefined) Loka verkefni ")
             # print("(undefined) Breyta verkbeiðni fyrir fasteign")

@@ -13,24 +13,22 @@ class PropertyListScreen:
         user = self.llapi.get_current_user()
         print("Fasteignir\n")
         print('\n'.join([(x.id + '. ' + x.heimilisfang) for x in properties if x.stadurID == user.afangastadurID]))
-        print("\n(L)eita    (R)aða")
+        print("\n(L)eita    (R)aða eftir áfangastað")
         if user.stada.lower() == "yfirmaður":
-            print("(A): Sjá allar skráðar fasteignir?")
+            print("(A): Sjá allar skráðar fasteignir ")
+            print("(B): Breyta upplýsingum um fasteign ")
         print()
 
     def show_all(self):
         properties = self.llapi.get_property_list()
         print("Allar fasteignir\n")
         print('\n'.join([(x.id + '. ' + x.heimilisfang) for x in properties]))
-        print("\n(L)eita    (R)aða")
+        print("\n(L)eita    (R)aða eftir áfangastað")
         print()
 
 
 
-        #if (self.llapi.get_current_user().stada).lower() == "yfirmaður":
-        #    print("\n\n(cf) Skrá nýja fasteign\n")
-
-        print("(L)eita      (R)aða")
+        
 
     def search_in_list(self):
         '''Leitar að hverju sem er í property list og skilar True ef input er fundið annars False'''
@@ -40,32 +38,35 @@ class PropertyListScreen:
     def show_property_with_id(self, id):
         results = self.llapi.search_properties(id)
         for property in results:
-            self.print_result(property, True)
+            self.print_result(property)
 
 
 
-    def print_result(self, property, ask=False):
+    def print_result(self, property):
         '''Prentar heimilisfang fasteignar, stað fasteignar og fasteignarnúmer'''
-        print("\n"+property.heimilisfang)
+        print("\nID: "+property.id)
+        print(property.heimilisfang)
         print(self.llapi.get_destination_from_id(property.stadurID))
         print("Fasteignarnúmer", property.fasteignanumer)
-        if ask:
-            val = input("Skoða verkbeiðnir fasteingnar? <(J)á / (N)ei>")
-            if val.lower() == "j":
-                print("Verkbeiðnir:")
-                verkbeidnir =  self.llapi.get_work_request_list_by_property_id(property.id)
-                if len(verkbeidnir)>0:
-                    for verkefni in verkbeidnir:
-                        WorkRequestListScreen(self.llapi).print_wr(verkefni)
-                    opna = input("Opna verkbeiðni nr: ")
+        
+    def show_property_info(self, property):
+        self.show_property_with_id(property)
+        val = input("Skoða verkbeiðnir fasteingnar? <(J)á / (N)ei>")
+        if val.lower() == "j":
+            print("Verkbeiðnir:")
+            verkbeidnir =  self.llapi.get_work_request_list_by_property_id(property.id)
+            if len(verkbeidnir)>0:
+                for verkefni in verkbeidnir:
+                    WorkRequestListScreen(self.llapi).print_wr(verkefni)
+                opna = input("Opna verkbeiðni nr: ")
 
-                    if not self.llapi.work_request_has_report(opna):
-                        bua_til_vs = input("Viltu bæta við skýrslu við verkbeiðnina? <(J)á / (N)ei>: ")
-                        if bua_til_vs.lower() == "j":
-                            WorkReportListScreen(self.llapi).create_new_work_report(opna)
-                else:
-                    print("Engar verkskýrslur skráðar", len(verkbeidnir))
-                print()
+                if not self.llapi.work_request_has_report(opna):
+                    bua_til_vs = input("Viltu bæta við skýrslu við verkbeiðnina? <(J)á / (N)ei>: ")
+                    if bua_til_vs.lower() == "j":
+                        WorkReportListScreen(self.llapi).create_new_work_report(opna)
+            else:
+                print("Engar verkskýrslur skráðar", len(verkbeidnir))
+            print()
 
     #filter
     def sort_list(self):
