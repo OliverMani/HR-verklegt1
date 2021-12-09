@@ -9,10 +9,13 @@ class WorkReportListScreen:
         '''Á að skila work report eftir work request id'''
         work_report = self.llapi.get_work_report_by_work_report_id(work_report_id)
 
-        if work_report is None:
+        if work_report_id == "":
+            return
+        elif work_report is None:
             print("Engin skýrsla fannst við þessari beiðni")
-            print("Til að búa til verkskýrslu,")
-            print(f"Skrifaðu \"{work_report_id}cvs\" og fylltu út")
+            if work_report_id:
+                print("\nTil að búa til verkskýrslu,")
+                print(f"Skrifaðu \"{work_report_id}cvs\" og fylltu út")
         else:
             self.render_work_report(work_report)
 # LAGA ÞESSI FÖLL _________________________________________________________
@@ -113,6 +116,8 @@ Staðsetning:
         # Starfsmaður ID er sjálfvirkt
         starfsmadurID = current_user.id
         verktaki = input("Verktaki: ")
+        if verktaki == "":
+            verktaki = "Enginn"
         lysing = input("Lýsing: ")
         dags = input("Dags: ")
         timi = input("Tími: ")
