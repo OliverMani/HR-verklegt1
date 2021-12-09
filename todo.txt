@@ -12,7 +12,7 @@ TO DO:
 ############4. Starfsmaður skal geta fundið allar verkbeiðnir sem eru unnar af ákveðnum starfsmanni (verkskýrslur)
 	á eftir að bæta við í starfsmenn
 
-5. Starfsmaður skal geta leitað að verkbeiðni eftir auðkenni hennar (er auðkenni ID? 
+############5. Starfsmaður skal geta leitað að verkbeiðni eftir auðkenni hennar (er auðkenni ID? 
 	það þarf að laga til hér
 
 ############6. Starfsmaður skal geta leitað eftir öðru starfsfólki

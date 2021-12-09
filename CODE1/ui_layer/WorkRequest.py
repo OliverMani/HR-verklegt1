@@ -20,7 +20,10 @@ class WorkRequestListScreen:
 
     def search_in_list(self):
         word = input("Leita: ")
-        results = self.llapi.search_work_requests(word)
+        self.show_work_request_with_id(word)
+
+    def show_work_request_with_id(self, id):
+        results = self.llapi.search_work_requests(id)
         for request in results:
             print("ID: ",request.id)
             print("Titill: ",request.titill)
