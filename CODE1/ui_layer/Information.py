@@ -54,10 +54,6 @@ C - Er Notanlegt í (S)tarfsmenn, (V)erkbeiðnir og (F)asteign
             Starfsmönnum, Fasteignum ef þú ert yfirmaður. Í (V)erkbeiðnir er hægt að búa til nýja 
             verkbeiðni fyrir fasteign.
 
-#CVS - Er best notað í (V)erkbeiðnir (ID+CVS), en virkar hvar sem er í kerfinu
-#        Info:
-#            Býr til nýja verkskýrslu, þú skrifar ID á verkbeiðninni sem þú ert að búa til
-
 Q - Forritið hættir að keyra
 
 L - Er notanlegt í (S)tarfsmenn, (V)erkbeiðnir, (F)asteign og "VS"
