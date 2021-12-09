@@ -1,9 +1,9 @@
 TO DO:
 
-1.  Starfsmaður skal geta fundið allar skýrslur fyrir ákveðinni fasteign/Í vinnslu 
+############1.  Starfsmaður skal geta fundið allar skýrslur fyrir ákveðinni fasteign/Í vinnslu 
 Það þarf að geta séð hvaða skýrslur eru fyrir hvaða fasteign (annað hvort í gegnum verkefni eða fasteignir) 
 
-2. Starfsmaður skal geta fundið allar skýrslur sem unnar eru af ákveðnum starfsmanni 
+############2. Starfsmaður skal geta fundið allar skýrslur sem unnar eru af ákveðnum starfsmanni 
 	Það vantar leiðbeiningar hvernig maður getur séð þetta 
 
 3. Starfsmaður skal geta fundið allar verkbeiðnir fyrir ákveðna fasteign
