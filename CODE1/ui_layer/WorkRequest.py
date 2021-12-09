@@ -120,16 +120,6 @@ class WorkRequestListScreen:
         print("     tómt eftir til að breyta ekki")
         print()
 
-        """stadurID = WorkRequest.stadurID
-        fasteignID = WorkRequest.fasteignID
-        skyrslaID = input(f"Veldu nýtt fasteignanúmer: ({WorkRequest.fm}): ") or WorkRequest.skyrslaID
-        titill = input(f"Nýtt skýrslunúmer ({WorkRequest.titill}): ") or WorkRequest.titill
-        lysing = input(f"Nýr herbeggjafjöldi ({WorkRequest.herbergi}): ") or WorkRequest.herbergi
-        active = input(f"Er starfsmaður active, true/false ({WorkRequest.active})?") or WorkRequest.active
-        new_work = WorkRequest(WorkRequest.id,stadurID,fasteignID,skyrslaID,titill,lysing,active)
-        self.llapi.update_property(WorkRequest)
-        """
-
         stadurID = work_request.stadurID
         fasteignID = work_request.fasteignID
         skyrslaID = work_request.skyrslaID

@@ -90,21 +90,25 @@ Staðsetning:
         for report in emp_report:
             print(f"Titill: {report.titill}\n")
 
-    def create_new_work_report(self, starfsmaður):
+    def create_new_work_report(self, verkbeidni_id):
         '''Býr til nýja vinnuskýrslu og appendar hana í WorkReports csv skránni'''
-        id = len([x.id for x in self.llapi.get_work_report_list()])+1
+        current_user = self.llapi.get_current_user()
+
+        id = verkbeidni_id
         titill = input("Titill: ")
         verkbeidniID = input("Verkbeiðni ID: ")
-        starfsmadurID = self.llapi.get_employee_id_by_name(starfsmaður)
-        print(starfsmaður)
+        # Starfsmaður ID er sjálfvirkt
+        starfsmadurID = self.llapi.get_employee_id_by_name(current_user)
         verktaki = input("Verktaki: ")
         lysing = input("Lýsing: ")
         dags = input("Dags: ")
         timi = input("Tími: ")
-        kostnadur = input("Kostnaður: ")
+        kostnadur = "0"
+        if current_user.stada == "yfirmaður":
+            kostnadur = input("Kostnaður: ")
         heimilisfang = input("Heimilisfang: ")
-        lokið = input("Lokið: ")#Sjálfkrafa
-        samtykkt = input("Samþykkt: ")#Sjálfkrafa
+        lokið = "true"#input("Lokið: ")#Sjálfkrafa
+        samtykkt = "false"# input("Samþykkt: ")#Sjálfkrafa
 
         report = WorkReport(id,titill,verkbeidniID,starfsmadurID, verktaki,lysing,dags,timi,kostnadur,heimilisfang,lokið,samtykkt)
         self.llapi.create_new_work_report(report)

@@ -7,8 +7,8 @@ from ui_layer.LoginScreen import Login
 
 if __name__ == "__main__":
     """ Ef notandinn er til þá opnar forritið annars er aftur beðið um innskráningu"""
-    #user_input = input("Nafn: ")
-    user_input = "Jan Jacobsen"
+    user_input = input("Nafn: ")
+    #user_input = "Jan Jacobsen"
     user = Login(user_input).login()
 
     while user == None:

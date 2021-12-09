@@ -11,24 +11,23 @@ class EmployeeLL:
         '''fær employee list frá SLAPI og sendir hann í LLAPI'''
         return self.slapi.get_employee_list()
 
+    
     def search(self, word):
         ''' tékkar á því hvort user input (staður) er í destinations og skilar lista af employees eftir stað '''
         employees = self.employee_list()
         result = []
         for employee in employees:
             if word.isdigit():
-                if word != employee.id:
-                    return None
-                elif word == employee.id:
+                if word == employee.id:
                     result.append(employee)
                     break
             else:
                 # Leita eftir id,nafn,netfang,heimilisfang,heimasimi,gsm,afangastadurID,staða,active
-                look_ups = [employee.id, employee.nafn, employee.netfang, employee.heimilisfang, employee.heimasimi, employee.gsm, employee.afangastadurID, employee.stada, employee.active]
+                look_ups = [employee.id, employee.nafn, employee.netfang, employee.heimilisfang, employee.heimasimi, employee.gsm, employee.afangastadurID, employee.stada, employee.active]                
                 for look_up in look_ups:
                     if word.lower() in str(look_up).lower(): #str til öryggis ef look_up skilar int
                         result.append(employee)
-                        break #brjóta lookup svo niðurstaðan komi ekki oftar en einu sinni
+                        break
         return result
 
     """def employee_profile(self, user):
