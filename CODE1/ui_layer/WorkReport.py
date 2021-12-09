@@ -9,7 +9,6 @@ class WorkReportListScreen:
     def get_work_report_by_id(self, work_report_id):
         '''Á að skila work report eftir work request id'''
         work_report = self.llapi.get_work_report_by_work_report_id(work_report_id)
-
         if work_report_id == "":
             return
         elif work_report is None:

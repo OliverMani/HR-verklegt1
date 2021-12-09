@@ -11,4 +11,4 @@ class Property:
         self.active = active
 
     def __str__(self):
-        return f"id: {self.id}, stadurID: {self.stadurID}, heimilisfang {self.heimilisfang}, fm: {self.fm}, herbergi: {self.herbergi}, tegund: {self.tegund}, fasteignarnumer: {self.fasteignanumer}, sctive: {self.active}"
+        return f"id: {self.id}, stadurID: {self.stadurID}, heimilisfang: {self.heimilisfang}, fm: {self.fm}, herbergi: {self.herbergi}, tegund: {self.tegund}, fasteignarnumer: {self.fasteignanumer}, sctive: {self.active}"

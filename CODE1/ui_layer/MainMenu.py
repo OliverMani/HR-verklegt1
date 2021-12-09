@@ -109,7 +109,7 @@ class Main_menu:
                 if last_selected == "s":
                     EmployeeListScreen(self.llapi).show_emp_with_id(selected)
                 elif last_selected == "f":
-                    PropertyListScreen(self.llapi).show_property_with_id(selected)
+                    PropertyListScreen(self.llapi).show_property_info(selected)
                 elif last_selected == "v":
                     WorkRequestListScreen(self.llapi).show_work_request_with_id(selected)
                 elif last_selected == "vs":
