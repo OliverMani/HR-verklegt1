@@ -55,7 +55,7 @@ class Main_menu:
 
 
         screens = {
-            "a": lambda: screens[last_selected].show_all() if self.llapi.get_current_user().stada == (MANAGER_STRING or "eigandi") else print(UNKNOWN_COMMAND), #Á bara við um yfirmenn og eigendur
+            "a": lambda: screens[last_selected].show_all() if self.llapi.get_current_user().stada == MANAGER_STRING or "eigandi" else print(UNKNOWN_COMMAND), #Á bara við um yfirmenn og eigendur
             "b": lambda: screens[last_selected].update(input("ID: ")),
             "c": lambda: switch_creations(last_selected),
             "p": ProfileScreen(self.llapi),
@@ -131,7 +131,7 @@ class Main_menu:
                     elif last_selected == 'f':
                         screens[command].render_work_report_by_property_id(number)
                 elif command == 'p':
-                    if self.llapi.get_current_user().stada == MANAGER_STRING:
+                    if self.llapi.get_current_user().stada == MANAGER_STRING or "eigandi":
                         if last_selected == 's':
                             screens['p'].render_user(self.llapi.get_employee_by_id(number))
                         else:
