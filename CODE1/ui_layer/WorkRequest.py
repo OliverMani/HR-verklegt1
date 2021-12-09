@@ -14,11 +14,10 @@ class WorkRequestListScreen:
 
     def print_wr(self, wr):
         # Ef það sé engin skýrsla gerum við stjörnu
-        missing_report = '*' if not self.llapi.work_request_has_report(wr.id) else ''
-        if wr.skyrslaID == "0":
-            print(wr.id+". "+wr.titill + missing_report)
+        if not self.llapi.work_request_has_report(wr.id):
+            print(wr.id+". "+wr.titill + "*")
         else:
-            print(Color.GREEN + Color.BOLD+ wr.id+". " +wr.titill + Color.END + missing_report)
+            print(Color.GREEN + Color.BOLD+ wr.id+". " +wr.titill + Color.END )
 
     def search_in_list(self):
         word = input("Leita: ")
