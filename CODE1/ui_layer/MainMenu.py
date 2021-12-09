@@ -70,7 +70,7 @@ class Main_menu:
             "y": lambda: screens["v"].get_requests_by_employee(input("Starfsmaður: ")),
             "w": lambda: screens["v"].get_reports_by_employee(input("Starfsmaður: ")),
             "b": lambda: screens[last_selected].update(input("ID: ")),
-            "a": lambda: screens[last_selected].show_all() #Á bara við um yfirmenn og eigendur
+            "a": lambda: screens[last_selected].show_all() if self.llapi.get_current_user().stada == MANAGER_STRING else print(UNKNOWN_COMMAND) #Á bara við um yfirmenn og eigendur
 
         }
 
@@ -134,7 +134,7 @@ class Main_menu:
                             screens['p'].render_user(self.llapi.get_employee_by_id(number))
                         else:
                             print(ONLY_MANAGERS)
-                elif command == 'cvs' and last_ == 'v':
+                elif command == 'cvs' and last_selected == 'v':
                     screens["vs"].create_new_work_report(number)
                 elif command == 'b':
                     screens[last_selected].update(number)
