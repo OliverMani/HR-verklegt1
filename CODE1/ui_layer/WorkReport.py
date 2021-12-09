@@ -51,22 +51,16 @@ class WorkReportListScreen:
 
         work_report_str = f"""
 A {work_report.titill}
-
 Verk unnið af:
     {employee_name}
-
 Verktaki:
     {work_report.verktaki}
-
 Tími sem fór í verk í klukkustundum:
     {work_report.timi}
-
 Kostnaður:
     {work_report.kostnadur}
-
 Staðsetning:
     {work_report.heimilisfang}
-
 """
         print(work_report_str)
         if self.llapi.get_current_user().stada.lower() == "yfirmaður":
