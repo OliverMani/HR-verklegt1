@@ -56,7 +56,7 @@ class WorkRequestLL:
 
 #---------------------------------------------------------#
     def search(self, word):
-        ''' '''
+        '''Leitar í verkbeiðnum og skilar lista af niðurstöðum'''
         work_requests = self.work_request_list()
         result = []
         for work_request in work_requests:
@@ -71,3 +71,10 @@ class WorkRequestLL:
                         result.append(work_request.titill)
                         break #brjóta lookup svo niðurstaðan komi ekki oftar en einu sinni
         return result
+
+#------------------------------------------------------------
+
+    def has_report(self, work_report_id):
+        '''Skilar hvort verkbeiðnin sé með skýrslu'''
+        work_request = self.get_work_request_by_id(work_report_id)
+        return work_request.skyrslaID != "0"

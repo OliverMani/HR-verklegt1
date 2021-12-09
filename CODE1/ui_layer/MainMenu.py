@@ -64,7 +64,7 @@ class Main_menu:
             "x": lambda: screens["v"].sort_by_property(input("ID: ")),
             "c": lambda: switch_creations(last_selected),
             #"ce": lambda: screens["s"].create_new_employee() if self.llapi.get_current_user().stada == MANAGER_STRING else print(ONLY_MANAGERS),
-            "cvs": lambda: screens["v"].create_new_work_report(self.llapi.get_current_user()) if self.llapi.get_current_user().stada == MANAGER_STRING else print(ONLY_MANAGERS),
+            "cvs": lambda: screens["vs"].create_new_work_report(input("Verkbeiðni ID: ")),# if self.llapi.get_current_user().stada == MANAGER_STRING else print(ONLY_MANAGERS),
             #"cvb": lambda: screens["v"].create_new_work_request() if self.llapi.get_current_user().stada == MANAGER_STRING else print(ONLY_MANAGERS),
             #"cf": lambda: screens["f"].create_new_property() if self.llapi.get_current_user().stada == MANAGER_STRING else print(ONLY_MANAGERS),
             "y": lambda: screens["v"].get_requests_by_employee(input("Starfsmaður: ")),
@@ -96,8 +96,13 @@ class Main_menu:
             elif selected in "rlxwcba":
                 screen()
             elif selected == 'cvs':
+<<<<<<< HEAD
                 screens["vs"].create_new_work_report(None)
             #ef skipunin er bara tala -> sýnir upplýsingar
+=======
+                screens["vs"].create_new_work_report(input("Verkbeiðni ID: "))
+            #ef skipunin er bara tala
+>>>>>>> f036d163dfb4abc5b99d06335d071040b0eccc79
             elif selected.isdigit():
                 if last_selected == "s":
                     EmployeeListScreen(self.llapi).show_emp_with_id(selected)
@@ -131,7 +136,15 @@ class Main_menu:
                         if last_selected == 's':
                             screens['p'].render_user(self.llapi.get_employee_by_id(number))
                         else:
+<<<<<<< HEAD
                            print(ONLY_MANAGERS)
+=======
+                            print(ONLY_MANAGERS)
+                elif command == 'cvs' and last_ == 'v':
+                    screens["vs"].create_new_work_report(number)
+                elif command == 'b':
+                    screens[last_selected].update(number)
+>>>>>>> f036d163dfb4abc5b99d06335d071040b0eccc79
                 else:
                     print(UNKNOWN_COMMAND)
             else:

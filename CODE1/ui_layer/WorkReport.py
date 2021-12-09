@@ -11,6 +11,8 @@ class WorkReportListScreen:
 
         if work_report is None:
             print("Engin skýrsla fannst við þessari beiðni")
+            print("Til að búa til verkskýrslu,")
+            print(f"Skrifaðu \"{work_report_id}cvs\" og fylltu út")
         else:
             self.render_work_report(work_report)
 # LAGA ÞESSI FÖLL _________________________________________________________
@@ -34,7 +36,7 @@ class WorkReportListScreen:
             if len(work_reports) == 0:
                 print("Það er engin verkskýrsla skráð á þessa fasteign!")
             for report in work_reports:
-                self.render_work_report(work_reports)
+                self.render_work_report(report)
 #______________________________________________________________________________
 
 
@@ -65,7 +67,11 @@ Staðsetning:
 """
         print(work_report_str)
         if self.llapi.get_current_user().stada.lower() == "yfirmaður":
-            print("< (S)amþykkja >")
+            accept = input("Viltu samþykkja þessa verkskýrslu? (J/n): ")
+            if accept.lower() == 'j':
+                self.llapi.accept_work_report_by_id(work_report.id) #Keyra ferli sem samþykkir skýrslu
+                print("Samþykkti skýrslu")
+            #print("< (S)amþykkja >")
         print("-------------------------")
         return work_report_str
 
@@ -116,9 +122,9 @@ Staðsetning:
 
         id = verkbeidni_id
         titill = input("Titill: ")
-        verkbeidniID = input("Verkbeiðni ID: ")
+        verkbeidniID = verkbeidni_id #input("Verkbeiðni ID: ")
         # Starfsmaður ID er sjálfvirkt
-        starfsmadurID = self.llapi.get_employee_id_by_name(current_user)
+        starfsmadurID = current_user.id
         verktaki = input("Verktaki: ")
         lysing = input("Lýsing: ")
         dags = input("Dags: ")
@@ -126,11 +132,11 @@ Staðsetning:
         kostnadur = "0"
         if current_user.stada == "yfirmaður":
             kostnadur = input("Kostnaður: ")
-        heimilisfang = input("Heimilisfang: ")
+        #heimilisfang = input("Heimilisfang: ")
         lokið = "true"#input("Lokið: ")#Sjálfkrafa
         samtykkt = "false"# input("Samþykkt: ")#Sjálfkrafa
 
-        report = WorkReport(id,titill,verkbeidniID,starfsmadurID, verktaki,lysing,dags,timi,kostnadur,heimilisfang,lokið,samtykkt)
+        report = WorkReport(id,titill,verkbeidniID,starfsmadurID, verktaki,lysing,dags,timi,kostnadur,None,lokið,samtykkt)
         self.llapi.create_new_work_report(report)
 
     def get_work_report_by_property(self, property_id):
