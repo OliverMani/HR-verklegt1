@@ -17,7 +17,7 @@ class WorkRequestListScreen:
     def print_wr(self, wr):
         # Ef það sé engin skýrsla gerum við stjörnu
         has_report = self.llapi.work_request_has_report(wr.id)
-        report = self.llapi.get_work_report_by_work_report_id(wr.skyrslaID)
+        report = self.llapi.get_work_report_by_work_report_id(wr.id)
         if not has_report :
             print(wr.id+". "+wr.titill + "*")
         elif has_report and report.samthykkt.lower() == "true":
@@ -84,7 +84,7 @@ class WorkRequestListScreen:
         #---------- Má taka flest út... held ég  -------
         #print("\n\n (vs) Til að skoða verkskýrslur") # er hægt með því að slá bara inn id
         '''Yfirmaður sér þessi skilaboð bara'''
-        if (self.llapi.get_current_user().stada).lower() == "yfirmaður":
+        if (self.llapi.get_current_user().stada).lower() == "yfirmaður" or "eigandi":
             print("(A) Sjá allar skráðar verkbeiðnir")
             print("(C) Búa til nýja verkbeiðni fyrir fasteign")
             print("ID + (CVS) búa til nýja verkbeiðni fyrir fasteign")
@@ -103,9 +103,6 @@ class WorkRequestListScreen:
         print("\n(L)eita") # er hægt að raða?
 
 
-
-
-
     def sort_by_property(self, property_id):
         """Sýnir verkbeiðnir sem er skellt á ákveðna fasteign (eftir property id)"""
         work_request_list = self.llapi.get_work_request_list_by_property_id(property_id)
@@ -115,7 +112,6 @@ class WorkRequestListScreen:
 
     def sort_by_employee(self, employee_id):
         '''Raðar work requests eftir starfsmanni'''
-        employees = self.llapi.employee_list()
         work_request_list = self.llapi.work_request_list()
 
         for work_request in work_request_list:
@@ -123,15 +119,12 @@ class WorkRequestListScreen:
                 if id == employee_id:
                     self.print_wr(work_request)
 
-    def mark_work_request_as_done(self, work_request_id, employee_id):
-        '''Breytir stöðu verkbeiðnar í lokið'''
-        employee = self.llapi.employee_list()
-        work_request_list = self.llapi.work_request_list()
-
-        for work_request in work_request_list:
-            for active in work_request:
-                work_request_list[6] = "Done"
-                print(work_request_list)
+    # def mark_work_request_as_done(self, work_request_id, employee_id):
+    #     '''Breytir stöðu verkbeiðnar í lokið'''
+    #     work_request_list = self.llapi.work_request_list()
+    #     for work_request in work_request_list:
+    #             work_request[6] = "Done"
+    #             print(work_request_list)
 
 
 
@@ -185,7 +178,3 @@ class WorkRequestListScreen:
         info = self.get_input(id)
         if info:
             self.llapi.update_work_request(info)
-
-
-
-#id,stadurID,fasteignID,skyrslaID,titill,lysing,active

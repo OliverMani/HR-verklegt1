@@ -63,7 +63,7 @@ Staðsetning:
     {work_report.heimilisfang}
 """
         print(work_report_str)
-        if self.llapi.get_current_user().stada.lower() == "yfirmaður":
+        if self.llapi.get_current_user().stada.lower() == ("yfirmaður" or "eigandi"):
             accept = input("Viltu samþykkja þessa verkskýrslu? (j/n): ")
             if accept.lower() == 'j':
                 self.llapi.accept_work_report_by_id(work_report.id) #Keyra ferli sem samþykkir skýrslu
@@ -80,15 +80,13 @@ Staðsetning:
         print("Verkskýrslur: \t\t (V)erkbeiðnir \n")
         if user.stada.lower() == "starfsmaður":
             return_list = self.llapi.get_report_by_employee(user.id)
-        elif user.stada.lower() == "yfirmaður":
+        elif user.stada.lower() == "yfirmaður" or "eigandi":
             return_list = self.llapi.get_report_by_destination_id(user.afangastadurID)
         for report in return_list:
             print(report.id+". "+ report.lysing)
 
-        print("\n\n(w) Finna skýrslur af ákveðnum starfsmanni")
-        print("(undefined) Finna skýrslur fyrir fasteign")
         print("(cvr) Skrá nýja skýrslu")
-        if (self.llapi.get_current_user().stada).lower() == "yfirmaður":
+        if (self.llapi.get_current_user().stada).lower() == "yfirmaður" or "eigandi":
             print("(sv) Samþykkja verkskýrslu")
 
 
@@ -119,7 +117,7 @@ Staðsetning:
         dags = datetime.datetime.now().strftime("%Y/%m/%d") #input("Dags: ") # geri sjálfvirkt
         timi = input("Tími: ")
         kostnadur = "0"
-        if current_user.stada == "yfirmaður":
+        if current_user.stada == "yfirmaður" or "eigandi":
             kostnadur = input("Kostnaður: ")
         #heimilisfang = input("Heimilisfang: ")
         lokið = "true"#input("Lokið: ")#Sjálfkrafa
