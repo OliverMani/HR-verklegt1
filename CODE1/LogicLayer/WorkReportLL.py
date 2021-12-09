@@ -21,14 +21,16 @@ class WorkReportLL:
                 new_list.append(workreport)
         return new_list
 
-    def get_report_by_destination(self, destination_id):
-        requests = self.slapi.get_work_request_list()
+    def get_report_by_destination_id(self, destination_id):
         reports = self.slapi.get_work_report_list()
         results = []
-        for request in requests:
-            for report in reports:
-                if request.stadurID == destination_id:
-                    results.append(report)
+        for report in reports:
+            id = report.verkbeidniID
+            request = self.llapi.get_work_request_by_id(id)
+
+            if request.stadurID == destination_id:
+                results.append(report)
+                print(report)
         return results
 
 
