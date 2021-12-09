@@ -27,6 +27,8 @@ class WorkReportLL:
         work_request = self.llapi.get_work_request_by_id(report.vbID)
         if report.heimilisfang is None:
             report.heimilisfang = self.llapi.get_property_by_id(work_request.fasteignID).heimilisfang
+        if report.titill is None:
+            report.titill = work_request.titill
         self.slapi.create_new_work_report(report)
         # Þurfum líka að uppfæra verkbeiðnalistann til að
         # setja að það sé skýrsla í verkbeiðninni

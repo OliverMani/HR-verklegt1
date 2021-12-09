@@ -80,27 +80,14 @@ Staðsetning:
         '''Prentar work reports'''
         work_reports = self.llapi.get_work_report_list()
         user = self.llapi.get_current_user()
-        return_list = []
+        #return_list = []
         print("Verkskýrslur: \t\t (V)erkbeiðnir \n")
-        if user.stada.lower() == "starfsmaður":  
-            #Starfsmenn sjá verkskýrslur sem þeir hafa skráð 
-            for report in work_reports:
-                if user.id == report.starfsmadurID:
-                    return_list.append(report)
-        else:
-            # Yfirmenn + sjá verkskýrslur á þeirra svæði
-            request_list = self.llapi.work_request_list()
-            for report in work_reports:
-                for request in request_list:
-                    if request.id == report.vbID:
-                        return_list.append(report)
-                        
-        if len(return_list)>0:
-            for report in return_list:
-                print(report.id+". "+report.lysing)
-        else:
-            print("Engar varkskýrslur skráðar!") 
-            
+
+        if user.stada.lower() == "starfsmaður":
+            return_list = self.llapi.get_report_by_employee(user.id)
+        elif user.stada.lower() == "yfirmaður":
+            return_list = self.llapi.get_report(user.id)
+
         print("\n\n(w) Finna skýrslur af ákveðnum starfsmanni")
         print("(undefined) Finna skýrslur fyrir fasteign")
         print("(cvr) Skrá nýja skýrslu")
@@ -121,7 +108,7 @@ Staðsetning:
         current_user = self.llapi.get_current_user()
 
         id = verkbeidni_id
-        titill = input("Titill: ")
+        titill = None #Sjálfvirkt #input("Titill: ")
         verkbeidniID = verkbeidni_id #input("Verkbeiðni ID: ")
         # Starfsmaður ID er sjálfvirkt
         starfsmadurID = current_user.id
