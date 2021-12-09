@@ -13,7 +13,7 @@ class WorkReport:
         self.heimilisfang = heimilisfang
         self.lokid = lokid
         self.samthykkt = samthykkt
-    
+
     def __str__(self):
         return f"id:{self.id}, titill:{self.titill}, verkbeidniID:{self.verkbeidniID}, starfsmadurID: {self.starfsmadurID}, verktaki: {self.verktaki}, lysing: {self.lysing}, dags: {self.dags}, timi: {self.timi}, kostnadur: {self.kostnadur}, heimilisfang: {self.heimilisfang}, lokid: {self.lokid}, samtykkt: {self.samthykkt}"
 
