@@ -10,9 +10,22 @@ class PropertyListScreen:
     def render(self):
         '''Prentar Fasteignir'''
         properties = self.llapi.get_property_list()
+        user = self.llapi.get_current_user()
         print("Fasteignir\n")
-        print('\n'.join([(x.id + '. ' + x.heimilisfang) for x in properties]))
+        print('\n'.join([(x.id + '. ' + x.heimilisfang) for x in properties if x.stadurID == user.afangastadurID]))
+        print("\n(L)eita    (R)aða")
+        if user.stada.lower() == "yfirmaður":
+            print("(A): Sjá allar skráðar fasteignir?")
         print()
+
+    def show_all(self):
+        properties = self.llapi.get_property_list()
+        print("Allar fasteignir\n")
+        print('\n'.join([(x.id + '. ' + x.heimilisfang) for x in properties]))
+        print("\n(L)eita    (R)aða")
+        print()
+
+        
 
         #if (self.llapi.get_current_user().stada).lower() == "yfirmaður":
         #    print("\n\n(cf) Skrá nýja fasteign\n")

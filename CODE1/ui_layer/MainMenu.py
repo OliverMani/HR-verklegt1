@@ -69,7 +69,8 @@ class Main_menu:
             #"cf": lambda: screens["f"].create_new_property() if self.llapi.get_current_user().stada == MANAGER_STRING else print(ONLY_MANAGERS),
             "y": lambda: screens["v"].get_requests_by_employee(input("Starfsmaður: ")),
             "w": lambda: screens["v"].get_reports_by_employee(input("Starfsmaður: ")),
-            "b": lambda: screens[last_selected].update(input("ID: "))
+            "b": lambda: screens[last_selected].update(input("ID: ")),
+            "a": lambda: screens[last_selected].show_all() #Á bara við um yfirmenn og eigendur
 
         }
 
@@ -80,23 +81,23 @@ class Main_menu:
             if len(selected) > 0 and selected[0].isdigit():
                 screen = True
 
-            # ef skipunin er "q" þá hætta
+            # ef skipunin er "q" þá hætta HELD AÐ ÞETTA S'E 'OÞRARFI
             if screen == False:
                 return
 
             # Prentar menu skjáinn
             print(self.menu)
-            #_______________________________________________
+            
 
             # Ef skipunin er óþekkt
             if screen is None or len(selected) == 0:
                 print(UNKNOWN_COMMAND)
             # ef skipunin er einhver af þessum störum í if statementinu
-            elif selected in "rlxwcb":
+            elif selected in "rlxwcba":
                 screen()
             elif selected == 'cvs':
                 screens["vs"].create_new_work_report(None)
-            #ef skipunin er bara tala
+            #ef skipunin er bara tala -> sýnir upplýsingar
             elif selected.isdigit():
                 if last_selected == "s":
                     EmployeeListScreen(self.llapi).show_emp_with_id(selected)
@@ -104,6 +105,7 @@ class Main_menu:
                     PropertyListScreen(self.llapi).show_property_with_id(selected)
                 elif last_selected == "v":
                     WorkRequestListScreen(self.llapi).show_work_request_with_id(selected)
+            
 
             # Ef skipunin er til dæmis 6vs eða 2p en ekki bara 8
             elif selected[0].isdigit() and not selected.isdigit():
@@ -129,10 +131,12 @@ class Main_menu:
                         if last_selected == 's':
                             screens['p'].render_user(self.llapi.get_employee_by_id(number))
                         else:
-                            print(ONLY_MANAGERS)
+                           print(ONLY_MANAGERS)
                 else:
                     print(UNKNOWN_COMMAND)
             else:
                 screen.render()
-                last_selected = selected.lower()
+                last_selected = selected
             selected = input("\nSlá inn aðgerð: ").lower()
+            
+

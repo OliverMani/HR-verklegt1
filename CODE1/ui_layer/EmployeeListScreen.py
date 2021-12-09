@@ -11,9 +11,19 @@ class EmployeeListScreen:
     def render(self):
         '''Prentar út nöfn starfsmanna'''
         employees = self.llapi.employee_list()
+        user = self.llapi.get_current_user()
         print("Starfsmenn\n")
+        print('\n'.join([x.id + '. ' + x.nafn for x in employees if x.afangastadurID == user.afangastadurID]))
+        print("\n(L)eita    (R)aða")
+        if user.stada.lower() == "yfirmaður":
+            print("(A): Sjá alla starfsmenn NaNair?")
+
+    def show_all(self):
+        employees = self.llapi.employee_list()
+        print("Allir starfsmenn\n")
         print('\n'.join([x.id + '. ' + x.nafn for x in employees]))
         print("\n(L)eita    (R)aða")
+
 
     def search_in_list(self):
         ''' leitar eftir starfsmanni og prentar út upplýsingar um starfsmannin, ef starfsmaður finnst ekki þá prentar fallið villu skilaboð '''

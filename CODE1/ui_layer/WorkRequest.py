@@ -52,19 +52,32 @@ class WorkRequestListScreen:
 
     def render(self):
         '''Það prentar work requests'''
-
         properties = self.llapi.work_request_list()
+        user = self.llapi.get_current_user()
         print("Verkefni\n")
-        #print('\n'.join([x.id + '. ' + x.titill  for x in properties]))
+        # Starfsmaður sér bara þær sem eru á hanns svæði
         for workrequest in properties:
-            self.print_wr(workrequest)
-        print("\n(L)eita")
-        print("\n\n (vs) Til að skoða verkskýrslur")
+            if workrequest.stadurID == user.afangastadurID:
+                self.print_wr(workrequest)
+        print("\n(L)eita") # er hægt að raða?
+
+        #---------- Má taka flest út... held ég  -------
+        #print("\n\n (vs) Til að skoða verkskýrslur") # er hægt með því að slá bara inn id
         '''Yfirmaður sér þessi skilaboð bara'''
         if (self.llapi.get_current_user().stada).lower() == "yfirmaður":
-            print("(undefined) Loka verkefni ")
-            print("(undefined) Breyta verkbeiðni fyrir fasteign")
-            print("(undefined) ")
+            print("(A) Sjá allar skráðar verkbeiðnir")
+            # print("(undefined) Loka verkefni ")
+            # print("(undefined) Breyta verkbeiðni fyrir fasteign")
+            # print("(undefined) ")
+
+    def show_all(self):
+        properties = self.llapi.work_request_list()
+        print("Verkefni\n")
+        for workrequest in properties:
+            self.print_wr(workrequest)
+        print("\n(L)eita") # er hægt að raða?
+
+
 
 
 
