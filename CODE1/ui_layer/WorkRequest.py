@@ -4,6 +4,8 @@ from Model.WorkRequest import WorkRequest
 from ui_layer.WorkReport import WorkReportListScreen
 from ui_layer.Color import Color
 
+from datetime import datetime
+
 class WorkRequestListScreen:
     def __init__(self, llapi):
         self.options = """
@@ -42,7 +44,9 @@ class WorkRequestListScreen:
         results = self.llapi.search_work_requests(id)
         for request in results:
             print("Lýsing: ", request.lysing)
-            print("\nSkýrsla: ")
+            print("Verkadagur: ", request.verkadagur)
+            print()
+            print("Skýrsla: ")
             skyrsla = self.llapi.get_work_report_by_work_report_id(request.skyrslaID)
             if skyrsla == None:
                 print("Skýrsla hefur ekki verið skráð")
@@ -139,13 +143,20 @@ class WorkRequestListScreen:
         fasteignID = (input("Nr. á fasteign: "))
         lysing = input("Lýsing á verkefni: ")
         skyrslaID = "0" # SJÁLFSVIRKT
-        #fasteignID = self.llapi.get_property_id_from_input(fasteign)
-        if fasteignID:
-            req = WorkRequest(id,stadurID,fasteignID,skyrslaID,titill,lysing,active="True")
-            self.llapi.create_new_work_request(req)
-        else:
-            print("\nFasteign ekki til!\nEkki tókst að skrá beiðni!")
+        try:
+            verkadagur = input("Dagur til að vinna verkefnið (YYYY/mm/dd): ").split('/')
+            dagatal = datetime(int(verkadagur[0]), int(verkadagur[1]), int(verkadagur[2]))
+            verkadagur_str = dagatal.strftime("%Y/%m/%d")
 
+            #fasteignID = self.llapi.get_property_id_from_input(fasteign)
+            if fasteignID:
+                req = WorkRequest(id,stadurID,fasteignID,skyrslaID,titill,lysing,verkadagur_str,active="True")
+                self.llapi.create_new_work_request(req)
+            else:
+                print("\nFasteign ekki til!\nEkki tókst að skrá beiðni!")
+        except:
+            print("Ekki gildur verkadagur!")
+            print("Verkbeiðni ekki gerð!")
 
     def update(self,id):
         work_request = self.llapi.get_work_request_by_id(id)
