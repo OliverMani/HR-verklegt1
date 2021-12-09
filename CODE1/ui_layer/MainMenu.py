@@ -18,7 +18,8 @@ class Main_menu:
         self.llapi.set_current_user(user)
         self.menu = f"""
 (P)rófíll    (V)erkbeiðnir    (F)asteignir    (S)tarfsmenn        {"<(C) Bæta við>" if self.llapi.get_current_user().stada == MANAGER_STRING else (' ' * 12)}   <(Q) Hætta>
--------------------------------------------------------------------------------------------"""
+----------------------------------------------------------------------------------------------
+                                                                            (i) upplýsingar"""
     ## Væri gott að færa þetta yfir í logic...
     def parse_digital_commands(self, command) -> tuple:
         """Þetta fall slítur í sundur tölu og skipun (t.d 13v) og skilar í túplu númeri og skipun"""
