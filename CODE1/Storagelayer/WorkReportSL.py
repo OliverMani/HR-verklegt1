@@ -4,7 +4,7 @@ from Model.WorkReport import WorkReport
 class WorkReportData:
     def __init__(self):
         self.filename = "csv_files/WorkReports.csv"
-        self.fieldnames = ["id", "titill","verkbeidniID", "starfsmaðurID","verktaki", "lýsing", "dags","timi","kostnadur","heimilisfang", "lokid", "samthykkt"]
+        self.fieldnames = ["id", "titill","verkbeidniID", "starfsmadurID","verktaki", "lysing", "dags","timi","kostnadur","heimilisfang", "lokid", "samthykkt"]
 
     def open_file(self):
         '''opnar work reports skránna og skilar lista af tilvikum'''
@@ -13,7 +13,7 @@ class WorkReportData:
             with open(self.filename, newline='', encoding="UTF-8") as csvfile:
                 reader = csv.DictReader(csvfile)
                 for row in reader:
-                    work_request_list.append(WorkReport(row['id'], row['titill'], row['verkbeidniID'], row['starfsmaðurID'],row['verktaki'], row['lýsing'], row['dags'],row['timi'],
+                    work_request_list.append(WorkReport(row['id'], row['titill'], row['verkbeidniID'], row['starfsmadurID'],row['verktaki'], row['lysing'], row['dags'],row['timi'],
                     row['kostnadur'], row['heimilisfang'], row['lokid'], row['samthykkt']))
             return work_request_list
         except FileNotFoundError:
@@ -31,7 +31,7 @@ class WorkReportData:
             if not self.has_empty_end_line():
                 csvfile.write("\n")
             writer = csv.DictWriter(csvfile, fieldnames=self.fieldnames)
-            writer.writerow({"id": report.id,"titill": report.titill,"verkbeidniID":report.verkbeidniID, "starfsmaðurID": report.starfsmadurID,"verktaki":report.verktaki,"lýsing": report.lysing,
+            writer.writerow({"id": report.id,"titill": report.titill,"verkbeidniID":report.verkbeidniID, "starfsmadurID": report.starfsmadurID,"verktaki":report.verktaki,"lysing": report.lysing,
             "dags": report.dags, "timi": report.timi, "kostnadur": report.kostnadur, "heimilisfang":report.heimilisfang, "lokid": report.lokid, "samthykkt": report.samthykkt})
 
     def update(self, work_report):
