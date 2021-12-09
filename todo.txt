@@ -35,7 +35,7 @@ TO DO:
 11. Yfirmaður skal geta lokað verkbeiðnum (t.d þegar verkskýrslur eru samþykktar) 
 	Búið ef það sé að breyta active í false?? / Það þarf að tengja saman og geta skráð verkbeiðnir sem lokið
 
-12. Yfirmaður skal geta samþykkt tilbúnar verkskýrlsur
+############ 12. Yfirmaður skal geta samþykkt tilbúnar verkskýrlsur
 	óklárað 
 
 ############ 13. Yfirmaður skal geta séð lista yfir allar sínar verkbeiðnir
