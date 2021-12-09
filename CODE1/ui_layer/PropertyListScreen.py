@@ -40,32 +40,35 @@ class PropertyListScreen:
     def show_property_with_id(self, id):
         results = self.llapi.search_properties(id)
         for property in results:
-            self.print_result(property, True)
+            self.print_result(property)
 
 
 
-    def print_result(self, property, ask=False):
+    def print_result(self, property):
         '''Prentar heimilisfang fasteignar, stað fasteignar og fasteignarnúmer'''
-        print("\n"+property.heimilisfang)
+        print("\nID: "+property.id)
+        print(property.heimilisfang)
         print(self.llapi.get_destination_from_id(property.stadurID))
         print("Fasteignarnúmer", property.fasteignanumer)
-        if ask:
-            val = input("Skoða verkbeiðnir fasteingnar? <(J)á / (N)ei>")
-            if val.lower() == "j":
-                print("Verkbeiðnir:")
-                verkbeidnir =  self.llapi.get_work_request_list_by_property_id(property.id)
-                if len(verkbeidnir)>0:
-                    for verkefni in verkbeidnir:
-                        WorkRequestListScreen(self.llapi).print_wr(verkefni)
-                    opna = input("Opna verkbeiðni nr: ")
+        
+    def show_property_info(self, property):
+        self.show_property_with_id(property)
+        val = input("Skoða verkbeiðnir fasteingnar? <(J)á / (N)ei>")
+        if val.lower() == "j":
+            print("Verkbeiðnir:")
+            verkbeidnir =  self.llapi.get_work_request_list_by_property_id(property.id)
+            if len(verkbeidnir)>0:
+                for verkefni in verkbeidnir:
+                    WorkRequestListScreen(self.llapi).print_wr(verkefni)
+                opna = input("Opna verkbeiðni nr: ")
 
-                    if not self.llapi.work_request_has_report(opna):
-                        bua_til_vs = input("Viltu bæta við skýrslu við verkbeiðnina? <(J)á / (N)ei>: ")
-                        if bua_til_vs.lower() == "j":
-                            WorkReportListScreen(self.llapi).create_new_work_report(opna)
-                else:
-                    print("Engar verkskýrslur skráðar", len(verkbeidnir))
-                print()
+                if not self.llapi.work_request_has_report(opna):
+                    bua_til_vs = input("Viltu bæta við skýrslu við verkbeiðnina? <(J)á / (N)ei>: ")
+                    if bua_til_vs.lower() == "j":
+                        WorkReportListScreen(self.llapi).create_new_work_report(opna)
+            else:
+                print("Engar verkskýrslur skráðar", len(verkbeidnir))
+            print()
 
     #filter
     def sort_list(self):
