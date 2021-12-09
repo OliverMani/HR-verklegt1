@@ -84,11 +84,11 @@ class WorkRequestListScreen:
         #---------- Má taka flest út... held ég  -------
         #print("\n\n (vs) Til að skoða verkskýrslur") # er hægt með því að slá bara inn id
         '''Yfirmaður sér þessi skilaboð bara'''
-        if (self.llapi.get_current_user().stada).lower() == "yfirmaður":
+        if (self.llapi.get_current_user().stada).lower() == ("yfirmaður" or "eigandi"):
             print("(A) Sjá allar skráðar verkbeiðnir")
-            print("(C) Búa til nýja verkebiðni fyrir fasteign")
-            print("ID + (CVS) búa til nýja verkebiðni fyrir fasteign")
-            print("(B) Breyta verkbeiðni fyrir fasteign")
+            print("(C) Búa til nýja verkebiðni ")
+            # print("ID + (CVS) búa til nýja verkebiðni fyrir fasteign")
+            # print("(B) Breyta verkbeiðni fyrir fasteign")
 
             # print("(undefined) Loka verkefni ")
             # print("(undefined) Breyta verkbeiðni fyrir fasteign")
@@ -114,7 +114,6 @@ class WorkRequestListScreen:
 
     def sort_by_employee(self, employee_id):
         '''Raðar work requests eftir starfsmanni'''
-        employees = self.llapi.employee_list()
         work_request_list = self.llapi.work_request_list()
 
         for work_request in work_request_list:
@@ -122,15 +121,12 @@ class WorkRequestListScreen:
                 if id == employee_id:
                     self.print_wr(work_request)
 
-    def mark_work_request_as_done(self, work_request_id, employee_id):
-        '''Breytir stöðu verkbeiðnar í lokið'''
-        employee = self.llapi.employee_list()
-        work_request_list = self.llapi.work_request_list()
-
-        for work_request in work_request_list:
-            for active in work_request:
-                work_request_list[6] = "Done"
-                print(work_request_list)
+    # def mark_work_request_as_done(self, work_request_id, employee_id):
+    #     '''Breytir stöðu verkbeiðnar í lokið'''
+    #     work_request_list = self.llapi.work_request_list()
+    #     for work_request in work_request_list:
+    #             work_request[6] = "Done"
+    #             print(work_request_list)
 
     def create_new_work_request(self):
         '''býr til nýja vinnubeiðni og appendar henni í WorkRequest.csv skránni'''

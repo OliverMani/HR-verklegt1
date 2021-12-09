@@ -15,7 +15,7 @@ class EmployeeListScreen:
         print("Starfsmenn\n")
         print('\n'.join([x.id + '. ' + x.nafn for x in employees if x.afangastadurID == user.afangastadurID]))
         print("\n(L)eita    (R)aða")
-        if user.stada.lower() == "yfirmaður":
+        if user.stada.lower() == ("yfirmaður" or "eigandi"):
             print("(A): Sjá alla starfsmenn NaNair")
             print("(B): Breyta upplýsingum um starfsmann NaNair")
 
@@ -78,12 +78,19 @@ class EmployeeListScreen:
         heimasimi = input("Heimasími: ")
         gsm = input("Gsm: ")
         afangastadurID = self.llapi.get_current_user().afangastadurID #sjálfsvirkt, yfirmaður skráir ekki starfsmann fyrir annan stað
-
+        if self.llapi.get_current_user().stada == "eigandi":
+            stodur = "123" 
+        else:
+            stodur = "12"
         stada = "0"
-        while stada not in "12":
+        while stada not in stodur:
             print("Veldu stöðu (eftir númeri):")
             print(" 1: Starfsmaður")
             print(" 2: Verktaki")
+            if self.llapi.get_current_user().stada == "eigandi":
+                print("3. Yfirmaður Rekstrarsviðs")
+                print( "\n".join([dest.id+". "+dest.borg for dest in self.llapi.get_destination_list()]))
+                afangastadurID = input("ID á áfangastað: ")
             print()
             stada = input("> ")  # Sjálfsvirkt, yfirmaður skráir ekki starfsmann sem Chuck Norris sko
         stada = ("starfsmaður", "verktaki")[int(stada)-1] # breyta tölu í starfsheiti
@@ -103,7 +110,10 @@ class EmployeeListScreen:
         heimasimi = input(f"Nýr heimasími ({employee.heimasimi}): ") or employee.heimasimi
         gsm = input(f"Nýr gsm ({employee.gsm}): ") or employee.gsm
         afangastadurID = input(f"Hver er réttur áfangastaður? ({employee.afangastadurID}): ") or employee.afangastadurID
-        stada = employee.stada
+        if self.llapi.get_current_user().stada == "eigandi":
+            stada = input(f"Nýr starfstitill: ({employee.stada})") or employee.stada
+        else:
+            stada = employee.stada
         active = input(f"Er starfsmaður active, true/false ({employee.active})?") or employee.active
         new_employee = Employee(employee.id,nafn,netfang,heimilisfang,heimasimi,gsm,afangastadurID,stada,active)
         self.llapi.update_employee(new_employee)

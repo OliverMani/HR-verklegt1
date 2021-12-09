@@ -17,8 +17,8 @@ class Main_menu:
         self.llapi = LLAPI()
         self.llapi.set_current_user(user)
         self.menu = f"""
-(P)rófíll    (V)erkbeiðnir    (F)asteignir    (S)tarfsmenn        {"<(C) Bæta við>" if self.llapi.get_current_user().stada == MANAGER_STRING else (' ' * 12)}   <(Q) Hætta>
-----------------------------------------------------------------------------------------------
+(P)rófíll    (V)erkbeiðnir    (F)asteignir    (S)tarfsmenn        {"<(C) Bæta við>" if self.llapi.get_current_user().stada == (MANAGER_STRING or "eigandi") else (' ' * 12)}   <(Q) Hætta>
+---------------------------------------------------------------------------------------------
                                                                             (i) upplýsingar"""
     ## Væri gott að færa þetta yfir í logic...
     def parse_digital_commands(self, command) -> tuple:
@@ -44,7 +44,7 @@ class Main_menu:
 
         def switch_creations(last):
             """Þetta fall á að vera inní menubar fallinu, þetta skiptir upp hvað 'c' skipuin gerir"""
-            if self.llapi.get_current_user().stada == MANAGER_STRING:
+            if self.llapi.get_current_user().stada == (MANAGER_STRING or "eigandi"):
                 if last == 's':
                     screens['s'].create_new_employee()
                 elif last == 'v':
@@ -73,7 +73,7 @@ class Main_menu:
             "y": lambda: screens["v"].get_requests_by_employee(input("Starfsmaður: ")),
             "w": lambda: screens["v"].get_reports_by_employee(input("Starfsmaður: ")),
             "b": lambda: screens[last_selected].update(input("ID: ")),
-            "a": lambda: screens[last_selected].show_all() if self.llapi.get_current_user().stada == MANAGER_STRING else print(UNKNOWN_COMMAND) #Á bara við um yfirmenn og eigendur
+            "a": lambda: screens[last_selected].show_all() if self.llapi.get_current_user().stada == (MANAGER_STRING or "eigandi") else print(UNKNOWN_COMMAND) #Á bara við um yfirmenn og eigendur
 
         }
 
