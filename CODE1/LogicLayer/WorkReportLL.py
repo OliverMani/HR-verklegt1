@@ -76,5 +76,5 @@ class WorkReportLL:
 
     def accept_work_report_by_id(self, work_id):
         work_report = self.llapi.get_work_report_by_work_report_id(work_id)
-        work_report.samtykkt = "true"
+        work_report.samthykkt = "true"
         self.slapi.update_work_report(work_report)
