@@ -20,7 +20,7 @@ class WorkRequestListScreen:
         report = self.llapi.get_work_report_by_work_report_id(wr.skyrslaID)
         if not has_report :
             print(wr.id+". "+wr.titill + "*")
-        elif has_report and report.samthykkt.lower() == "true": 
+        elif has_report and report.samthykkt.lower() == "true":
             print(Color.GREEN + Color.BOLD+ wr.id+". " +wr.titill + Color.END )
         else:
             print(Color.RED + Color.BOLD+ wr.id+". " +wr.titill + Color.END )
@@ -175,10 +175,18 @@ class WorkRequestListScreen:
         skyrslaID = work_request.skyrslaID
         titill = input(f"Nýr titill (\"{work_request.titill}\"): ")
         lysing = input(f"Ný lýsing (\"{work_request.lysing}\"): ")
-        active = input(f"Active true/false ({work_request.active}): ")
+        try:
+            verkadagur = input("Dagur til að vinna verkefnið (YYYY/mm/dd): ").split('/')
+            dagatal = datetime(int(verkadagur[0]), int(verkadagur[1]), int(verkadagur[2]))
+            verkadagur_str = dagatal.strftime("%Y/%m/%d")
+            active = input(f"Active true/false ({work_request.active}): ")
 
-        updated_work = WorkRequest(work_request.id, stadurID, fasteignID, skyrslaID, titill, lysing, active)
-        self.llapi.update_work_request(updated_work)
+            updated_work = WorkRequest(work_request.id, stadurID, fasteignID, skyrslaID, titill, lysing, verkadagur, active)
+            self.llapi.update_work_request(updated_work)
+        except:
+            print("Ekki gildur verkadagur!")
+            print("Verkbeiðni ekki gerð!")
+
 
 
 #id,stadurID,fasteignID,skyrslaID,titill,lysing,active
