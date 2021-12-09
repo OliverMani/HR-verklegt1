@@ -74,7 +74,7 @@ Staðsetning:
 
 
     def render(self):
-        '''Prentar work reports'''
+        ''' Prentar work reports'''
         user = self.llapi.get_current_user()
         return_list = []
         print("Verkskýrslur: \t\t (V)erkbeiðnir \n")
