@@ -1,2 +1,1 @@
-id,titill,verkbeidniID,starfsmaðurID,verktaki,lýsing,dags,timi,kostnadur,heimilsfang,lokid,samtykkt
-1,kjarnaofn lagaður,1,10,Enginn,Skipt uid: m element í kjarnaofni,1.des.2021,"6,5",20000,Longyearbyen Harbor 1,True,true
+id,titill,verkbeidniID,starfsmaðurID,verktaki,lýsing,dags,timi,kostnadur,heimilisfang,lokid,samthykkt

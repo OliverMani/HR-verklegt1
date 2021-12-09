@@ -4,7 +4,7 @@ from Model.WorkReport import WorkReport
 class WorkReportData:
     def __init__(self):
         self.filename = "csv_files/WorkReports.csv"
-        self.fieldnames = ["id", "titill","verkbeidniID", "starfsmaðurID","verktaki", "lýsing", "dags","timi","kostnadur","heimilsfang", "lokid", "samtykkt"]
+        self.fieldnames = ["id", "titill","verkbeidniID", "starfsmaðurID","verktaki", "lýsing", "dags","timi","kostnadur","heimilisfang", "lokid", "samthykkt"]
 
     def open_file(self):
         '''opnar work reports skránna og skilar lista af tilvikum'''
@@ -13,8 +13,8 @@ class WorkReportData:
             with open(self.filename, newline='', encoding="UTF-8") as csvfile:
                 reader = csv.DictReader(csvfile)
                 for row in reader:
-                    work_request_list.append(WorkReport(row['id'], row['titill'], row['vbID'], row['starfsmadurID'],row['verktaki'], row['lysing'], row['dags'],row['timi'],
-                    row['kostnadur'], row['heimilisfang'], row['lokid'], row['samþykkt']))
+                    work_request_list.append(WorkReport(row['id'], row['titill'], row['verkbeidniID'], row['starfsmadurID'],row['verktaki'], row['lysing'], row['dags'],row['timi'],
+                    row['kostnadur'], row['heimilisfang'], row['lokid'], row['samthykkt']))
             return work_request_list
         except FileNotFoundError:
             return None
@@ -31,8 +31,8 @@ class WorkReportData:
             if not self.has_empty_end_line():
                 csvfile.write("\n")
             writer = csv.DictWriter(csvfile, fieldnames=self.fieldnames)
-            writer.writerow({"id": report.id,"titill": report.titill,"verkbeidniID":report.vbID, "starfsmaðurID": report.starfsmadurID,"verktaki":report.verktaki,"lýsing": report.lysing,
-            "dags": report.dags, "timi": report.timi, "kostnadur": report.kostnadur, "heimilsfang":report.heimilisfang, "lokid": report.lokid, "samtykkt": report.samtykkt})
+            writer.writerow({"id": report.id,"titill": report.titill,"verkbeidniID":report.verkbeidniID, "starfsmaðurID": report.starfsmadurID,"verktaki":report.verktaki,"lýsing": report.lysing,
+            "dags": report.dags, "timi": report.timi, "kostnadur": report.kostnadur, "heimilisfang":report.heimilisfang, "lokid": report.lokid, "samthykkt": report.samthykkt})
 
     def update(self, work_report):
         # Við þurfum að fá allan listann yfir starfsmenn til að geta breytt honum síðan

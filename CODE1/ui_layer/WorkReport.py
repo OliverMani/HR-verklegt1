@@ -95,7 +95,7 @@ Staðsetning:
             request_list = self.llapi.work_request_list()
             for report in work_reports:
                 for request in request_list:
-                    if request.id == report.vbID:
+                    if request.id == report.verkbeidniID:
                         return_list.append(report)
                         
         if len(return_list)>0:
