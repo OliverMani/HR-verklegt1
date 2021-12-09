@@ -1,3 +1,4 @@
+from ui_layer.Information import Information
 from ui_layer.ProfileScreen import ProfileScreen
 from ui_layer.WorkRequest import WorkRequestListScreen
 from ui_layer.EmployeeListScreen import EmployeeListScreen
@@ -58,6 +59,7 @@ class Main_menu:
             "vs": WorkReportListScreen(self.llapi),
             "f": PropertyListScreen(self.llapi),
             "s": EmployeeListScreen(self.llapi),
+            "i": Information(),
             "q": False,
             "r": lambda: screens[last_selected].sort_list(),
             "l": lambda: screens[last_selected].search_in_list(),
@@ -95,6 +97,10 @@ class Main_menu:
             # ef skipunin er einhver af þessum störum í if statementinu
             elif selected in "rlxwcba":
                 screen()
+
+            elif selected == "i":
+                Information().render()
+
             elif selected == 'cvs':
                 screens["vs"].create_new_work_report(input("Verkbeiðni ID: "))
 

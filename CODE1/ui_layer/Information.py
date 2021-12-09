@@ -1,8 +1,8 @@
-
-
-class Help:
+class Information:
     def __init__(self):
-        self.help = f"""
+        self.info = """
+Help screen:
+
 P - Info:
         Opnar þinn prófíl og sýnir allar helstu upplýsingar um þig
 
@@ -64,8 +64,6 @@ C - Er Notanlegt í (S)tarfsmenn, (V)erkbeiðnir og (F)asteign
             verkbeiðni fyrir fasteign.
 
 
-
-
 #CVS - Er best notað í (V)erkbeiðnir (ID+CVS), en virkar hvar sem er í kerfinu
 #
 #        Info:
@@ -96,9 +94,8 @@ A - Er notanlegt í (V)erkbeiðnir, (F)asteign og (S)tarfsmenn
         Info:
             Þessi skipun sýnir lista yfir öllu sem hægt er að sjá varðandi ákveðin hlut. Að nota þessa
             skipun í (F)asteign skilar öllum fasteignum sem fyrirtækið hefur á skrá.
-
-
 """
 
     def render(self):
-        pass
+        ''' prentar út Hjálparskjáinn '''
+        print(self.info)
