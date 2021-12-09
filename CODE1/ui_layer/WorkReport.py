@@ -81,7 +81,7 @@ Staðsetning:
         work_reports = self.llapi.get_work_report_list()
         user = self.llapi.get_current_user()
         return_list = []
-        print("Skýrslur\n")
+        print("Verkskýrslur: \t\t (V)erkbeiðnir \n")
         if user.stada.lower() == "starfsmaður":  
             #Starfsmenn sjá verkskýrslur sem þeir hafa skráð 
             for report in work_reports:

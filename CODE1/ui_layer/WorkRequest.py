@@ -56,7 +56,7 @@ class WorkRequestListScreen:
         '''Það prentar work requests'''
         properties = self.llapi.work_request_list()
         user = self.llapi.get_current_user()
-        print("Verkefni\n")
+        print("Verkbeiðnir: \t\t (VS) Verkskýrslur\n")
         # Starfsmaður sér bara þær sem eru á hanns svæði
         for workrequest in properties:
             if workrequest.stadurID == user.afangastadurID:

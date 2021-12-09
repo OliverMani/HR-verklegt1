@@ -16,7 +16,7 @@ class Main_menu:
         self.llapi = LLAPI()
         self.llapi.set_current_user(user)
         self.menu = f"""
-(P)rófíll    (V)erkefni    (F)asteignir    (S)tarfsmenn        {"<(C) Bæta við>" if self.llapi.get_current_user().stada == MANAGER_STRING else (' ' * 12)}   <(Q) Hætta>
+(P)rófíll    (V)erkbeiðnir    (F)asteignir    (S)tarfsmenn        {"<(C) Bæta við>" if self.llapi.get_current_user().stada == MANAGER_STRING else (' ' * 12)}   <(Q) Hætta>
 -------------------------------------------------------------------------------------------"""
     ## Væri gott að færa þetta yfir í logic...
     def parse_digital_commands(self, command) -> tuple:
@@ -96,13 +96,8 @@ class Main_menu:
             elif selected in "rlxwcba":
                 screen()
             elif selected == 'cvs':
-<<<<<<< HEAD
-                screens["vs"].create_new_work_report(None)
-            #ef skipunin er bara tala -> sýnir upplýsingar
-=======
                 screens["vs"].create_new_work_report(input("Verkbeiðni ID: "))
             #ef skipunin er bara tala
->>>>>>> f036d163dfb4abc5b99d06335d071040b0eccc79
             elif selected.isdigit():
                 if last_selected == "s":
                     EmployeeListScreen(self.llapi).show_emp_with_id(selected)
@@ -110,6 +105,8 @@ class Main_menu:
                     PropertyListScreen(self.llapi).show_property_with_id(selected)
                 elif last_selected == "v":
                     WorkRequestListScreen(self.llapi).show_work_request_with_id(selected)
+                elif last_selected == "vs":
+                    WorkReportListScreen(self.llapi).get_work_report_by_id(selected)
             
 
             # Ef skipunin er til dæmis 6vs eða 2p en ekki bara 8
@@ -136,15 +133,11 @@ class Main_menu:
                         if last_selected == 's':
                             screens['p'].render_user(self.llapi.get_employee_by_id(number))
                         else:
-<<<<<<< HEAD
-                           print(ONLY_MANAGERS)
-=======
                             print(ONLY_MANAGERS)
                 elif command == 'cvs' and last_ == 'v':
                     screens["vs"].create_new_work_report(number)
                 elif command == 'b':
                     screens[last_selected].update(number)
->>>>>>> f036d163dfb4abc5b99d06335d071040b0eccc79
                 else:
                     print(UNKNOWN_COMMAND)
             else:
