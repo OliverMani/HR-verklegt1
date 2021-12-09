@@ -1,6 +1,6 @@
 from LogicLayer.LLAPI import LLAPI
 from Model.WorkRequest import WorkRequest
-from ui_layer.PropertyListScreen import PropertyListScreen
+#from ui_layer.PropertyListScreen import PropertyListScreen
 from ui_layer.WorkReport import WorkReportListScreen
 from ui_layer.Color import Color
 
@@ -22,7 +22,10 @@ class WorkRequestListScreen:
 
     def search_in_list(self):
         word = input("Leita: ")
-        results = self.llapi.search_work_requests(word)
+        self.show_work_request_with_id(word)
+
+    def show_work_request_with_id(self, id):
+        results = self.llapi.search_work_requests(id)
         for request in results:
             print("ID: ",request.id)
             print("Titill: ",request.titill)
@@ -72,7 +75,7 @@ class WorkRequestListScreen:
         work_request_list = self.llapi.get_work_request_list_by_property_id(property_id)
         for work_request in work_request_list:
             #if work_request.fasteignid == property_id:
-            print(work_request.titill)
+            self.print_wr(work_request)
 
     def sort_by_employee(self, employee_id):
         '''Raðar work requests eftir starfsmanni'''
@@ -82,7 +85,7 @@ class WorkRequestListScreen:
         for work_request in work_request_list:
             for id in employee_id:
                 if id == employee_id:
-                    print(work_request.titill)
+                    self.print_wr(work_request)
 
     def mark_work_request_as_done(self, work_request_id, employee_id):
         '''Breytir stöðu verkbeiðnar í lokið'''

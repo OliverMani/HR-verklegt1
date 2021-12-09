@@ -102,6 +102,8 @@ class Main_menu:
                     EmployeeListScreen(self.llapi).show_emp_with_id(selected)
                 elif last_selected == "f":
                     PropertyListScreen(self.llapi).show_property_with_id(selected)
+                elif last_selected == "v":
+                    WorkRequestListScreen(self.llapi).show_work_request_with_id(selected)
 
             # Ef skipunin er til dæmis 6vs eða 2p en ekki bara 8
             elif selected[0].isdigit() and not selected.isdigit():
@@ -132,5 +134,5 @@ class Main_menu:
                     print(UNKNOWN_COMMAND)
             else:
                 screen.render()
-                last_selected = selected
+                last_selected = selected.lower()
             selected = input("\nSlá inn aðgerð: ").lower()
