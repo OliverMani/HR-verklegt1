@@ -5,7 +5,6 @@ from LogicLayer.WorkRequestLL import WorkRequestLL
 from LogicLayer.PropertyLL import PropertyLL
 from LogicLayer.WorkReportLL import WorkReportLL
 from LogicLayer.MainMenuLL import MainMenuLL
-from ui_layer.Information import Information
 
 
 
@@ -18,12 +17,9 @@ class LLAPI:
         self.property_ll = PropertyLL(self.slapi, self)
         self.work_reportll = WorkReportLL(self)
         self.main_menu_ll = MainMenuLL(self, None)
-        self.info = Information().render()
 
 #----------------------------- Return list föll ---------------------------------#
 
-    def help(self):
-        pass
 
     def employee_list(self):
         ''' sendir employee list í UI layer '''
