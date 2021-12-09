@@ -71,6 +71,7 @@ class Main_menu:
             "w": lambda: screens["v"].get_reports_by_employee(input("Starfsmaður: ")),
             "b": lambda: screens[last_selected].update(input("ID: ")),
             "a": lambda: screens[last_selected].show_all() #Á bara við um yfirmenn og eigendur
+            #"h": lambda: 
 
         }
 
