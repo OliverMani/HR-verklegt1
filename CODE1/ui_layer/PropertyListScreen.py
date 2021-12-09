@@ -60,8 +60,8 @@ class PropertyListScreen:
 
                 if not self.llapi.work_request_has_report(opna):
                     bua_til_vs = input("Viltu bæta við skýrslu við verkbeiðnina? <(J)á / (N)ei>: ")
-                    WorkReportListScreen(self.llapi).create_new_work_report(opna)
-
+                    if bua_til_vs.lower() == "j":
+                        WorkReportListScreen(self.llapi).create_new_work_report(opna)
             else:
                 print("Engar verkskýrslur skráðar", len(verkbeidnir))
             print()

@@ -70,7 +70,7 @@ Staðsetning:
 """
         print(work_report_str)
         if self.llapi.get_current_user().stada.lower() == "yfirmaður":
-            accept = input("Viltu samþykkja þessa verkskýrslu? (J/n): ")
+            accept = input("Viltu samþykkja þessa verkskýrslu? (j/n): ")
             if accept.lower() == 'j':
                 self.llapi.accept_work_report_by_id(work_report.id) #Keyra ferli sem samþykkir skýrslu
                 print("Samþykkti skýrslu")
@@ -81,15 +81,15 @@ Staðsetning:
 
     def render(self):
         '''Prentar work reports'''
-        work_reports = self.llapi.get_work_report_list()
         user = self.llapi.get_current_user()
-        #return_list = []
+        return_list = []
         print("Verkskýrslur: \t\t (V)erkbeiðnir \n")
-
         if user.stada.lower() == "starfsmaður":
             return_list = self.llapi.get_report_by_employee(user.id)
         elif user.stada.lower() == "yfirmaður":
-            return_list = self.llapi.get_work_report_by_work_report_id(user.id)
+            return_list = self.llapi.get_report_by_destination_id(user.afangastadurID)
+        for report in return_list:
+            print(report.id+". "+ report.lysing)
 
         print("\n\n(w) Finna skýrslur af ákveðnum starfsmanni")
         print("(undefined) Finna skýrslur fyrir fasteign")
