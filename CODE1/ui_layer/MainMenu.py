@@ -68,6 +68,7 @@ class Main_menu:
             "c": lambda: switch_creations(last_selected),
             #"ce": lambda: screens["s"].create_new_employee() if self.llapi.get_current_user().stada == MANAGER_STRING else print(ONLY_MANAGERS),
             "cvs": lambda: screens["vs"].create_new_work_report(input("Verkbeiðni ID: ")),# if self.llapi.get_current_user().stada == MANAGER_STRING else print(ONLY_MANAGERS),
+            "bvs": lambda: screens["vs"].update(input("Verkskýrsla ID: ")),
             #"cvb": lambda: screens["v"].create_new_work_request() if self.llapi.get_current_user().stada == MANAGER_STRING else print(ONLY_MANAGERS),
             #"cf": lambda: screens["f"].create_new_property() if self.llapi.get_current_user().stada == MANAGER_STRING else print(ONLY_MANAGERS),
             "y": lambda: screens["v"].get_requests_by_employee(input("Starfsmaður: ")),
@@ -84,10 +85,6 @@ class Main_menu:
             if len(selected) > 0 and selected[0].isdigit():
                 screen = True
 
-            # ef skipunin er "q" þá hætta HELD AÐ ÞETTA S'E 'OÞRARFI
-            if screen == False:
-                return
-
             # Prentar menu skjáinn
             print(self.menu)
 
@@ -96,15 +93,15 @@ class Main_menu:
             if screen is None or len(selected) == 0:
                 print(UNKNOWN_COMMAND)
             # ef skipunin er einhver af þessum störum í if statementinu
-            elif selected in "rlxwcba":
+            elif selected in "rlxwcba" or selected == 'cvs' or selected == 'bvs':
                 screen()
 
             elif selected == "i":
                 InformationScreen().render()
 
-            elif selected == 'cvs':
-                screens["vs"].create_new_work_report(input("Verkbeiðni ID: "))
-
+            #elif selected == 'cvs':
+                #screens["vs"].create_new_work_report(input("Verkbeiðni ID: "))
+                #screens[selected]()
             #ef skipunin er bara tala
             elif selected.isdigit():
                 if last_selected == "s":
@@ -143,8 +140,10 @@ class Main_menu:
                         else:
                             print(ONLY_MANAGERS)
                 elif command == 'cvs':
-                    if last_selected in 'vj':
+                    if last_selected == 'v':
                         screens["vs"].create_new_work_report(number)
+                elif command == 'bvs':
+                    screens["vs"].update(number)
                 elif command == 'b':
                     screens[last_selected].update(number)
                 else:

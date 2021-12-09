@@ -172,6 +172,9 @@ class LLAPI:
     def update_work_request(self, work):
         return self.work_requestll.update_work_request(work)
 
+    def update_work_report(self, work):
+        return self.work_reportll.update_work_report(work)
+
 #-------------------------------------------------------------------------------#
 
     def work_request_has_report(self, id):

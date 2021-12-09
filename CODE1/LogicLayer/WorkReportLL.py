@@ -71,6 +71,8 @@ class WorkReportLL:
         work_report = self.get_work_report_by_work_report_id(work_id)
         return self.llapi.get_employee_by_id(work_report.starfsmadurID)
 
+    def update_work_report(self, work):
+        self.slapi.update_work_report(work)
 
     def accept_work_report_by_id(self, work_id):
         work_report = self.llapi.get_work_report_by_work_report_id(work_id)

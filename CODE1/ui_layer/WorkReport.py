@@ -128,6 +128,29 @@ Staðsetning:
         report = WorkReport(id,titill,verkbeidniID,starfsmadurID, verktaki,lysing,dags,timi,kostnadur,None,lokið,samtykkt)
         self.llapi.create_new_work_report(report)
 
+    def update(self, report_id):
+        current_user = self.llapi.get_current_user()
+        old_report = self.llapi.get_work_report_by_work_report_id(report_id)
+        id = report_id
+        titill = None
+        verkbeidniID = old_report.verkbeidniID
+        starfsmadurID = old_report.starfsmadurID
+        verktaki = input(f"Verktaki ({old_report.verktaki}): ")
+        if verktaki == "":
+            verktaki = "Enginn"
+        lysing = input(f"Lýsing (\"{old_report.lysing}\"): ")
+        dags = input(f"Dags gert (YYYY/mm/dd) ({old_report.dags}): ") # geri sjálfvirkt
+        timi = input(f"Tími ({old_report.timi}): ")
+        kostnadur = "0"
+        if current_user.stada == "yfirmaður":
+            kostnadur = input(f"Kostnaður ({old_report.kostnadur}): ")
+        #heimilisfang = input("Heimilisfang: ")
+        lokið = "true"#input("Lokið: ")#Sjálfkrafa
+        samtykkt = old_report.samthykkt # input("Samþykkt: ")#Sjálfkrafa
+
+        new_report = WorkReport(id,titill,verkbeidniID,starfsmadurID, verktaki,lysing,dags,timi,kostnadur,None,lokið,samtykkt)
+        self.llapi.update_work_report(new_report)
+
     def get_work_report_by_property(self, property_id):
         '''prentar work reports eftir fasteign'''
         prop_reports = LLAPI.get_work_reports_by_property(property_id)
