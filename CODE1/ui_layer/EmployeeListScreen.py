@@ -34,11 +34,15 @@ class EmployeeListScreen:
             self.show_emp_with_id(employee)
 
 
-    def show_emp_with_id(self, employee):
-            print("\nID:", employee.id)
-            print("Nafn:", employee.nafn)
-            print("GSM:", employee.gsm)
-            print("Netfang:", employee.netfang)
+    def show_emp_with_id(self, employee_id):
+        employee = self.llapi.get_employee_by_id(employee_id)
+        if employee is None:
+            print("Starfsmaður fannst ekki!")
+            return None
+        print("\nID:", employee.id)
+        print("Nafn:", employee.nafn)
+        print("GSM:", employee.gsm)
+        print("Netfang:", employee.netfang)
 
     def show_emp_info(self, id):
         employees = self.llapi.search_employees(id)
@@ -79,7 +83,7 @@ class EmployeeListScreen:
         gsm = input("Gsm: ")
         afangastadurID = self.llapi.get_current_user().afangastadurID #sjálfsvirkt, yfirmaður skráir ekki starfsmann fyrir annan stað
         if self.llapi.get_current_user().stada == "eigandi":
-            stodur = "123" 
+            stodur = "123"
         else:
             stodur = "12"
         stada = "0"
@@ -99,6 +103,9 @@ class EmployeeListScreen:
 #-----------------------Update föll-----------------------------------------------------
     def update(self,id):
         employee = self.llapi.get_employee_by_id(id)
+        if employee is None:
+            print("Starfsmaður fannst ekki")
+            return None
         print("-- Uppfæra upplýsingar um starfsmenn --")
         print("    Gamla gildið er í sviga, skildu")
         print("     tómt eftir til að breyta ekki")

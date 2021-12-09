@@ -28,7 +28,7 @@ class PropertyListScreen:
 
 
 
-        
+
 
     def search_in_list(self):
         '''Leitar að hverju sem er í property list og skilar True ef input er fundið annars False'''
@@ -48,10 +48,13 @@ class PropertyListScreen:
         print(property.heimilisfang)
         print(self.llapi.get_destination_from_id(property.stadurID))
         print("Fasteignarnúmer", property.fasteignanumer)
-        
-    def show_property_info(self, property):
-        self.show_property_with_id(property)
-        prop = self.llapi.get_property_by_id(property)
+
+    def show_property_info(self, property_id):
+        self.show_property_with_id(property_id)
+        prop = self.llapi.get_property_by_id(property_id)
+        if prop is None:
+            print("Fasteign fannst ekki!")
+            return None
         val = input("\nSkoða verkbeiðnir fasteingnar? <(J)á / (N)ei>")
         if val.lower() == "j":
             print("Verkbeiðnir:")
@@ -104,12 +107,15 @@ class PropertyListScreen:
 #----------------------Update Property--------------------------------------------------------
     def update(self,id):
         property = self.llapi.get_property_by_id(id)
+        if property is None:
+            print("Fasteign fannst ekki!")
+            return None
         print("-- Uppfæra upplýsingar um fasteign --")
         print("    Gamla gildið er í sviga, skildu")
         print("     tómt eftir til að breyta ekki")
         print()
 
-        
+
         stadurID = property.stadurID
         heimilisfang = input(f"Nýtt heimilisfang ({property.heimilisfang}): ") or property.heimilisfang
         fm = input(f"Nýir fermetrar ({property.fm}): ") or property.fm
@@ -119,4 +125,3 @@ class PropertyListScreen:
         active = input(f"Er starfsmaður active, true/false ({property.active})?") or property.active
         new_property = Property(property.id,stadurID,heimilisfang,fm,herbergi,tegund,fasteignanumer,active)
         self.llapi.update_property(new_property)
-        

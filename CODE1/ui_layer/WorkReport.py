@@ -129,6 +129,9 @@ Staðsetning:
     def update(self, report_id):
         current_user = self.llapi.get_current_user()
         old_report = self.llapi.get_work_report_by_work_report_id(report_id)
+        if old_report is None:
+            print("Verkskýrsla fannst ekki!")
+            return None
         id = report_id
         titill = None
         verkbeidniID = old_report.verkbeidniID

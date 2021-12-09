@@ -138,6 +138,9 @@ class WorkRequestListScreen:
             old_request = WorkRequest(id, '', '', '', '', '', '', '')
         else:
             old_request = self.llapi.get_work_request_by_id(id)
+            if old_request is None:
+                print("Verkbeiðnin fannst ekki!")
+                return None
             stadurID = input(f"Staður ID ({old_request.stadurID}): ") or old_request.stadurID
 
 
