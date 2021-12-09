@@ -13,5 +13,6 @@ class Color:
    DIM       = '\033[2m'
    NORMAL    = '\033[22m'
    RESET_ALL = '\033[0m'
+   ORANGE = "\033[38;5;208m"
 
 
