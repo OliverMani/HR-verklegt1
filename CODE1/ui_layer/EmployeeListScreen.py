@@ -55,7 +55,7 @@ class EmployeeListScreen:
                 verkefni = self.llapi.get_work_request_list_by_employee_id(employee.id)
                 if len(verkefni)>0:
                     for v in verkefni:
-                      WorkRequestListScreen(self.llapi).print_wr(v)
+                        WorkRequestListScreen(self.llapi).print_wr(v)
                     opna = (input("Opna skýrslu nr: "))
                     WorkReportListScreen(self.llapi).get_work_report_by_id(opna)
                 else:
