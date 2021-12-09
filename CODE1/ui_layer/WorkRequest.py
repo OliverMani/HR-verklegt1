@@ -86,9 +86,10 @@ class WorkRequestListScreen:
         '''Yfirmaður sér þessi skilaboð bara'''
         if (self.llapi.get_current_user().stada).lower() == "yfirmaður":
             print("(A) Sjá allar skráðar verkbeiðnir")
-            print("(C) Búa til nýja verkebiðni fyrir fasteign")
-            print("ID + (CVS) búa til nýja verkebiðni fyrir fasteign")
+            print("(C) Búa til nýja verkbeiðni fyrir fasteign")
+            print("ID + (CVS) búa til nýja verkbeiðni fyrir fasteign")
             print("(B) Breyta verkbeiðni fyrir fasteign")
+            print("ID + (BVS) breyta verkskýrslu fyrir verkbeiðni")
 
             # print("(undefined) Loka verkefni ")
             # print("(undefined) Breyta verkbeiðni fyrir fasteign")
@@ -132,60 +133,58 @@ class WorkRequestListScreen:
                 work_request_list[6] = "Done"
                 print(work_request_list)
 
+
+
+    def get_input(self, id=None):
+        creating = id is None #Breyta sem segir hvort verið sé að búa til eða uppfæra
+        old_request = None
+        stadurID = None # skilgreina stadurID...
+        if creating: # Basically ef við séum að búa til
+            id = str(int(self.llapi.work_request_list()[-1].id)+1)
+            stadurID = self.llapi.get_current_user().afangastadurID
+            old_request = WorkRequest(id, '', '', '', '', '', '', '')
+        else:
+            old_request = self.llapi.get_work_request_by_id(id)
+            stadurID = input(f"Staður ID ({old_request.stadurID}): ") or old_request.stadurID
+
+
+        # Sameiginlegur kóði
+        fasteignID = "0"
+        gildar_fasteignir = self.llapi.get_properties_by_stadur_id(stadurID.strip())
+        # Fá út öll ID til að bera saman
+        gildar_fasteignir_ids = [fasteign[0] for fasteign in gildar_fasteignir]
+        while fasteignID not in gildar_fasteignir_ids:
+            for fasteign in gildar_fasteignir:
+                print(f"{fasteign[0]}. {fasteign[1]}")
+            fasteignID = input(f"Nr. á fasteign ({old_request.fasteignID}): ") or old_request.fasteignID
+        skyrslaID = "0"
+        titill = input(f"Titill (\"{old_request.titill}\"): ") or old_request.titill
+        lysing = input(f"Lýsing: (\"{old_request.lysing}\"): ") or old_request.lysing
+        #if True:
+        try:
+            verkadagur = (input(f"Dagur til að vinna verkefnið (YYYY/mm/dd) ({old_request.verkadagur}): ") or old_request.verkadagur).split('/')
+            dagatal = datetime(int(verkadagur[0]), int(verkadagur[1]), int(verkadagur[2]))
+            verkadagur_str = dagatal.strftime("%Y/%m/%d")
+            active = input(f"Active true/false ({old_request.active}): ") or old_request.active
+
+            return WorkRequest(old_request.id, stadurID, fasteignID, skyrslaID, titill, lysing, verkadagur, active)
+        except:
+            print("Ekki gildur verkadagur!")
+            print("Verkbeiðni ekki gerð!")
+
+
+        #id, stadurID, fasteignID, skyrslaID, titill, lysing, verkadagur, active
+
     def create_new_work_request(self):
         '''býr til nýja vinnubeiðni og appendar henni í WorkRequest.csv skránni'''
-        id = str(int(self.llapi.work_request_list()[-1].id)+1) # Breytti þessu til að koma í veg fyrir yfirskrif á ID
-        titill = input("\nTitill: ")
-        stadurID = self.llapi.get_current_user().afangastadurID # Breytti í staðsetningu starfsmanns
-        afangastadur = self.llapi.get_destination_from_id(stadurID)
-        fasteignID = "0"
-        while self.llapi.get_property_by_id(fasteignID) is None:
-            print("Fasteignir í", afangastadur)
-            fasteign = self.llapi.get_properties_by_stadur_id(stadurID.strip())
-            for i in fasteign:
-                print(i[0]+". "+i[1])  # Laga ef við viljum
-            fasteignID = input("Nr. á fasteign: ")
-
-        lysing = input("Lýsing á verkefni: ")
-        skyrslaID = "0" # SJÁLFSVIRKT
-        try:
-            verkadagur = input("Dagur til að vinna verkefnið (YYYY/mm/dd): ").split('/')
-            dagatal = datetime(int(verkadagur[0]), int(verkadagur[1]), int(verkadagur[2]))
-            verkadagur_str = dagatal.strftime("%Y/%m/%d")
-
-            #fasteignID = self.llapi.get_property_id_from_input(fasteign)
-            if fasteignID:
-                req = WorkRequest(id,stadurID,fasteignID,skyrslaID,titill,lysing,verkadagur_str,active="True")
-                self.llapi.create_new_work_request(req)
-            else:
-                print("\nFasteign ekki til!\nEkki tókst að skrá beiðni!")
-        except:
-            print("Ekki gildur verkadagur!")
-            print("Verkbeiðni ekki gerð!")
+        info = self.get_input()
+        if info:
+            self.llapi.create_new_work_request(info)
 
     def update(self,id):
-        work_request = self.llapi.get_work_request_by_id(id)
-        print("-- Uppfæra upplýsingar um verkbeiðnir --")
-        print("    Gamla gildið er í sviga, skildu")
-        print("     tómt eftir til að breyta ekki")
-        print()
-
-        stadurID = work_request.stadurID
-        fasteignID = work_request.fasteignID
-        skyrslaID = work_request.skyrslaID
-        titill = input(f"Nýr titill (\"{work_request.titill}\"): ")
-        lysing = input(f"Ný lýsing (\"{work_request.lysing}\"): ")
-        try:
-            verkadagur = input("Dagur til að vinna verkefnið (YYYY/mm/dd): ").split('/')
-            dagatal = datetime(int(verkadagur[0]), int(verkadagur[1]), int(verkadagur[2]))
-            verkadagur_str = dagatal.strftime("%Y/%m/%d")
-            active = input(f"Active true/false ({work_request.active}): ")
-
-            updated_work = WorkRequest(work_request.id, stadurID, fasteignID, skyrslaID, titill, lysing, verkadagur, active)
-            self.llapi.update_work_request(updated_work)
-        except:
-            print("Ekki gildur verkadagur!")
-            print("Verkbeiðni ekki gerð!")
+        info = self.get_input(id)
+        if info:
+            self.llapi.update_work_request(info)
 
 
 
