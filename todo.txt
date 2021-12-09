@@ -32,22 +32,22 @@ TO DO:
 	# Hægt að gera þetta þegar maður skrifar "v" -> "2vs" þá sér maður hvernig á að útfæra þetta #
 	# Það er líka hægt að skrifa "v" -> "ID+CVS" #
 
-11. Yfirmaður skal geta lokað verkbeiðnum (t.d þegar verkskýrslur eru samþykktar) 
+############ 11. Yfirmaður skal geta lokað verkbeiðnum (t.d þegar verkskýrslur eru samþykktar) 
 	Búið ef það sé að breyta active í false?? / Það þarf að tengja saman og geta skráð verkbeiðnir sem lokið
 
-12. Yfirmaður skal geta samþykkt tilbúnar verkskýrlsur
-	óklárað 
+############ 12. Yfirmaður skal geta samþykkt tilbúnar verkskýrlsur
+	############óklárað 
 
 ############ 13. Yfirmaður skal geta séð lista yfir allar sínar verkbeiðnir
-	óklárað
+	############óklárað
 
-14. Yfirmaður skal geta séð um skráningu á öllum kostnaði á viðhaldi og rekstri 
+???????????? 14. Yfirmaður skal geta séð um skráningu á öllum kostnaði á viðhaldi og rekstri 
 	Þetta er alveg eftir, þarf að finna útúr því hvernig við viljum hafa þetta sett upp í forritinu
 
 ############ 15. Yfirmaður skal geta séð upplýsingar um starfsmenn (undirmenn)
 	Það þarf að flokka starfsmenn eftir staðsetningu. Yfirmenn geta þá bara séð starfsmenn á sínum áfangastað
 
-16. Yfirmaður skal geta skráð starf starfsmanna Er þetta innifalið í skráningu starfsmanna???/ 
+???????????? 16. Yfirmaður skal geta skráð starf starfsmanna Er þetta innifalið í skráningu starfsmanna???/ 
 	klárað (þarf að skoða þetta eitthvað) ( Er það þá munurinn á Verktaka og starfsmanni?)
 
 ############ 17. Yfirmaður skal geta stofnað nýja verkbeiðni fyrir fasteignirnar. Komið? Bara sett á annan stað 
