@@ -89,7 +89,11 @@ Staðsetning:
         if user.stada.lower() == "starfsmaður":
             self.llapi.get_report_by_employee(user.id)
         elif user.stada.lower() == "yfirmaður":
+<<<<<<< HEAD
             self.llapi.get_report_by_destination_id(user.afangastadurID)
+=======
+            return_list = self.llapi.get_report_by_id(user.id)
+>>>>>>> 2b0adcab662acfa2e0c7b2a0220c962340a075b0
 
         print("\n\n(w) Finna skýrslur af ákveðnum starfsmanni")
         print("(undefined) Finna skýrslur fyrir fasteign")

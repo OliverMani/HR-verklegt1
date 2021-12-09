@@ -6,14 +6,15 @@ class Help:
 P ----- Info:
             Opnar þinn prófíl og sýnir allar helstu upplýsingar um þig
 
-V ----- Notanlegar skipanir: "" "" "" ""
+V ----- Notanlegar skipanir: "x" "x" "x" "x"
         Info:
             Sýnir verkbeiðnir fyrir þinn vinnustað og WorkRequestID fyrir hverja verkbeiðni, þar inni getur þú búið til 
             nýja verkbeiðni, leitað eftir ákveðinni verkbeiðni eftir WorkRequestID (Ef þú vilt skoða verkbeiðni númer 3 
             þá ýtir þú á "L" og síðan "3"). Þegar þú ert búin/n að leita þá kemur fyrst upp upplýsingar um verkbeiðnina 
             og fyrir neðan það kemur upp skýrslan sem skráð er á verkbeiðnina ef skýrsla er til fyrir þessa verkbeiðni. 
 
-F ----- Info:
+F ----- Notanlegar skipanir: "L" "R" "A" "C" ""
+        Info:
             Sýnir fasteignir fyrir áfangastaðinn sem þú ert skráð/ur á. 
 
 

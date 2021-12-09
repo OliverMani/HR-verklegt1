@@ -31,9 +31,9 @@ class EmployeeListScreen:
         results = self.llapi.search_employees(word)
         for employee in results:
             self.show_emp_with_id(employee.id)
-        
-        
-    def show_emp_with_id(self, id):    
+
+
+    def show_emp_with_id(self, id):
         employees = self.llapi.search_employees(id)
         for employee in employees:
             print("\nID:", employee.id)
@@ -47,11 +47,11 @@ class EmployeeListScreen:
                 verkefni = self.llapi.get_work_request_list_by_employee_id(employee.id)
                 if len(verkefni)>0:
                     for v in verkefni:
-                      WorkRequestListScreen(self.llapi).print_wr(v) 
+                      WorkRequestListScreen(self.llapi).print_wr(v)
                     opna = (input("Opna skýrslu nr: "))
                     WorkReportListScreen(self.llapi).get_work_report_by_id(opna)
                 else:
-                    print("Engar verkskýrslur skráðar.")                
+                    print("Engar verkskýrslur skráðar.")
             print()
 
     def sort_list(self):
@@ -74,7 +74,15 @@ class EmployeeListScreen:
         heimasimi = input("Heimasími: ")
         gsm = input("Gsm: ")
         afangastadurID = self.llapi.get_current_user().afangastadurID #sjálfsvirkt, yfirmaður skráir ekki starfsmann fyrir annan stað
-        stada = "starfsmaður" # Sjálfsvirkt, yfirmaður skráir ekki starfsmann sem Chuck Norris sko
+
+        stada = "0"
+        while stada not in "12":
+            print("Veldu stöðu (eftir númeri):")
+            print(" 1: Starfsmaður")
+            print(" 2: Verktaki")
+            print()
+            stada = input("> ")  # Sjálfsvirkt, yfirmaður skráir ekki starfsmann sem Chuck Norris sko
+        stada = ("starfsmaður", "verktaki")[int(stada)-1] # breyta tölu í starfsheiti
         emp = Employee(id,nafn,netfang,heimilsfang,heimasimi,gsm,afangastadurID,stada,active="True")
         self.llapi.create_new_employee(emp)
 #-----------------------Update föll-----------------------------------------------------
