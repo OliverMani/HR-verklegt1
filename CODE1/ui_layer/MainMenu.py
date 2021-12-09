@@ -55,19 +55,19 @@ class Main_menu:
 
 
         screens = {
-            "a": lambda: screens[last_selected].show_all() if self.llapi.get_current_user().stada == (MANAGER_STRING or "eigandi") else print(UNKNOWN_COMMAND), #Á bara við um yfirmenn og eigendur
-            "b": lambda: screens[last_selected].update(input("ID: ")),
-            "c": lambda: switch_creations(last_selected),
             "p": ProfileScreen(self.llapi),
             "f": PropertyListScreen(self.llapi),
             "i": InformationScreen(),
-            "l": lambda: screens[last_selected].search_in_list(),
-            "q": False,
-            "r": lambda: screens[last_selected].sort_list(),
             "s": EmployeeListScreen(self.llapi),
             "v": WorkRequestListScreen(self.llapi),
             "vs": WorkReportListScreen(self.llapi),
+            "a": lambda: screens[last_selected].show_all() if self.llapi.get_current_user().stada == MANAGER_STRING or "eigandi" else print(UNKNOWN_COMMAND), #Á bara við um yfirmenn og eigendur
+            "b": lambda: screens[last_selected].update(input("ID: ")),
+            "c": lambda: switch_creations(last_selected),
+            "l": lambda: screens[last_selected].search_in_list(),
+            "r": lambda: screens[last_selected].sort_list(),
             "cvs": lambda: screens["vs"].create_new_work_report(input("Verkbeiðni ID: ")),# if self.llapi.get_current_user().stada == MANAGER_STRING else print(ONLY_MANAGERS),
+            "q": False,
 
         }
 

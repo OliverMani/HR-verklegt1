@@ -17,7 +17,7 @@ class WorkRequestListScreen:
     def print_wr(self, wr):
         # Ef það sé engin skýrsla gerum við stjörnu
         has_report = self.llapi.work_request_has_report(wr.id)
-        report = self.llapi.get_work_report_by_work_report_id(wr.skyrslaID)
+        report = self.llapi.get_work_report_by_work_report_id(wr.id)
         if not has_report :
             print(wr.id+". "+wr.titill + "*")
         elif has_report and report.samthykkt.lower() == "true":
