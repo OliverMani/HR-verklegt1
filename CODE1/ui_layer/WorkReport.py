@@ -85,8 +85,6 @@ Staðsetning:
         for report in return_list:
             print(report.id+". "+ report.lysing)
 
-        print("\n\n(w) Finna skýrslur af ákveðnum starfsmanni")
-        print("(undefined) Finna skýrslur fyrir fasteign")
         print("(cvr) Skrá nýja skýrslu")
         if (self.llapi.get_current_user().stada).lower() == ("yfirmaður" or "eigandi"):
             print("(sv) Samþykkja verkskýrslu")

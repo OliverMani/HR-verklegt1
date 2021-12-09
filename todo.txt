@@ -57,3 +57,20 @@ TO DO:
 
 #########Ef maður leitar að einhverju að taka út spurningar 10 sinnum
 Laga leitina allstaðar
+
+
+Punktar frá Sunnevu:
+- Hvernig sé ég verkbeiðnir eftir ákveðin starfsmann? 
+- Fasteignir -> (B)reyta -> Strax ID: (finnst eins og að leiðbeiningarnar ættu að koma líka en ekki bara þegar þú ýtir á enter, það krassar ef ég ýti strax á enter)
+- Finnst vanta nánari leiðbeiningar til þess að vita að ég get leitað eftir verkskýrslu eftir ákveðin starfsmann í leitinni inni í verkbeiðnum
+- (C) búa til nýja verkbeiðni fyrir fasteign OG ID + (CVS) búa til nýja verkbeiðni fyrir fasteign - á (CVS) ekki að vera að búa til nýja verkskýrslu fyrir fasteign?
+- Krassar ef ég geri -> (CVS) og geri ekkert nema enter 
+- Ég fann leitarvalmöguleikan til þess að leita af skýrslum eftir ákveðin starfsmann: (V)erkbeiðnir -> (vs) -> fæ upp yfirlit og leiðbeiningar hvað ég get getur
+- Krassar ef ég vel (w) Finna skýrslur af ákveðnum starfsmanni
+- (sv) samþykkja verkskýrslur, það kemur upp óþekkt aðgerð
+- (cvr) Skrá nýja skýrslu, það kemur líka upp óþekkt aðgerð (virkar þegar ég geri cvs) en krassar þegar ég ýti bara á enter
+- (undefined) Finna skýrslur fyrir fasteign, það vantar einhverja skipun hér til þess að velja Þetta
+- (C) búa til nýja verkebiðni fyrir fasteign - stafsetning verkbeiðni
+- Pæling með að samþykkja, kemur alltaf upp valmöguleikinn á því að samþykkja þrátt fyrir að vera mögulega búin að samþykkja ?
+- Vorum við búin að bæta við leit eftir dagsetningu? Reyndi en fann ekki útúr því hvernig það virkar 
+
