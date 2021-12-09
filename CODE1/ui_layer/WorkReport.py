@@ -11,6 +11,8 @@ class WorkReportListScreen:
 
         if work_report is None:
             print("Engin skýrsla fannst við þessari beiðni")
+            print("Til að búa til verkskýrslu,")
+            print(f"Skrifaðu \"{work_report_id}cvs\" og fylltu út")
         else:
             self.render_work_report(work_report)
 # LAGA ÞESSI FÖLL _________________________________________________________

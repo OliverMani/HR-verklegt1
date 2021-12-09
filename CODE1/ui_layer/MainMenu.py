@@ -130,6 +130,10 @@ class Main_menu:
                             screens['p'].render_user(self.llapi.get_employee_by_id(number))
                         else:
                             print(ONLY_MANAGERS)
+                elif command == 'cvs' and last_ == 'v':
+                    screens["vs"].create_new_work_report(number)
+                elif command == 'b':
+                    screens[last_selected].update(number)
                 else:
                     print(UNKNOWN_COMMAND)
             else:
