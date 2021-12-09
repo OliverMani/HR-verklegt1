@@ -68,7 +68,7 @@ class WorkRequestLL:
                 look_ups = [work_request.id, work_request.stadurID, work_request.fasteignID, work_request.skyrslaID, work_request.titill, work_request.lysing, work_request.active]
                 for look_up in look_ups:
                     if word.lower() in str(look_up).lower():
-                        result.append(work_request.titill)
+                        result.append(work_request)
                         break #brjóta lookup svo niðurstaðan komi ekki oftar en einu sinni
         return result
 
