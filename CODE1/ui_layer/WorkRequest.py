@@ -4,6 +4,8 @@ from Model.WorkRequest import WorkRequest
 from ui_layer.WorkReport import WorkReportListScreen
 from ui_layer.Color import Color
 
+from datetime import datetime
+
 class WorkRequestListScreen:
     def __init__(self, llapi):
         self.options = """
@@ -31,6 +33,7 @@ class WorkRequestListScreen:
             print("Staður: ", self.llapi.get_destination_from_id(request.stadurID))
             print("Fasteign: ",self.llapi.get_property_by_id(request.fasteignID))
             print("Lýsing: ", request.lysing)
+            print("Verkadagur: ", request.verkadagur)
             print()
             print("Skýrsla: ")
             skyrsla = self.llapi.get_work_report_by_work_report_id(request.skyrslaID)
@@ -129,13 +132,20 @@ class WorkRequestListScreen:
         fasteignID = (input("Nr. á fasteign: "))
         lysing = input("Lýsing á verkefni: ")
         skyrslaID = "0" # SJÁLFSVIRKT
-        #fasteignID = self.llapi.get_property_id_from_input(fasteign)
-        if fasteignID:
-            req = WorkRequest(id,stadurID,fasteignID,skyrslaID,titill,lysing,active="True")
-            self.llapi.create_new_work_request(req)
-        else:
-            print("\nFasteign ekki til!\nEkki tókst að skrá beiðni!")
+        try:
+            verkadagur = input("Dagur til að vinna verkefnið (YYYY/mm/dd): ").split('/')
+            dagatal = datetime(int(verkadagur[0]), int(verkadagur[1]), int(verkadagur[2]))
+            verkadagur_str = dagatal.strftime("%Y/%m/%d")
 
+            #fasteignID = self.llapi.get_property_id_from_input(fasteign)
+            if fasteignID:
+                req = WorkRequest(id,stadurID,fasteignID,skyrslaID,titill,lysing,verkadagur_str,active="True")
+                self.llapi.create_new_work_request(req)
+            else:
+                print("\nFasteign ekki til!\nEkki tókst að skrá beiðni!")
+        except:
+            print("Ekki gildur verkadagur!")
+            print("Verkbeiðni ekki gerð!")
 
     def update(self,id):
         work_request = self.llapi.get_work_request_by_id(id)

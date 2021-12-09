@@ -1,5 +1,6 @@
 from LogicLayer.LLAPI import LLAPI
 from Model.WorkReport import WorkReport
+import datetime
 
 class WorkReportListScreen:
     def __init__(self, llapi):
@@ -113,7 +114,7 @@ Staðsetning:
         if verktaki == "":
             verktaki = "Enginn"
         lysing = input("Lýsing: ")
-        dags = input("Dags: ")
+        dags = datetime.datetime.now().x.strftime("%Y/%m/%d") #input("Dags: ") # geri sjálfvirkt
         timi = input("Tími: ")
         kostnadur = "0"
         if current_user.stada == "yfirmaður":
