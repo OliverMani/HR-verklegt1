@@ -15,7 +15,8 @@ class PropertyListScreen:
         print('\n'.join([(x.id + '. ' + x.heimilisfang) for x in properties if x.stadurID == user.afangastadurID]))
         print("\n(L)eita    (R)aða")
         if user.stada.lower() == "yfirmaður":
-            print("(A): Sjá allar skráðar fasteignir?")
+            print("(A): Sjá allar skráðar fasteignir ")
+            print("(B): Breyta upplýsingum um fasteign ")
         print()
 
     def show_all(self):
