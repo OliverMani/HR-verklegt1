@@ -1,52 +1,55 @@
 TO DO:
 
-############1.  Starfsmaður skal geta fundið allar skýrslur fyrir ákveðinni fasteign/Í vinnslu 
+############ 1.  Starfsmaður skal geta fundið allar skýrslur fyrir ákveðinni fasteign/Í vinnslu 
 Það þarf að geta séð hvaða skýrslur eru fyrir hvaða fasteign (annað hvort í gegnum verkefni eða fasteignir) 
 
-############2. Starfsmaður skal geta fundið allar skýrslur sem unnar eru af ákveðnum starfsmanni 
+############ 2. Starfsmaður skal geta fundið allar skýrslur sem unnar eru af ákveðnum starfsmanni 
 	Það vantar leiðbeiningar hvernig maður getur séð þetta 
 
-############3. Starfsmaður skal geta fundið allar verkbeiðnir fyrir ákveðna fasteign
+############ 3. Starfsmaður skal geta fundið allar verkbeiðnir fyrir ákveðna fasteign
 	Það þarf að skoða þetta eitthvað/fínpússa
 
-############4. Starfsmaður skal geta fundið allar verkbeiðnir sem eru unnar af ákveðnum starfsmanni (verkskýrslur)
+############ 4. Starfsmaður skal geta fundið allar verkbeiðnir sem eru unnar af ákveðnum starfsmanni (verkskýrslur)
 	á eftir að bæta við í starfsmenn
 
-############5. Starfsmaður skal geta leitað að verkbeiðni eftir auðkenni hennar (er auðkenni ID? 
+############ 5. Starfsmaður skal geta leitað að verkbeiðni eftir auðkenni hennar (er auðkenni ID? 
 	það þarf að laga til hér
 
-############6. Starfsmaður skal geta leitað eftir öðru starfsfólki
-	############Það þarf að setja þetta upp þannig að það sé hægt að leita eftir nafni starfsmans líka en ekki 	bara id 
+############ 6. Starfsmaður skal geta leitað eftir öðru starfsfólki
+	Það þarf að setja þetta upp þannig að það sé hægt að leita eftir nafni starfsmans líka en ekki bara id 
 
-############7. Starfsmaður skal geta listað fasteignir eftir áfangastað/staðsetningu
-	############Þetta er eiginlega klárt, það þarf bara að laga til þar sem stendur Staður:1 (á að koma upp 	áfangastaður en ekki ID)
+############ 7. Starfsmaður skal geta listað fasteignir eftir áfangastað/staðsetningu
+	Þetta er eiginlega klárt, það þarf bara að laga til þar sem stendur Staður:1 (á að koma upp áfangastaður en ekki ID)
 
-############8. Starfsmaður skal geta merkt verkbeiðni sem tilbúna fyrir lokun af yfirmanni
-	############ekki tilbúið, það þarf að laga þetta til eitthvað
+############ 8. Starfsmaður skal geta merkt verkbeiðni sem tilbúna fyrir lokun af yfirmanni
+	ekki tilbúið, það þarf að laga þetta til eitthvað
 
-###########9. Starfsmaður skal geta opnað og þannig skoðað verkskýrslur 
-	############ekki klárt þarf að gera leiðbeiningar ?? held ég
+############ 9. Starfsmaður skal geta opnað og þannig skoðað verkskýrslur 
+	ekki klárt þarf að gera leiðbeiningar ?? held ég
 
-10. Starfsmaður skal geta skráð verkskýrslu á opna verkbeiðnir 
+############ 10. Starfsmaður skal geta skráð verkskýrslu á opna verkbeiðnir 
 	Óklárað, þarf að skoða þetta
+	# Hægt að gera þetta þegar maður skrifar "v" -> "2vs" þá sér maður hvernig á að útfæra þetta #
+	# Það er líka hægt að skrifa "v" -> "ID+CVS" #
 
 11. Yfirmaður skal geta lokað verkbeiðnum (t.d þegar verkskýrslur eru samþykktar) 
-	Búið ef það sé að breyta active í false?? / Það þarf að tengja saman og geta skráð verkbeiðnir 	sem lokið
+	Búið ef það sé að breyta active í false?? / Það þarf að tengja saman og geta skráð verkbeiðnir sem lokið
 
 12. Yfirmaður skal geta samþykkt tilbúnar verkskýrlsur
 	óklárað 
 
-########13. Yfirmaður skal geta séð lista yfir allar sínar verkbeiðnir
+############ 13. Yfirmaður skal geta séð lista yfir allar sínar verkbeiðnir
 	óklárað
 
 14. Yfirmaður skal geta séð um skráningu á öllum kostnaði á viðhaldi og rekstri 
 	Þetta er alveg eftir, þarf að finna útúr því hvernig við viljum hafa þetta sett upp í forritinu
 
-######### 15. Yfirmaður skal geta séð upplýsingar um starfsmenn (undirmenn)
-	Það þarf að flokka starfsmenn eftir staðsetningu. Yfirmenn geta þá bara séð starfsmenn á 	sínum áfangastað
+############ 15. Yfirmaður skal geta séð upplýsingar um starfsmenn (undirmenn)
+	Það þarf að flokka starfsmenn eftir staðsetningu. Yfirmenn geta þá bara séð starfsmenn á sínum áfangastað
 
 16. Yfirmaður skal geta skráð starf starfsmanna Er þetta innifalið í skráningu starfsmanna???/ 
 	klárað (þarf að skoða þetta eitthvað) ( Er það þá munurinn á Verktaka og starfsmanni?)
 
-17. Yfirmaður skal geta stofnað nýja verkbeiðni fyrir fasteignirnar Komið? Bara sett á annan stað (ss gerir verkbeiðni í verkbeiðni)
-	Vantar leiðbeiningar
+############ 17. Yfirmaður skal geta stofnað nýja verkbeiðni fyrir fasteignirnar. Komið? Bara sett á annan stað 
+	(ss gerir verkbeiðni í verkbeiðni). Vantar leiðbeiningar.
+	# Búið að gera leiðbeiningar í Verkbeiðnisskjánum #

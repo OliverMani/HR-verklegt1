@@ -17,10 +17,6 @@ if __name__ == "__main__":
 
 # LAGA:
 
-############6. Starfsmaður skal geta leitað eftir öðru starfsfólki
-	############Það þarf að setja þetta upp þannig að það sé hægt að leita eftir nafni starfsmans líka en ekki 	bara id 
-
-
-    # 9. Starfsmaður skal geta opnað og þannig skoðað verkskýrslur 
-	# ekki klárt þarf að gera leiðbeiningar ?? held ég
+#   10. Starfsmaður skal geta skráð verkskýrslu á opna verkbeiðnir 
+#	    Óklárað, þarf að skoða þetta
 
