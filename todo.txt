@@ -47,7 +47,7 @@ TO DO:
 ############ 15. Yfirmaður skal geta séð upplýsingar um starfsmenn (undirmenn)
 	Það þarf að flokka starfsmenn eftir staðsetningu. Yfirmenn geta þá bara séð starfsmenn á sínum áfangastað
 
-???????????? 16. Yfirmaður skal geta skráð starf starfsmanna Er þetta innifalið í skráningu starfsmanna???/ 
+############ 16. Yfirmaður skal geta skráð starf starfsmanna Er þetta innifalið í skráningu starfsmanna???/ 
 	klárað (þarf að skoða þetta eitthvað) ( Er það þá munurinn á Verktaka og starfsmanni?)
 
 ############ 17. Yfirmaður skal geta stofnað nýja verkbeiðni fyrir fasteignirnar. Komið? Bara sett á annan stað 
