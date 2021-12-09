@@ -7,6 +7,7 @@ from LogicLayer.WorkReportLL import WorkReportLL
 from LogicLayer.MainMenuLL import MainMenuLL
 
 
+
 class LLAPI:
     def __init__(self):
         self.slapi = Slapi()
@@ -18,6 +19,7 @@ class LLAPI:
         self.main_menu_ll = MainMenuLL(self, None)
 
 #----------------------------- Return list föll ---------------------------------#
+
 
     def employee_list(self):
         ''' sendir employee list í UI layer '''
