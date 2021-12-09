@@ -25,7 +25,7 @@ class PropertyListScreen:
         print("\n(L)eita    (R)aða")
         print()
 
-        
+
 
         #if (self.llapi.get_current_user().stada).lower() == "yfirmaður":
         #    print("\n\n(cf) Skrá nýja fasteign\n")
@@ -56,8 +56,12 @@ class PropertyListScreen:
             if len(verkbeidnir)>0:
                 for verkefni in verkbeidnir:
                     WorkRequestListScreen(self.llapi).print_wr(verkefni)
-                opna = (input("Opna verkbeiðni nr: "))
-                WorkReportListScreen(self.llapi).get_work_report_by_id(opna)
+                opna = input("Opna verkbeiðni nr: ")
+
+                if not self.llapi.work_request_has_report(opna):
+                    bua_til_vs = input("Viltu bæta við skýrslu við verkbeiðnina? <(J)á / (N)ei>: ")
+                    WorkReportListScreen(self.llapi).create_new_work_report(opna)
+
             else:
                 print("Engar verkskýrslur skráðar", len(verkbeidnir))
             print()

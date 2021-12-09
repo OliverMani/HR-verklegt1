@@ -77,4 +77,8 @@ class WorkRequestLL:
     def has_report(self, work_report_id):
         '''Skilar hvort verkbeiðnin sé með skýrslu'''
         work_request = self.get_work_request_by_id(work_report_id)
-        return work_request.skyrslaID != "0"
+        work_report = self.slapi.get_work_report_list()
+        for report in work_report:
+            if report.verkbeidniID == work_report_id:
+                return True
+        return False
