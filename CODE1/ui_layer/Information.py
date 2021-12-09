@@ -6,11 +6,10 @@ Help screen:
 P - Info:
         Opnar þinn prófíl og sýnir allar helstu upplýsingar um þig
 
-V - Notanlegar skipanir: "L" "R" "x" "x"
+V - Notanlegar skipanir: "L" "R" "B"
     "L" = Leitar eftir skýrsluID og sýnir skýrsluna og spyr hvort þú viljir bæta við skýrslu
     "R" = Raðar upp verkbeiðnum eftir áfangastað
-    "" = 
-    "" =
+    "B" = Breytir hlutum sem þú velur að breyta
         Info:
             Sýnir verkbeiðnir fyrir þinn vinnustað og WorkRequestID fyrir hverja verkbeiðni, 
             þar inni getur þú búið til nýja verkbeiðni, leitað eftir ákveðinni verkbeiðni 
@@ -19,28 +18,31 @@ V - Notanlegar skipanir: "L" "R" "x" "x"
             verkbeiðnina og fyrir neðan það kemur upp skýrslan sem skráð er á verkbeiðnina
             ef skýrsla er til fyrir þessa verkbeiðni. 
 
-F - Notanlegar skipanir: "L" "R" "A" "C" "CVS" "númer/ID"
+F - Notanlegar skipanir: "L" "R" "A" "C" "CVS" "B" "númer/ID"
     "L" = Getur leitað eftir fasteignID og fengið upplýsingar varðandi fasteignina
     "R" = Getur raðað fasteignum upp eftir áfangastað
     "A" = Þú sérð allar fasteignir sem fyrirtækið hefur á skrá
     "C" = Býr til nýja fasteign í kerfinu
     "CVS" = Býr til nýja verkskýrslu fyrir fasteign
+    "B" = Breytir ákveðnum hlutum sem þú getur valið um að breyta
     "númer/ID" = Sýnir fasteignina með þetta ID og getur þar bætt við verkbeiðni fyrir 
                  fasteignina
         Info:
             Sýnir fasteignir fyrir áfangastaðinn sem þú ert skráð/ur á. 
 
-S - Notanlegar skipanir: "L" "R" "A" "C" "númer/ID" 
+S - Notanlegar skipanir: "L" "R" "A" "C" "B" "númer/ID" 
     "L" = Leitar með nafni eða ID og sýnir upplýsingar um starfsmanninn
     "R" = Sýnir starfsmenn sem skráðir eru á áfangastað
     "A" = Sýnir alla starfsmenn NaNair
     "C" = Býr til nýjan starfsmann með þínu inputti
+    "B" = Getur breytt ákveðnum upplýsingum varðandi starfsmann
     "númer/ID" = Sýnir starfsmann með ID-ið sem þú vildir finna
         Info:
             Sýnir starfsmenn sem eru skráðir á þínum vinnustað.
 
 VS - Er notanlegt í (F)asteign, (V)erkbeiðnir og (S)tarfsmenn
-     Notanlegar skipanir: "x" "x" "x" "x" "x"
+     Notanlegar skipanir: "CVS" 
+     "CVS" = Býr til nýja skýrslu
         Info:
             Sýnir verkskýrslur fyrir þinn vinnustað, og ef notað er í (F)asteign, þá 
             getur þú séð allar verkskýrslur fyrir ákveðinni fasteign. Með því að vera 
@@ -55,6 +57,11 @@ C - Er Notanlegt í (S)tarfsmenn, (V)erkbeiðnir og (F)asteign
             síðast. Eins og t.d. Þú ýtir á "S" og síðan "C", þá býrðu til nýjan 
             starfsmann. Þessi takki virkar í Starfsmönnum, Fasteignum ef þú ert 
             yfirmaður. Í (V)erkbeiðnir er hægt að búa til nýja verkbeiðni fyrir fasteign.
+
+B - Er notanlegt í (F)asteign, (V)erkbeiðnir og (S)tarfsmenn
+        Info:
+            Getur breytt hlutum í skrám. (t.d. breytt nafni á starfsmanni eða lýsingu á
+            verkbeiðni)
 
 Q - Forritið hættir að keyra
 
