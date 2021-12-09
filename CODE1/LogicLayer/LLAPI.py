@@ -171,3 +171,8 @@ class LLAPI:
 
     def work_request_has_report(self, id):
         return self.work_requestll.has_report(id)
+
+#-------------------------------------------------------------------------------#
+
+    def accept_work_report_by_id(self, id):
+        return self.work_reportll.accept_work_report_by_id(id)

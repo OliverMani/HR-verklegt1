@@ -57,3 +57,9 @@ class WorkReportLL:
         ''' Tekur inn ID og finnur hvaða starfsmaður vann verkið '''
         work_report = self.get_work_report_by_work_report_id(work_id)
         return self.llapi.get_employee_by_id(work_report.starfsmadurID)
+
+
+    def accept_work_report_by_id(self, work_id):
+        work_report = self.llapi.get_work_report_by_work_report_id(work_id)
+        work_report.samtykkt = "true"
+        self.slapi.update_work_report(work_report)
