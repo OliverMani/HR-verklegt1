@@ -87,7 +87,7 @@ class Main_menu:
 
             # Prentar menu skjáinn
             print(self.menu)
-            
+
 
             # Ef skipunin er óþekkt
             if screen is None or len(selected) == 0:
@@ -107,7 +107,7 @@ class Main_menu:
                     WorkRequestListScreen(self.llapi).show_work_request_with_id(selected)
                 elif last_selected == "vs":
                     WorkReportListScreen(self.llapi).get_work_report_by_id(selected)
-            
+
 
             # Ef skipunin er til dæmis 6vs eða 2p en ekki bara 8
             elif selected[0].isdigit() and not selected.isdigit():
@@ -144,5 +144,3 @@ class Main_menu:
                 screen.render()
                 last_selected = selected
             selected = input("\nSlá inn aðgerð: ").lower()
-            
-
