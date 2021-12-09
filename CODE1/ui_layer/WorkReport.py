@@ -96,9 +96,9 @@ Staðsetning:
 
         id = verkbeidni_id
         titill = input("Titill: ")
-        verkbeidniID = input("Verkbeiðni ID: ")
+        verkbeidniID = verkbeidni_id #input("Verkbeiðni ID: ")
         # Starfsmaður ID er sjálfvirkt
-        starfsmadurID = self.llapi.get_employee_id_by_name(current_user)
+        starfsmadurID = current_user.id
         verktaki = input("Verktaki: ")
         lysing = input("Lýsing: ")
         dags = input("Dags: ")

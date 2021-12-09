@@ -24,6 +24,12 @@ class WorkReportLL:
     def create_new_work_report(self,report):
         ''' býr til nýja verkskýrslu '''
         self.slapi.create_new_work_report(report)
+        # Þurfum líka að uppfæra verkbeiðnalistann til að
+        # setja að það sé skýrsla í verkbeiðninni
+        work_request = self.llapi.get_work_request_by_id(report.vbID)
+        work_request.skyrslaID = report.id
+        self.slapi.update_work_request(work_request)
+
 
 
     def get_work_reports_by_property(self, property_id):
@@ -48,4 +54,3 @@ class WorkReportLL:
         ''' Tekur inn ID og finnur hvaða starfsmaður vann verkið '''
         work_report = self.get_work_report_by_work_report_id(work_id)
         return self.llapi.get_employee_by_id(work_report.starfsmadurID)
-
