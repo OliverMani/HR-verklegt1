@@ -6,7 +6,7 @@ from Model.WorkRequest import WorkRequest
 class WorkRequestData:
     def __init__(self):
         self.filename = "csv_files/WorkRequests.csv"
-        self.fieldnames = ["id","stadurID","fasteignID","skyrslaID","titill","lysing","active"]
+        self.fieldnames = ["id","stadurID","fasteignID","skyrslaID","titill","lysing","verkadagur","active"]
 
     def open_file(self):
         '''opnar work request skránna og skilar lista af tilvikum'''
@@ -20,7 +20,7 @@ class WorkRequestData:
                         fasteignID = fasteignID.split(',')
                     else:
                         fasteignID = [fasteignID]
-                    work_request_list.append(WorkRequest(row['id'], row['stadurID'], row['fasteignID'], row['skyrslaID'], row['titill'], row['lysing'], row['active']))
+                    work_request_list.append(WorkRequest(row['id'], row['stadurID'], row['fasteignID'], row['skyrslaID'], row['titill'], row['lysing'], row['verkadagur'], row['active']))
             return work_request_list
         except FileNotFoundError:
             return None
@@ -39,7 +39,7 @@ class WorkRequestData:
 
             writer = csv.DictWriter(csvfile, fieldnames=self.fieldnames)
             writer.writerow({"id": req.id,"stadurID": req.stadurID,"fasteignID": req.fasteignID,
-            "skyrslaID": req.skyrslaID,"titill": req.titill,"lysing": req.lysing,"active": req.active})
+            "skyrslaID": req.skyrslaID,"titill": req.titill,"lysing": req.lysing,"verkadagur":req.verkadagur, "active": req.active})
 
     def update(self, work_request):
         # Við þurfum að fá allan listann yfir starfsmenn til að geta breytt honum síðan
