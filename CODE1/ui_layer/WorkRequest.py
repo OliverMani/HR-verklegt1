@@ -84,17 +84,12 @@ class WorkRequestListScreen:
         #---------- Má taka flest út... held ég  -------
         #print("\n\n (vs) Til að skoða verkskýrslur") # er hægt með því að slá bara inn id
         '''Yfirmaður sér þessi skilaboð bara'''
-<<<<<<< HEAD
-        if (self.llapi.get_current_user().stada).lower() == ("yfirmaður" or "eigandi"):
+        if (self.llapi.get_current_user().stada).lower() == "yfirmaður" or "eigandi":
             print("(A) Sjá allar skráðar verkbeiðnir")
             print("(C) Búa til nýja verkebiðni ")
             # print("ID + (CVS) búa til nýja verkebiðni fyrir fasteign")
             # print("(B) Breyta verkbeiðni fyrir fasteign")
 
-=======
-        if (self.llapi.get_current_user().stada).lower() == "yfirmaður":
-            print("(BVS) Breyta verkskýrslu")
->>>>>>> 86b8e11d0d86d18e8fa9509dad4594c1c47fef08
             # print("(undefined) Loka verkefni ")
             # print("(undefined) Breyta verkbeiðni fyrir fasteign")
             # print("(undefined) ")
@@ -186,5 +181,3 @@ class WorkRequestListScreen:
             print("Verkbeiðni ekki gerð!")
 
 
-
-#id,stadurID,fasteignID,skyrslaID,titill,lysing,active

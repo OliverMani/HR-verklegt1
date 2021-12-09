@@ -14,7 +14,7 @@ class PropertyListScreen:
         print("Fasteignir\n")
         print('\n'.join([(x.id + '. ' + x.heimilisfang) for x in properties if x.stadurID == user.afangastadurID]))
         print("\n(L)eita    (R)aða eftir áfangastað")
-        if user.stada.lower() == ("yfirmaður" or "eigandi"):
+        if user.stada.lower() == "yfirmaður" or "eigandi":
             print("(A): Sjá allar skráðar fasteignir ")
             print("(B): Breyta upplýsingum um fasteign ")
         print()
@@ -49,16 +49,10 @@ class PropertyListScreen:
         print(self.llapi.get_destination_from_id(property.stadurID))
         print("Fasteignarnúmer", property.fasteignanumer)
         
-<<<<<<< HEAD
-    def show_property_info(self, inp):
-        property = self.show_property_with_id(inp)
-        val = input("Skoða verkbeiðnir fasteingnar? <(J)á / (N)ei>")
-=======
     def show_property_info(self, property):
         self.show_property_with_id(property)
         prop = self.llapi.get_property_by_id(property)
         val = input("\nSkoða verkbeiðnir fasteingnar? <(J)á / (N)ei>")
->>>>>>> 86b8e11d0d86d18e8fa9509dad4594c1c47fef08
         if val.lower() == "j":
             print("Verkbeiðnir:")
             verkbeidnir =  self.llapi.get_work_request_list_by_property_id(prop.id)
@@ -125,4 +119,4 @@ class PropertyListScreen:
         active = input(f"Er starfsmaður active, true/false ({property.active})?") or property.active
         new_property = Property(property.id,stadurID,heimilisfang,fm,herbergi,tegund,fasteignanumer,active)
         self.llapi.update_property(new_property)
-        #id,staðurID,heimilisfang,fm,herbergi,tegund,fasteignanúmer,active
+        

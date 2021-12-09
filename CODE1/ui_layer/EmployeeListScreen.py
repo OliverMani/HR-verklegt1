@@ -15,7 +15,7 @@ class EmployeeListScreen:
         print("Starfsmenn\n")
         print('\n'.join([x.id + '. ' + x.nafn for x in employees if x.afangastadurID == user.afangastadurID]))
         print("\n(L)eita    (R)aða")
-        if user.stada.lower() == ("yfirmaður" or "eigandi"):
+        if user.stada.lower() == "yfirmaður" or "eigandi":
             print("(A): Sjá alla starfsmenn NaNair")
             print("(B): Breyta upplýsingum um starfsmann NaNair")
 

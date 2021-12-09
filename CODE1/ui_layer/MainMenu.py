@@ -17,7 +17,7 @@ class Main_menu:
         self.llapi = LLAPI()
         self.llapi.set_current_user(user)
         self.menu = f"""
-(P)rófíll    (V)erkbeiðnir    (F)asteignir    (S)tarfsmenn        {"<(C) Bæta við>" if self.llapi.get_current_user().stada == (MANAGER_STRING or "eigandi") else (' ' * 12)}   <(Q) Hætta>
+(P)rófíll    (V)erkbeiðnir    (F)asteignir    (S)tarfsmenn        {"<(C) Bæta við>" if self.llapi.get_current_user().stada == MANAGER_STRING or "eigandi" else (' ' * 12)}   <(Q) Hætta>
 ---------------------------------------------------------------------------------------------
                                                                             (i) upplýsingar"""
     ## Væri gott að færa þetta yfir í logic...
@@ -44,7 +44,7 @@ class Main_menu:
 
         def switch_creations(last):
             """Þetta fall á að vera inní menubar fallinu, þetta skiptir upp hvað 'c' skipuin gerir"""
-            if self.llapi.get_current_user().stada == (MANAGER_STRING or "eigandi"):
+            if self.llapi.get_current_user().stada == MANAGER_STRING or "eigandi":
                 if last == 's':
                     screens['s'].create_new_employee()
                 elif last == 'v':
@@ -55,25 +55,19 @@ class Main_menu:
 
 
         screens = {
+            "a": lambda: screens[last_selected].show_all() if self.llapi.get_current_user().stada == (MANAGER_STRING or "eigandi") else print(UNKNOWN_COMMAND), #Á bara við um yfirmenn og eigendur
+            "b": lambda: screens[last_selected].update(input("ID: ")),
+            "c": lambda: switch_creations(last_selected),
             "p": ProfileScreen(self.llapi),
-            "v": WorkRequestListScreen(self.llapi),
-            "vs": WorkReportListScreen(self.llapi),
             "f": PropertyListScreen(self.llapi),
-            "s": EmployeeListScreen(self.llapi),
             "i": InformationScreen(),
+            "l": lambda: screens[last_selected].search_in_list(),
             "q": False,
             "r": lambda: screens[last_selected].sort_list(),
-            "l": lambda: screens[last_selected].search_in_list(),
-            "x": lambda: screens["v"].sort_by_property(input("ID: ")),
-            "c": lambda: switch_creations(last_selected),
-            #"ce": lambda: screens["s"].create_new_employee() if self.llapi.get_current_user().stada == MANAGER_STRING else print(ONLY_MANAGERS),
+            "s": EmployeeListScreen(self.llapi),
+            "v": WorkRequestListScreen(self.llapi),
+            "vs": WorkReportListScreen(self.llapi),
             "cvs": lambda: screens["vs"].create_new_work_report(input("Verkbeiðni ID: ")),# if self.llapi.get_current_user().stada == MANAGER_STRING else print(ONLY_MANAGERS),
-            #"cvb": lambda: screens["v"].create_new_work_request() if self.llapi.get_current_user().stada == MANAGER_STRING else print(ONLY_MANAGERS),
-            #"cf": lambda: screens["f"].create_new_property() if self.llapi.get_current_user().stada == MANAGER_STRING else print(ONLY_MANAGERS),
-            "y": lambda: screens["v"].get_requests_by_employee(input("Starfsmaður: ")),
-            "w": lambda: screens["v"].get_reports_by_employee(input("Starfsmaður: ")),
-            "b": lambda: screens[last_selected].update(input("ID: ")),
-            "a": lambda: screens[last_selected].show_all() if self.llapi.get_current_user().stada == (MANAGER_STRING or "eigandi") else print(UNKNOWN_COMMAND) #Á bara við um yfirmenn og eigendur
 
         }
 
