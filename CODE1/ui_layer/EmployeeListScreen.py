@@ -30,16 +30,19 @@ class EmployeeListScreen:
         word = input("Leita með nafni eða ID: ")
         results = self.llapi.search_employees(word)
         for employee in results:
-            self.show_emp_with_id(employee.id)
+            self.show_emp_with_id(employee)
 
 
-    def show_emp_with_id(self, id):
-        employees = self.llapi.search_employees(id)
-        for employee in employees:
+    def show_emp_with_id(self, employee):
             print("\nID:", employee.id)
             print("Nafn:", employee.nafn)
             print("GSM:", employee.gsm)
             print("Netfang:", employee.netfang)
+
+    def show_emp_info(self, id):
+        employees = self.llapi.search_employees(id)
+        for employee in employees:
+            self.show_emp_with_id(employee)
             # Skoða varkefnalista starfsmanns
             verkbeidnir = input("Sjá verkskýrslur starfsmanns <(J)á / (N)ei>")
             if verkbeidnir.lower() == "j":
