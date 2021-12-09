@@ -23,10 +23,13 @@ class WorkReportLL:
 
     def create_new_work_report(self,report):
         ''' býr til nýja verkskýrslu '''
+        # Þurfum að tengjast við work request
+        work_request = self.llapi.get_work_request_by_id(report.vbID)
+        if report.heimilisfang is None:
+            report.heimilisfang = self.llapi.get_property_by_id(work_request.fasteignID).heimilisfang
         self.slapi.create_new_work_report(report)
         # Þurfum líka að uppfæra verkbeiðnalistann til að
         # setja að það sé skýrsla í verkbeiðninni
-        work_request = self.llapi.get_work_request_by_id(report.vbID)
         work_request.skyrslaID = report.id
         self.slapi.update_work_request(work_request)
 
