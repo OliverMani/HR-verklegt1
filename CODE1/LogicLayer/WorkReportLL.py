@@ -30,7 +30,6 @@ class WorkReportLL:
 
             if request.stadurID == destination_id:
                 results.append(report)
-                print(report)
         return results
 
 

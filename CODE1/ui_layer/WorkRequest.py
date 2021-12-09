@@ -125,11 +125,14 @@ class WorkRequestListScreen:
         titill = input("\nTitill: ")
         stadurID = self.llapi.get_current_user().afangastadurID # Breytti í staðsetningu starfsmanns
         afangastadur = self.llapi.get_destination_from_id(stadurID)
-        print("Fasteignir í", afangastadur)
-        fasteign = self.llapi.get_properties_by_stadur_id(stadurID.strip())
-        for i in fasteign:
-            print(i[0]+". "+i[1])  # Laga ef við viljum
-        fasteignID = (input("Nr. á fasteign: "))
+        fasteignID = "0"
+        while self.llapi.get_property_by_id(fasteignID) is None:
+            print("Fasteignir í", afangastadur)
+            fasteign = self.llapi.get_properties_by_stadur_id(stadurID.strip())
+            for i in fasteign:
+                print(i[0]+". "+i[1])  # Laga ef við viljum
+            fasteignID = input("Nr. á fasteign: ")
+
         lysing = input("Lýsing á verkefni: ")
         skyrslaID = "0" # SJÁLFSVIRKT
         try:

@@ -104,7 +104,10 @@ Staðsetning:
     def create_new_work_report(self, verkbeidni_id):
         '''Býr til nýja vinnuskýrslu og appendar hana í WorkReports csv skránni'''
         current_user = self.llapi.get_current_user()
-
+        #ef verkbeiðnin er ekki til þá keyrum við ekki fallið
+        if self.llapi.get_work_request_by_id(verkbeidni_id) is None:
+            print("Verkbeiðni", verkbeidni_id, "er ekki til!")
+            return #Stoppa fallið
         id = verkbeidni_id
         titill = None #Sjálfvirkt #input("Titill: ")
         verkbeidniID = verkbeidni_id #input("Verkbeiðni ID: ")
@@ -114,7 +117,7 @@ Staðsetning:
         if verktaki == "":
             verktaki = "Enginn"
         lysing = input("Lýsing: ")
-        dags = datetime.datetime.now().x.strftime("%Y/%m/%d") #input("Dags: ") # geri sjálfvirkt
+        dags = datetime.datetime.now().strftime("%Y/%m/%d") #input("Dags: ") # geri sjálfvirkt
         timi = input("Tími: ")
         kostnadur = "0"
         if current_user.stada == "yfirmaður":
