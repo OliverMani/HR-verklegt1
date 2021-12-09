@@ -33,11 +33,13 @@ class EmployeeListScreen:
             print("GSM:", employee.gsm)
             print("Netfang:", employee.netfang)
             # Skoða varkefnalista starfsmanns
-            verkbeidnir = input("Sjá verkskýrslur starfsmanns ((J)á / (N)ei)")
+            verkbeidnir = input("Sjá verkskýrslur starfsmanns <(J)á / (N)ei>")
             if verkbeidnir.lower() == "j":
-                verk_listi = "\n\t".join([x.id+". "+x.titill for x in self.llapi.get_work_request_list_by_employee_id(employee.id)])
-                if len(verk_listi)>0:
-                    print("\t"+verk_listi)
+                #verk_listi = "\n\t".join([x.id+". "+x.titill for x in self.llapi.get_work_request_list_by_employee_id(employee.id)])
+                verkefni = self.llapi.get_work_request_list_by_employee_id(employee.id)
+                if len(verkefni)>0:
+                    for v in verkefni:
+                      WorkRequestListScreen(self.llapi).print_wr(v) 
                     opna = (input("Opna skýrslu nr: "))
                     WorkReportListScreen(self.llapi).get_work_report_by_id(opna)
                 else:

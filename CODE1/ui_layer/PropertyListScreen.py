@@ -1,6 +1,7 @@
 from LogicLayer.LLAPI import LLAPI
 from Model.Property import Property
 from ui_layer.WorkReport import WorkReportListScreen
+from ui_layer.WorkRequest import WorkRequestListScreen
 
 class PropertyListScreen:
     def __init__(self, llapi):
@@ -35,16 +36,18 @@ class PropertyListScreen:
         print("\n"+property.heimilisfang)
         print(self.llapi.get_destination_from_id(property.stadurID))
         print("Fasteignarnúmer", property.fasteignanumer)
-        # Bæta við vali að byrta listann
-        print("Verkbeiðnir:")
-        verkbeidnir = "\n\t".join([x.id+". "+x.titill for x in self.llapi.get_work_request_list_by_property_id(property.id)])
-        if len(verkbeidnir)>0:
-            print("\t"+verkbeidnir)
-            opna = (input("Opna verkbeiðni nr: "))
-            WorkReportListScreen(self.llapi).get_work_report_by_id(opna)
-        else:
-            print("Engar verkskýrslur skráðar", len(verkbeidnir))
-        print()
+        val = input("Skoða verkbeiðnir fasteingnar? <(J)á / (N)ei>")
+        if val.lower() == "j":
+            print("Verkbeiðnir:")
+            verkbeidnir =  self.llapi.get_work_request_list_by_property_id(property.id)
+            if len(verkbeidnir)>0:
+                for verkefni in verkbeidnir:
+                    WorkRequestListScreen(self.llapi).print_wr(verkefni)
+                opna = (input("Opna verkbeiðni nr: "))
+                WorkReportListScreen(self.llapi).get_work_report_by_id(opna)
+            else:
+                print("Engar verkskýrslur skráðar", len(verkbeidnir))
+            print()
 
     #filter
     def sort_list(self):
