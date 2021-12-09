@@ -85,11 +85,7 @@ class WorkRequestListScreen:
         #print("\n\n (vs) Til að skoða verkskýrslur") # er hægt með því að slá bara inn id
         '''Yfirmaður sér þessi skilaboð bara'''
         if (self.llapi.get_current_user().stada).lower() == "yfirmaður":
-            print("(A) Sjá allar skráðar verkbeiðnir")
-            print("(C) Búa til nýja verkebiðni fyrir fasteign")
-            print("ID + (CVS) búa til nýja verkebiðni fyrir fasteign")
-            print("(B) Breyta verkbeiðni fyrir fasteign")
-
+            print("(BVS) Breyta verkskýrslu")
             # print("(undefined) Loka verkefni ")
             # print("(undefined) Breyta verkbeiðni fyrir fasteign")
             # print("(undefined) ")
@@ -100,9 +96,6 @@ class WorkRequestListScreen:
         for workrequest in properties:
             self.print_wr(workrequest)
         print("\n(L)eita") # er hægt að raða?
-
-
-
 
 
     def sort_by_property(self, property_id):
