@@ -51,19 +51,20 @@ class PropertyListScreen:
         
     def show_property_info(self, property):
         self.show_property_with_id(property)
-        val = input("Skoða verkbeiðnir fasteingnar? <(J)á / (N)ei>")
+        prop = self.llapi.get_property_by_id(property)
+        val = input("\nSkoða verkbeiðnir fasteingnar? <(J)á / (N)ei>")
         if val.lower() == "j":
             print("Verkbeiðnir:")
-            verkbeidnir =  self.llapi.get_work_request_list_by_property_id(property.id)
+            verkbeidnir =  self.llapi.get_work_request_list_by_property_id(prop.id)
             if len(verkbeidnir)>0:
                 for verkefni in verkbeidnir:
                     WorkRequestListScreen(self.llapi).print_wr(verkefni)
-                opna = input("Opna verkbeiðni nr: ")
+                opna = input("\nOpna verkbeiðni nr: ")
 
                 if not self.llapi.work_request_has_report(opna):
                     bua_til_vs = input("Viltu bæta við skýrslu við verkbeiðnina? <(J)á / (N)ei>: ")
                     if bua_til_vs.lower() == "j":
-                        WorkReportListScreen(self.llapi).create_new_work_report(opna)
+                            WorkReportListScreen(self.llapi).create_new_work_report(opna)
             else:
                 print("Engar verkskýrslur skráðar", len(verkbeidnir))
             print()
