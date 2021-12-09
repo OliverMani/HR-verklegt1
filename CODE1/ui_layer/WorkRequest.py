@@ -87,6 +87,7 @@ class WorkRequestListScreen:
             print("(A) Sjá allar skráðar verkbeiðnir")
             print("(C) búa til nýja verkebiðni fyrir fasteign")
             print("ID + (CVS) búa til nýja verkebiðni fyrir fasteign")
+            print("(B) Breyta verkbeiðni fyrir fasteign")
 
             # print("(undefined) Loka verkefni ")
             # print("(undefined) Breyta verkbeiðni fyrir fasteign")
