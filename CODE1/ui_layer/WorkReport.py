@@ -113,7 +113,7 @@ Staðsetning:
         if verktaki == "":
             verktaki = "Enginn"
         lysing = input("Lýsing: ")
-        dags = datetime.datetime.now().x.strftime("%Y/%m/%d") #input("Dags: ") # geri sjálfvirkt
+        dags = datetime.datetime.now().strftime("%Y/%m/%d") #input("Dags: ") # geri sjálfvirkt
         timi = input("Tími: ")
         kostnadur = "0"
         if current_user.stada == "yfirmaður":

@@ -23,7 +23,7 @@ class WorkRequestListScreen:
         elif has_report and report.samthykkt.lower() == "true": 
             print(Color.GREEN + Color.BOLD+ wr.id+". " +wr.titill + Color.END )
         else:
-            print(Color.ORANGE + Color.BOLD+ wr.id+". " +wr.titill + Color.END )
+            print(Color.RED + Color.BOLD+ wr.id+". " +wr.titill + Color.END )
 
     def search_in_list(self):
         word = input("Leita: ")
@@ -65,9 +65,10 @@ class WorkRequestListScreen:
         word = input("Áfangastaður: ")
         results = self.llapi.get_filtered_work_request_list_by_destination(word)
         for request in results:
+            # Prentar út beiðni og (heimilisfang)
             self.print_wr(request)
-            print("Staður: ",request.stadurID)
-            #print(f"ID: {request.id}\nTitill: {request.titill}\nStaður: {request.stadurID}\n")
+            print(f"({self.llapi.get_property_by_id(request.stadurID).heimilisfang})\n")
+
 
     def render(self):
         '''Það prentar work requests'''
@@ -78,14 +79,14 @@ class WorkRequestListScreen:
         for workrequest in properties:
             if workrequest.stadurID == user.afangastadurID:
                 self.print_wr(workrequest)
-        print("\n(L)eita") # er hægt að raða?
+        print("\n(L) Leita\t\t(R)aða eftir áfangastað")
 
         #---------- Má taka flest út... held ég  -------
         #print("\n\n (vs) Til að skoða verkskýrslur") # er hægt með því að slá bara inn id
         '''Yfirmaður sér þessi skilaboð bara'''
         if (self.llapi.get_current_user().stada).lower() == "yfirmaður":
             print("(A) Sjá allar skráðar verkbeiðnir")
-            print("(C) búa til nýja verkebiðni fyrir fasteign")
+            print("(C) Búa til nýja verkebiðni fyrir fasteign")
             print("ID + (CVS) búa til nýja verkebiðni fyrir fasteign")
             print("(B) Breyta verkbeiðni fyrir fasteign")
 

@@ -13,7 +13,7 @@ class PropertyListScreen:
         user = self.llapi.get_current_user()
         print("Fasteignir\n")
         print('\n'.join([(x.id + '. ' + x.heimilisfang) for x in properties if x.stadurID == user.afangastadurID]))
-        print("\n(L)eita    (R)aða")
+        print("\n(L)eita    (R)aða eftir áfangastað")
         if user.stada.lower() == "yfirmaður":
             print("(A): Sjá allar skráðar fasteignir ")
             print("(B): Breyta upplýsingum um fasteign ")
@@ -23,15 +23,12 @@ class PropertyListScreen:
         properties = self.llapi.get_property_list()
         print("Allar fasteignir\n")
         print('\n'.join([(x.id + '. ' + x.heimilisfang) for x in properties]))
-        print("\n(L)eita    (R)aða")
+        print("\n(L)eita    (R)aða eftir áfangastað")
         print()
 
 
 
-        #if (self.llapi.get_current_user().stada).lower() == "yfirmaður":
-        #    print("\n\n(cf) Skrá nýja fasteign\n")
-
-        print("(L)eita      (R)aða")
+        
 
     def search_in_list(self):
         '''Leitar að hverju sem er í property list og skilar True ef input er fundið annars False'''
