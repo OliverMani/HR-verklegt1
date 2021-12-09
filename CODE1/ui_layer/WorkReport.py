@@ -81,19 +81,15 @@ Staðsetning:
 
     def render(self):
         '''Prentar work reports'''
-        work_reports = self.llapi.get_work_report_list()
         user = self.llapi.get_current_user()
-        #return_list = []
+        return_list = []
         print("Verkskýrslur: \t\t (V)erkbeiðnir \n")
-
         if user.stada.lower() == "starfsmaður":
-            self.llapi.get_report_by_employee(user.id)
+            return_list = self.llapi.get_report_by_employee(user.id)
         elif user.stada.lower() == "yfirmaður":
-<<<<<<< HEAD
-            self.llapi.get_report_by_destination_id(user.afangastadurID)
-=======
-            return_list = self.llapi.get_report_by_id(user.id)
->>>>>>> 2b0adcab662acfa2e0c7b2a0220c962340a075b0
+            return_list = self.llapi.get_report_by_destination_id(user.afangastadurID)
+        for report in return_list:
+            print(report.id+". "+ report.lysing)
 
         print("\n\n(w) Finna skýrslur af ákveðnum starfsmanni")
         print("(undefined) Finna skýrslur fyrir fasteign")

@@ -125,7 +125,7 @@ class LLAPI:
         return self.work_reportll.get_work_report_by_work_report_id(work_report_id)
 
     def get_report_by_destination_id(self, destination_id):
-        return self.work_reportll.get_report_by_destination(destination_id)
+        return self.work_reportll.get_report_by_destination_id(destination_id)
 
 #------------------------------ Search föll -------------------------------------#
 
