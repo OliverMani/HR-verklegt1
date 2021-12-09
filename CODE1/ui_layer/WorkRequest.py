@@ -14,11 +14,10 @@ class WorkRequestListScreen:
 
     def print_wr(self, wr):
         # Ef það sé engin skýrsla gerum við stjörnu
-        missing_report = '*' if not self.llapi.work_request_has_report(wr.id) else ''
-        if wr.skyrslaID == "0":
-            print(wr.id+". "+wr.titill + missing_report)
+        if not self.llapi.work_request_has_report(wr.id):
+            print(wr.id+". "+wr.titill + "*")
         else:
-            print(Color.GREEN + Color.BOLD+ wr.id+". " +wr.titill + Color.END + missing_report)
+            print(Color.GREEN + Color.BOLD+ wr.id+". " +wr.titill + Color.END )
 
     def search_in_list(self):
         word = input("Leita: ")
@@ -68,6 +67,9 @@ class WorkRequestListScreen:
         '''Yfirmaður sér þessi skilaboð bara'''
         if (self.llapi.get_current_user().stada).lower() == "yfirmaður":
             print("(A) Sjá allar skráðar verkbeiðnir")
+            print("(C) búa til nýja verkebiðni fyrir fasteign")
+            print("ID + (CVS) búa til nýja verkebiðni fyrir fasteign")
+
             # print("(undefined) Loka verkefni ")
             # print("(undefined) Breyta verkbeiðni fyrir fasteign")
             # print("(undefined) ")
