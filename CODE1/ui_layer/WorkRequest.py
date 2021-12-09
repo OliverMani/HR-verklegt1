@@ -36,6 +36,10 @@ class WorkRequestListScreen:
             skyrsla = self.llapi.get_work_report_by_work_report_id(request.skyrslaID)
             if skyrsla == None:
                 print("Skýrsla hefur ekki verið skráð")
+                bua_til_vs = input("Viltu bæta við skýrslu við verkbeiðnina? <(J)á / (N)ei>: ")
+                if bua_til_vs.lower() == "j":
+                    WorkReportListScreen(self.llapi).create_new_work_report(request.id)
+
             else:
                 WorkReportListScreen(self.llapi).render_work_report(skyrsla)
 

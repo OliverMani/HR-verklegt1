@@ -21,6 +21,17 @@ class WorkReportLL:
                 new_list.append(workreport)
         return new_list
 
+    def get_report_by_destination(self, destination_id):
+        requests = self.slapi.get_work_request_list()
+        reports = self.slapi.get_work_report_list()
+        results = []
+        for request in requests:
+            for report in reports:
+                if request.stadurID == destination_id:
+                    results.append(report)
+        return results
+
+
     def create_new_work_report(self,report):
         ''' býr til nýja verkskýrslu '''
         # Þurfum að tengjast við work request
