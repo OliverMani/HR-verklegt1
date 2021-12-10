@@ -1,0 +1,438 @@
+@startuml
+hide empty members
+package ui_layer {
+class Main_menu {
+	- llapi
+	- menu
+	+ __init__(self,user) -> None
+	+ parse_digital_commands(self, command) -> tuple
+	+ menubar(self)
+	+ switch_creations(last)
+}
+class Color {
+
+
+}
+class InformationScreen {
+	- info
+	+ __init__(self)
+	+ render(self)
+}
+class ProfileScreen {
+	- llapi
+	+ __init__(self, llapi)
+	+ render(self)
+	+ render_user(self, user)
+	+ search_in_list(self)
+	+ sort_list(self)
+}
+class EmployeeListScreen {
+	- llapi
+	+ __init__(self, llapi)
+	+ render(self)
+	+ show_all(self)
+	+ search_in_list(self)
+	+ show_emp_with_id(self, employee_id)
+	+ show_emp_info(self, id)
+	+ sort_list(self)
+	+ create_new_employee(self)
+	+ update(self,id)
+}
+class WorkReportListScreen {
+	- llapi
+	+ __init__(self, llapi)
+	+ get_work_report_by_id(self, work_report_id)
+	+ render_work_report_by_employee_id(self, employee_id)
+	+ render_work_report_by_property_id(self, property_id)
+	+ render_work_report(self, work_report)
+	+ render(self)
+	+ get_reports_by_employee(self,employee)
+	+ create_new_work_report(self, verkbeidni_id)
+	+ update(self, report_id)
+	+ get_work_report_by_property(self, property_id)
+}
+class WorkRequestListScreen {
+	- options
+	- llapi
+	+ __init__(self, llapi)
+	+ print_wr(self, wr)
+	+ search_in_list(self)
+	+ basic_info(self, word)
+	+ show_work_request_with_id(self, id)
+	+ sort_list(self)
+	+ render(self)
+	+ show_all(self)
+	+ sort_by_property(self, property_id)
+	+ sort_by_employee(self, employee_id)
+	+ get_input(self, id=None)
+	+ create_new_work_request(self)
+	+ update(self,id)
+}
+class PropertyListScreen {
+	- llapi
+	+ __init__(self, llapi)
+	+ render(self)
+	+ show_all(self)
+	+ search_in_list(self)
+	+ show_property_with_id(self, id)
+	+ print_result(self, property)
+	+ show_property_info(self, property_id)
+	+ sort_list(self)
+	+ create_new_property(self)
+	+ update(self,id)
+}
+class Login {
+	- user
+	- llapi
+	+ __init__(self, username)
+	+ login(self)
+}
+}
+package Storagelayer {
+class Slapi {
+	- empSL
+	- wrSL
+	- proSL
+	- workrepSL
+	- destSL
+	+ __init__(self)
+	+ get_destination_list(self)
+	+ get_employee_list(self)
+	+ get_work_request_list(self)
+	+ get_property_list(self)
+	+ get_work_report_list(self)
+	+ create_new_employee(self,emp)
+	+ create_new_property(self, prop)
+	+ create_new_work_report(self,report)
+	+ create_new_work_request(self, req)
+	+ update_employee(self, employee)
+	+ update_property(self, property)
+	+ update_work_report(self, work_report)
+	+ update_work_request(self, work_request)
+}
+class DestinationData {
+	- filename
+	+ __init__(self)
+	+ open_file(self)
+}
+class PropertyData {
+	- filename
+	- fieldnames
+	+ __init__(self)
+	+ open_file(self)
+	+ has_empty_end_line(self)
+	+ create_new_property(self, prop)
+	+ update(self, property)
+}
+class EmployeeData {
+	- filename
+	- fieldnames
+	+ __init__(self)
+	+ open_file(self)
+	+ has_empty_end_line(self)
+	+ create_new_employee(self, emp)
+	+ update(self, employee)
+}
+class WorkRequestData {
+	- filename
+	- fieldnames
+	+ __init__(self)
+	+ open_file(self)
+	+ has_empty_end_line(self)
+	+ create_new_work_request(self, req)
+	+ update(self, work_request)
+}
+class WorkReportData {
+	- filename
+	- fieldnames
+	+ __init__(self)
+	+ open_file(self)
+	+ has_empty_end_line(self)
+	+ create_new_work_report(self, report)
+	+ update(self, work_report)
+}
+}
+package Model {
+class Destination {
+	- id
+	- borg
+	- land
+	- flugvollur
+	- simanumer
+	- opnunartimi
+	- yfirmadur
+	- fasteignir
+	+ __init__(self, id, borg, land, flugvollur, simanumer, opnunartimi, yfirmadur, fasteignir)
+}
+class Property {
+	- id
+	- stadurID
+	- heimilisfang
+	- fm
+	- herbergi
+	- tegund
+	- fasteignanumer
+	- active
+	+ __init__(self, id, stadurID, heimilisfang, fm, herbergi, tegund, fasteignanumer, active)
+	+ __str__(self)
+}
+class WorkReport {
+	- id
+	- titill
+	- verkbeidniID
+	- starfsmadurID
+	- verktaki
+	- lysing
+	- dags
+	- timi
+	- kostnadur
+	- heimilisfang
+	- lokid
+	- samthykkt
+	+ __init__(self, id, titill, verkbeidniID, starfsmadurID, verktaki, lysing, dags, timi, kostnadur, heimilisfang, lokid, samthykkt)
+	+ __str__(self)
+}
+class WorkRequest {
+	- id
+	- titill
+	- stadurID
+	- fasteignID
+	- lysing
+	- skyrslaID
+	- verkadagur
+	- active
+	+ __init__(self,id,stadurID,fasteignID,skyrslaID,titill,lysing,verkadagur,active)
+	+ __str__(self) -> str
+}
+class Employee {
+	- id
+	- nafn
+	- netfang
+	- heimilisfang
+	- heimasimi
+	- gsm
+	- afangastadurID
+	- stada
+	- active
+	+ __init__(self, id, nafn, netfang, heimilisfang, heimasimi, gsm, afangastadurID, stada, active)
+	+ __str__(self) -> str
+}
+class Manager {
+	- undirmenn
+	+ __init__(self, undirmenn)
+}
+}
+package LogicLayer {
+class WorkRequestLL {
+	- slapi
+	- llapi
+	+ __init__(self, slapi, llapi) -> None
+	+ work_request_list(self)
+	+ get_work_request_by_id(self, id)
+	+ get_list_by_property(self, property_id)
+	+ create_new_work_request(self, req)
+	+ get_list_by_employee(self, employee_id)
+	+ get_filtered_list_by_destination(self, destination_name)
+	+ update_work_request(self, work)
+	+ search(self, word)
+	+ has_report(self, work_report_id)
+}
+class WorkReportLL {
+	- slapi
+	- llapi
+	+ __init__(self, llapi)
+	+ get_work_report_list(self)
+	+ get_report_by_employee(self, starfsmadur_id)
+	+ get_report_by_destination_id(self, destination_id)
+	+ create_new_work_report(self,report)
+	+ get_work_reports_by_property(self, property_id)
+	+ get_work_report_by_work_report_id(self, work_report_id)
+	+ get_employee_by_work_report_id(self, work_id)
+	+ update_work_report(self, work)
+	+ accept_work_report_by_id(self, work_id)
+}
+class EmployeeLL {
+	- slapi
+	- llapi
+	+ __init__(self, slapi, llapi)
+	+ employee_list(self)
+	+ search(self, word)
+	+ get_employee_by_name(self, name)
+	+ get_employee_id_by_name(self, name)
+	+ create_new_employee(self,emp)
+	+ get_filtered_list_by_destination(self, destination)
+	+ get_employee_by_id(self, id)
+	+ update_employee(self, emp)
+}
+class PropertyLL {
+	- slapi
+	- llapi
+	+ __init__(self, slapi, llapi)
+	+ get_property_list(self)
+	+ get_filtered_list_by_destination(self, destination)
+	+ get_property_by_id(self, property_id)
+	+ get_properties_by_stadur_id(self, property_id)
+	+ get_property_id_from_input(self, fasteign_name)
+	+ search(self, word)
+	+ create_new_property(self, prop)
+	+ update_property(self, prop)
+}
+class MainMenuLL {
+	- llapi
+	- user
+	+ __init__(self, llapi, user)
+	+ set_current_user(self, user)
+	+ get_current_user(self)
+}
+class LLAPI {
+	- slapi
+	- destination_ll
+	- employeell
+	- work_requestll
+	- property_ll
+	- work_reportll
+	- main_menu_ll
+	+ __init__(self)
+	+ employee_list(self)
+	+ work_request_list(self)
+	+ employee_profile(self)
+	+ create_new_employee(self,emp)
+	+ create_new_property(self, prop)
+	+ create_new_work_report(self, report)
+	+ create_new_work_request(self, req)
+	+ get_destination_list(self)
+	+ get_destination_by_name(self, name)
+	+ get_destination_from_id(self, id)
+	+ get_property_list(self)
+	+ get_property_by_id(self, property_id)
+	+ get_properties_by_stadur_id(self, stadur_id)
+	+ get_property_id_from_input(self, property_name)
+	+ get_employee_by_name(self, name)
+	+ get_employee_id_by_name(self, name)
+	+ get_employee_by_id(self, id)
+	+ get_employee_by_work_report_id(self, work_id)
+	+ get_work_request_list_by_property_id(self, property_id)
+	+ get_work_request_by_id(self, id)
+	+ get_work_request_list_by_employee_id(self, employee_id)
+	+ get_work_report_list(self)
+	+ get_work_reports_by_property(self, property_id)
+	+ get_report_by_employee(self, employee)
+	+ get_work_report_by_work_report_id(self, work_report_id)
+	+ get_report_by_destination_id(self, destination_id)
+	+ search_properties(self, search)
+	+ search_employees(self, search)
+	+ search_work_requests(self, search)
+	+ get_filtered_property_list_by_destination(self, destination)
+	+ get_filtered_employee_list_by_destination(self, destination)
+	+ get_filtered_work_request_list_by_destination(self, destination)
+	+ set_current_user(self, user)
+	+ get_current_user(self)
+	+ update_employee(self, emp)
+	+ update_property(self, prop)
+	+ update_work_request(self, work)
+	+ update_work_report(self, work)
+	+ work_request_has_report(self, id)
+	+ accept_work_report_by_id(self, id)
+}
+class LoginLL {
+	- slapi
+	- user
+	+ __init__(self, slapi, username)
+	+ check_login(self)
+}
+class DestinationLL {
+	- slapi
+	+ __init__(self, slapi)
+	+ destination_list(self)
+	+ get_dest_by_name(self, nafn)
+	+ get_destination_from_id(self, id_inp)
+}
+}
+Main_menu ..> InformationScreen
+Main_menu ..> ProfileScreen
+Main_menu ..> WorkRequestListScreen
+Main_menu ..> EmployeeListScreen
+Main_menu ..> PropertyListScreen
+Main_menu ..> WorkReportListScreen
+Main_menu ..> LLAPI
+
+
+
+ProfileScreen ..> LLAPI
+
+EmployeeListScreen ..> LLAPI
+EmployeeListScreen ..> Employee
+EmployeeListScreen ..> WorkRequestListScreen
+EmployeeListScreen ..> WorkReportListScreen
+
+WorkReportListScreen ..> LLAPI
+WorkReportListScreen ..> WorkReport
+WorkReportListScreen ..> datetime
+
+WorkRequestListScreen ..> LLAPI
+WorkRequestListScreen ..> WorkRequest
+WorkRequestListScreen ..> WorkReportListScreen
+WorkRequestListScreen ..> Color
+WorkRequestListScreen ..> datetime
+
+PropertyListScreen ..> LLAPI
+PropertyListScreen ..> Property
+PropertyListScreen ..> WorkReportListScreen
+PropertyListScreen ..> WorkRequestListScreen
+
+Login ..> LLAPI
+
+Slapi ..> EmployeeData
+Slapi ..> WorkRequestData
+Slapi ..> PropertyData
+Slapi ..> WorkReportData
+Slapi ..> DestinationData
+
+DestinationData ..> csv
+DestinationData ..> Destination
+
+PropertyData ..> csv
+PropertyData ..> Property
+
+EmployeeData ..> csv
+EmployeeData ..> Employee
+
+WorkRequestData ..> csv
+WorkRequestData ..> WorkRequest
+
+WorkReportData ..> csv
+WorkReportData ..> WorkReport
+
+
+
+
+
+
+
+WorkRequestLL ..> Slapi
+WorkRequestLL ..> WorkRequest
+
+WorkReportLL ..> Slapi
+WorkReportLL ..> WorkRequest
+
+EmployeeLL ..> Employee
+EmployeeLL ..> Slapi
+
+PropertyLL ..> Property
+PropertyLL ..> Slapi
+
+
+LLAPI ..> Slapi
+LLAPI ..> DestinationLL
+LLAPI ..> EmployeeLL
+LLAPI ..> WorkRequestLL
+LLAPI ..> PropertyLL
+LLAPI ..> WorkReportLL
+LLAPI ..> MainMenuLL
+
+LoginLL ..> Employee
+LoginLL ..> Slapi
+
+DestinationLL ..> Slapi
+
+@enduml
