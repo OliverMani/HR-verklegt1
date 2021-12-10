@@ -3,7 +3,6 @@ from Model.WorkRequest import WorkRequest
 #from ui_layer.PropertyListScreen import PropertyListScreen
 from ui_layer.WorkReport import WorkReportListScreen
 from ui_layer.Color import Color
-
 from datetime import datetime
 
 class WorkRequestListScreen:
@@ -46,8 +45,8 @@ class WorkRequestListScreen:
             print("Lýsing: ", request.lysing)
             print("Verkadagur: ", request.verkadagur)
             print()
-            print("Skýrsla: ")
-            skyrsla = self.llapi.get_work_report_by_work_report_id(request.skyrslaID)
+            print("Skýrsla: ")  #get_work_report_by_work_request_id 
+            skyrsla = self.llapi.get_work_report_by_work_report_id(request.id)
             if skyrsla == None:
                 print("Skýrsla hefur ekki verið skráð")
                 bua_til_vs = input("Viltu bæta við skýrslu við verkbeiðnina? <(J)á / (N)ei>: ")
