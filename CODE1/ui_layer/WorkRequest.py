@@ -138,9 +138,15 @@ class WorkRequestListScreen:
         gildar_fasteignir = self.llapi.get_properties_by_stadur_id(stadurID.strip())
         # Fá út öll ID til að bera saman
         gildar_fasteignir_ids = [fasteign[0] for fasteign in gildar_fasteignir]
+        if self.llapi.get_current_user().stada == "eigandi":
+            gildar_fasteignir = self.llapi.get_property_list()
+            gildar_fasteignir_ids = [fasteign.id for fasteign in gildar_fasteignir]
         while fasteignID not in gildar_fasteignir_ids:
             for fasteign in gildar_fasteignir:
-                print(f"{fasteign[0]}. {fasteign[1]}")
+                if self.llapi.get_current_user().stada == "eigandi":
+                    print(f"{fasteign.id}. {fasteign.heimilisfang}")
+                else:
+                    print(f"{fasteign[0]}. {fasteign[1]}")
             fasteignID = input(f"Nr. á fasteign ({old_request.fasteignID}): ") or old_request.fasteignID
         skyrslaID = "0"
         titill = input(f"Titill (\"{old_request.titill}\"): ") or old_request.titill

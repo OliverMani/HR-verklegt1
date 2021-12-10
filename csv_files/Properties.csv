@@ -8,4 +8,4 @@ id,staðurID,heimilisfang,fm,herbergi,tegund,fasteignanúmer,active
 7,2,Skákið 15,100,3,raðhús,ix-9331 - ix-9333,True
 8,2,valbarðsvegur 22,200,5,einbýlishús,ix-2239,True
 9,2,Nýggivegur 1,15,10,moldarhús,ix-9492 - ix-9502,True
-10,,,,,,,True
+
