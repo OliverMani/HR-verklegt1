@@ -76,79 +76,83 @@ class Main_menu:
         }
 
         while selected != "q":
-            screen = screens.get(selected)
+            try:
+                screen = screens.get(selected)
 
-            #
-            if len(selected) > 0 and selected[0].isdigit():
-                screen = True
+                #
+                if len(selected) > 0 and selected[0].isdigit():
+                    screen = True
 
-            # Prentar menu skjáinn
-            print(self.menu)
-
-
-            # Ef skipunin er óþekkt
-            if screen is None or len(selected) == 0:
-                print(UNKNOWN_COMMAND)
-            # ef skipunin er einhver af þessum störum í if statementinu
-            elif selected in "rlxwcba" or selected == 'cvs' or selected == 'bvs':
-                screen()
-
-            elif selected == "i":
-                InformationScreen().render()
-
-            #elif selected == 'cvs':
-                #screens["vs"].create_new_work_report(input("Verkbeiðni ID: "))
-                #screens[selected]()
-            #ef skipunin er bara tala
-            elif selected.isdigit():
-                if last_selected == "s":
-                    EmployeeListScreen(self.llapi).show_emp_with_id(selected)
-                elif last_selected == "f":
-                    PropertyListScreen(self.llapi).show_property_info(selected)
-                elif last_selected == "v":
-                    WorkRequestListScreen(self.llapi).show_work_request_with_id(selected)
-                elif last_selected == "vs":
-                    WorkReportListScreen(self.llapi).get_work_report_by_id(selected)
+                # Prentar menu skjáinn
+                print(self.menu)
 
 
-            # Ef skipunin er til dæmis 6vs eða 2p en ekki bara 8
-            elif selected[0].isdigit() and not selected.isdigit():
-                # Skilast í túplu
-                number, command = self.parse_digital_commands(selected)
-
-                if command == 'v':
-                    if last_selected == 'f':
-                        screens[command].sort_by_property(number)
-                    elif last_selected == 's':
-                        screens[command].sort_by_employee(number)
-                    else:
-                        print("Skipun ekki framkvæmanleg hér.")
-                elif command == 'vs':
-                    if last_selected == 'v':
-                        screens[command].get_work_report_by_id(number)
-                    elif last_selected == 's':
-                        screens[command].render_work_report_by_employee_id(number)
-                    elif last_selected == 'f':
-                        screens[command].render_work_report_by_property_id(number)
-                    else:
-                        print(CANT_USE_COMMAND_HERE)
-                elif command == 'p':
-                    if self.llapi.get_current_user().stada == MANAGER_STRING or "eigandi":
-                        if last_selected == 's':
-                            screens['p'].render_user(self.llapi.get_employee_by_id(number))
-                        else:
-                            print(ONLY_MANAGERS)
-                elif command == 'cvs':
-                    if last_selected == 'v':
-                        screens["vs"].create_new_work_report(number)
-                elif command == 'bvs':
-                    screens["vs"].update(number)
-                elif command == 'b':
-                    screens[last_selected].update(number)
-                else:
+                # Ef skipunin er óþekkt
+                if screen is None or len(selected) == 0:
                     print(UNKNOWN_COMMAND)
+                # ef skipunin er einhver af þessum störum í if statementinu
+                elif selected in "rlxwcba" or selected == 'cvs' or selected == 'bvs':
+                    screen()
 
-            else:
-                screen.render()
-                last_selected = selected
+                elif selected == "i":
+                    InformationScreen().render()
+
+                #elif selected == 'cvs':
+                    #screens["vs"].create_new_work_report(input("Verkbeiðni ID: "))
+                    #screens[selected]()
+                #ef skipunin er bara tala
+                elif selected.isdigit():
+                    if last_selected == "s":
+                        EmployeeListScreen(self.llapi).show_emp_with_id(selected)
+                    elif last_selected == "f":
+                        PropertyListScreen(self.llapi).show_property_info(selected)
+                    elif last_selected == "v":
+                        WorkRequestListScreen(self.llapi).show_work_request_with_id(selected)
+                    elif last_selected == "vs":
+                        WorkReportListScreen(self.llapi).get_work_report_by_id(selected)
+
+
+                # Ef skipunin er til dæmis 6vs eða 2p en ekki bara 8
+                elif selected[0].isdigit() and not selected.isdigit():
+                    # Skilast í túplu
+                    number, command = self.parse_digital_commands(selected)
+
+                    if command == 'v':
+                        if last_selected == 'f':
+                            screens[command].sort_by_property(number)
+                        elif last_selected == 's':
+                            screens[command].sort_by_employee(number)
+                        else:
+                            print("Skipun ekki framkvæmanleg hér.")
+                    elif command == 'vs':
+                        if last_selected == 'v':
+                            screens[command].get_work_report_by_id(number)
+                        elif last_selected == 's':
+                            screens[command].render_work_report_by_employee_id(number)
+                        elif last_selected == 'f':
+                            screens[command].render_work_report_by_property_id(number)
+                        else:
+                            print(CANT_USE_COMMAND_HERE)
+                    elif command == 'p':
+                        if self.llapi.get_current_user().stada == MANAGER_STRING or "eigandi":
+                            if last_selected == 's':
+                                screens['p'].render_user(self.llapi.get_employee_by_id(number))
+                            else:
+                                print(ONLY_MANAGERS)
+                    elif command == 'cvs':
+                        if last_selected == 'v':
+                            screens["vs"].create_new_work_report(number)
+                    elif command == 'bvs':
+                        screens["vs"].update(number)
+                    elif command == 'b':
+                        screens[last_selected].update(number)
+                    else:
+                        print(UNKNOWN_COMMAND)
+
+                else:
+                    screen.render()
+                    last_selected = selected
+
+            except:
+                print("Villa: Þú getur ekki gert þetta hér!")
             selected = input("\nSlá inn aðgerð: ").lower()
