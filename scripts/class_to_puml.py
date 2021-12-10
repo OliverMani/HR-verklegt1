@@ -73,7 +73,7 @@ def main():
                         packages[root] = []
                     packages[root].append(clazz)
     for key, value in packages.items():
-        print('package', key, '{')
+        print('package', key.replace('../CODE1/', ''), '{')
         for clazz in packages[key]:
             #print(clazz.imports)
             print(clazz)
