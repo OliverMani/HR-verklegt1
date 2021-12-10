@@ -96,16 +96,20 @@ class EmployeeListScreen:
                 print( "\n".join([dest.id+". "+dest.borg for dest in self.llapi.get_destination_list()]))
                 afangastadurID = input("ID á áfangastað: ")
             print()
-            stada = input("> ")  # Sjálfsvirkt, yfirmaður skráir ekki starfsmann sem Chuck Norris sko
+            stada = input("> ")
         stada = ("starfsmaður", "verktaki")[int(stada)-1] # breyta tölu í starfsheiti
         emp = Employee(id,nafn,netfang,heimilsfang,heimasimi,gsm,afangastadurID,stada,active="True")
         self.llapi.create_new_employee(emp)
 #-----------------------Update föll-----------------------------------------------------
+
     def update(self,id):
         employee = self.llapi.get_employee_by_id(id)
         if employee is None:
             print("Starfsmaður fannst ekki")
-            return None
+            return 
+        elif employee.stada == self.llapi.get_current_user().stada:
+            print("Get ekki breytt upplýsingum um yfirmann!")
+            return
         print("-- Uppfæra upplýsingar um starfsmenn --")
         print("    Gamla gildið er í sviga, skildu")
         print("     tómt eftir til að breyta ekki")
@@ -120,7 +124,14 @@ class EmployeeListScreen:
         if self.llapi.get_current_user().stada == "eigandi":
             stada = input(f"Nýr starfstitill: ({employee.stada})") or employee.stada
         else:
-            stada = employee.stada
+            stada = "0"
+            while stada not in ['1','2']:
+                print("Veldu stöðu (eftir númeri):")
+                print(" 1: Starfsmaður")
+                print(" 2: Verktaki")
+                print()
+                stada = input("> ")
+            stada = ("starfsmaður", "verktaki")[int(stada)-1] # breyta tölu í starfsheiti
         active = input(f"Er starfsmaður active, true/false ({employee.active})?") or employee.active
         new_employee = Employee(employee.id,nafn,netfang,heimilisfang,heimasimi,gsm,afangastadurID,stada,active)
         self.llapi.update_employee(new_employee)

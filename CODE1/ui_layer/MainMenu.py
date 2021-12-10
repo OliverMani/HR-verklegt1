@@ -7,10 +7,12 @@ from ui_layer.WorkReport import WorkReportListScreen
 from LogicLayer.LLAPI import LLAPI
 
 UNKNOWN_COMMAND = "Óþekkt aðgerð"
+CANT_USE_COMMAND_HERE = "Þessi skipun keyrist ekki hér"
 ONLY_MANAGERS = "Aðgerð aðeins fyrir yfirmenn"
-ONLY_CHUCþK_NORRIS = "Aðgerð aðeins fyrir Chuck Norris"
+ONLY_CHUCK_NORRIS = "Aðgerð aðeins fyrir Chuck Norris"
 
 MANAGER_STRING = "yfirmaður"
+CHUCK_NORRIS_STRING = "eignadi"
 
 class Main_menu:
     def __init__(self,user) -> None:
@@ -44,13 +46,15 @@ class Main_menu:
 
         def switch_creations(last):
             """Þetta fall á að vera inní menubar fallinu, þetta skiptir upp hvað 'c' skipuin gerir"""
-            if self.llapi.get_current_user().stada == MANAGER_STRING or "eigandi":
+            if self.llapi.get_current_user().stada == MANAGER_STRING or CHUCK_NORRIS_STRING:
                 if last == 's':
                     screens['s'].create_new_employee()
                 elif last == 'v':
                     screens['v'].create_new_work_request()
                 elif last == 'f':
                     screens['f'].create_new_property()
+            else:
+                print(ONLY_MANAGERS)
 
 
 
@@ -126,6 +130,8 @@ class Main_menu:
                         screens[command].render_work_report_by_employee_id(number)
                     elif last_selected == 'f':
                         screens[command].render_work_report_by_property_id(number)
+                    else:
+                        print(CANT_USE_COMMAND_HERE)
                 elif command == 'p':
                     if self.llapi.get_current_user().stada == MANAGER_STRING or "eigandi":
                         if last_selected == 's':
