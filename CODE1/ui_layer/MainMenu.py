@@ -99,7 +99,7 @@ class Main_menu:
                 #ef skipunin er bara tala
                 elif selected.isdigit():
                     if last_selected == "s":
-                        EmployeeListScreen(self.llapi).show_emp_with_id(selected)
+                        EmployeeListScreen(self.llapi).show_emp_info(selected)
                     elif last_selected == "f":
                         PropertyListScreen(self.llapi).show_property_info(selected)
                     elif last_selected == "v":

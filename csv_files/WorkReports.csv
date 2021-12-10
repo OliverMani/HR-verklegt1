@@ -2,3 +2,4 @@ id,titill,verkbeidniID,starfsmadurID,verktaki,lysing,dags,timi,kostnadur,heimili
 1,Gera við kjarnaofn,1,10,1,Kjarnaofninn lekur og þarnast viðgerða. Hafa samband við verktaka,11/12/2021,1,1,Longyearbyen Harbor 1,true,true
 2,Hengja upp jólaskraut,2,10,Enginn,Setja upp jólaskraut,22,4,0,Longyearbyen Harbor 1,true,true
 5,Gluggaþvottur,5,10,Enginn,Þrífa alla glugga vel og vandlega með vatni og hreinsi. Passa að allir gluggar séu þrifnir,778,8,0,Vei 217,true,false
+10,Gluggaþvottur,10,10,Enginn,,2021/12/10,,,Nuussuaq 4,true,false
