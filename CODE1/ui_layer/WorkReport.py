@@ -63,7 +63,9 @@ Staðsetning:
     {work_report.heimilisfang}
 """
         print(work_report_str)
-        if self.llapi.get_current_user().stada.lower() == ("yfirmaður" or "eigandi"):
+        if work_report.samthykkt == "true":
+            print("Skýrsla hefur verið samþykkt!")
+        elif self.llapi.get_current_user().stada.lower() == ("yfirmaður" or "eigandi"):
             accept = input("Viltu samþykkja þessa verkskýrslu? (j/n): ")
             if accept.lower() == 'j':
                 self.llapi.accept_work_report_by_id(work_report.id) #Keyra ferli sem samþykkir skýrslu
