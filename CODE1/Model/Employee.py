@@ -12,4 +12,4 @@ class Employee:
         self.active = active
 
     def __str__(self) -> str:
-        return "id: {}, nafn: {}, netfang: {}, heimilisfang: {}, heimasimi: {} gsm: {}, afangastadurID: {}, staða: {}, active: {}".format(self.id, self.nafn, self.netfang, self.heimilisfang, self.heimasimi, self.gsm, self.afangastadurID, self.stada, self.active)
+        return "id: {}, nafn: {}, netfang: {}, heimilisfang: {}, heimasimi: {} gsm: {}, afangastadurID: {}, stada: {}, active: {}".format(self.id, self.nafn, self.netfang, self.heimilisfang, self.heimasimi, self.gsm, self.afangastadurID, self.stada, self.active)

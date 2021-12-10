@@ -83,16 +83,14 @@ class WorkRequestListScreen:
         #---------- Má taka flest út... held ég  -------
         #print("\n\n (vs) Til að skoða verkskýrslur") # er hægt með því að slá bara inn id
         '''Yfirmaður sér þessi skilaboð bara'''
-        if (self.llapi.get_current_user().stada).lower() == "yfirmaður" or "eigandi":
+        if user.stada.lower() == "yfirmaður" or user.stada.lower() == "eigandi":
             print("(A) Sjá allar skráðar verkbeiðnir")
+            print("(B) Breyta verkbeiðni")
             print("(C) Búa til nýja verkbeiðni fyrir fasteign")
-            print("ID + (CVS) búa til nýja verkbeiðni fyrir fasteign")
-            print("(B) Breyta verkbeiðni fyrir fasteign")
-            print("ID + (BVS) breyta verkskýrslu fyrir verkbeiðni")
+            #print("ID + (CVS) búa til nýja verkbeiðni fyrir fasteign")
+            #print("ID + (BVS) breyta verkskýrslu fyrir verkbeiðni")
 
-            # print("(undefined) Loka verkefni ")
-            # print("(undefined) Breyta verkbeiðni fyrir fasteign")
-            # print("(undefined) ")
+
 
     def show_all(self):
         properties = self.llapi.work_request_list()
@@ -117,14 +115,6 @@ class WorkRequestListScreen:
             for id in employee_id:
                 if id == employee_id:
                     self.print_wr(work_request)
-
-    # def mark_work_request_as_done(self, work_request_id, employee_id):
-    #     '''Breytir stöðu verkbeiðnar í lokið'''
-    #     work_request_list = self.llapi.work_request_list()
-    #     for work_request in work_request_list:
-    #             work_request[6] = "Done"
-    #             print(work_request_list)
-
 
 
     def get_input(self, id=None):

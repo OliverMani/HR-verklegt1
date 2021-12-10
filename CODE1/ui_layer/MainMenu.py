@@ -6,20 +6,19 @@ from ui_layer.PropertyListScreen import PropertyListScreen
 from ui_layer.WorkReport import WorkReportListScreen
 from LogicLayer.LLAPI import LLAPI
 
-UNKNOWN_COMMAND = "Óþekkt aðgerð"
+
 CANT_USE_COMMAND_HERE = "Þessi skipun keyrist ekki hér"
 ONLY_MANAGERS = "Aðgerð aðeins fyrir yfirmenn"
 ONLY_CHUCK_NORRIS = "Aðgerð aðeins fyrir Chuck Norris"
 
-MANAGER_STRING = "yfirmaður"
-CHUCK_NORRIS_STRING = "eignadi"
+
 
 class Main_menu:
     def __init__(self,user) -> None:
         self.llapi = LLAPI()
         self.llapi.set_current_user(user)
         self.menu = f"""
-(P)rófíll    (V)erkbeiðnir    (F)asteignir    (S)tarfsmenn        {"<(C) Bæta við>" if self.llapi.get_current_user().stada == MANAGER_STRING or "eigandi" else (' ' * 12)}   <(Q) Hætta>
+(P)rófíll    (V)erkbeiðnir    (F)asteignir    (S)tarfsmenn        {"<(C) Bæta við>" if self.llapi.get_current_user().stada == "yfirmaður" or self.llapi.get_current_user().stada =="eigandi" else (' ' * 12)}   <(Q) Hætta>
 ---------------------------------------------------------------------------------------------
                                                                             (i) upplýsingar"""
     ## Væri gott að færa þetta yfir í logic...
@@ -46,7 +45,7 @@ class Main_menu:
 
         def switch_creations(last):
             """Þetta fall á að vera inní menubar fallinu, þetta skiptir upp hvað 'c' skipuin gerir"""
-            if self.llapi.get_current_user().stada == MANAGER_STRING or CHUCK_NORRIS_STRING:
+            if self.llapi.get_current_user().stada == "yfirmaður" or self.llapi.get_current_user().stada == "eigandi":
                 if last == 's':
                     screens['s'].create_new_employee()
                 elif last == 'v':
@@ -59,8 +58,10 @@ class Main_menu:
 
 
         screens = {
-            "a": lambda: screens[last_selected].show_all() if self.llapi.get_current_user().stada == MANAGER_STRING or "eigandi" else print(UNKNOWN_COMMAND), #Á bara við um yfirmenn og eigendur
-            "b": lambda: screens[last_selected].update(input("ID: ")),
+            # Á bara við um yfirmenn og eigendur -------------------
+            "a": lambda: screens[last_selected].show_all() if self.llapi.get_current_user().stada == "yfirmaður" or self.llapi.get_current_user().stada =="eigandi" else  print("Óþekkt aðgerð"),
+            "b": lambda: screens[last_selected].update(input("ID: "))if self.llapi.get_current_user().stada == "yfirmaður" or self.llapi.get_current_user().stada =="eigandi" else  print("Óþekkt aðgerð"),
+            #--------------------------------------------------------
             "c": lambda: switch_creations(last_selected),
             "p": ProfileScreen(self.llapi),
             "f": PropertyListScreen(self.llapi),
@@ -78,18 +79,16 @@ class Main_menu:
         while selected != "q":
             try:
                 screen = screens.get(selected)
-
-                #
                 if len(selected) > 0 and selected[0].isdigit():
                     screen = True
-
+                
                 # Prentar menu skjáinn
                 print(self.menu)
 
 
                 # Ef skipunin er óþekkt
                 if screen is None or len(selected) == 0:
-                    print(UNKNOWN_COMMAND)
+                    print("Óþekkt aðgerð")
                 # ef skipunin er einhver af þessum störum í if statementinu
                 elif selected in "rlxwcba" or selected == 'cvs' or selected == 'bvs':
                     screen()
@@ -97,9 +96,6 @@ class Main_menu:
                 elif selected == "i":
                     InformationScreen().render()
 
-                #elif selected == 'cvs':
-                    #screens["vs"].create_new_work_report(input("Verkbeiðni ID: "))
-                    #screens[selected]()
                 #ef skipunin er bara tala
                 elif selected.isdigit():
                     if last_selected == "s":
@@ -116,6 +112,7 @@ class Main_menu:
                 elif selected[0].isdigit() and not selected.isdigit():
                     # Skilast í túplu
                     number, command = self.parse_digital_commands(selected)
+                    stada = self.llapi.get_current_user().stada
 
                     if command == 'v':
                         if last_selected == 'f':
@@ -134,7 +131,7 @@ class Main_menu:
                         else:
                             print(CANT_USE_COMMAND_HERE)
                     elif command == 'p':
-                        if self.llapi.get_current_user().stada == MANAGER_STRING or "eigandi":
+                        if stada == "yfirmaður" or stada == "eigandi":
                             if last_selected == 's':
                                 screens['p'].render_user(self.llapi.get_employee_by_id(number))
                             else:
@@ -147,7 +144,7 @@ class Main_menu:
                     elif command == 'b':
                         screens[last_selected].update(number)
                     else:
-                        print(UNKNOWN_COMMAND)
+                        print("Óþekkt aðgerð")
 
                 else:
                     screen.render()

@@ -80,14 +80,14 @@ Staðsetning:
         print("Verkskýrslur: \t\t (V)erkbeiðnir \n")
         if user.stada.lower() == "starfsmaður":
             return_list = self.llapi.get_report_by_employee(user.id)
-        elif user.stada.lower() == "yfirmaður" or "eigandi":
+        elif user.stada.lower() == "yfirmaður" or user.stada.lower() ==  "eigandi":
             return_list = self.llapi.get_report_by_destination_id(user.afangastadurID)
         for report in return_list:
             print(report.id+". "+ report.lysing)
 
-        print("(cvr) Skrá nýja skýrslu")
-        if (self.llapi.get_current_user().stada).lower() == "yfirmaður" or "eigandi":
-            print("(sv) Samþykkja verkskýrslu")
+        # print("(cvr) Skrá nýja skýrslu")
+        # if (self.llapi.get_current_user().stada).lower() == "yfirmaður" or "eigandi":
+        #     print("(sv) Samþykkja verkskýrslu")
 
 
 

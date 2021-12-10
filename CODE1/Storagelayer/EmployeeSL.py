@@ -15,7 +15,7 @@ class EmployeeData:
                 reader = csv.DictReader(csvfile)
                 for row in reader:
                     employeelist.append(Employee(row['id'], row['nafn'], row['netfang'], row['heimilisfang'], row['heimasimi'],
-                    row['gsm'], row['afangastadurID'], row['staða'], row['active']))
+                    row['gsm'], row['afangastadurID'], row['stada'], row['active']))
             return employeelist
         except FileNotFoundError:
             return None
@@ -34,7 +34,7 @@ class EmployeeData:
                 csvfile.write('\n')
             writer = csv.DictWriter(csvfile, fieldnames=self.fieldnames)
             writer.writerow({"id": emp.id,"nafn": emp.nafn, "netfang": emp.netfang,"heimilisfang": emp.heimilisfang, "heimasimi": emp.heimasimi,
-            "gsm": emp.gsm, "afangastadurID": emp.afangastadurID, "staða": emp.stada, "active": emp.active})
+            "gsm": emp.gsm, "afangastadurID": emp.afangastadurID, "stada": emp.stada, "active": emp.active})
 
     def update(self, employee):
         # Við þurfum að fá allan listann yfir starfsmenn til að geta breytt honum síðan
