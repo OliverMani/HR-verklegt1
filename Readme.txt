@@ -56,8 +56,25 @@ CODE1:
         stöðu notandinn hefur.
         Í klösunum og föllunum í skránun í þessari möppu er svo kallað í klasana sem eru tengdir
         í LLAPI skránni.
-        
 
+    Það sem við importum aukalega.
+     from datetime import datetime er importað í WorkReports og WorrkRequests í ui_layer.
+
+    Innskráning:
+        Við ákváðum að til að byrja með myndum við sleppa lykiloðrum og nota bara notendanöfn.
+        Til að skrá inn er hægt að nota eftirfarandi notendanöfn.
+
+        Eigandi:
+            Chuck Norris
+        
+        Yfirmaður:
+            Jan Jacobsen
+        
+        Starfsmaður:
+            André Hjaltalin
+
+        Eigandi og yfirmaður eru  næstumeins nema eigandi hefur meira val þegar
+        kemur að því að skrá og breyta upplýsingum í skrám. 
 
     
 
