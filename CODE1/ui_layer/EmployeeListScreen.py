@@ -35,7 +35,7 @@ class EmployeeListScreen:
 
 
     def show_emp_with_id(self, employee_id):
-        employee = self.llapi.get_employee_by_id(employee_id.id)
+        employee = self.llapi.get_employee_by_id(employee_id)
         if employee is None:
             print("Starfsmaður fannst ekki!")
             return None
@@ -106,7 +106,7 @@ class EmployeeListScreen:
         employee = self.llapi.get_employee_by_id(id)
         if employee is None:
             print("Starfsmaður fannst ekki")
-            return 
+            return
         elif employee.stada == self.llapi.get_current_user().stada:
             print("Get ekki breytt upplýsingum um yfirmann!")
             return
