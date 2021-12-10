@@ -1,4 +1,3 @@
-from Storagelayer.PropertySL import PropertyData
 from Model.Property import Property
 from Storagelayer.SLAPI import Slapi
 

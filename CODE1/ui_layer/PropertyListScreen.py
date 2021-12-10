@@ -89,7 +89,7 @@ class PropertyListScreen:
         '''býr til nýja fasteign og appendar því í fasteignar csv skánni'''
         id = str(int(self.llapi.get_property_list()[-1].id)+1) # Breytti þessu til að koma í veg fyrir yfirskrif á ID
         #CHuck má allt
-        if self.llapi.self.llapi.get_current_user().stada == "eigandi":
+        if self.llapi.get_current_user().stada == "eigandi":
             print( "\n".join([dest.id+". "+dest.borg for dest in self.llapi.get_destination_list()]))
             stadurID = input("ID á stað: ")
         else:

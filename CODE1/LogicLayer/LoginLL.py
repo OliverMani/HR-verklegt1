@@ -1,4 +1,3 @@
-from Storagelayer.EmployeeSL import EmployeeData
 from Model.Employee import Employee
 from Storagelayer.SLAPI import Slapi
 

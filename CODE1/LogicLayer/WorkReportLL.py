@@ -1,5 +1,4 @@
 from Storagelayer.SLAPI import Slapi
-from Storagelayer.WorkRequestSL import WorkRequestData
 from Model.WorkRequest import WorkRequest
 
 class WorkReportLL:

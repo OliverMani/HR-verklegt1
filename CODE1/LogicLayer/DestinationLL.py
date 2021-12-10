@@ -1,4 +1,3 @@
-from Storagelayer.DestinationSL import DestinationData
 from Storagelayer.SLAPI import Slapi
 
 class DestinationLL:
