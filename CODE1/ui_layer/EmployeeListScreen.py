@@ -31,7 +31,7 @@ class EmployeeListScreen:
         word = input("Leita með nafni eða ID: ")
         results = self.llapi.search_employees(word)
         for employee in results:
-            self.show_emp_with_id(employee)
+            self.show_emp_with_id(employee.id)
 
 
     def show_emp_with_id(self, employee_id):
